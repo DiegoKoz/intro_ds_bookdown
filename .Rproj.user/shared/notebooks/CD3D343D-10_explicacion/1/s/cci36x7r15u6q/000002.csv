@@ -1,0 +1,10 @@
+"0","```r
+measure_distance <- function(mod, data) {
+  diff <- data$y - model1(mod, data)
+  sqrt(mean(diff ^ 2))
+}
+
+measure_distance(c(7, 1.5), sim1)
+```"
+"1","[1] 2.665212
+"

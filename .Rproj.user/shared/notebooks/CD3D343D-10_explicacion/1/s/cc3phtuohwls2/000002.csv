@@ -1,0 +1,5 @@
+"0","```r
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = \"grey30\") + 
+  geom_abline(intercept = best$par[1], slope = best$par[2])
+```"

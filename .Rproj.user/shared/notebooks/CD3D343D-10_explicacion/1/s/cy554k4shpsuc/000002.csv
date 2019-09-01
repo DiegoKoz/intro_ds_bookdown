@@ -1,0 +1,9 @@
+"0","```r
+mtcars %>% 
+  select(-carb,-vs) %>% 
+  mutate(cyl = factor(cyl),
+         am = factor(am)) %>% 
+ggpairs(., 
+        title = \"Matriz de correlaciones\",
+        mapping = aes(colour= am))
+```"

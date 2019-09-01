@@ -1,0 +1,15 @@
+"0","```r
+cor.test(mtcars$mpg,mtcars$hp)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  mtcars$mpg and mtcars$hp
+t = -6.7424, df = 30, p-value = 1.788e-07
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.8852686 -0.5860994
+sample estimates:
+       cor 
+-0.7761684 
+"
