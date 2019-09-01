@@ -37,7 +37,7 @@ En el parametro `file` tengo que especificar el nombre completo del archivo, inc
 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-sueldos_funcionarios <- read.table(file = '../fuentes/sueldo_funcionarios_2019.csv',sep=",", header = TRUE)
+sueldos_funcionarios <- read.table(file = 'fuentes/sueldo_funcionarios_2019.csv',sep=",", header = TRUE)
 sueldos_funcionarios[1:10,]
 ```
 Como puede observarse aquí, la base cuenta con 94 registros y 10 variables.  
@@ -69,7 +69,7 @@ y <- 11:20
 tabla_de_R <- data.frame(x,y)
 
 # escribimos el archivo
-write.xlsx(x = tabla_de_R, file = "../resultados/archivo.xlsx", row.names = FALSE)
+write.xlsx(x = tabla_de_R, file = "resultados/archivo.xlsx", row.names = FALSE)
 # Donde lo guardó? Hay un directorio por default en caso de que no hayamos definido alguno.
 
 # getwd()
@@ -78,13 +78,13 @@ write.xlsx(x = tabla_de_R, file = "../resultados/archivo.xlsx", row.names = FALS
 Lista_a_exportar <- list("sueldos funcionarios" = sueldos_funcionarios,
                          "Tabla Numeros" = tabla_de_R)
 
-write.xlsx(x = Lista_a_exportar, file = "../resultados/archivo_2_hojas.xlsx", row.names = FALSE)
+write.xlsx(x = Lista_a_exportar, file = "resultados/archivo_2_hojas.xlsx", row.names = FALSE)
 
 # leemos el archivo especificando la ruta (o el directorio por default) y el nombre de la hoja que contiene los datos
-Indices_Salario <- read.xlsx(xlsxFile = "../resultados/archivo_2_hojas.xlsx", sheet = "sueldos funcionarios")
+Indices_Salario <- read.xlsx(xlsxFile = "resultados/archivo_2_hojas.xlsx", sheet = "sueldos funcionarios")
 
 # alternativamente podemos especificar el número de orden de la hoja que deseamos levantar
-Indices_Salario <- read.xlsx(xlsxFile = "../resultados/archivo_2_hojas.xlsx", sheet = 1)
+Indices_Salario <- read.xlsx(xlsxFile = "resultados/archivo_2_hojas.xlsx", sheet = 1)
 Indices_Salario[1:10,]
 ```
 

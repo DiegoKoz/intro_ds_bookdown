@@ -1,4 +1,6 @@
 book_filename: "bookdown"
+repo: https://github.com/DiegoKoz/intro_ds_bookdown/
+output_dir: docs
 delete_merged_file: true
 language:
   label:

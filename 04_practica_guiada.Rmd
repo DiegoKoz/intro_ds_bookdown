@@ -18,7 +18,7 @@ library(ggrepel)   # etiquetas de texto más prolijas que las de ggplot
 
 ```{r strip.white=FALSE}
 
-Individual_t119 <- read.table("../fuentes/usu_individual_t119.txt",
+Individual_t119 <- read.table("fuentes/usu_individual_t119.txt",
                               sep=";", dec=",", header = TRUE, fill = TRUE)
 
 ```
@@ -142,7 +142,7 @@ ggplot(kernel_data_2, aes(x = P21,
   theme(legend.position = "bottom",
         plot.title      = element_text(size=12))
 
-ggsave(filename = "../resultados/Kernel_1.png",scale = 2)
+ggsave(filename = "resultados/Kernel_1.png",scale = 2)
 
 ```
 
@@ -180,7 +180,7 @@ kernel_data_3 %>%
         plot.title      = element_text(size=12))+
   facet_wrap(~ CH04, scales = "free")
 
-ggsave(filename = "../resultados/Kernel_2.png",scale = 2)
+ggsave(filename = "resultados/Kernel_2.png",scale = 2)
 
 ```
 
@@ -203,6 +203,6 @@ ggplot(kernel_data_3, aes(
         plot.title      = element_text(size=12))+
   facet_wrap(~Tipo_ingreso, scales = "free")
 
-ggsave(filename = "../resultados/Kernel_3.png",scale = 2)
+ggsave(filename = "resultados/Kernel_3.png",scale = 2)
 
 ```
