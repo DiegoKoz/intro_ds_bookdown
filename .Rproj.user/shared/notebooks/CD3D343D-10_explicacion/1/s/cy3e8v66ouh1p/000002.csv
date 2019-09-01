@@ -1,4 +1,0 @@
-"0","```r
-sim1_mod <- lm(y ~ x, data = sim1)
-
-```"

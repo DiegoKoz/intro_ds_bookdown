@@ -1,5 +1,0 @@
-"0","```r
-ggplot(sim1, aes(x, resid)) + 
-  geom_ref_line(h = 0, size = 2,colour = \"firebrick\") +
-  geom_point() 
-```"

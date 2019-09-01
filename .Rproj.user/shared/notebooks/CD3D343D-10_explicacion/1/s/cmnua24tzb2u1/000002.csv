@@ -1,4 +1,0 @@
-"0","```r
-ggplot(sim1, aes(x, y)) + 
-  geom_point()
-```"

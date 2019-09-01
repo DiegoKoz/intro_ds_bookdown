@@ -159,8 +159,13 @@ Este programa se destaca, entre otras cosas, por su capacidad de trabajar con gr
 
 El presente Taller tiene como objetivo principal introducir a los participantes en la ciencia de datos, sobre la base de la utilización del lenguaje R aplicado procesamiento de diferentes bases de datos provistas por el programa de Gobierno Abierto y la Encuesta Permanente de Hogares (EPH) - INDEC. Se apunta a brindar las herramientas necesarias para la gestión de la información, presentación de resultados y algunas técnicas de modelado de datos, de forma tal que los participantes puedan luego avanzar por su cuenta a técnicas más avanzadas.
 
+\hypertarget{webpage}{%
+\section{\texorpdfstring{\href{https://diegokoz.github.io/intro_ds/}{Webpage}}{Webpage}}\label{webpage}}
+
 \hypertarget{temario}{%
 \section{Temario}\label{temario}}
+
+\textbf{Eje 1. Programación en R}
 
 \hypertarget{clase-1-introduccion-al-entorno-r}{%
 \subsection{\texorpdfstring{\textbf{clase 1}: Introducción al entorno R:}{clase 1: Introducción al entorno R:}}\label{clase-1-introduccion-al-entorno-r}}
@@ -202,26 +207,22 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
   Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).
 \end{itemize}
 
-\hypertarget{clase-3-estadistica-descriptiva}{%
-\subsection{\texorpdfstring{\textbf{clase 3}: Estadística descriptiva}{clase 3: Estadística descriptiva}}\label{clase-3-estadistica-descriptiva}}
+\hypertarget{clase-3-programacion-funcional}{%
+\subsection{\texorpdfstring{\textbf{clase 3}: Programación funcional}{clase 3: Programación funcional}}\label{clase-3-programacion-funcional}}
 
 \begin{itemize}
 \tightlist
 \item
-  Introducción a probabilidad
+  Estructuras de código condicionales
 \item
-  Introducción a distribuciones
+  Loops
 \item
-  El problema de la inversión
+  Creación de funciones a medida del usuario
 \item
-  Estadística
-\item
-  Población y muestra
-\item
-  Estimadores puntuales, tests de hipótesis
-\item
-  Boxplots, histogramas y kernels
+  Librería purrr para programación funcional
 \end{itemize}
+
+\textbf{Eje 2. Presentación de resultados}
 
 \hypertarget{clase-4-visualizacion-de-la-informacion}{%
 \subsection{\texorpdfstring{\textbf{clase 4}: Visualización de la información}{clase 4: Visualización de la información}}\label{clase-4-visualizacion-de-la-informacion}}
@@ -257,51 +258,8 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
   Código embebido en el texto para automatización de reportes
 \end{itemize}
 
-\hypertarget{clase-6-analisis-de-encuestas}{%
-\subsection{\texorpdfstring{\textbf{clase 6}: Análisis de encuestas}{clase 6: Análisis de encuestas}}\label{clase-6-analisis-de-encuestas}}
-
-\begin{itemize}
-\tightlist
-\item
-  Introducción al diseño de encuestas
-\item
-  Presentación de la Encuesta Permanente de Hogares
-\item
-  Generación de estadísticos de resumen en muestras estratificadas
-\item
-  Utilización de los ponderadores
-\end{itemize}
-
-\hypertarget{clase-7-programacion-funcional}{%
-\subsection{\texorpdfstring{\textbf{clase 7}: Programación funcional}{clase 7: Programación funcional}}\label{clase-7-programacion-funcional}}
-
-\begin{itemize}
-\tightlist
-\item
-  Estructuras de código condicionales
-\item
-  Loops
-\item
-  Creación de funciones a medida del usuario
-\item
-  Librería purrr para programación funcional
-\end{itemize}
-
-\hypertarget{clase-8-mapas}{%
-\subsection{\texorpdfstring{\textbf{clase 8}: Mapas}{clase 8: Mapas}}\label{clase-8-mapas}}
-
-\begin{itemize}
-\tightlist
-\item
-  Utilización de información geográfica en R
-\item
-  Elaboración de mapas
-\item
-  gestión de shapefiles
-\end{itemize}
-
-\hypertarget{clase-9-shiny}{%
-\subsection{\texorpdfstring{\textbf{clase 9}: Shiny}{clase 9: Shiny}}\label{clase-9-shiny}}
+\hypertarget{clase-6-shiny}{%
+\subsection{\texorpdfstring{\textbf{clase 6}: Shiny}{clase 6: Shiny}}\label{clase-6-shiny}}
 
 \begin{itemize}
 \tightlist
@@ -317,8 +275,31 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
   Publicación de resultados
 \end{itemize}
 
-\hypertarget{clase-10-correlacion-y-modelo-lineal}{%
-\subsection{\texorpdfstring{\textbf{clase 10}: Correlación y Modelo Lineal}{clase 10: Correlación y Modelo Lineal}}\label{clase-10-correlacion-y-modelo-lineal}}
+\textbf{Eje 3. Estadística}
+
+\hypertarget{clase-7-estadistica-descriptiva}{%
+\subsection{\texorpdfstring{\textbf{clase 7}: Estadística descriptiva}{clase 7: Estadística descriptiva}}\label{clase-7-estadistica-descriptiva}}
+
+\begin{itemize}
+\tightlist
+\item
+  Introducción a probabilidad
+\item
+  Introducción a distribuciones
+\item
+  El problema de la inversión
+\item
+  Estadística
+\item
+  Población y muestra
+\item
+  Estimadores puntuales, tests de hipótesis
+\item
+  Boxplots, histogramas y kernels
+\end{itemize}
+
+\hypertarget{clase-8-correlacion-y-modelo-lineal}{%
+\subsection{\texorpdfstring{\textbf{clase 8}: Correlación y Modelo Lineal}{clase 8: Correlación y Modelo Lineal}}\label{clase-8-correlacion-y-modelo-lineal}}
 
 \begin{itemize}
 \tightlist
@@ -334,6 +315,36 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
   Modelo lineal en R
 \item
   Modelo lineal en el tidyverse
+\end{itemize}
+
+\textbf{Eje 4. Clases temáticas}
+
+\hypertarget{clase-9-analisis-de-encuestas}{%
+\subsection{\texorpdfstring{\textbf{clase 9}: Análisis de encuestas}{clase 9: Análisis de encuestas}}\label{clase-9-analisis-de-encuestas}}
+
+\begin{itemize}
+\tightlist
+\item
+  Introducción al diseño de encuestas
+\item
+  Presentación de la Encuesta Permanente de Hogares
+\item
+  Generación de estadísticos de resumen en muestras estratificadas
+\item
+  Utilización de los ponderadores
+\end{itemize}
+
+\hypertarget{clase-10-mapas}{%
+\subsection{\texorpdfstring{\textbf{clase 10}: Mapas}{clase 10: Mapas}}\label{clase-10-mapas}}
+
+\begin{itemize}
+\tightlist
+\item
+  Utilización de información geográfica en R
+\item
+  Elaboración de mapas
+\item
+  gestión de shapefiles
 \end{itemize}
 
 \hypertarget{clase-11-text-mining}{%
@@ -376,7 +387,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 \subsection{Librerias a instalar}\label{librerias-a-instalar}}
 
 \begin{verbatim}
-install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse','cowplot','ggthemes', 'ggrepel','ggalt','kableExtra','fs','purrr','rmarkdown'))
+install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse','cowplot','ggthemes', 'ggrepel', 'ggalt', 'kableExtra', 'fs', 'purrr', 'rmarkdown', 'modelr', 'plot3D'))
 \end{verbatim}
 
 \hypertarget{introduccion-a-r}{%
@@ -2467,18 +2478,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country          continent  year lifeExp      pop gdpPercap
-##    <fct>            <fct>     <int>   <dbl>    <int>     <dbl>
-##  1 Denmark          Europe     1975    74.1  5059861    18982.
-##  2 Zambia           Africa     1977    51.4  5216550     1589.
-##  3 Korea, Dem. Rep. Asia       2002    66.7 22215365     1647.
-##  4 Philippines      Asia       2002    70.3 82995088     2651.
-##  5 Canada           Americas   1964    71.7 19711053    14511.
-##  6 Yemen, Rep.      Asia       1962    35.2  6120081      826.
-##  7 Sweden           Europe     1980    75.8  8310473    20411.
-##  8 Iceland          Europe     1964    73.6   188847    12134.
-##  9 Albania          Europe     1972    67.7  2263554     3313.
-## 10 Vietnam          Asia       2002    73.0 80908147     1764.
+##    country        continent  year lifeExp       pop gdpPercap
+##    <fct>          <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 India          Asia       1987    58.6 788000000      977.
+##  2 Comoros        Africa     1992    57.9    454429     1247.
+##  3 Kuwait         Asia       2007    77.6   2505559    47307.
+##  4 Sri Lanka      Asia       1967    64.3  11737396     1136.
+##  5 Bahamas        Americas   1972    66.5    178332    18152.
+##  6 Finland        Europe     1953    66.6   4139400     6393.
+##  7 Gabon          Africa     1992    61.4    985739    13522.
+##  8 United Kingdom Europe     1992    76.4  57866349    22705.
+##  9 Puerto Rico    Americas   1967    71.1   2648961     6929.
+## 10 Sweden         Europe     1959    73.4   7446249    10636.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -2562,18 +2573,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    country            data             
-##    <fct>              <list>           
-##  1 Malta              <tibble [10 x 5]>
-##  2 Honduras           <tibble [12 x 5]>
-##  3 Uzbekistan         <tibble [4 x 5]> 
-##  4 Gabon              <tibble [12 x 5]>
-##  5 Guadeloupe         <tibble [1 x 5]> 
-##  6 Czech Republic     <tibble [58 x 5]>
-##  7 Portugal           <tibble [58 x 5]>
-##  8 Korea, Rep.        <tibble [12 x 5]>
-##  9 Brazil             <tibble [12 x 5]>
-## 10 West Bank and Gaza <tibble [12 x 5]>
+##    country             data             
+##    <fct>               <list>           
+##  1 El Salvador         <tibble [12 x 5]>
+##  2 French Guiana       <tibble [1 x 5]> 
+##  3 Cuba                <tibble [13 x 5]>
+##  4 Samoa               <tibble [7 x 5]> 
+##  5 Colombia            <tibble [12 x 5]>
+##  6 New Caledonia       <tibble [9 x 5]> 
+##  7 Bolivia             <tibble [12 x 5]>
+##  8 Ghana               <tibble [12 x 5]>
+##  9 Trinidad and Tobago <tibble [12 x 5]>
+## 10 Luxembourg          <tibble [49 x 5]>
 \end{verbatim}
 
 \begin{itemize}
@@ -2594,18 +2605,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 3
-##    country          data              grafico
-##    <fct>            <list>            <list> 
-##  1 Netherlands      <tibble [58 x 5]> <gg>   
-##  2 Malta            <tibble [10 x 5]> <gg>   
-##  3 Montenegro       <tibble [12 x 5]> <gg>   
-##  4 Burundi          <tibble [12 x 5]> <gg>   
-##  5 Saudi Arabia     <tibble [12 x 5]> <gg>   
-##  6 Papua New Guinea <tibble [10 x 5]> <gg>   
-##  7 Angola           <tibble [12 x 5]> <gg>   
-##  8 Niger            <tibble [12 x 5]> <gg>   
-##  9 Tonga            <tibble [7 x 5]>  <gg>   
-## 10 Timor-Leste      <tibble [4 x 5]>  <gg>
+##    country              data              grafico
+##    <fct>                <list>            <list> 
+##  1 Barbados             <tibble [10 x 5]> <gg>   
+##  2 United Arab Emirates <tibble [8 x 5]>  <gg>   
+##  3 Ethiopia             <tibble [12 x 5]> <gg>   
+##  4 Singapore            <tibble [12 x 5]> <gg>   
+##  5 Mali                 <tibble [12 x 5]> <gg>   
+##  6 Belgium              <tibble [57 x 5]> <gg>   
+##  7 Tanzania             <tibble [12 x 5]> <gg>   
+##  8 Swaziland            <tibble [12 x 5]> <gg>   
+##  9 Sierra Leone         <tibble [12 x 5]> <gg>   
+## 10 South Africa         <tibble [12 x 5]> <gg>
 \end{verbatim}
 
 Veamos un ejemplo
@@ -3196,28 +3207,17 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 \end{Shaded}
 
 \begin{verbatim}
-##    REGION  P47T  T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso
-## 1      43  4800  1800       0  3000    751 Mujer ingreso_no_laboral
-## 2      44 36000     0       0 24000    154 Varon    ingreso_laboral
-## 3      40 35000     0       0 35000    200 Mujer    ingreso_laboral
-## 4      43 33950 13950    5000 10000    189 Mujer    ingreso_laboral
-## 5      43 20000     0       0 20000    723 Varon    ingreso_laboral
-## 6      41 10000     0       0 10000    344 Varon    ingreso_laboral
-## 7      40  9000     0       0  9000    227 Varon    ingreso_laboral
-## 8      43 38000     0       0 38000    865 Varon    ingreso_laboral
-## 9      43 17900  1900       0 11000    102 Mujer ingreso_no_laboral
-## 10     42  9000     0       0  9000    167 Mujer    ingreso_laboral
-##    Ingreso
-## 1     1800
-## 2    24000
-## 3    35000
-## 4    15000
-## 5    20000
-## 6    10000
-## 7     9000
-## 8    38000
-## 9     1900
-## 10    9000
+##    REGION  P47T T_VI TOT_P12   P21 PONDII  CH04    Tipo_ingreso Ingreso
+## 1      44 40000    0       0 40000    143 Varon ingreso_laboral   40000
+## 2      42  8000    0       0  8000    591 Mujer ingreso_laboral    8000
+## 3      43 45000    0       0 45000    811 Varon ingreso_laboral   45000
+## 4      40  4800    0       0  4800    207 Varon ingreso_laboral    4800
+## 5       1 32000 4000       0 28000   4283 Varon ingreso_laboral   28000
+## 6      41  6000    0       0  6000    223 Varon ingreso_laboral    6000
+## 7      40 25000    0    8000 12000    227 Mujer ingreso_laboral   20000
+## 8      41 16500    0       0 15000    292 Varon ingreso_laboral   15000
+## 9      44 36000 6000   10000 20000    212 Mujer ingreso_laboral   30000
+## 10     40 40000    0       0 40000     95 Mujer ingreso_laboral   40000
 \end{verbatim}
 
 \begin{Shaded}

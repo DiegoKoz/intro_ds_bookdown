@@ -1,7 +1,0 @@
-"0","```r
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-library(tidyverse)
-library(modelr)
-library(GGally)
-library(plot3D)
-```"

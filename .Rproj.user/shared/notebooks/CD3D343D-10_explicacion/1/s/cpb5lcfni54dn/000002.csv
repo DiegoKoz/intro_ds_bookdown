@@ -1,7 +1,0 @@
-"0","```r
-sim1 <- sim1 %>% 
-  add_residuals(sim1_mod)
-
-sim1 %>% 
-  sample_n(10)
-```"
