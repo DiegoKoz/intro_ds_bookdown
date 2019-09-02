@@ -12,7 +12,7 @@ En esta primera clase revisaremos los fundamentos de R base y el entorno de RStu
 
 ## Explicación
 
-![https://cran.r-project.org/](img/Rlogo.png){width=1000}
+![https://cran.r-project.org/](img/Rlogo.png){width=500}
 
 ### ¿Qué es R?
 
@@ -28,7 +28,7 @@ En esta primera clase revisaremos los fundamentos de R base y el entorno de RStu
 ![fuente: https://gist.github.com/daroczig/3cf06d6db4be2bbe3368](img/number-of-submitted-packages-to-CRAN.png){width=1000}
 
 
-![https://www.rstudio.com/](img/RStudio-Logo-Flat.png){width=1000}
+![https://www.rstudio.com/](img/RStudio-Logo-Flat.png){width=750}
 
 Uno de los _entornos_ más cómodos para utilizar el _lenguaje_ __R__ es el _programa_ __R studio__.
 
@@ -38,7 +38,7 @@ Uno de los _entornos_ más cómodos para utilizar el _lenguaje_ __R__ es el _pro
 [página oficial](https://www.rstudio.com/) 
 
 
-![Pantalla Rstudio](img/Pantalla Rstudio.png){width=1000}
+![Pantalla Rstudio](img/Pantalla Rstudio.png){width=750}
 
 
 
@@ -385,7 +385,7 @@ Rstudio tiene una herramienta muy útil de trabajo que son los **proyectos**. Es
 
 Un proyecto no es un sólo script, sino toda una carpeta de trabajo. 
 
-![logo Rpoject](img/Rproject.png){width=1000}
+![logo Rpoject](img/Rproject.png){width=500}
 
 Para crearlo, vamos al logo de nuevo projecto (Arriba a la derecha de la panatalla), y elegimos la carpeta de trabajo. 
 
