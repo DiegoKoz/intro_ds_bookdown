@@ -1554,6 +1554,887 @@ Para leer y escribir archivos excel podemos utilizar los comandos que vienen con
 ## 10            0                   224516.6
 \end{verbatim}
 
+\hypertarget{tidyverse}{%
+\chapter{\texorpdfstring{\href{https://www.tidyverse.org/}{Tidyverse}}{Tidyverse}}\label{tidyverse}}
+
+\hypertarget{explicacion-1}{%
+\section{Explicación}\label{explicacion-1}}
+
+A lo largo de esta clase, trabajaremos con el paquete \textbf{tidyverse}. El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.\\
+Entre ellos, usaremos principalmente \textbf{dplyr} y \textbf{tidyr} para realizar transformaciones sobre nuestro set de datos. En una futura clase utilizaremos \textbf{ggplot} para realizar gráficos.
+
+A continuación cargamos la librería a nuestro ambiente. Para ello debe estar previamente instalada en nuestra pc.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+Para mostrar el funcionamiento básico de tidyverse utilizaremos a modo de ejemplo datos del \href{https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_1trim19B489ACCDF9.pdf}{Informe de Mercado de Trabajo del INDEC}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{INDICADOR <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Tasa de Actividad"}\NormalTok{, }\StringTok{"Tasa de Empleo"}\NormalTok{, }\StringTok{"Tasa de Desocupación",}
+\StringTok{               "}\NormalTok{Tasa de Actividad}\StringTok{", "}\NormalTok{Tasa de Empleo}\StringTok{", "}\NormalTok{Tasa de Desocupación",}
+               \StringTok{"Tasa de Actividad"}\NormalTok{, }\StringTok{"Tasa de Empleo"}\NormalTok{, }\StringTok{"Tasa de Desocupación")}
+
+\StringTok{FECHA <-     c("}\FloatTok{2018.3}\NormalTok{T}\StringTok{", "}\FloatTok{2018.3}\NormalTok{T}\StringTok{", "}\FloatTok{2018.3}\NormalTok{T}\StringTok{",}
+\StringTok{               "}\FloatTok{2018.4}\NormalTok{T}\StringTok{", "}\FloatTok{2018.4}\NormalTok{T}\StringTok{", "}\FloatTok{2018.4}\NormalTok{T}\StringTok{",}
+\StringTok{               "}\FloatTok{2019.1}\NormalTok{T}\StringTok{", "}\FloatTok{2019.1}\NormalTok{T}\StringTok{", "}\FloatTok{2019.1}\NormalTok{T}\StringTok{")}
+
+\StringTok{TASA <-      c(46.7, 42.5, 9,}
+\StringTok{               46.5, 42.2, 9.1, }
+\StringTok{               47,   42.3, 10.1)}
+
+\StringTok{Datos <- data.frame(INDICADOR, FECHA, TASA)}
+\StringTok{Datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA
+## 1    Tasa de Actividad 2018.3T 46.7
+## 2       Tasa de Empleo 2018.3T 42.5
+## 3 Tasa de Desocupación 2018.3T  9.0
+## 4    Tasa de Actividad 2018.4T 46.5
+## 5       Tasa de Empleo 2018.4T 42.2
+## 6 Tasa de Desocupación 2018.4T  9.1
+## 7    Tasa de Actividad 2019.1T 47.0
+## 8       Tasa de Empleo 2019.1T 42.3
+## 9 Tasa de Desocupación 2019.1T 10.1
+\end{verbatim}
+
+\hypertarget{dplyr}{%
+\subsection{Dplyr}\label{dplyr}}
+
+El caracter principal para utilizar este paquete es \texttt{\%\textgreater{}\%} , \emph{pipe} (de tubería).
+
+Los \texttt{\%\textgreater{}\%} toman el set de datos a su izquierda, y los transforman mediante los comandos a su derecha, en los cuales los elementos de la izquierda están implícitos. En otros términos:
+
+\(f(x,y)\) es equivalente a \(x\) \%\textgreater{}\% \(f(.,y)\)
+
+Veamos las principales funciones que pueden utilizarse con la lógica de este paquete:
+
+\hypertarget{glimpse}{%
+\subsubsection{glimpse}\label{glimpse}}
+
+Permite ver la estructura de la tabla. Nos muestra:
+
+\begin{itemize}
+\tightlist
+\item
+  número de filas
+\item
+  número de columnas
+\item
+  nombre de las columnas
+\item
+  tipo de dato de cada columna
+\item
+  las primeras observaciones de la tabla
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{glimpse}\NormalTok{(Datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Observations: 9
+## Variables: 3
+## $ INDICADOR <fct> Tasa de Actividad, Tasa de Empleo, Tasa de Desocupac...
+## $ FECHA     <fct> 2018.3T, 2018.3T, 2018.3T, 2018.4T, 2018.4T, 2018.4T...
+## $ TASA      <dbl> 46.7, 42.5, 9.0, 46.5, 42.2, 9.1, 47.0, 42.3, 10.1
+\end{verbatim}
+
+\hypertarget{filter}{%
+\subsubsection{filter}\label{filter}}
+
+Permite filtrar la tabla de acuerdo al cumplimiento de condiciones lógicas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(TASA }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{ , INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Desocupación")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA
+## 1 Tasa de Desocupación 2019.1T 10.1
+\end{verbatim}
+
+Nótese que en este caso al separar con una \textbf{,} las condiciones se exige el cumplimiento de ambas. En caso de desear que se cumpla alguna de las condiciones debe utilizarse el caracter \textbf{\textbar{}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(TASA }\OperatorTok{>}\StringTok{ }\DecValTok{10} \OperatorTok{|}\StringTok{ }\NormalTok{INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Desocupación")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA
+## 1    Tasa de Actividad 2018.3T 46.7
+## 2       Tasa de Empleo 2018.3T 42.5
+## 3 Tasa de Desocupación 2018.3T  9.0
+## 4    Tasa de Actividad 2018.4T 46.5
+## 5       Tasa de Empleo 2018.4T 42.2
+## 6 Tasa de Desocupación 2018.4T  9.1
+## 7    Tasa de Actividad 2019.1T 47.0
+## 8       Tasa de Empleo 2019.1T 42.3
+## 9 Tasa de Desocupación 2019.1T 10.1
+\end{verbatim}
+
+\hypertarget{rename}{%
+\subsubsection{rename}\label{rename}}
+
+Permite renombrar una columna de la tabla. Funciona de la siguiente manera:
+
+\texttt{Data\ \%\textgreater{}\%\ rename(nuevo\_nombre\ =\ viejo\_nombre)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{Periodo =}\NormalTok{ FECHA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR Periodo TASA
+## 1    Tasa de Actividad 2018.3T 46.7
+## 2       Tasa de Empleo 2018.3T 42.5
+## 3 Tasa de Desocupación 2018.3T  9.0
+## 4    Tasa de Actividad 2018.4T 46.5
+## 5       Tasa de Empleo 2018.4T 42.2
+## 6 Tasa de Desocupación 2018.4T  9.1
+## 7    Tasa de Actividad 2019.1T 47.0
+## 8       Tasa de Empleo 2019.1T 42.3
+## 9 Tasa de Desocupación 2019.1T 10.1
+\end{verbatim}
+
+Nótese que, a diferencia del ejemplo de la función \textbf{filter} donde utilizábamos \textbf{==} para comprobar una condición lógica, en este caso se utiliza sólo un \textbf{=} ya que lo estamos haciendo es \emph{asignar} un nombre.
+
+\hypertarget{mutate}{%
+\subsubsection{mutate}\label{mutate}}
+
+Permite agregar una variable a la tabla (especificando el nombre que tomará ésta), que puede ser el resultado de operaciones sobre otras variables de la misma tabla.
+
+En caso de especificar el nombre de una columna existente, el resultado de la operación realizada ``sobre-escribirá'' la información de la columna con dicho nombre.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{PROPORCION =}\NormalTok{ TASA }\OperatorTok{/}\StringTok{ }\DecValTok{100}\NormalTok{)}
+
+\NormalTok{Datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA PROPORCION
+## 1    Tasa de Actividad 2018.3T 46.7      0.467
+## 2       Tasa de Empleo 2018.3T 42.5      0.425
+## 3 Tasa de Desocupación 2018.3T  9.0      0.090
+## 4    Tasa de Actividad 2018.4T 46.5      0.465
+## 5       Tasa de Empleo 2018.4T 42.2      0.422
+## 6 Tasa de Desocupación 2018.4T  9.1      0.091
+## 7    Tasa de Actividad 2019.1T 47.0      0.470
+## 8       Tasa de Empleo 2019.1T 42.3      0.423
+## 9 Tasa de Desocupación 2019.1T 10.1      0.101
+\end{verbatim}
+
+\hypertarget{case_when}{%
+\subsubsection{case\_when}\label{case_when}}
+
+Permite definir una variable, de forma tal que tome un valor particular para cada condición establecida. En caso de no cumplir con ninguna de las condiciones establecidas, la variable tomará valor \textbf{NA}.\\
+La sintaxis de la función es:\\
+\texttt{case\_when(condicion\ lógica1\ \textasciitilde{}\ valor\ asignado1)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{CODIGO =} \KeywordTok{case_when}\NormalTok{(INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Actividad"}    \OperatorTok{~}\StringTok{ "ACT"}\NormalTok{,}
+\NormalTok{                            INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Empleo"}       \OperatorTok{~}\StringTok{ "EMP"}\NormalTok{,}
+\NormalTok{                            INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Desocupación" ~ "}\NormalTok{DES}\StringTok{"))}
+
+\StringTok{Datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA PROPORCION CODIGO
+## 1    Tasa de Actividad 2018.3T 46.7      0.467    ACT
+## 2       Tasa de Empleo 2018.3T 42.5      0.425    EMP
+## 3 Tasa de Desocupación 2018.3T  9.0      0.090    DES
+## 4    Tasa de Actividad 2018.4T 46.5      0.465    ACT
+## 5       Tasa de Empleo 2018.4T 42.2      0.422    EMP
+## 6 Tasa de Desocupación 2018.4T  9.1      0.091    DES
+## 7    Tasa de Actividad 2019.1T 47.0      0.470    ACT
+## 8       Tasa de Empleo 2019.1T 42.3      0.423    EMP
+## 9 Tasa de Desocupación 2019.1T 10.1      0.101    DES
+\end{verbatim}
+
+\hypertarget{select}{%
+\subsubsection{select}\label{select}}
+
+Permite especificar la serie de columnas que se desea conservar de un DataFrame. También pueden especificarse las columnas que se desean descartar (agregándoles un \emph{-} adelante). Muy útil para agilizar el trabajo en bases de datos de gran tamaño.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos2 <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(CODIGO, FECHA, PROPORCION)}
+\NormalTok{Datos2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   CODIGO   FECHA PROPORCION
+## 1    ACT 2018.3T      0.467
+## 2    EMP 2018.3T      0.425
+## 3    DES 2018.3T      0.090
+## 4    ACT 2018.4T      0.465
+## 5    EMP 2018.4T      0.422
+## 6    DES 2018.4T      0.091
+## 7    ACT 2019.1T      0.470
+## 8    EMP 2019.1T      0.423
+## 9    DES 2019.1T      0.101
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\KeywordTok{c}\NormalTok{(PROPORCION, CODIGO))}
+\NormalTok{Datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA
+## 1    Tasa de Actividad 2018.3T 46.7
+## 2       Tasa de Empleo 2018.3T 42.5
+## 3 Tasa de Desocupación 2018.3T  9.0
+## 4    Tasa de Actividad 2018.4T 46.5
+## 5       Tasa de Empleo 2018.4T 42.2
+## 6 Tasa de Desocupación 2018.4T  9.1
+## 7    Tasa de Actividad 2019.1T 47.0
+## 8       Tasa de Empleo 2019.1T 42.3
+## 9 Tasa de Desocupación 2019.1T 10.1
+\end{verbatim}
+
+\hypertarget{arrange}{%
+\subsubsection{arrange}\label{arrange}}
+
+Permite ordenar la tabla según los valores de determinada/s variable/s. Es útil cuando luego deben hacerse otras operaciones que requieran del ordenamiento de la tabla, o para mostrar resultados de forma ordenada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(INDICADOR, FECHA)}
+
+\NormalTok{Datos}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA
+## 1    Tasa de Actividad 2018.3T 46.7
+## 2    Tasa de Actividad 2018.4T 46.5
+## 3    Tasa de Actividad 2019.1T 47.0
+## 4 Tasa de Desocupación 2018.3T  9.0
+## 5 Tasa de Desocupación 2018.4T  9.1
+## 6 Tasa de Desocupación 2019.1T 10.1
+## 7       Tasa de Empleo 2018.3T 42.5
+## 8       Tasa de Empleo 2018.4T 42.2
+## 9       Tasa de Empleo 2019.1T 42.3
+\end{verbatim}
+
+\hypertarget{summarise}{%
+\subsubsection{summarise}\label{summarise}}
+
+Crea una nueva tabla que resuma la información original. Para ello, definimos las variables de resumen y las formas de agregación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Desocupación") %>% }
+\StringTok{  summarise(INDICE_MAX = max(TASA),}
+\StringTok{            INDICE_MIN = min(TASA),}
+\StringTok{            INDICE_PROM = mean(TASA))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   INDICE_MAX INDICE_MIN INDICE_PROM
+## 1       10.1          9         9.4
+\end{verbatim}
+
+\hypertarget{group_by}{%
+\subsubsection{group\_by}\label{group_by}}
+
+Esta función permite realizar operaciones de forma agrupada. Lo que hace la función es ``separar'' a la tabla según los valores de la variable indicada y realizar las operaciones que se especifican a continuación, de manera independiente para cada una de las ``subtablas''. En nuestro ejemplo, podría ser útil para calcular el promedio de las tasas por \emph{INDICADOR}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(INDICADOR) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{INDICE_PROM =} \KeywordTok{mean}\NormalTok{(TASA))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   INDICADOR            INDICE_PROM
+##   <fct>                      <dbl>
+## 1 Tasa de Actividad           46.7
+## 2 Tasa de Desocupación         9.4
+## 3 Tasa de Empleo              42.3
+\end{verbatim}
+
+\hypertarget{joins}{%
+\subsection{Joins}\label{joins}}
+
+Otra implementación muy importante del paquete dplyr son las funciones para unir tablas (joins).
+
+\begin{figure}
+\centering
+\includegraphics{img/joins.png}
+\caption{fuente: \url{http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html}}
+\end{figure}
+
+\hypertarget{left_join}{%
+\subsubsection{left\_join}\label{left_join}}
+
+Veamos un ejemplo de la función \textbf{left\_join} (una de las más utilizadas en la práctica).\\
+Para ello crearemos previamente un Dataframe que contenga las cantidades de población total y población económicamente activa para cada uno de los períodos del Dataframe \emph{Datos}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Poblaciones <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{FECHA =} \KeywordTok{c}\NormalTok{(}\StringTok{"2018.3T"}\NormalTok{, }\StringTok{"2018.4T"}\NormalTok{, }\StringTok{"2019.1T"}\NormalTok{),}
+                          \DataTypeTok{POBLACION_miles =} \KeywordTok{c}\NormalTok{(}\DecValTok{27842}\NormalTok{, }\DecValTok{27914}\NormalTok{, }\DecValTok{28261}\NormalTok{),}
+                          \DataTypeTok{PEA_miles =} \KeywordTok{c}\NormalTok{(}\DecValTok{12990}\NormalTok{, }\DecValTok{12979}\NormalTok{, }\DecValTok{13285}\NormalTok{))}
+
+\NormalTok{Poblaciones}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     FECHA POBLACION_miles PEA_miles
+## 1 2018.3T           27842     12990
+## 2 2018.4T           27914     12979
+## 3 2019.1T           28261     13285
+\end{verbatim}
+
+Unimos nuestras dos tablas. La siguiente forma de realizarlo es equivalente a:\\
+\texttt{Datos\_join\ \textless{}-\ left\_join(Datos,\ Poblaciones,\ by\ =\ "FECHA")}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos_join <-}\StringTok{ }\NormalTok{Datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(Poblaciones, }\DataTypeTok{by =} \StringTok{"FECHA"}\NormalTok{)}
+
+\NormalTok{Datos_join}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              INDICADOR   FECHA TASA POBLACION_miles PEA_miles
+## 1    Tasa de Actividad 2018.3T 46.7           27842     12990
+## 2    Tasa de Actividad 2018.4T 46.5           27914     12979
+## 3    Tasa de Actividad 2019.1T 47.0           28261     13285
+## 4 Tasa de Desocupación 2018.3T  9.0           27842     12990
+## 5 Tasa de Desocupación 2018.4T  9.1           27914     12979
+## 6 Tasa de Desocupación 2019.1T 10.1           28261     13285
+## 7       Tasa de Empleo 2018.3T 42.5           27842     12990
+## 8       Tasa de Empleo 2018.4T 42.2           27914     12979
+## 9       Tasa de Empleo 2019.1T 42.3           28261     13285
+\end{verbatim}
+
+Finalmente, podemos calcular la cantidad de personas desocupadas en cada uno de los períodos con los que contamos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos_join }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(INDICADOR }\OperatorTok{==}\StringTok{ "Tasa de Desocupación") %>% }
+\StringTok{  group_by(FECHA) %>% }
+\StringTok{  summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   FECHA   DESOCUP_miles
+##   <fct>           <dbl>
+## 1 2018.3T          1169
+## 2 2018.4T          1181
+## 3 2019.1T          1342
+\end{verbatim}
+
+\hypertarget{tidyr}{%
+\subsection{Tidyr}\label{tidyr}}
+
+El paquete tidyr está pensado para facilitar el emprolijamiento de los datos.
+
+\textbf{Gather} es una función que nos permite pasar los datos de forma horizontal a una forma vertical.
+
+\textbf{spread} es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
+
+\begin{figure}
+\centering
+\includegraphics{img/spreadVSgather.png}
+\caption{fuente: \url{http://www.gis-blog.com/data-management-with-r-tidyr-part-1/}}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Utilizamos un conjunto de datos que viene con la librería datasets}
+\KeywordTok{library}\NormalTok{(datasets)}
+
+\KeywordTok{head}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iris <-}\StringTok{ }\NormalTok{iris }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{id =} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(.)) }\OperatorTok{%>%}\StringTok{  }\CommentTok{# le agrego un ID}
+\StringTok{  }\KeywordTok{select}\NormalTok{(id, }\KeywordTok{everything}\NormalTok{())    }\CommentTok{# lo acomodo para que el id este primero. }
+
+\KeywordTok{head}\NormalTok{(iris)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1  1          5.1         3.5          1.4         0.2  setosa
+## 2  2          4.9         3.0          1.4         0.2  setosa
+## 3  3          4.7         3.2          1.3         0.2  setosa
+## 4  4          4.6         3.1          1.5         0.2  setosa
+## 5  5          5.0         3.6          1.4         0.2  setosa
+## 6  6          5.4         3.9          1.7         0.4  setosa
+\end{verbatim}
+
+\hypertarget{gather-y-spread}{%
+\subsubsection{Gather y Spread}\label{gather-y-spread}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iris_vertical <-}\StringTok{ }\NormalTok{iris }\OperatorTok{%>%}\StringTok{ }\KeywordTok{gather}\NormalTok{(., }\CommentTok{# el . llama a lo que esta atras del %>% }
+                                 \DataTypeTok{key   =}\NormalTok{ Variables,}
+                                 \DataTypeTok{value =}\NormalTok{ Valores,}
+                                 \DecValTok{2}\OperatorTok{:}\DecValTok{5}\NormalTok{) }\CommentTok{#le indico qué columnas juntar}
+\KeywordTok{head}\NormalTok{(iris_vertical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id Species    Variables Valores
+## 1  1  setosa Sepal.Length     5.1
+## 2  2  setosa Sepal.Length     4.9
+## 3  3  setosa Sepal.Length     4.7
+## 4  4  setosa Sepal.Length     4.6
+## 5  5  setosa Sepal.Length     5.0
+## 6  6  setosa Sepal.Length     5.4
+\end{verbatim}
+
+Podemos deshacer el \textbf{gather} con un \textbf{Spread}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iris_horizontal <-}\StringTok{ }\NormalTok{iris_vertical }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{spread}\NormalTok{(. ,}
+         \DataTypeTok{key   =}\NormalTok{ Variables, }\CommentTok{# la llave es la variable que va a dar los nombres de columna}
+         \DataTypeTok{value =}\NormalTok{ Valores) }\CommentTok{# los valores con que se llenan las celdas}
+
+\KeywordTok{head}\NormalTok{(iris_horizontal)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id Species Petal.Length Petal.Width Sepal.Length Sepal.Width
+## 1  1  setosa          1.4         0.2          5.1         3.5
+## 2  2  setosa          1.4         0.2          4.9         3.0
+## 3  3  setosa          1.3         0.2          4.7         3.2
+## 4  4  setosa          1.5         0.2          4.6         3.1
+## 5  5  setosa          1.4         0.2          5.0         3.6
+## 6  6  setosa          1.7         0.4          5.4         3.9
+\end{verbatim}
+
+\hypertarget{lubridate}{%
+\subsection{Lubridate}\label{lubridate}}
+
+El paquete lubridate está pensado para trabajar con los datos tipo fecha (date) o fecha-hora (datetime) para cambiarles el formato, realizar operaciones y extraer información
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{cambio-de-formato}{%
+\subsubsection{Cambio de formato}\label{cambio-de-formato}}
+
+Existe una gran cantidad de funciones para realizar esto. La idea general es poder llevar los objetos datetime a un formato común compuesto de los elementos: año, mes, día, hora, minuto y segundo (también se puede setear el huso horario)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fecha  <-}\StringTok{ "04/12/92 17:35:16"}
+\NormalTok{fecha}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "04/12/92 17:35:16"
+\end{verbatim}
+
+Con la función dmy\_hms podemos convertir este string a una fecha: estamos indicando que el formato de la fecha es día(d), mes(m), año(y), hora(h), minuto(m) y segundo(s).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fecha  <-}\StringTok{ }\KeywordTok{dmy_hms}\NormalTok{(fecha)}
+\NormalTok{fecha}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1992-12-04 17:35:16 UTC"
+\end{verbatim}
+
+Muchas funciones de lubridate operan con esta misma lógica.
+
+Otra función para realizar un cambio de formato es \emph{parse\_date\_time}. Permite construir objetos datetime a partir de datos más complejos, como por ejemplo cuando aparece el nombre del mes y el año.
+
+En el parámetro \emph{x} pasamos el dato de la fecha y en el parámetro \emph{orders} especificamos el orden en el cual se encuentra la información de la fecha.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fecha2  <-}\StringTok{ "Dec-92"}
+\NormalTok{fecha2 <-}\StringTok{ }\KeywordTok{parse_date_time}\NormalTok{(fecha2, }\DataTypeTok{orders =} \StringTok{'my'}\NormalTok{)}
+\NormalTok{fecha2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1992-12-01 UTC"
+\end{verbatim}
+
+\hypertarget{extraccion-de-informacion}{%
+\subsubsection{Extracción de información}\label{extraccion-de-informacion}}
+
+Existen muchas funciones muy sencillas para extraer información de un objeto datetime. Algunas son:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{year}\NormalTok{(fecha)  }\CommentTok{# Obtener el año}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1992
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{month}\NormalTok{(fecha) }\CommentTok{# Obtener el mes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{day}\NormalTok{(fecha)   }\CommentTok{# Obtener el día}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wday}\NormalTok{(fecha, }\DataTypeTok{label =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# Obtener el nombre del día}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] vie
+## Levels: dom < lun < mar < mié < jue < vie < sáb
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hour}\NormalTok{(fecha) }\CommentTok{# Obtener la hora}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 17
+\end{verbatim}
+
+\hypertarget{operaciones}{%
+\subsubsection{Operaciones}\label{operaciones}}
+
+Podemos sumar o restarle cualquier período de tiempo a un objeto datetime
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Sumo dos días }
+\NormalTok{fecha }\OperatorTok{+}\StringTok{ }\KeywordTok{days}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1992-12-06 17:35:16 UTC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Resto 1 semana y dos horas}
+\NormalTok{fecha }\OperatorTok{-}\StringTok{ }\NormalTok{(}\KeywordTok{weeks}\NormalTok{(}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{hours}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1992-11-27 15:35:16 UTC"
+\end{verbatim}
+
+\hypertarget{practica-guiada-1}{%
+\section{Práctica Guiada}\label{practica-guiada-1}}
+
+En esta ocasión utilizaremos los datos de la librería \texttt{gapminder} para utilizar todo lo que aprendimos sobre el \texttt{tidyverse}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{glimpse}\NormalTok{(gapminder)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Observations: 1,704
+## Variables: 6
+## $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afghanistan, ...
+## $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia...
+## $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992...
+## $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.8...
+## $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079460, 1488...
+## $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 78...
+\end{verbatim}
+
+\hypertarget{ejemplo-1}{%
+\subsection{Ejemplo 1}\label{ejemplo-1}}
+
+\begin{quote}
+Calcular el promedio, el máximo y el mínimo de la esperanza de vida de cada continente en el año 2007. Presentar los datos ordenados según la esperanza de vida promedio.
+\end{quote}
+
+Necesitamos filtrar los datos tal que sólo queden aquellos correspondientes a 2007. Luego, agrupamos los casos de acuerdo a su \emph{continente}, y calculamos los indicadores agregados solicitados. Luego, ordenamos los resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio1 <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(year }\OperatorTok{==}\StringTok{ }\DecValTok{2007}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(continent) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{esp_vida_prom =} \KeywordTok{mean}\NormalTok{(lifeExp),}
+            \DataTypeTok{esp_vida_max =}  \KeywordTok{max}\NormalTok{(lifeExp),}
+            \DataTypeTok{esp_vida_min =}  \KeywordTok{min}\NormalTok{(lifeExp)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(esp_vida_prom)}
+
+\NormalTok{ejercicio1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 4
+##   continent esp_vida_prom esp_vida_max esp_vida_min
+##   <fct>             <dbl>        <dbl>        <dbl>
+## 1 Africa             54.8         76.4         39.6
+## 2 Asia               70.7         82.6         43.8
+## 3 Americas           73.6         80.7         60.9
+## 4 Europe             77.6         81.8         71.8
+## 5 Oceania            80.7         81.2         80.2
+\end{verbatim}
+
+\hypertarget{ejemplo-2}{%
+\subsection{Ejemplo 2}\label{ejemplo-2}}
+
+\begin{quote}
+Construir una nueva variable en el dataset que contenga una estimación del PBI. Estimar la mediana del PBI, y construir otra variable que tome valor ``ALTO'' cuando el PBI supera ese valor, y ``BAJO'' cuando no.
+\end{quote}
+
+Calculamos el PBI como el producto entre la población y el PBI per cápita para cada uno de los países y años. A continuación, guardamos el cálculo de la mediana del PBI en un valor llamado \emph{mediana\_GDP}. Por último, utilizamos la función \texttt{case\_when} para poder construir la variable de nivel de PBI de acuerdo a la condición lógica solicitada. Nótese que el dataframe \texttt{ejercicio2} ha sido re-escrito.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio2 <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{GDP =}\NormalTok{ pop }\OperatorTok{*}\StringTok{ }\NormalTok{gdpPercap)}
+
+\NormalTok{mediana_GDP <-}\StringTok{ }\KeywordTok{median}\NormalTok{(ejercicio2}\OperatorTok{$}\NormalTok{GDP)}
+
+\NormalTok{ejercicio2 <-}\StringTok{ }\NormalTok{ejercicio2 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{GDP_level =} \KeywordTok{case_when}\NormalTok{(GDP }\OperatorTok{>}\StringTok{ }\NormalTok{mediana_GDP }\OperatorTok{~}\StringTok{ "ALTO"}\NormalTok{,}
+\NormalTok{                               GDP }\OperatorTok{<}\StringTok{ }\NormalTok{mediana_GDP }\OperatorTok{~}\StringTok{ "BAJO"}\NormalTok{))}
+
+\KeywordTok{head}\NormalTok{(ejercicio2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 8
+##   country    continent  year lifeExp     pop gdpPercap        GDP GDP_level
+##   <fct>      <fct>     <int>   <dbl>   <int>     <dbl>      <dbl> <chr>    
+## 1 Afghanist~ Asia       1952    28.8  8.43e6      779.    6.57e 9 BAJO     
+## 2 Afghanist~ Asia       1957    30.3  9.24e6      821.    7.59e 9 BAJO     
+## 3 Afghanist~ Asia       1962    32.0  1.03e7      853.    8.76e 9 BAJO     
+## 4 Afghanist~ Asia       1967    34.0  1.15e7      836.    9.65e 9 BAJO     
+## 5 Afghanist~ Asia       1972    36.1  1.31e7      740.    9.68e 9 BAJO     
+## 6 Afghanist~ Asia       1977    38.4  1.49e7      786.    1.17e10 BAJO
+\end{verbatim}
+
+\hypertarget{ejemplo-3}{%
+\subsection{Ejemplo 3}\label{ejemplo-3}}
+
+\begin{quote}
+Crear una copia de la base donde sólo se conserven las variables \emph{country}, \emph{year} y \emph{lifeExp}, pero con los nombres \emph{pais}, \emph{anio} y \emph{espVida}.
+\end{quote}
+
+Utilizamos \texttt{select()} para quedarnos con las columnas solicitadas, y \texttt{rename()} para cambiar sus nombres.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio3 <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(country, year, lifeExp) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{pais =}\NormalTok{ country,}
+         \DataTypeTok{anio =}\NormalTok{ year,}
+         \DataTypeTok{espVida =}\NormalTok{ lifeExp)}
+
+\KeywordTok{head}\NormalTok{(ejercicio3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   pais         anio espVida
+##   <fct>       <int>   <dbl>
+## 1 Afghanistan  1952    28.8
+## 2 Afghanistan  1957    30.3
+## 3 Afghanistan  1962    32.0
+## 4 Afghanistan  1967    34.0
+## 5 Afghanistan  1972    36.1
+## 6 Afghanistan  1977    38.4
+\end{verbatim}
+
+\hypertarget{ejemplo-4}{%
+\subsection{Ejemplo 4}\label{ejemplo-4}}
+
+\begin{quote}
+Crear una copia de la base donde sólo se conserven las variables \emph{country}, \emph{year} y \emph{gdpPercap}, pero con los nombres \emph{pais}, \emph{anio} y \emph{pbiPercap}.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio4 <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(country, year, gdpPercap) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{pais =}\NormalTok{ country,}
+         \DataTypeTok{anio =}\NormalTok{ year,}
+         \DataTypeTok{pbiPercap =}\NormalTok{ gdpPercap)}
+
+\KeywordTok{head}\NormalTok{(ejercicio4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   pais         anio pbiPercap
+##   <fct>       <int>     <dbl>
+## 1 Afghanistan  1952      779.
+## 2 Afghanistan  1957      821.
+## 3 Afghanistan  1962      853.
+## 4 Afghanistan  1967      836.
+## 5 Afghanistan  1972      740.
+## 6 Afghanistan  1977      786.
+\end{verbatim}
+
+\hypertarget{ejemplo-5}{%
+\subsection{Ejemplo 5}\label{ejemplo-5}}
+
+\begin{quote}
+Crear una nueva tabla que contenga los datos de las tablas \texttt{ejercicio3} y \texttt{ejercicio4}. Deben unirse de acuerdo al \emph{pais} y al \emph{anio}.
+\end{quote}
+
+Podemos utilizar la función \texttt{left\_join()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio5 <-}\StringTok{ }\KeywordTok{left_join}\NormalTok{(ejercicio3, ejercicio4, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"pais"}\NormalTok{, }\StringTok{"anio"}\NormalTok{))}
+
+\KeywordTok{head}\NormalTok{(ejercicio5)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 4
+##   pais         anio espVida pbiPercap
+##   <fct>       <int>   <dbl>     <dbl>
+## 1 Afghanistan  1952    28.8      779.
+## 2 Afghanistan  1957    30.3      821.
+## 3 Afghanistan  1962    32.0      853.
+## 4 Afghanistan  1967    34.0      836.
+## 5 Afghanistan  1972    36.1      740.
+## 6 Afghanistan  1977    38.4      786.
+\end{verbatim}
+
+\hypertarget{ejemplo-6}{%
+\subsection{Ejemplo 6}\label{ejemplo-6}}
+
+\begin{quote}
+Presentar los datos de la tabla \texttt{ejercicio1} de forma tal que \emph{esp\_vida\_prom}, \emph{esp\_vida\_max} y \emph{esp\_vida\_min} sean valores de una variable llamada \emph{indicador}, y los valores se encuentren en la variable \emph{valor}.
+\end{quote}
+
+Utilizamos \texttt{gather()}, porque queremos transformar los datos de un formato ``horizontal'' a uno ``vertical''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejercicio6 <-}\StringTok{ }\NormalTok{ejercicio1 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{gather}\NormalTok{(., }\DataTypeTok{key =}\NormalTok{ indicador, }\DataTypeTok{value =}\NormalTok{ valor, }\DecValTok{2}\OperatorTok{:}\DecValTok{4}\NormalTok{)}
+
+\KeywordTok{head}\NormalTok{(ejercicio6)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   continent indicador     valor
+##   <fct>     <chr>         <dbl>
+## 1 Africa    esp_vida_prom  54.8
+## 2 Asia      esp_vida_prom  70.7
+## 3 Americas  esp_vida_prom  73.6
+## 4 Europe    esp_vida_prom  77.6
+## 5 Oceania   esp_vida_prom  80.7
+## 6 Africa    esp_vida_max   76.4
+\end{verbatim}
+
 \hypertarget{programacion-funcional}{%
 \chapter{Programacion Funcional}\label{programacion-funcional}}
 
@@ -1571,8 +2452,8 @@ El objetivo de esta clase es introducir a los alumnos en el uso de la programaci
   Librería purrr para programación funcional
 \end{itemize}
 
-\hypertarget{explicacion-1}{%
-\section{Explicación}\label{explicacion-1}}
+\hypertarget{explicacion-2}{%
+\section{Explicación}\label{explicacion-2}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2101,8 +2982,8 @@ A lo largo del curso vimos diferentes técnicas para manipulación de datos. En 
   Las funciones \texttt{walk} son útiles por ejemplo para escribir archivos en disco de forma iterativa. Algo que no genera una salida
 \end{itemize}
 
-\hypertarget{practica-guiada-1}{%
-\section{Práctica Guiada}\label{practica-guiada-1}}
+\hypertarget{practica-guiada-2}{%
+\section{Práctica Guiada}\label{practica-guiada-2}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2482,18 +3363,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country       continent  year lifeExp      pop gdpPercap
-##    <fct>         <fct>     <int>   <dbl>    <int>     <dbl>
-##  1 Finland       Europe     1979    73.4  4764690    16948.
-##  2 Guinea-Bissau Africa     1997    44.9  1193708      797.
-##  3 Iceland       Europe     1952    72.5   147962     7268.
-##  4 Timor-Leste   Asia       1992    49.2   796343     2578.
-##  5 Portugal      Europe     1963    65.0  9081600     4974.
-##  6 Honduras      Americas   1977    57.4  3055235     3203.
-##  7 Venezuela     Americas   1977    67.5 13503563    13144.
-##  8 Bahrain       Asia       1952    50.9   120447     9867.
-##  9 Australia     Oceania    1962    70.9 10794968    12217.
-## 10 Australia     Oceania    1961    71.2 10598814    11712.
+##    country       continent  year lifeExp       pop gdpPercap
+##    <fct>         <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Iran          Asia       1997    68.0  63327987     8264.
+##  2 Mali          Africa     1972    40.0   5828158      581.
+##  3 Finland       Europe     1951    65.7   4047300     6283.
+##  4 Korea, Rep.   Asia       1987    69.8  41622000     8533.
+##  5 Haiti         Americas   1987    53.6   5756203     1823.
+##  6 Poland        Europe     1991    70.4  38253222     7572.
+##  7 Cote d'Ivoire Africa     1972    49.8   6071696     2378.
+##  8 Haiti         Americas   2002    58.1   7607651     1270.
+##  9 Kazakhstan    FSU        1992    65.4  16542063     5920.
+## 10 Japan         Asia       1991    79.3 123946268    26649.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -2527,7 +3408,7 @@ la base tiene la siguiente info:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-66-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-99-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -2556,7 +3437,7 @@ probamos la función para un caso
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-101-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -2577,18 +3458,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    country          data             
-##    <fct>            <list>           
-##  1 Sweden           <tibble [58 x 5]>
-##  2 Mali             <tibble [12 x 5]>
-##  3 French Polynesia <tibble [9 x 5]> 
-##  4 Colombia         <tibble [12 x 5]>
-##  5 Norway           <tibble [58 x 5]>
-##  6 Belgium          <tibble [57 x 5]>
-##  7 Armenia          <tibble [4 x 5]> 
-##  8 Djibouti         <tibble [12 x 5]>
-##  9 Brazil           <tibble [12 x 5]>
-## 10 Canada           <tibble [57 x 5]>
+##    country         data             
+##    <fct>           <list>           
+##  1 Tajikistan      <tibble [4 x 5]> 
+##  2 China           <tibble [36 x 5]>
+##  3 Argentina       <tibble [12 x 5]>
+##  4 Eritrea         <tibble [12 x 5]>
+##  5 Burundi         <tibble [12 x 5]>
+##  6 Latvia          <tibble [42 x 5]>
+##  7 Moldova         <tibble [5 x 5]> 
+##  8 Slovak Republic <tibble [58 x 5]>
+##  9 Namibia         <tibble [12 x 5]>
+## 10 Zimbabwe        <tibble [12 x 5]>
 \end{verbatim}
 
 \begin{itemize}
@@ -2609,18 +3490,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 3
-##    country                data              grafico
-##    <fct>                  <list>            <list> 
-##  1 Tajikistan             <tibble [4 x 5]>  <gg>   
-##  2 Brunei                 <tibble [8 x 5]>  <gg>   
-##  3 Kazakhstan             <tibble [4 x 5]>  <gg>   
-##  4 Guadeloupe             <tibble [1 x 5]>  <gg>   
-##  5 Singapore              <tibble [12 x 5]> <gg>   
-##  6 Libya                  <tibble [13 x 5]> <gg>   
-##  7 Bosnia and Herzegovina <tibble [12 x 5]> <gg>   
-##  8 Chad                   <tibble [12 x 5]> <gg>   
-##  9 Moldova                <tibble [5 x 5]>  <gg>   
-## 10 Jamaica                <tibble [12 x 5]> <gg>
+##    country      data              grafico
+##    <fct>        <list>            <list> 
+##  1 Nicaragua    <tibble [12 x 5]> <gg>   
+##  2 Belgium      <tibble [57 x 5]> <gg>   
+##  3 Lesotho      <tibble [12 x 5]> <gg>   
+##  4 Sierra Leone <tibble [12 x 5]> <gg>   
+##  5 South Africa <tibble [12 x 5]> <gg>   
+##  6 Bhutan       <tibble [8 x 5]>  <gg>   
+##  7 Ukraine      <tibble [20 x 5]> <gg>   
+##  8 Sri Lanka    <tibble [13 x 5]> <gg>   
+##  9 Poland       <tibble [52 x 5]> <gg>   
+## 10 Austria      <tibble [57 x 5]> <gg>
 \end{verbatim}
 
 Veamos un ejemplo
@@ -2635,7 +3516,7 @@ Veamos un ejemplo
 ## [[1]]
 \end{verbatim}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-71-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-104-1.pdf}
 
 Ahora podemos guardar todos los gráficos en un archivo PDF
 
@@ -2666,8 +3547,8 @@ En esta clase veremos como realizar gráficos en R, tanto los comandos básicos 
   Gráficos con múltiples cruces de variables.
 \end{itemize}
 
-\hypertarget{explicacion-2}{%
-\section{Explicación}\label{explicacion-2}}
+\hypertarget{explicacion-3}{%
+\section{Explicación}\label{explicacion-3}}
 
 \hypertarget{graficos-basicos-en-r}{%
 \subsection{Gráficos Básicos en R}\label{graficos-basicos-en-r}}
@@ -2690,8 +3571,8 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Shaded}
 
 \begin{verbatim}
-##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 10          4.9         3.1          1.5         0.1  setosa
+##    id Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 10 10          4.9         3.1          1.5         0.1  setosa
 \end{verbatim}
 
 \begin{Shaded}
@@ -2700,7 +3581,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-106-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2709,7 +3590,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-107-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2717,7 +3598,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-107-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2725,7 +3606,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-107-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2733,7 +3614,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-4.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-107-4.pdf}
 
 \hypertarget{png}{%
 \subsubsection{png}\label{png}}
@@ -2821,7 +3702,7 @@ A continuación se muestra un gráfico de varias capas de construcción, con su 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-77-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-110-1.pdf}
 
 \hypertarget{capas-del-grafico}{%
 \subsubsection{Capas del Gráfico}\label{capas-del-grafico}}
@@ -2837,7 +3718,7 @@ En primera instancia solo defino los ejes. Y en este caso un color particular pa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-78-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-111-1.pdf}
 Luego, defino el tipo de gráfico. El \emph{alpha} me permite definir la intensidad de los puntos
 
 \begin{Shaded}
@@ -2847,7 +3728,7 @@ Luego, defino el tipo de gráfico. El \emph{alpha} me permite definir la intensi
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-112-1.pdf}
 Las siguientes tres capas me permiten respectivamente:
 
 \begin{itemize}
@@ -2870,7 +3751,7 @@ Las siguientes tres capas me permiten respectivamente:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-80-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-113-1.pdf}
 
 \hypertarget{extensiones-de-ggplot.}{%
 \subsubsection{\texorpdfstring{Extensiones de \href{http://www.ggplot2-exts.org/gallery/}{GGplot}.}{Extensiones de GGplot.}}\label{extensiones-de-ggplot.}}
@@ -2896,7 +3777,7 @@ La librería GGplot tiene a su vez muchas otras librerías que extienden sus pot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-114-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2906,7 +3787,7 @@ La librería GGplot tiene a su vez muchas otras librerías que extienden sus pot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-115-1.pdf}
 
 También hay extensiones que te ayudan a escribir el código, como \href{https://dreamrs.github.io/esquisse/}{esquisse}
 
@@ -2977,7 +3858,7 @@ Esta forma de pensar los gráficos nos permite repenser los distintos atributos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-86-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-119-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2991,10 +3872,10 @@ Esta forma de pensar los gráficos nos permite repenser los distintos atributos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-120-1.pdf}
 
-\hypertarget{practica-guiada-2}{%
-\section{Práctica Guiada}\label{practica-guiada-2}}
+\hypertarget{practica-guiada-3}{%
+\section{Práctica Guiada}\label{practica-guiada-3}}
 
 \hypertarget{graficos-ingresos---eph}{%
 \subsection{Graficos Ingresos - EPH}\label{graficos-ingresos---eph}}
@@ -3065,7 +3946,7 @@ Es importante que las variables sean del tipo que conceptualmente les correspond
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-91-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-124-1.pdf}
 
 Si queremos agregar la dimensión \emph{sexo}, podemos hacer un \texttt{facet\_wrap()}
 
@@ -3078,7 +3959,7 @@ Si queremos agregar la dimensión \emph{sexo}, podemos hacer un \texttt{facet\_w
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-92-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-125-1.pdf}
 
 Por la forma en que está presentado el gráfico, el foco de atención sigue puesto en las diferencias de ingresos entre niveles educativo. Simplemente se agrega un corte por la variable de sexo.
 
@@ -3094,7 +3975,7 @@ Si lo que queremos hacer es poner el foco de atención en las diferencias por se
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-93-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-126-1.pdf}
 
 \hypertarget{histogramas}{%
 \subsection{\texorpdfstring{\href{https://ggplot2.tidyverse.org/reference/geom_histogram.html}{Histogramas}}{Histogramas}}\label{histogramas}}
@@ -3112,7 +3993,7 @@ Por ejemplo, si observamos el ingreso de la ocupación principal:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-94-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-127-1.pdf}
 
 En este gráfico, los posibles valores de p21 se dividen en 30 \textbf{bins} consecutivos y el gráfico muestra cuantas observaciones caen en cada uno de ellos
 
@@ -3134,7 +4015,7 @@ Veamos un ejemplo sencillo con los ingresos de la ocupación principal. Luego ir
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-95-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-128-1.pdf}
 \textbf{El eje y no tiene demasiada interpretabilidad en los Kernel, porque hace a la forma en que se construyen las distribuciones}.
 
 El parametro adjust, dentro de la función \texttt{geom\_density}nos permite reducir o ampliar el rango de suavizado de la distribución. Su valor por default es 1. Veamos que sucede si lo seteamos en 2
@@ -3147,7 +4028,7 @@ El parametro adjust, dentro de la función \texttt{geom\_density}nos permite red
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-96-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-129-1.pdf}
 
 Como es esperable, la distribución del ingreso tiene ``picos'' en los valores redondos, ya que la gente suele declarar un valor aproximado al ingreso efectivo que percibe. Nadie declara ingresos de 30001. Al suavizar la serie con un kernel, eliminamos ese efecto.Si seteamos el rango para el suavizado en valores menores a 1, podemos observar estos picos.
 
@@ -3159,7 +4040,7 @@ Como es esperable, la distribución del ingreso tiene ``picos'' en los valores r
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-97-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-130-1.pdf}
 
 Ahora bien, como en todo grafico de R, podemos seguir agregando dimensiones para enriquecer el análisis.
 
@@ -3185,7 +4066,7 @@ Ahora bien, como en todo grafico de R, podemos seguir agregando dimensiones para
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-98-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-131-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3212,27 +4093,27 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 
 \begin{verbatim}
 ##    REGION  P47T  T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso
-## 1      44 30000     0       0 20000    154 Mujer    ingreso_laboral
-## 2      44 40000  1000       0 39000     39 Mujer    ingreso_laboral
-## 3      40 31000 28000       0  3000    231 Mujer    ingreso_laboral
-## 4      41 16500  2500       0 14000     44 Mujer    ingreso_laboral
-## 5      40 34000     0       0 23000    158 Mujer    ingreso_laboral
-## 6       1  3000  1000       0  2000   2751 Mujer ingreso_no_laboral
-## 7      43 65000     0       0 65000    682 Mujer    ingreso_laboral
-## 8      41 10000     0       0 10000    325 Varon    ingreso_laboral
-## 9      44 18000     0       0 18000    181 Varon    ingreso_laboral
-## 10     43 50000     0   20000 30000    362 Varon    ingreso_laboral
+## 1      42 62500 24500       0 25000    291 Mujer ingreso_no_laboral
+## 2      43  7000  1500       0  5500    255 Mujer ingreso_no_laboral
+## 3      40 13000  9000       0  4000    221 Mujer    ingreso_laboral
+## 4      43 18000     0       0 18000    686 Varon    ingreso_laboral
+## 5      44 20000     0       0 20000    273 Varon    ingreso_laboral
+## 6       1 18200  4500       0 13700   1963 Varon    ingreso_laboral
+## 7       1 16000  3000    4000  9000   2199 Mujer    ingreso_laboral
+## 8      42 12000     0       0 12000    170 Mujer    ingreso_laboral
+## 9      41 20000     0       0 20000    159 Varon    ingreso_laboral
+## 10     43 37000     0       0 37000    770 Mujer    ingreso_laboral
 ##    Ingreso
-## 1    20000
-## 2    39000
-## 3     3000
-## 4    14000
-## 5    23000
-## 6     1000
-## 7    65000
-## 8    10000
-## 9    18000
-## 10   50000
+## 1    24500
+## 2     1500
+## 3     4000
+## 4    18000
+## 5    20000
+## 6    13700
+## 7    13000
+## 8    12000
+## 9    20000
+## 10   37000
 \end{verbatim}
 
 \begin{Shaded}
@@ -3255,7 +4136,7 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-100-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-133-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3285,7 +4166,7 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-101-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-134-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3310,11 +4191,11 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
   Código embebido en el texto para automatización de reportes
 \end{itemize}
 
-\hypertarget{explicacion-3}{%
-\section{Explicación}\label{explicacion-3}}
+\hypertarget{explicacion-4}{%
+\section{Explicación}\label{explicacion-4}}
 
-\hypertarget{practica-guiada-3}{%
-\section{Práctica Guiada}\label{practica-guiada-3}}
+\hypertarget{practica-guiada-4}{%
+\section{Práctica Guiada}\label{practica-guiada-4}}
 
 \hypertarget{probabilidad-y-estadistica}{%
 \chapter{Probabilidad y Estadística}\label{probabilidad-y-estadistica}}
@@ -3339,8 +4220,8 @@ Esta clase es un repaso de los rudimentos de probabilidad y estadística. El obj
   Boxplots, histogramas y kernels
 \end{itemize}
 
-\hypertarget{explicacion-4}{%
-\section{Explicación}\label{explicacion-4}}
+\hypertarget{explicacion-5}{%
+\section{Explicación}\label{explicacion-5}}
 
 \hypertarget{probabilidad}{%
 \subsection{Probabilidad}\label{probabilidad}}
@@ -3433,7 +4314,7 @@ Si, por definición o por practicidad, no se puede enumerar cada caso, lo que te
 Por ejemplo, la altura de la población
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-104-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-137-1.pdf}
 
 \begin{itemize}
 \item
@@ -3446,7 +4327,7 @@ Por ejemplo, la altura de la población
 
 Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-105-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-105-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-105-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-138-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-138-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-138-3.pdf}
 
 \begin{quote}
 Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
@@ -3458,7 +4339,7 @@ Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámet
   Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
 \end{itemize}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-106-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-106-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-106-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-139-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-139-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-139-3.pdf}
 
 \hypertarget{estadistica}{%
 \subsection{Estadística}\label{estadistica}}
@@ -3674,7 +4555,7 @@ Es el valor que parte la distribución a la mitad
 
 La moda es el valor más frecuente de la distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-107-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-140-1.pdf}
 
 \hypertarget{cuantiles}{%
 \subsubsection{Cuantiles}\label{cuantiles}}
@@ -3683,7 +4564,7 @@ Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un
 
 Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-108-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-141-1.pdf}
 
 \hypertarget{desvio-estandar}{%
 \subsubsection{Desvío estándar}\label{desvio-estandar}}
@@ -3720,7 +4601,7 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
 
 Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-109-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-142-1.pdf}
 
 Algunas cosas que resaltan:
 
@@ -3734,13 +4615,13 @@ Algunas cosas que resaltan:
 
 Podemos generar 100 números aleatorios en lugar de 15:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-110-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-143-1.pdf}
 
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
 También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-111-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-144-1.pdf}
 
 \hypertarget{histograma}{%
 \subsubsection{Histograma}\label{histograma}}
@@ -3757,21 +4638,21 @@ Otra forma de analizar una distribución es mediante los histogramas:
 
 Veamos el mismo ejemplo que arriba, pero con histogramas:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-112-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-112-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-145-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-145-2.pdf}
 
 \hypertarget{kernel}{%
 \subsubsection{Kernel}\label{kernel}}
 
 Los Kernels son simplemente un suavizado sobre los histogramas.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-113-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-113-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-146-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-146-2.pdf}
 
 \hypertarget{violin-plots}{%
 \subsubsection{Violin plots}\label{violin-plots}}
 
 Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-114-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-114-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-147-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-147-2.pdf}
 
 \hypertarget{bibliografia-de-consulta-1}{%
 \subsection{Bibliografía de consulta}\label{bibliografia-de-consulta-1}}
@@ -3788,8 +4669,8 @@ Quién quiera profundizar en estos temas, puede ver los siguientes materiales:
   Jay L. Devore, ``Probabilidad y Estadística para Ingeniería y Ciencias'', International Thomson Editores. \url{https://inferencialitm.files.wordpress.com/2018/04/probabilidad-y-estadistica-para-ingenieria-y-ciencias-devore-7th.pdf}
 \end{itemize}
 
-\hypertarget{practica-guiada-4}{%
-\section{Práctica Guiada}\label{practica-guiada-4}}
+\hypertarget{practica-guiada-5}{%
+\section{Práctica Guiada}\label{practica-guiada-5}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3861,7 +4742,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-118-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3869,7 +4750,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-118-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3877,7 +4758,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-118-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-3.pdf}
 
 Noten que el eje X es el índice de los valores, es decir que no agrega información.
 
@@ -4017,7 +4898,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-124-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4025,7 +4906,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-124-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4033,13 +4914,13 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-124-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-3.pdf}
 
 \hypertarget{modelo-lineal}{%
 \chapter{Modelo Lineal}\label{modelo-lineal}}
 
-\hypertarget{explicacion-5}{%
-\section{Explicación}\label{explicacion-5}}
+\hypertarget{explicacion-6}{%
+\section{Explicación}\label{explicacion-6}}
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
@@ -4066,7 +4947,7 @@ Esto es: La covarianza entre dos variables, \(x\) e \(y\) es el promedio (noten 
 
 tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-125-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf}
 
 Aquí marcamos \(\bar x\) y \(\bar y\) y dividimos el gráfico en cuatro cuadrantes.
 
@@ -4122,7 +5003,7 @@ Para ver una implementación práctica de estos conceptos, vamos a utilizar la l
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-126-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf}
 
 Veamos la correlación entre:
 
@@ -4189,7 +5070,7 @@ sigamos utilizando los datos de \emph{sim1}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-129-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
 
 Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \texttt{y\ =\ a\_0\ +\ a\_1\ *\ x} podría servir.
 
@@ -4211,7 +5092,7 @@ Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-130-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
 
 A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los \emph{mejores} modelos.
 
@@ -4242,7 +5123,7 @@ Para eso, eligamos un modelo cualquiera:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-131-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
 
 La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
 
@@ -4334,7 +5215,7 @@ A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos lo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-135-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-1.pdf}
 
 También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de \texttt{a1} vs\texttt{a2}, nuevamente coloreado por \texttt{-dist}. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
 
@@ -4346,7 +5227,7 @@ También podemos pensar en estos modelos como observaciones y visualizar con un 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-136-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-169-1.pdf}
 
 \hypertarget{grid-search}{%
 \subsubsection{Grid search}\label{grid-search}}
@@ -4368,7 +5249,7 @@ En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-137-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-170-1.pdf}
 
 Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
 
@@ -4383,7 +5264,7 @@ Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-138-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-171-1.pdf}
 
 \hypertarget{optimo-por-metodos-numericos}{%
 \subsubsection{óptimo por métodos numéricos}\label{optimo-por-metodos-numericos}}
@@ -4435,7 +5316,7 @@ En R, podemos hacer eso con \texttt{optim\ ()}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-140-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-173-1.pdf}
 
 \hypertarget{optimo-para-el-modelo-lineal}{%
 \subsubsection{Óptimo para el modelo lineal}\label{optimo-para-el-modelo-lineal}}
@@ -4571,7 +5452,7 @@ Hay muchas maneras de analizar los residuos. Una es con las estadísticas de res
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-144-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-1.pdf}
 
 \hypertarget{regresion-lineal-multiple}{%
 \subsection{Regresión lineal múltiple}\label{regresion-lineal-multiple}}
@@ -4588,7 +5469,7 @@ Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múl
 Para cada par de puntos en \(x_1\) y \(x_2\) vamos a definir un valor para \(y\)
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-145-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-145-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-2.pdf}
 
 \begin{itemize}
 \item
@@ -4614,8 +5495,8 @@ Estas notas de clase estan fuertemente inspiradas en los siguientes libros/notas
 
 Un punto pendiente de estas clases que es muy importante son los \textbf{supuestos} que tiene detrás el modelo lineal.
 
-\hypertarget{practica-guiada-5}{%
-\section{Práctica Guiada}\label{practica-guiada-5}}
+\hypertarget{practica-guiada-6}{%
+\section{Práctica Guiada}\label{practica-guiada-6}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4863,7 +5744,7 @@ Para construir la nueva variable, podemos ver el precio promedio del metro cuadr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-153-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-186-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5125,11 +6006,11 @@ Un problema de lo que vimos en esta práctica es que las salidas de \texttt{summ
   Utilización de los ponderadores
 \end{itemize}
 
-\hypertarget{explicacion-6}{%
-\section{Explicación}\label{explicacion-6}}
+\hypertarget{explicacion-7}{%
+\section{Explicación}\label{explicacion-7}}
 
-\hypertarget{practica-guiada-6}{%
-\section{Práctica Guiada}\label{practica-guiada-6}}
+\hypertarget{practica-guiada-7}{%
+\section{Práctica Guiada}\label{practica-guiada-7}}
 
 \bibliography{book.bib,packages.bib}
 
