@@ -1622,7 +1622,7 @@ Para mostrar el funcionamiento básico de tidyverse utilizaremos a modo de ejemp
 \end{verbatim}
 
 \hypertarget{dplyr}{%
-\section{Dplyr}\label{dplyr}}
+\subsection{Dplyr}\label{dplyr}}
 
 El caracter principal para utilizar este paquete es \texttt{\%\textgreater{}\%} , \emph{pipe} (de tubería).
 
@@ -1633,7 +1633,7 @@ Los \texttt{\%\textgreater{}\%} toman el set de datos a su izquierda, y los tran
 Veamos las principales funciones que pueden utilizarse con la lógica de este paquete:
 
 \hypertarget{glimpse}{%
-\subsection{glimpse}\label{glimpse}}
+\subsubsection{glimpse}\label{glimpse}}
 
 Permite ver la estructura de la tabla. Nos muestra:
 
@@ -1660,7 +1660,7 @@ Permite ver la estructura de la tabla. Nos muestra:
 \includegraphics{img/glimpse.png}
 
 \hypertarget{filter}{%
-\subsection{filter}\label{filter}}
+\subsubsection{filter}\label{filter}}
 
 Permite filtrar la tabla de acuerdo al cumplimiento de condiciones lógicas.
 
@@ -1699,7 +1699,7 @@ Nótese que en este caso al separar con una \textbf{,} las condiciones se exige 
 \end{verbatim}
 
 \hypertarget{rename}{%
-\subsection{rename}\label{rename}}
+\subsubsection{rename}\label{rename}}
 
 Permite renombrar una columna de la tabla. Funciona de la siguiente manera:
 
@@ -1728,7 +1728,7 @@ Permite renombrar una columna de la tabla. Funciona de la siguiente manera:
 Nótese que, a diferencia del ejemplo de la función \textbf{filter} donde utilizábamos \textbf{==} para comprobar una condición lógica, en este caso se utiliza sólo un \textbf{=} ya que lo estamos haciendo es \emph{asignar} un nombre.
 
 \hypertarget{mutate}{%
-\subsection{mutate}\label{mutate}}
+\subsubsection{mutate}\label{mutate}}
 
 Permite agregar una variable a la tabla (especificando el nombre que tomará ésta), que puede ser el resultado de operaciones sobre otras variables de la misma tabla.
 
@@ -1757,7 +1757,7 @@ En caso de especificar el nombre de una columna existente, el resultado de la op
 \end{verbatim}
 
 \hypertarget{case_when}{%
-\subsection{case\_when}\label{case_when}}
+\subsubsection{case\_when}\label{case_when}}
 
 Permite definir una variable, de forma tal que tome un valor particular para cada condición establecida. En caso de no cumplir con ninguna de las condiciones establecidas, la variable tomará valor \textbf{NA}.\\
 La sintaxis de la función es:\\
@@ -1790,7 +1790,7 @@ La sintaxis de la función es:\\
 Si querémos asignar un valor a todo lo que no cumple ningúna de las condiciones anteriores, podemos poner \texttt{TRUE\ \textasciitilde{}\ valor}
 
 \hypertarget{select}{%
-\subsection{select}\label{select}}
+\subsubsection{select}\label{select}}
 
 Permite especificar la serie de columnas que se desea conservar de un DataFrame. También pueden especificarse las columnas que se desean descartar (agregándoles un \emph{-} adelante). Muy útil para agilizar el trabajo en bases de datos de gran tamaño.
 
@@ -1837,7 +1837,7 @@ Permite especificar la serie de columnas que se desea conservar de un DataFrame.
 \end{verbatim}
 
 \hypertarget{arrange}{%
-\subsection{arrange}\label{arrange}}
+\subsubsection{arrange}\label{arrange}}
 
 Permite ordenar la tabla según los valores de determinada/s variable/s. Es útil cuando luego deben hacerse otras operaciones que requieran del ordenamiento de la tabla, o para mostrar resultados de forma ordenada.
 
@@ -1864,7 +1864,7 @@ Permite ordenar la tabla según los valores de determinada/s variable/s. Es úti
 \end{verbatim}
 
 \hypertarget{summarise}{%
-\subsection{summarise}\label{summarise}}
+\subsubsection{summarise}\label{summarise}}
 
 Crea una nueva tabla que resuma la información original. Para ello, definimos las variables de resumen y las formas de agregación.
 
@@ -1884,7 +1884,7 @@ Crea una nueva tabla que resuma la información original. Para ello, definimos l
 \end{verbatim}
 
 \hypertarget{group_by}{%
-\subsection{group\_by}\label{group_by}}
+\subsubsection{group\_by}\label{group_by}}
 
 Esta función permite realizar operaciones de forma agrupada. Lo que hace la función es ``separar'' a la tabla según los valores de la variable indicada y realizar las operaciones que se especifican a continuación, de manera independiente para cada una de las ``subtablas''. En nuestro ejemplo, podría ser útil para calcular el promedio de las tasas por \emph{INDICADOR}.
 
@@ -1906,7 +1906,7 @@ Esta función permite realizar operaciones de forma agrupada. Lo que hace la fun
 \end{verbatim}
 
 \hypertarget{joins}{%
-\section{Joins}\label{joins}}
+\subsection{Joins}\label{joins}}
 
 Otra implementación muy importante del paquete dplyr son las funciones para unir tablas (joins).
 
@@ -1917,7 +1917,7 @@ Otra implementación muy importante del paquete dplyr son las funciones para uni
 \end{figure}
 
 \hypertarget{left_join}{%
-\subsection{left\_join}\label{left_join}}
+\subsubsection{left\_join}\label{left_join}}
 
 Veamos un ejemplo de la función \textbf{left\_join} (una de las más utilizadas en la práctica).\\
 Para ello crearemos previamente un Dataframe que contenga las cantidades de población total y población económicamente activa para cada uno de los períodos del Dataframe \emph{Datos}.
@@ -1985,7 +1985,7 @@ Finalmente, podemos calcular la cantidad de personas desocupadas en cada uno de 
 \end{verbatim}
 
 \hypertarget{tidyr}{%
-\section{Tidyr}\label{tidyr}}
+\subsection{Tidyr}\label{tidyr}}
 
 El paquete tidyr está pensado para facilitar el emprolijamiento de los datos.
 
@@ -2039,7 +2039,7 @@ El paquete tidyr está pensado para facilitar el emprolijamiento de los datos.
 \end{verbatim}
 
 \hypertarget{gather-y-spread}{%
-\subsection{Gather y Spread}\label{gather-y-spread}}
+\subsubsection{Gather y Spread}\label{gather-y-spread}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2085,7 +2085,7 @@ Podemos deshacer el \textbf{gather} con un \textbf{Spread}
 \end{verbatim}
 
 \hypertarget{lubridate}{%
-\section{Lubridate}\label{lubridate}}
+\subsection{Lubridate}\label{lubridate}}
 
 El paquete lubridate está pensado para trabajar con los datos tipo fecha (date) o fecha-hora (datetime) para cambiarles el formato, realizar operaciones y extraer información
 
@@ -2096,7 +2096,7 @@ El paquete lubridate está pensado para trabajar con los datos tipo fecha (date)
 \end{Shaded}
 
 \hypertarget{cambio-de-formato}{%
-\subsection{Cambio de formato}\label{cambio-de-formato}}
+\subsubsection{Cambio de formato}\label{cambio-de-formato}}
 
 Existe una gran cantidad de funciones para realizar esto. La idea general es poder llevar los objetos datetime a un formato común compuesto de los elementos: año, mes, día, hora, minuto y segundo (también se puede setear el huso horario)
 
@@ -2143,7 +2143,7 @@ En el parámetro \emph{x} pasamos el dato de la fecha y en el parámetro \emph{o
 \end{verbatim}
 
 \hypertarget{extraccion-de-informacion}{%
-\subsection{Extracción de información}\label{extraccion-de-informacion}}
+\subsubsection{Extracción de información}\label{extraccion-de-informacion}}
 
 Existen muchas funciones muy sencillas para extraer información de un objeto datetime. Algunas son:
 
@@ -2199,7 +2199,7 @@ Existen muchas funciones muy sencillas para extraer información de un objeto da
 \end{verbatim}
 
 \hypertarget{operaciones}{%
-\subsection{Operaciones}\label{operaciones}}
+\subsubsection{Operaciones}\label{operaciones}}
 
 Podemos sumar o restarle cualquier período de tiempo a un objeto datetime
 
@@ -3375,18 +3375,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country     continent  year lifeExp       pop gdpPercap
-##    <fct>       <fct>     <int>   <dbl>     <int>     <dbl>
-##  1 India       Asia       1982    56.6 708000000      856.
-##  2 Nigeria     Africa     1982    45.8  73039376     1577.
-##  3 New Zealand Oceania    2003    79.4   3951307    23728.
-##  4 Georgia     FSU        2007    71.0   4646003     4387.
-##  5 Cameroon    Africa     1962    42.6   5793633     1400.
-##  6 Spain       Europe     1993    77.7  39627587    18375.
-##  7 Singapore   Asia       1977    70.8   2325300    11210.
-##  8 Italy       Europe     1997    78.8  57479469    24675.
-##  9 Ethiopia    Africa     1957    36.7  22815614      379.
-## 10 Moldova     Europe     2007    68.9   4480560     2605.
+##    country        continent  year lifeExp      pop gdpPercap
+##    <fct>          <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Brunei         Asia       1997    75.5   313563    48967.
+##  2 Bahamas        Americas   1972    66.5   178332    18152.
+##  3 Czech Republic Europe     1957    69.0  9513758     8256.
+##  4 Italy          Europe     1971    71.9 54005500    11939.
+##  5 Turkey         Europe     1962    52.1 29788695     2323.
+##  6 Hungary        Europe     1975    69.4 10531820    11062.
+##  7 Timor-Leste    Asia       2007    60.8  1084971     2286.
+##  8 Guyana         Americas   1987    61.8   755464     2169.
+##  9 Netherlands    Europe     1978    75.2 13936754    21608.
+## 10 Ghana          Africa     1957    44.8  6391288     1044.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -3470,18 +3470,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    country          data             
-##    <fct>            <list>           
-##  1 Papua New Guinea <tibble [10 x 5]>
-##  2 Portugal         <tibble [58 x 5]>
-##  3 Mauritius        <tibble [12 x 5]>
-##  4 Kazakhstan       <tibble [4 x 5]> 
-##  5 Hungary          <tibble [57 x 5]>
-##  6 Belarus          <tibble [18 x 5]>
-##  7 Peru             <tibble [12 x 5]>
-##  8 Armenia          <tibble [4 x 5]> 
-##  9 Lithuania        <tibble [18 x 5]>
-## 10 Lesotho          <tibble [12 x 5]>
+##    country             data             
+##    <fct>               <list>           
+##  1 Senegal             <tibble [12 x 5]>
+##  2 Sierra Leone        <tibble [12 x 5]>
+##  3 Uganda              <tibble [13 x 5]>
+##  4 Trinidad and Tobago <tibble [12 x 5]>
+##  5 Namibia             <tibble [12 x 5]>
+##  6 Bangladesh          <tibble [12 x 5]>
+##  7 Tanzania            <tibble [12 x 5]>
+##  8 Grenada             <tibble [8 x 5]> 
+##  9 Cuba                <tibble [13 x 5]>
+## 10 Chad                <tibble [12 x 5]>
 \end{verbatim}
 
 \begin{itemize}
@@ -3502,18 +3502,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 3
-##    country          data              grafico
-##    <fct>            <list>            <list> 
-##  1 Korea, Dem. Rep. <tibble [12 x 5]> <gg>   
-##  2 Mozambique       <tibble [12 x 5]> <gg>   
-##  3 Brunei           <tibble [8 x 5]>  <gg>   
-##  4 Bolivia          <tibble [12 x 5]> <gg>   
-##  5 Japan            <tibble [58 x 5]> <gg>   
-##  6 Hong Kong, China <tibble [12 x 5]> <gg>   
-##  7 Guadeloupe       <tibble [1 x 5]>  <gg>   
-##  8 French Guiana    <tibble [1 x 5]>  <gg>   
-##  9 Madagascar       <tibble [12 x 5]> <gg>   
-## 10 Philippines      <tibble [12 x 5]> <gg>
+##    country               data              grafico
+##    <fct>                 <list>            <list> 
+##  1 Mexico                <tibble [13 x 5]> <gg>   
+##  2 Latvia                <tibble [42 x 5]> <gg>   
+##  3 Montenegro            <tibble [12 x 5]> <gg>   
+##  4 Barbados              <tibble [10 x 5]> <gg>   
+##  5 Israel                <tibble [12 x 5]> <gg>   
+##  6 Nepal                 <tibble [12 x 5]> <gg>   
+##  7 New Zealand           <tibble [55 x 5]> <gg>   
+##  8 Thailand              <tibble [13 x 5]> <gg>   
+##  9 Australia             <tibble [56 x 5]> <gg>   
+## 10 Sao Tome and Principe <tibble [12 x 5]> <gg>
 \end{verbatim}
 
 Veamos un ejemplo
@@ -4104,28 +4104,17 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 \end{Shaded}
 
 \begin{verbatim}
-##    REGION  P47T  T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso
-## 1      40 20800     0       0 15800    170 Mujer    ingreso_laboral
-## 2      41 30000     0       0 30000    315 Mujer    ingreso_laboral
-## 3      41 52000     0       0 35000    220 Varon    ingreso_laboral
-## 4      40  4500     0       0  4500    156 Varon    ingreso_laboral
-## 5      40 12600     0       0  8400    349 Mujer    ingreso_laboral
-## 6      41 13000  5000       0  8000    439 Mujer ingreso_no_laboral
-## 7      43 70000     0       0 70000    901 Varon    ingreso_laboral
-## 8      40  5500     0       0  5500    162 Varon    ingreso_laboral
-## 9      41  1500   500       0  1000    209 Varon ingreso_no_laboral
-## 10      1 17000 15000       0  2000   1165 Mujer ingreso_no_laboral
-##    Ingreso
-## 1    15800
-## 2    30000
-## 3    35000
-## 4     4500
-## 5     8400
-## 6     5000
-## 7    70000
-## 8     5500
-## 9      500
-## 10   15000
+##    REGION  P47T T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso Ingreso
+## 1      40 17000    0       0 17000    222 Varon    ingreso_laboral   17000
+## 2      43  1200    0       0  1200    513 Varon    ingreso_laboral    1200
+## 3      44 12600 1400    3200  8000    269 Mujer    ingreso_laboral   11200
+## 4      44 35000    0       0 35000    133 Varon    ingreso_laboral   35000
+## 5      43 35000 6000       0 29000    391 Mujer ingreso_no_laboral    6000
+## 6      41 46000    0   23000 23000    300 Mujer    ingreso_laboral   46000
+## 7      43  5000    0       0  5000    853 Mujer    ingreso_laboral    5000
+## 8      43 37500    0       0 37500   1190 Mujer    ingreso_laboral   37500
+## 9      42  2560    0       0  2560    242 Mujer    ingreso_laboral    2560
+## 10     43 12000    0       0 12000     86 Varon    ingreso_laboral   12000
 \end{verbatim}
 
 \begin{Shaded}
