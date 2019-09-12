@@ -90,8 +90,7 @@ __clase 6__: Shiny
 + Shiny como reportes dinámicos
 + Su utilidad para el análisis exploratorio
 + Lógica de servidor- interfaz de usuario
-+ Extensiones del mundo shiny
-+ Publicación de resultados
++ Inputs- Outputs, funciones reactivas, widgets.
 
 
 #### __Eje 3. Estadística__ {-}
