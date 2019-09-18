@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2019.4.20)  12 SEP 2019 11:57
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2019.4.20)  18 SEP 2019 10:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1737,6 +1737,77 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 3079--3079
  []
 
 [59] [60] [61] [62] [63]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##    country            continent  year lifeExp       pop gd
+pPercap[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##    <fct>              <fct>     <int>   <dbl>     <int>   
+  <dbl>[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  1 Malta              Europe     2007    79.4    401880   
+ 21712.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  2 Denmark            Europe     1972    73.5   4991596   
+ 18866.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  3 Mauritania         Africa     1977    50.9   1456688   
+  1497.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  4 Japan              Asia       1989    79.0 123107500   
+ 24705.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  5 Guyana             Americas   2002    63.6    759104   
+  3238.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  6 West Bank and Gaza Asia       1967    51.6   1142636   
+  2650.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  7 Poland             Europe     1981    71.3  35901961   
+  8607.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  8 Sweden             Europe     1954    72.4   7213490   
+  9225.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ##  9 Guinea-Bissau      Africa     1957    33.5    601095   
+   432.[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3388--3388
+[]\TU/lmtt/m/n/10 ## 10 Kenya              Africa     1957    44.7   7454779   
+   944.[] 
+ []
+
 File: bookdown_files/figure-latex/unnamed-chunk-99-1.pdf Graphic file (type pdf
 )
 <use bookdown_files/figure-latex/unnamed-chunk-99-1.pdf>
@@ -1932,69 +2003,69 @@ Overfull \vbox (0.97528pt too high) detected at line 4102
  []
 
 [93]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ##    REGION  P47T T_VI TOT_P12   P21 PONDII  CH04       Tipo
-_ingreso Ingreso[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ##    REGION  P47T  T_VI TOT_P12   P21 PONDII  CH04       Tip
+o_ingreso[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 1       1 70000    0       0 70000   2573 Mujer    ingreso
-_laboral   70000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 1       1 20000     0       0 20000   1502 Mujer    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 2      41 10000    0       0 10000    228 Varon    ingreso
-_laboral   10000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 2      40  5500  2500       0  3000    139 Mujer ingreso_n
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 3      41 12600 3600    3000  6000    270 Mujer    ingreso
-_laboral    9000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 3       1 13500  1500       0 12000   2271 Mujer    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 4      42 18000 8000       0 10000    162 Varon ingreso_no
-_laboral    8000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 4      40 35000     0       0 23000    226 Varon    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 5      44 30000    0       0 30000    126 Varon    ingreso
-_laboral   30000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 5      43 22000     0       0 22000    111 Varon    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 6      40 10000    0       0 10000    317 Varon    ingreso
-_laboral   10000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 6      44 41000     0       0 27000    117 Mujer    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 7      43  8000 6000       0  2000    382 Mujer    ingreso
-_laboral    2000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 7      40 19500     0    5000 14500    133 Varon    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 8      43 25000    0       0 25000   2003 Varon    ingreso
-_laboral   25000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 8      43 18000     0    3000 15000    681 Mujer    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 9      42  9000 4000       0  5000    175 Mujer ingreso_no
-_laboral    4000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 9      43 23000     0       0 23000    590 Varon    ingres
+o_laboral[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4116--4116
-[]\TU/lmtt/m/n/10 ## 10     43 55000    0   15000 40000     48 Varon    ingreso
-_laboral   55000[] 
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4127--4127
+[]\TU/lmtt/m/n/10 ## 10      1 24000 12000       0 12000    728 Mujer    ingres
+o_laboral[] 
  []
 
 File: bookdown_files/figure-latex/unnamed-chunk-133-1.pdf Graphic file (type pd
@@ -2011,812 +2082,812 @@ f)
 Chapter 5.
 [97
 
-] [98
+]
+File: img/Selection_008.png Graphic file (type bmp)
+<img/Selection_008.png>
+File: img/Selection_001.png Graphic file (type bmp)
+<img/Selection_001.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[98] [99]
+File: img/opciones formato chunk.png Graphic file (type bmp)
+<img/opciones formato chunk.png>
+
+Overfull \hbox (78.37515pt too wide) in paragraph at lines 4306--4307
+[]\TU/lmr/m/n/10 formato chunk.bb [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[100]
+Underfull \hbox (badness 2735) in paragraph at lines 4320--4321
+\TU/lmr/m/n/10 no ajustarse a tus necesidades. Podemos setear cambios incluyend
+o
+ []
+
+[101] [102] [103] [104]
+File: bookdown_files/figure-latex/unnamed-chunk-141-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-141-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-142-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-142-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[105]
+File: bookdown_files/figure-latex/unnamed-chunk-144-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-144-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[106] [107] [108
 
 ]
 Chapter 6.
 File: img/shiny_logo.png Graphic file (type bmp)
 <img/shiny_logo.png>
 
-Overfull \hbox (31.4298pt too wide) in paragraph at lines 4219--4220
+Overfull \hbox (31.4298pt too wide) in paragraph at lines 4535--4536
 [][][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[99] [100] [101] [102]
-File: bookdown_files/figure-latex/unnamed-chunk-140-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-140-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[103] [104]
-File: bookdown_files/figure-latex/unnamed-chunk-141-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-141-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-141-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-141-2.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[105]
-Underfull \hbox (badness 10000) in paragraph at lines 4510--4511
-[]\TU/lmtt/m/n/10 selectizeInput(inputId, label, choices, selected = NULL, mult
-iple
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4524--4524
-[]\TU/lmtt/m/n/10 ## 142 Levels: Afghanistan Albania Algeria Angola Argentina .
-.. Zimbabwe[] 
- []
-
-[106] [107] [108]
-Chapter 7.
-File: img/marco_proba.png Graphic file (type bmp)
-<img/marco_proba.png>
-
-Overfull \hbox (407.84006pt too wide) in paragraph at lines 4645--4646
-[] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[109
-
-] [110]
-File: bookdown_files/figure-latex/unnamed-chunk-148-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-148-1.pdf>
-[111]
-File: bookdown_files/figure-latex/unnamed-chunk-149-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-149-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-149-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-149-2.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-149-3.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-149-3.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 4741--4742
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4741--4742
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[112]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[113]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[114]
+[109] [110] [111] [112]
 File: bookdown_files/figure-latex/unnamed-chunk-150-1.pdf Graphic file (type pd
 f)
 <use bookdown_files/figure-latex/unnamed-chunk-150-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-150-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-150-2.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-150-3.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-150-3.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 4753--4754
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4753--4754
-[]
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[115]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[116]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[117]
-File: img/problema_inversion_1.png Graphic file (type bmp)
-<img/problema_inversion_1.png>
-
-Overfull \hbox (407.84006pt too wide) in paragraph at lines 4774--4775
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[118]
-File: img/problema_inversion_2.png Graphic file (type bmp)
-<img/problema_inversion_2.png>
-
-Overfull \hbox (407.84006pt too wide) in paragraph at lines 4789--4790
-[][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[119] [120] [121] [122]
-File: img/tests.jpeg Graphic file (type bmp)
-<img/tests.jpeg>
-
-Overfull \hbox (70.1787pt too wide) in paragraph at lines 4933--4934
- [][] 
- []
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 4934--4934
-[]\TU/lmr/m/n/10 Figure 7.1: []fuente: []$[][][][] [] [] [] [][][][][][] [] [][
-][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][]
- []
- []
-
-
-LaTeX Warning: Float too large for page by 34.1009pt on input line 4935.
-
+[113]
 File: bookdown_files/figure-latex/unnamed-chunk-151-1.pdf Graphic file (type pd
 f)
 <use bookdown_files/figure-latex/unnamed-chunk-151-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[123] [124]
-File: bookdown_files/figure-latex/unnamed-chunk-152-1.pdf Graphic file (type pd
+[114]
+File: bookdown_files/figure-latex/unnamed-chunk-151-2.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-152-1.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-151-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[125] [126]
-File: bookdown_files/figure-latex/unnamed-chunk-153-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-153-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-154-1.pdf>
+[115]
+Underfull \hbox (badness 10000) in paragraph at lines 4826--4827
+[]\TU/lmtt/m/n/10 selectizeInput(inputId, label, choices, selected = NULL, mult
+iple
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[127]
-File: bookdown_files/figure-latex/unnamed-chunk-155-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-155-1.pdf>
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4840--4840
+[]\TU/lmtt/m/n/10 ## 142 Levels: Afghanistan Albania Algeria Angola Argentina .
+.. Zimbabwe[] 
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[116] [117] [118
 
-[128]
-File: bookdown_files/figure-latex/unnamed-chunk-156-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-156-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-156-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-156-2.pdf>
+]
+Chapter 7.
+File: img/marco_proba.png Graphic file (type bmp)
+<img/marco_proba.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 5052--5053
-[][]
+Overfull \hbox (407.84006pt too wide) in paragraph at lines 4961--4962
+[] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[129]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[130]
-File: bookdown_files/figure-latex/unnamed-chunk-157-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-157-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-157-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-157-2.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 5059--5060
-[][]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[131]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[132]
+[119] [120]
 File: bookdown_files/figure-latex/unnamed-chunk-158-1.pdf Graphic file (type pd
 f)
 <use bookdown_files/figure-latex/unnamed-chunk-158-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-158-2.pdf Graphic file (type pd
+[121]
+File: bookdown_files/figure-latex/unnamed-chunk-159-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-158-2.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-159-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-159-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-159-2.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-159-3.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-159-3.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 5066--5067
+Underfull \hbox (badness 10000) in paragraph at lines 5057--5058
 [][]
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 5057--5058
+[]
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[133]
+[122]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[134]
-Underfull \hbox (badness 10000) in paragraph at lines 5078--5080
-[][]$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][][][] [] [][][] [] [][]
-[][][][][] [] [][][][][][][][][][] [] [][][] [] [][][][][][][][] [] [][][][] []
+[123]
+File: bookdown_files/figure-latex/unnamed-chunk-160-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-160-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-160-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-160-2.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-160-3.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-160-3.pdf>
 
+Underfull \hbox (badness 10000) in paragraph at lines 5069--5070
+[][]
  []
 
 
-Overfull \hbox (23.73pt too wide) in paragraph at lines 5080--5081
-[][][] [] [][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][] []
+Underfull \hbox (badness 10000) in paragraph at lines 5069--5070
+[]
  []
 
-[135]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 5122--5122
-[]\TU/lmtt/m/n/10 ##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42
-912469[] 
+[124] [125]
+File: img/problema_inversion_1.png Graphic file (type bmp)
+<img/problema_inversion_1.png>
+
+Overfull \hbox (407.84006pt too wide) in paragraph at lines 5090--5091
+[][] 
  []
 
+[126]
+File: img/problema_inversion_2.png Graphic file (type bmp)
+<img/problema_inversion_2.png>
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 5122--5122
-[]\TU/lmtt/m/n/10 ##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89
-003783[] 
+Overfull \hbox (407.84006pt too wide) in paragraph at lines 5105--5106
+[][] 
  []
 
+[127] [128] [129]
+File: img/tests.jpeg Graphic file (type bmp)
+<img/tests.jpeg>
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 5122--5122
-[]\TU/lmtt/m/n/10 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95
-949406[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5134--5134
-[]\TU/lmtt/m/n/10 ##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  
-0.007839245[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5134--5134
-[]\TU/lmtt/m/n/10 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -
-0.249237745[] 
+Overfull \hbox (70.1787pt too wide) in paragraph at lines 5249--5250
+ [][] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5134--5134
-[]\TU/lmtt/m/n/10 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -
-4.271087169[] 
+Underfull \hbox (badness 1590) in paragraph at lines 5250--5250
+[]\TU/lmr/m/n/10 Figure 7.1: []fuente: []$[][][][] [] [] [] [][][][][][] [] [][
+][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][]
+ []
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5146--5146
-[]\TU/lmtt/m/n/10 ##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0
-455256 3.1902100[] 
- []
+LaTeX Warning: Float too large for page by 34.1009pt on input line 5251.
 
+File: bookdown_files/figure-latex/unnamed-chunk-161-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-161-1.pdf>
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5146--5146
-[]\TU/lmtt/m/n/10 ##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1
-386091 0.2966193[] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[130] [131]
 File: bookdown_files/figure-latex/unnamed-chunk-162-1.pdf Graphic file (type pd
 f)
 <use bookdown_files/figure-latex/unnamed-chunk-162-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[136]
-File: bookdown_files/figure-latex/unnamed-chunk-162-2.pdf Graphic file (type pd
+[132]
+File: bookdown_files/figure-latex/unnamed-chunk-163-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-162-2.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-163-1.pdf>
+[133]
+File: bookdown_files/figure-latex/unnamed-chunk-164-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-164-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[137]
-File: bookdown_files/figure-latex/unnamed-chunk-162-3.pdf Graphic file (type pd
+[134]
+File: bookdown_files/figure-latex/unnamed-chunk-165-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-162-3.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-165-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[138] [139] [140]
-File: bookdown_files/figure-latex/unnamed-chunk-168-1.pdf Graphic file (type pd
+[135]
+File: bookdown_files/figure-latex/unnamed-chunk-166-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-168-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[141]
-File: bookdown_files/figure-latex/unnamed-chunk-168-2.pdf Graphic file (type pd
+<use bookdown_files/figure-latex/unnamed-chunk-166-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-166-2.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-168-2.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-166-2.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[142]
-File: bookdown_files/figure-latex/unnamed-chunk-168-3.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-168-3.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[143] [144]
-Chapter 8.
-[145
-
-]
-File: bookdown_files/figure-latex/unnamed-chunk-169-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-169-1.pdf>
-[146]
-File: bookdown_files/figure-latex/unnamed-chunk-170-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-170-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[147]
-Missing character: There is no ρ in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ρ in font [lmroman10-regular]:mapping=tex-text;!
-[148]
-File: bookdown_files/figure-latex/unnamed-chunk-173-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-173-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[149]
-File: bookdown_files/figure-latex/unnamed-chunk-174-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-174-1.pdf>
-[150] [151]
-File: bookdown_files/figure-latex/unnamed-chunk-175-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-175-1.pdf>
-[152]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5575--5575
-[]\TU/lmtt/m/n/10 ##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.
-0 13.0 14.5 14.5[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5575--5575
-[]\TU/lmtt/m/n/10 ## [15] 14.5 16.0 16.0 16.0 17.5 17.5 17.5 19.0 19.0 19.0 20.
-5 20.5 20.5 22.0[] 
- []
-
-[153]
-File: bookdown_files/figure-latex/unnamed-chunk-179-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-179-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[154]
-File: bookdown_files/figure-latex/unnamed-chunk-180-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-180-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[155] [156]
-File: bookdown_files/figure-latex/unnamed-chunk-181-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-181-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-182-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-182-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[157] [158]
-File: bookdown_files/figure-latex/unnamed-chunk-184-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-184-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[159] [160] [161]
-File: bookdown_files/figure-latex/unnamed-chunk-188-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-188-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[162]
-File: bookdown_files/figure-latex/unnamed-chunk-189-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-189-1.pdf>
-File: bookdown_files/figure-latex/unnamed-chunk-189-2.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-189-2.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 5899--5900
+Underfull \hbox (badness 10000) in paragraph at lines 5368--5369
 [][]
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[136]
+File: bookdown_files/figure-latex/unnamed-chunk-167-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-167-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-167-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-167-2.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 5375--5376
+[][]
+ []
+
+
+Underfull \vbox (badness 7203) has occurred while \output is active []
+
+[137]
+File: bookdown_files/figure-latex/unnamed-chunk-168-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-168-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-168-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-168-2.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 5382--5383
+[][]
+ []
+
+[138]
+Underfull \hbox (badness 10000) in paragraph at lines 5394--5396
+[][]$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][][][] [] [][][] [] [][]
+[][][][][] [] [][][][][][][][][][] [] [][][] [] [][][][][][][][] [] [][][][] []
+
+ []
+
+[139]
+Overfull \hbox (23.73pt too wide) in paragraph at lines 5396--5397
+[][][] [] [][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][] []
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 5438--5438
+[]\TU/lmtt/m/n/10 ##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42
+912469[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 5438--5438
+[]\TU/lmtt/m/n/10 ##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89
+003783[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 5438--5438
+[]\TU/lmtt/m/n/10 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95
+949406[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5450--5450
+[]\TU/lmtt/m/n/10 ##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  
+0.007839245[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5450--5450
+[]\TU/lmtt/m/n/10 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -
+0.249237745[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5450--5450
+[]\TU/lmtt/m/n/10 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -
+4.271087169[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5462--5462
+[]\TU/lmtt/m/n/10 ##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0
+455256 3.1902100[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5462--5462
+[]\TU/lmtt/m/n/10 ##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1
+386091 0.2966193[] 
+ []
+
+File: bookdown_files/figure-latex/unnamed-chunk-172-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-172-1.pdf>
+
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+[140]
+File: bookdown_files/figure-latex/unnamed-chunk-172-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-172-2.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-172-3.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-172-3.pdf>
+
+Underfull \vbox (badness 7116) has occurred while \output is active []
+
+[141] [142] [143]
+File: bookdown_files/figure-latex/unnamed-chunk-178-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-178-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[144]
+File: bookdown_files/figure-latex/unnamed-chunk-178-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-178-2.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-178-3.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-178-3.pdf>
+
+Underfull \vbox (badness 7047) has occurred while \output is active []
+
+[145] [146]
+Chapter 8.
+[147
+
+]
+File: bookdown_files/figure-latex/unnamed-chunk-180-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-180-1.pdf>
+[148]
+File: bookdown_files/figure-latex/unnamed-chunk-181-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-181-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[149]
+Missing character: There is no ρ in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ρ in font [lmroman10-regular]:mapping=tex-text;!
+[150]
+File: bookdown_files/figure-latex/unnamed-chunk-184-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-184-1.pdf>
+[151]
+File: bookdown_files/figure-latex/unnamed-chunk-185-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-185-1.pdf>
+[152]
+File: bookdown_files/figure-latex/unnamed-chunk-186-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-186-1.pdf>
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5891--5891
+[]\TU/lmtt/m/n/10 ##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.
+0 13.0 14.5 14.5[] 
+ []
+
+[153]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5891--5891
+[]\TU/lmtt/m/n/10 ## [15] 14.5 16.0 16.0 16.0 17.5 17.5 17.5 19.0 19.0 19.0 20.
+5 20.5 20.5 22.0[] 
+ []
+
+[154]
+File: bookdown_files/figure-latex/unnamed-chunk-190-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-190-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-191-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-191-1.pdf>
+
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+[155]
+File: bookdown_files/figure-latex/unnamed-chunk-192-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-192-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[156]
+File: bookdown_files/figure-latex/unnamed-chunk-193-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-193-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[157] [158]
+File: bookdown_files/figure-latex/unnamed-chunk-195-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-195-1.pdf>
+[159] [160]
+File: bookdown_files/figure-latex/unnamed-chunk-199-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-199-1.pdf>
+[161]
+File: bookdown_files/figure-latex/unnamed-chunk-200-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-200-1.pdf>
+File: bookdown_files/figure-latex/unnamed-chunk-200-2.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-200-2.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 6215--6216
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[162]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [163]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [164]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[165]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ id              <chr> "OgLe3YSDR0da+JUQZgmTtA==", "Z3j1B
 tQN1kzuJr20c...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ created_on      <date> 2019-05-09, 2019-05-09, 2019-05-0
 9, 2019-05-0...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ l3              <chr> "Nuñez", "Nuñez", "Almagro", "Belg
 rano", "Flor...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ rooms           <dbl> 3, 3, 3, 5, 5, 3, 3, 2, 5, 5, 4, 2
 , 3, 5, 3, 3...[] 
  []
 
-[166]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+[165]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ bathrooms       <dbl> 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1
 , 2, 4, 2, 3...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ surface_total   <dbl> 77, 97, 69, 230, 168, 65, 95, 50, 
 181, 180, 89...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ surface_covered <dbl> 68, 65, 69, 200, 168, 65, 92, 38, 
 110, 120, 11...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ price           <dbl> 180000, 265000, 230000, 380000, 25
 5000, 119000...[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 5980--5980
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6296--6296
 []\TU/lmtt/m/n/10 ## $ property_type   <chr> "PH", "PH", "PH", "PH", "PH", "PH"
 , "PH", "PH"...[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ##   id    created_on l3    rooms bathrooms surface_total sur
 face_covered[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ##   <chr> <date>     <chr> <dbl>     <dbl>         <dbl>    
        <dbl>[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ## 1 uZe6~ 2019-03-28 Pale~     5         4           340    
          320[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ## 2 +JnI~ 2019-04-01 Parq~     1         1            31    
           31[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ## 3 MEQM~ 2019-03-15 Puer~     3         3           275    
          220[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6008--6008
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ## 4 o6Qf~ 2019-04-30 Reco~     3         2           340    
          200[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##    id    created_on l3    rooms bathrooms surface_total su
 rface_covered[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##    <chr> <date>     <chr> <dbl>     <dbl>         <dbl>   
         <dbl>[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  1 Z0NE~ 2019-04-13 Reco~     6         3           600   
           600[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  2 gRZz~ 2019-01-25 Reco~     6         3           600   
           600[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  3 sP/J~ 2019-05-18 Reco~     8         5           677   
           568[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  4 VVkm~ 2019-04-05 Reco~    10         3           978   
           489[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  5 h6gp~ 2019-06-15 Reco~     6         3           600   
           600[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  6 HWNt~ 2019-06-19 San ~     3         1            60   
            56[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  7 e2Wf~ 2019-01-28 Pale~     4         4           404   
           404[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  8 OzkE~ 2019-01-28 Pale~     4         4           404   
           404[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ##  9 6DhC~ 2019-02-01 Caba~     1         1            41   
            37[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ## 10 Jz4a~ 2019-03-01 Caba~     1         1            41   
            37[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6357--6357
 []\TU/lmtt/m/n/10 ## 11 1R9Q~ 2019-01-17 Caba~     1         1            41   
            37[] 
  []
 
-[167]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+[166]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ##                             Estimate Std. Error t value Pr
 (>|t|)[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## (Intercept)               -1.599e+05  1.388e+04 -11.520  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Agronomía                2.024e+04  2.605e+04   0.777 0.
 437102[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Almagro                 -7.962e+03  1.295e+04  -0.615 0.
 538764[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Balvanera               -2.616e+04  1.360e+04  -1.924 0.
 054387 .[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Barracas                 5.459e+02  1.591e+04   0.034 0.
 972629[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Barrio Norte             6.416e+04  1.331e+04   4.821 1.
 43e-06 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Belgrano                 1.212e+05  1.290e+04   9.396  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Boca                    -4.934e+04  2.020e+04  -2.443 0.
 014559 *[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Boedo                   -1.421e+04  1.553e+04  -0.915 0.
 360345[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Caballito                6.359e+03  1.298e+04   0.490 0.
 624125[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Catalinas               -2.566e+04  1.059e+05  -0.242 0.
 808533[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Centro / Microcentro    -3.333e+04  1.969e+04  -1.693 0.
 090542 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Chacarita                2.843e+04  1.609e+04   1.768 0.
 077139 .[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Coghlan                  5.894e+04  1.643e+04   3.587 0.
 000335 ***[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Colegiales               3.945e+04  1.455e+04   2.710 0.
 006724 **[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Congreso                -2.853e+04  1.610e+04  -1.773 0.
 076275 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Constitución            -2.953e+04  1.767e+04  -1.671 0.
 094633 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Flores                  -2.403e+04  1.363e+04  -1.763 0.
 077967 .[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Floresta                -1.220e+04  1.516e+04  -0.804 0.
 421184[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Las Cañitas              1.193e+05  1.758e+04   6.785 1.
 17e-11 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Liniers                 -2.029e+04  1.592e+04  -1.275 0.
 202348[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Mataderos               -3.332e+04  1.612e+04  -2.067 0.
 038736 *[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Monserrat               -9.560e+03  1.570e+04  -0.609 0.
 542461[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Monte Castro             1.875e+04  1.793e+04   1.046 0.
 295781[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Nuñez                    9.191e+04  1.373e+04   6.695 2.
 18e-11 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Once                    -2.203e+04  1.598e+04  -1.379 0.
 168006[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Palermo                  1.276e+05  1.272e+04  10.033  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Parque Avellaneda       -1.666e+04  2.199e+04  -0.758 0.
 448651[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Parque Centenario       -3.832e+04  1.523e+04  -2.515 0.
 011903 *[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Parque Chacabuco        -1.329e+03  1.569e+04  -0.085 0.
 932517[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Parque Chas              2.209e+04  2.267e+04   0.975 0.
 329726[] 
  []
@@ -2824,398 +2895,392 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[168]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+[167]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Parque Patricios        -1.126e+04  1.768e+04  -0.637 0.
 524163[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Paternal                -2.778e+03  1.550e+04  -0.179 0.
 857733[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Pompeya                 -6.158e+04  2.211e+04  -2.786 0.
 005340 **[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Puerto Madero            5.295e+05  1.457e+04  36.353  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Recoleta                 1.294e+05  1.309e+04   9.883  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Retiro                   7.507e+04  1.571e+04   4.779 1.
 76e-06 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Saavedra                 3.674e+04  1.485e+04   2.473 0.
 013387 *[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3San Cristobal           -1.197e+04  1.479e+04  -0.809 0.
 418323[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3San Nicolás             -4.616e+03  1.534e+04  -0.301 0.
 763503[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3San Telmo                1.763e+04  1.460e+04   1.208 0.
 227176[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Tribunales              -4.234e+04  2.555e+04  -1.657 0.
 097553 .[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Velez Sarsfield          1.664e+03  2.487e+04   0.067 0.
 946644[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Versalles                4.516e+03  1.988e+04   0.227 0.
 820295[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Crespo             1.072e+04  1.303e+04   0.823 0.
 410681[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa del Parque         2.440e+04  1.470e+04   1.660 0.
 096951 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Devoto             3.089e+04  1.440e+04   2.146 0.
 031896 *[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa General Mitre     -2.567e+04  2.024e+04  -1.268 0.
 204656[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Lugano            -1.002e+05  1.749e+04  -5.729 1.
 02e-08 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Luro               7.208e+03  1.617e+04   0.446 0.
 655849[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Ortuzar            2.826e+04  2.042e+04   1.383 0.
 166525[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Pueyrredón         2.686e+04  1.590e+04   1.689 0.
 091191 .[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Real               1.343e+04  2.592e+04   0.518 0.
 604258[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Riachuelo         -5.135e+04  4.988e+04  -1.029 0.
 303274[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Santa Rita         6.264e+03  1.909e+04   0.328 0.
 742874[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Soldati           -9.211e+04  3.636e+04  -2.534 0.
 011295 *[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## l3Villa Urquiza            4.076e+04  1.333e+04   3.058 0.
 002230 **[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## rooms                      5.199e+04  8.989e+02  57.839  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## bathrooms                  1.419e+05  1.461e+03  97.128  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## surface_total              5.808e+00  1.141e+00   5.092 3.
 56e-07 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## property_typeDepartamento  4.855e+03  5.267e+03   0.922 0.
 356609[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6137--6137
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6453--6453
 []\TU/lmtt/m/n/10 ## property_typePH           -4.780e+04  5.691e+03  -8.399  <
  2e-16 ***[] 
  []
 
-[169]
-File: bookdown_files/figure-latex/unnamed-chunk-197-1.pdf Graphic file (type pd
+[168]
+File: bookdown_files/figure-latex/unnamed-chunk-208-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-197-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[170] [171]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6275--6275
+<use bookdown_files/figure-latex/unnamed-chunk-208-1.pdf>
+[169]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## lm(formula = price ~ barrio + rooms + bathrooms + surface_
 total +[] 
  []
 
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6275--6275
+[170]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ##                             Estimate Std. Error t value Pr
 (>|t|)[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## (Intercept)               -1.041e+05  6.349e+03 -16.396  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## barriobajo                -1.097e+05  4.231e+03 -25.939  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## barriomedio               -9.342e+04  2.150e+03 -43.445  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## rooms                      4.808e+04  9.293e+02  51.732  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## bathrooms                  1.602e+05  1.499e+03 106.867  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## surface_total              5.485e+00  1.198e+00   4.580 4.
 67e-06 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## property_typeDepartamento  2.370e+04  5.352e+03   4.428 9.
 51e-06 ***[] 
  []
 
-[172]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6591--6591
 []\TU/lmtt/m/n/10 ## property_typePH           -3.906e+04  5.920e+03  -6.598 4.
 22e-11 ***[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## lm(formula = price ~ barrio + rooms + bathrooms + surface_
 total +[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ##                             Estimate Std. Error t value Pr
 (>|t|)[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## (Intercept)               -1.975e+05  6.215e+03 -31.783  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## barrioalto                 9.342e+04  2.150e+03  43.445  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## barriobajo                -1.632e+04  4.321e+03  -3.777 0.
 000159 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## rooms                      4.808e+04  9.293e+02  51.732  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## bathrooms                  1.602e+05  1.499e+03 106.867  <
  2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## surface_total              5.485e+00  1.198e+00   4.580 4.
 67e-06 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## property_typeDepartamento  2.370e+04  5.352e+03   4.428 9.
 51e-06 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6632--6632
 []\TU/lmtt/m/n/10 ## property_typePH           -3.906e+04  5.920e+03  -6.598 4.
 22e-11 ***[] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[173]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6366--6366
+[171]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## lm(formula = precio_m2 ~ barrio + rooms + bathrooms + prop
 erty_type,[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## (Intercept)               1935.419     13.106 147.670  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## barrioalto                 892.491      4.535 196.790  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## barriobajo                -461.046      9.112 -50.595  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## rooms                      -22.684      1.959 -11.579  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## bathrooms                  133.009      3.161  42.084  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## property_typeDepartamento  227.481     11.285  20.158  < 2
 e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6366--6366
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6682--6682
 []\TU/lmtt/m/n/10 ## property_typePH             99.545     12.485   7.973 1.58
 e-15 ***[] 
  []
 
-[174]
-Underfull \hbox (badness 1466) in paragraph at lines 6411--6412
+[172]
+Underfull \hbox (badness 1466) in paragraph at lines 6727--6728
 \TU/lmr/m/n/10 Un problema de lo que vimos en esta práctica es que las salidas 
 de
  []
 
-[175] [176
+[173] [174
 
 ]
 Chapter 9.
 No file bookdown.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6445.
-[177]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6445.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6761.
+[175]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6761.
 (./bookdown.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6445.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6445.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6761.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6761.
 
 Package rerunfilecheck Info: File `bookdown.out' has not changed.
-(rerunfilecheck)             Checksum: C2D1E14CD838F102342249F2C6C6D22A.
+(rerunfilecheck)             Checksum: A83F8022153A9ED785AD8D398FE60CBF.
  ) 
 Here is how much of TeX's memory you used:
- 24460 strings out of 494835
- 465272 string characters out of 6175179
- 607579 words of memory out of 5000000
- 28052 multiletter control sequences out of 15000+600000
+ 24505 strings out of 494835
+ 466568 string characters out of 6175179
+ 608656 words of memory out of 5000000
+ 28090 multiletter control sequences out of 15000+600000
  557157 words of font info for 77 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  45i,8n,54p,805b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bookdown.pdf (177 pages).
+Output written on bookdown.pdf (175 pages).

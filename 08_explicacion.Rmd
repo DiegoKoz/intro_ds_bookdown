@@ -11,7 +11,7 @@
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
-```{r setup }
+```{r }
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(tidyverse)
 library(modelr)

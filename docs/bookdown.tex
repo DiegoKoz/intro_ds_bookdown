@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-12}
+    \date{2019-09-18}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -3373,18 +3373,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country     continent  year lifeExp       pop gdpPercap
-##    <fct>       <fct>     <int>   <dbl>     <int>     <dbl>
-##  1 Mauritania  Africa     2007    64.2   3270065     1803.
-##  2 Syria       Asia       2007    74.1  19314747     4185.
-##  3 Norway      Europe     1988    76.0   4208729    31358.
-##  4 China       Asia       1966    56.8 735400000      650.
-##  5 Luxembourg  Europe     1982    72.5    365718    27078.
-##  6 Australia   Oceania    1960    70.9  10361273    11898.
-##  7 Netherlands Europe     2002    78.5  16122830    33725.
-##  8 Poland      Europe     1983    71.2  36571418     8786.
-##  9 Mali        Africa     1982    43.9   6998256      618.
-## 10 Poland      Europe     1975    70.8  33969240     9282.
+##    country            continent  year lifeExp       pop gdpPercap
+##    <fct>              <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Malta              Europe     2007    79.4    401880    21712.
+##  2 Denmark            Europe     1972    73.5   4991596    18866.
+##  3 Mauritania         Africa     1977    50.9   1456688     1497.
+##  4 Japan              Asia       1989    79.0 123107500    24705.
+##  5 Guyana             Americas   2002    63.6    759104     3238.
+##  6 West Bank and Gaza Asia       1967    51.6   1142636     2650.
+##  7 Poland             Europe     1981    71.3  35901961     8607.
+##  8 Sweden             Europe     1954    72.4   7213490     9225.
+##  9 Guinea-Bissau      Africa     1957    33.5    601095      432.
+## 10 Kenya              Africa     1957    44.7   7454779      944.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -3468,18 +3468,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    country          data             
-##    <fct>            <list>           
-##  1 Lebanon          <tibble [12 x 5]>
-##  2 Tunisia          <tibble [12 x 5]>
-##  3 Congo, Rep.      <tibble [12 x 5]>
-##  4 Turkmenistan     <tibble [4 x 5]> 
-##  5 Madagascar       <tibble [12 x 5]>
-##  6 Georgia          <tibble [9 x 5]> 
-##  7 Korea, Dem. Rep. <tibble [12 x 5]>
-##  8 Solomon Islands  <tibble [9 x 5]> 
-##  9 Nicaragua        <tibble [12 x 5]>
-## 10 Somalia          <tibble [12 x 5]>
+##    country     data             
+##    <fct>       <list>           
+##  1 Kenya       <tibble [12 x 5]>
+##  2 Hungary     <tibble [57 x 5]>
+##  3 Belarus     <tibble [18 x 5]>
+##  4 Sudan       <tibble [12 x 5]>
+##  5 Ethiopia    <tibble [12 x 5]>
+##  6 Afghanistan <tibble [12 x 5]>
+##  7 Korea, Rep. <tibble [12 x 5]>
+##  8 Chad        <tibble [12 x 5]>
+##  9 Timor-Leste <tibble [4 x 5]> 
+## 10 Samoa       <tibble [7 x 5]>
 \end{verbatim}
 
 \begin{itemize}
@@ -3500,18 +3500,18 @@ probamos la función para un caso
 
 \begin{verbatim}
 ## # A tibble: 10 x 3
-##    country             data              grafico
-##    <fct>               <list>            <list> 
-##  1 Korea, Dem. Rep.    <tibble [12 x 5]> <gg>   
-##  2 Iran                <tibble [12 x 5]> <gg>   
-##  3 Ecuador             <tibble [12 x 5]> <gg>   
-##  4 Solomon Islands     <tibble [9 x 5]>  <gg>   
-##  5 Chile               <tibble [12 x 5]> <gg>   
-##  6 Poland              <tibble [52 x 5]> <gg>   
-##  7 France              <tibble [57 x 5]> <gg>   
-##  8 Bahrain             <tibble [12 x 5]> <gg>   
-##  9 Trinidad and Tobago <tibble [12 x 5]> <gg>   
-## 10 Tanzania            <tibble [12 x 5]> <gg>
+##    country               data              grafico
+##    <fct>                 <list>            <list> 
+##  1 Philippines           <tibble [12 x 5]> <gg>   
+##  2 China                 <tibble [36 x 5]> <gg>   
+##  3 Italy                 <tibble [56 x 5]> <gg>   
+##  4 Angola                <tibble [12 x 5]> <gg>   
+##  5 Cote d'Ivoire         <tibble [12 x 5]> <gg>   
+##  6 Guyana                <tibble [10 x 5]> <gg>   
+##  7 Morocco               <tibble [12 x 5]> <gg>   
+##  8 Martinique            <tibble [1 x 5]>  <gg>   
+##  9 Burundi               <tibble [12 x 5]> <gg>   
+## 10 Micronesia, Fed. Sts. <tibble [8 x 5]>  <gg>
 \end{verbatim}
 
 Veamos un ejemplo
@@ -4102,17 +4102,28 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 \end{Shaded}
 
 \begin{verbatim}
-##    REGION  P47T T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso Ingreso
-## 1       1 70000    0       0 70000   2573 Mujer    ingreso_laboral   70000
-## 2      41 10000    0       0 10000    228 Varon    ingreso_laboral   10000
-## 3      41 12600 3600    3000  6000    270 Mujer    ingreso_laboral    9000
-## 4      42 18000 8000       0 10000    162 Varon ingreso_no_laboral    8000
-## 5      44 30000    0       0 30000    126 Varon    ingreso_laboral   30000
-## 6      40 10000    0       0 10000    317 Varon    ingreso_laboral   10000
-## 7      43  8000 6000       0  2000    382 Mujer    ingreso_laboral    2000
-## 8      43 25000    0       0 25000   2003 Varon    ingreso_laboral   25000
-## 9      42  9000 4000       0  5000    175 Mujer ingreso_no_laboral    4000
-## 10     43 55000    0   15000 40000     48 Varon    ingreso_laboral   55000
+##    REGION  P47T  T_VI TOT_P12   P21 PONDII  CH04       Tipo_ingreso
+## 1       1 20000     0       0 20000   1502 Mujer    ingreso_laboral
+## 2      40  5500  2500       0  3000    139 Mujer ingreso_no_laboral
+## 3       1 13500  1500       0 12000   2271 Mujer    ingreso_laboral
+## 4      40 35000     0       0 23000    226 Varon    ingreso_laboral
+## 5      43 22000     0       0 22000    111 Varon    ingreso_laboral
+## 6      44 41000     0       0 27000    117 Mujer    ingreso_laboral
+## 7      40 19500     0    5000 14500    133 Varon    ingreso_laboral
+## 8      43 18000     0    3000 15000    681 Mujer    ingreso_laboral
+## 9      43 23000     0       0 23000    590 Varon    ingreso_laboral
+## 10      1 24000 12000       0 12000    728 Mujer    ingreso_laboral
+##    Ingreso
+## 1    20000
+## 2     2500
+## 3    12000
+## 4    23000
+## 5    22000
+## 6    27000
+## 7    19500
+## 8    18000
+## 9    23000
+## 10   12000
 \end{verbatim}
 
 \begin{Shaded}
@@ -4173,28 +4184,333 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{documentacion}{%
-\chapter{Documentación}\label{documentacion}}
-
-\begin{itemize}
-\tightlist
-\item
-  Manejo de las extensiones del software ``Rmarkdown'' y ``RNotebook'' para elaborar documentos de trabajo, presentaciones interactivas e informes:
-\item
-  Opciones para mostrar u ocultar código en los reportes
-\item
-  Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
-\item
-  Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
-\item
-  Código embebido en el texto para automatización de reportes
-\end{itemize}
+\hypertarget{documentacion-en-r}{%
+\chapter{Documentación en R}\label{documentacion-en-r}}
 
 \hypertarget{explicacion-4}{%
 \section{Explicación}\label{explicacion-4}}
 
+\hypertarget{r-markdown-introduccion}{%
+\subsection{R Markdown: Introducción}\label{r-markdown-introduccion}}
+
+Los archivos R Markdown nos permiten combinar código, resultados y texto. El objetivo de esta clase es aprender a trabajar bajo dicho entorno para facilitar 3 aplicaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  Documentar el trabajo que realizamos, incluyendo comentarios sobre los procedimientos.
+\item
+  Compartir código y resultados con gente que también trabaja en R.
+\item
+  Compartir resultados con gente que no trabaja en R, y simplemente necesita enfocarse en las conclusiones.
+\end{itemize}
+
+Las presentes notas de clase están basadas en el libro \href{https://es.r4ds.hadley.nz/r-markdown.html}{R4DS} y las \href{https://www.rstudio.com/resources/cheatsheets/}{cheatsheets}. También se recomienda el libro \href{https://bookdown.org/yihui/rmarkdown/}{R Markdown: The Definitive Guide}.
+
+\hypertarget{requisitos}{%
+\subsection{Requisitos}\label{requisitos}}
+
+Necesitamos instalar y cargar el paquete \textbf{rmarkdown}, pero por lo general no hace falta hacerlo explíticamente porque RStudio realiza esto automáticamente cuando es necesario.
+
+\hypertarget{markdown-basico}{%
+\subsection{Markdown básico}\label{markdown-basico}}
+
+Se trata de un archivo de extensión \textbf{.Rmd}. Contiene en su estructura tres tipos importantes de contenido:
+
+\begin{itemize}
+\tightlist
+\item
+  Un encabezado YAML (``Yet another markup lenguage'') rodeado de - - -
+\end{itemize}
+
+\begin{verbatim}
+---
+title: "El título de nuestro informe"
+date: Septiembre 2019
+output: html_document
+---
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Bloques de código de R rodeado de ```.
+\end{itemize}
+
+\includegraphics{img/Selection_008.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Texto con formato (que veremos en unos minutos)
+\end{itemize}
+
+Cuando abrimos un archivo \textbf{.Rmd}, obtenemos una interfaz de notebook donde el código y el output se encuentran intercalados (en lugar de aparecer el output sólo en la consola, panel de Plots y/o modificaciones en el entorno de trabajo).
+
+Los bloques de código se pueden ejecutar haciendo click en el ícono \textbf{ejecutar} (el botón de \emph{Play} en la parte superior/derecha del bloque), o presionando \texttt{Cmd/Ctrl\ +\ Shift\ +\ Enter}. RStudio ejecuta el código y muestra los resultados incustrados en el código.
+
+Para producir un reporte completo que contenga todo el texto, código y resultados, podemos clickear en \textbf{Knit} o presionar \texttt{Cmd/Ctrl\ +\ Shift\ +\ K}. Esto mostrará el reporte en el panel \emph{Viewer} y creará un archivo HTML independiente que podremos compartir con otros.
+
+\hypertarget{formateo-de-texto}{%
+\subsection{Formateo de texto}\label{formateo-de-texto}}
+
+La prosa en los archivos .Rmd está escrita en Markdown, una colección simple de convenciones para dar formato a archivos de texto plano. Markdown está diseñado para ser fácil de leer y fácil de escribir, siendo también muy fácil de aprender. Del \emph{Cheatsheet}:
+
+\includegraphics{img/Selection_001.png}
+
+\hypertarget{bloques-de-codigo}{%
+\subsection{Bloques de código}\label{bloques-de-codigo}}
+
+Como ya mencionamos, para ejecutar código dentro de un documento R Markdown, necesitamos insertar un bloque (\emph{Chunk}). Hay tres maneras para hacerlo:
+
+\begin{itemize}
+\tightlist
+\item
+  El atajo de teclado \texttt{Cmd/Ctrl\ +\ Alt\ +\ I}
+\item
+  El icono ``Insertar'' en la barra de edición (\texttt{Insert\ \textgreater{}\ R})
+\item
+  Tipear manualmente los delimitadores de bloque \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} y \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}}.
+\end{itemize}
+
+Obviamente, recomendamos usar el atajo de teclado porque, a largo plazo, ahorra mucho tiempo.
+El código se puede seguir corriendo con \texttt{Cmd/Ctrl\ +\ Enter} línea a línea. Sin embargo, los bloques de código tienen otro atajo de teclado: \texttt{Cmd/Ctrl\ +\ Shift\ +\ Enter}, que ejecuta todo el código en el bloque.
+
+Un bloque debería ser relativamente autónomo, y enfocado alrededor de una sola tarea.
+Las siguientes secciones decriben el encabezado de bloque que consiste en \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r}, seguido por un nombre opcional para el bloque, seguido entonces por \textbf{opciones separadas por comas}, y concluyendo con \texttt{\}}. Inmediatamente después sigue tu código de R el bloque y el fin del bloque se indica con un \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} final.
+
+Hay un nombre de bloque que tiene comportamiento especial: \texttt{setup}. Cuando te encuentras en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.
+
+La salida de los bloques puede personalizarse con options, argumentos suministrados al encabezado del bloque.
+
+\hypertarget{opciones-en-los-bloques-de-codigo}{%
+\subsection{Opciones en los bloques de código}\label{opciones-en-los-bloques-de-codigo}}
+
+La salida de los bloques puede personalizarse con \textbf{options}, argumentos suministrados en el encabezado del bloque. Knitr provee casi 60 opciones para que puedas usar para personalizar tus bloques de código, la lista completa puede verse en \url{http://yihui.name/knitr/options/}.
+
+\begin{itemize}
+\item
+  \texttt{eval\ =\ FALSE} evita que código sea evaluado. (Y obviamente si el código no es ejecutado no se generaran resultados). Esto es útil para mostrar códigos de ejemplo, o para deshabilitar un gran bloque de código sin comentar cada línea.
+\item
+  \texttt{include\ =\ FALSE} ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para que código de configuracion que no quieres que abarrote tu reporte.
+\item
+  \texttt{echo\ =\ FALSE} evita que se vea el código, pero no los resultados en el archivo final. Utiliza esto cuando quieres escribir reportes enfocados a personas que no quieren ver el código subyacente de R.
+\item
+  \texttt{message\ =\ FALSE} o \texttt{warning\ =\ FALSE} evita que aparezcan mensajes o advertencias en el archivo final.
+\item
+  \texttt{results\ =\ \textquotesingle{}hide\textquotesingle{}} oculta el output impreso; \texttt{fig.show\ =\ \textquotesingle{}hide\textquotesingle{}} oculta gráficos.
+\item
+  \texttt{error\ =\ TRUE} causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la version final de tu reporte.
+\end{itemize}
+
+\includegraphics{img/opciones formato chunk.png}
+
+Contamos con algunas de estas opciones en el menú de \textbf{Configuración} en la parte superior-derecha del \emph{Chunk} de código.
+
+\hypertarget{tablas}{%
+\subsection{Tablas}\label{tablas}}
+
+Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional puedes usar la función \texttt{knitr::kable()}. Aún más, recomendamos mirar los paquetes \href{https://haozhu233.github.io/kableExtra/awesome_table_in_html.html\#grouped_columns__rows}{kableExtra} y \href{https://www.displayr.com/formattable/}{formattable}.
+
+Para una mayor personalización, se pueden considerar también los paquetes \texttt{xtable}, \texttt{stargazer}, \texttt{pander}, \texttt{tables}, y \texttt{ascii}. Cada uno provee un set de herramientas para generar tablas con formato a partir código de R.
+
+\hypertarget{opciones-globales}{%
+\subsection{Opciones globales}\label{opciones-globales}}
+
+Algunas de las opciones default que tienen los bloques de código pueden no ajustarse a tus necesidades. Podemos setear cambios incluyendo \texttt{knitr::opts\_chunk\$set()} en un bloque de código. Por ejemplo:
+
+\texttt{knitr::opts\_chunk\$set(echo\ =\ FALSE)}
+
+Ocultará el código por defecto, así que sólo mostrará los bloques que deliberadamente elegimos mostrar con \texttt{echo\ =\ TRUE}.
+
+\hypertarget{codigo-en-la-linea}{%
+\subsection{Código en la línea}\label{codigo-en-la-linea}}
+
+Otra forma de incluir código R en un documento R Markdown es insertarlo directamente en el texto, encerrando entre \texttt{\textasciigrave{}\textasciigrave{}} \texttt{"r\ codigo"}. Esto puede ser muy útil si queremos mencionar propiedades o atributos de los datos o resultados en el texto.
+
+Cuando insertamos números en el texto, \texttt{format()} nos va a ser de mucha ayuda. Esto permite establecer el número de digitos para que no imprimas con un grado rídiculo de precisión, y una big.mark para hacer que los números sean mas fáciles de leer. Por ejemplo, en una función de ayuda:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{formato <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{format}\NormalTok{(x, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{, }\DataTypeTok{big.mark =} \StringTok{"."}\NormalTok{, }\DataTypeTok{decimal.mark =} \StringTok{","}\NormalTok{)}
+\NormalTok{  \}}
+\KeywordTok{formato}\NormalTok{(}\DecValTok{3452345}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "3.452.345"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{formato}\NormalTok{(.}\DecValTok{12358124331}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "0,12"
+\end{verbatim}
+
+\hypertarget{formatos}{%
+\subsection{Formatos}\label{formatos}}
+
+Hasta ahora vimos R Markdown para producir documentos HTML:
+
+\begin{verbatim}
+---
+title: "Clase"  
+output: html_document
+---
+\end{verbatim}
+
+Para sobrescribir los parámetros predeterminados se necesita usar un campo de output extendido. Por ejemplo, si queremos generar un \texttt{html\_document} con una tabla de contenido flotante, usamos:
+
+\begin{verbatim}
+---
+title: "Clase"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+\end{verbatim}
+
+Para los \texttt{html\_document} otra opción es hacer que los fragmentos de código estén escondidos por defecto, pero visibles con un \emph{click}:
+
+\begin{verbatim}
+---
+title: "Clase"
+output:
+  html_document:
+    code_folding: hide
+---
+\end{verbatim}
+
+\hypertarget{otros-formatos}{%
+\subsection{Otros formatos}\label{otros-formatos}}
+
+Hay todo un número de variaciones básicas para generar diferentes tipos de documentos:
+
+\begin{itemize}
+\item
+  \texttt{pdf\_document} crea un PDF con LaTeX (un sistema de código abierto de composición de textos), que necesitarás instalar. RStudio te notificará si no lo tienes.
+\item
+  \texttt{word\_document} para documentos de Microsoft Word (.docx).
+\item
+  \texttt{odt\_document} para documentos de texto OpenDocument (.odt).
+\end{itemize}
+
+y más!
+
+\hypertarget{notebooks}{%
+\subsection{Notebooks}\label{notebooks}}
+
+Un notebook, \texttt{html\_notebook} (``cuaderno'' en español), es una variación de un \texttt{html\_document}. Las salidas de los dos documentos son muy similares, pero tienen propósitos distintos. Un \texttt{html\_document} está enfocado en la comunicación con los encargados de la toma de decisiones, mientras que un notebook está enfocado en colaborar con otros científicos de datos. Estos propósitos diferentes llevan a usar la salida HTML de diferentes maneras. Ambas salidas HTML contendrán la salida renderizada, pero \textbf{el notebook también contendrá el código fuente completo}. Esto significa que podemos usar el archivo \texttt{.nb.html} generado por el notebook de dos maneras:
+
+\begin{itemize}
+\item
+  Podemos verlo en un navegador web, y ver la salida generada. A diferencia del \texttt{html\_document}, esta renderización siempre incluye una copia incrustada del código fuente que lo generó.
+\item
+  Podemos editarlo en RStudio. Cuando abramos un archivo \texttt{.nb.html}, RStudio automáticamente recreará el archivo \texttt{.Rmd} que lo creó.
+\end{itemize}
+
+\hypertarget{publicar}{%
+\subsection{Publicar}\label{publicar}}
+
+Desde RStudio tenemos la posibilidad de publicar nuestros Markdown en \href{https://rpubs.com/}{RPubs} de forma gratuita, desde el botón \textbf{Publish document}. Todo lo que subamos a nuestra cuenta de RPubs será público.
+
+\hypertarget{flexdashboard}{%
+\subsection{FlexDashboard}\label{flexdashboard}}
+
+Los dashboards (``tableros de control'' en español) son una forma útil de comunicar grandes cantidades de información de forma visual y rápida. Flexdashboard hace que sea particularmente fácil crear dashboards usando R Markdown y proporciona una convención de cómo los encabezados afectan el diseño:
+
+\begin{itemize}
+\tightlist
+\item
+  Cada encabezado de Nivel 1 (\#) comienza una nueva página en el dashboard.
+\item
+  Cada encabezado de Nivel 2 (\#\#) comienza una nueva columna.
+\item
+  Cada encabezado de Nivel 3 (\#\#\#) comienza una nueva fila.
+\end{itemize}
+
+Flexdashboard también proporciona herramientas simples para crear barras laterales, tabuladores, cuadros de valores y medidores. Podemos obtener más información (en inglés) acerca de Flexdashboard en \url{http://rmarkdown.rstudio.com/flexdashboard/}.
+
 \hypertarget{practica-guiada-4}{%
 \section{Práctica Guiada}\label{practica-guiada-4}}
+
+\hypertarget{introduccion-1}{%
+\subsection{Introducción}\label{introduccion-1}}
+
+El objetivo de esta clase es comenzar a trabajar utilizando el formato RNotebook para realizar reportes compilados directamente en RStudio, de forma tal que nuestro trabajo pueda quedar documentado y ser fácilmente compartido con otras personas.
+
+Para esto utilizaremos un dataframe del paquete \textbf{datos}. Deberemos instalarlo en caso de contar con el mismo, y luego cargarlo con la función \texttt{library()}. En particular, utilizaremos los datos de \textbf{encuesta}, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{encuesta <-}\StringTok{ }\NormalTok{datos}\OperatorTok{::}\NormalTok{encuesta}
+\end{Highlighting}
+\end{Shaded}
+
+El dataframe cuenta con 21.483 observaciones y 9 variables.
+
+\hypertarget{explorando-los-datos}{%
+\subsection{Explorando los datos}\label{explorando-los-datos}}
+
+La muestra refiere a información obtenida entre 2000 y 2014. Se presentan datos sobre estado civil, raza, ingresos, partido político de pertenencia, religión, y cantidad de horas dedicadas a mirar televisión, para personas de entre 18 y 89 años.
+
+\hypertarget{religion}{%
+\subsubsection{Religión}\label{religion}}
+
+En primer lugar, nos interesa ver la distribución en términos de la \textbf{religión} de las personas, haciendo énfasis en aquellas más populares.
+
+\begin{verbatim}
+## # A tibble: 15 x 2
+##    religion               cantidad
+##    <fct>                     <int>
+##  1 Protestante               10846
+##  2 Católica                   5124
+##  3 Ninguna                    3523
+##  4 Cristiana                   689
+##  5 Judía                       388
+##  6 Otra                        224
+##  7 Budismo                     147
+##  8 Inter o no confesional      109
+##  9 Musulmana/Islam             104
+## 10 Cristiana ortodoxa           95
+## 11 Sin respuesta                93
+## 12 Hinduismo                    71
+## 13 Otra religión oriental       32
+## 14 Nativa americana             23
+## 15 No sabe                      15
+\end{verbatim}
+
+Puede verse que aquella que cuenta con más seguidores es la religión Protestante, con 10.846 fieles.
+
+\hypertarget{estado-civil}{%
+\subsubsection{Estado Civil}\label{estado-civil}}
+
+También podemos visualizar la distribución del \textbf{estado civil} de las personas.
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-141-1.pdf}
+
+Vemos que la mayoría de las personas (10.117 en total) responde ``Casado'' cuando se indaga sobre su estado civil.
+
+\hypertarget{partido-politico}{%
+\subsubsection{Partido político}\label{partido-politico}}
+
+La encuesta también nos permite conocer sobre las pertenencias partidarias de los individuos.
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-142-1.pdf}
+
+\hypertarget{horas-de-exposicion-a-la-television}{%
+\subsubsection{Horas de exposición a la televisión}\label{horas-de-exposicion-a-la-television}}
+
+A partir de los datos, sabemos que los individuos miran la televisión, en promedio, durante 3 horas por día. A continuación se presenta toda la distribución de la variable:
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-144-1.pdf}
 
 \hypertarget{shiny-apps}{%
 \chapter{Shiny apps}\label{shiny-apps}}
@@ -4447,7 +4763,7 @@ Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-140-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-150-1.pdf}
 
 \hypertarget{partes-que-queremos-generalizar.}{%
 \subsubsection{3. partes que queremos generalizar.}\label{partes-que-queremos-generalizar.}}
@@ -4478,7 +4794,7 @@ Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-141-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4486,7 +4802,7 @@ Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna va
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-141-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-2.pdf}
 
 \hypertarget{shiny-estatico-con-parametros-fijos}{%
 \subsubsection{5. shiny estático con parámetros fijos}\label{shiny-estatico-con-parametros-fijos}}
@@ -4725,7 +5041,7 @@ Si, por definición o por practicidad, no se puede enumerar cada caso, lo que te
 Por ejemplo, la altura de la población
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-148-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf}
 
 \begin{itemize}
 \item
@@ -4738,7 +5054,7 @@ Por ejemplo, la altura de la población
 
 Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-149-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-149-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-149-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-3.pdf}
 
 \begin{quote}
 Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
@@ -4750,7 +5066,7 @@ Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámet
   Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
 \end{itemize}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-150-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-150-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-150-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-3.pdf}
 
 \hypertarget{estadistica}{%
 \subsection{Estadística}\label{estadistica}}
@@ -4966,7 +5282,7 @@ Es el valor que parte la distribución a la mitad
 
 La moda es el valor más frecuente de la distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-151-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-161-1.pdf}
 
 \hypertarget{cuantiles}{%
 \subsubsection{Cuantiles}\label{cuantiles}}
@@ -4975,7 +5291,7 @@ Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un
 
 Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-152-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
 
 \hypertarget{desvio-estandar}{%
 \subsubsection{Desvío estándar}\label{desvio-estandar}}
@@ -5012,7 +5328,7 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
 
 Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-153-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
 
 Algunas cosas que resaltan:
 
@@ -5026,13 +5342,13 @@ Algunas cosas que resaltan:
 
 Podemos generar 100 números aleatorios en lugar de 15:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-154-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
 
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
 También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-155-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-1.pdf}
 
 \hypertarget{histograma}{%
 \subsubsection{Histograma}\label{histograma}}
@@ -5049,21 +5365,21 @@ Otra forma de analizar una distribución es mediante los histogramas:
 
 Veamos el mismo ejemplo que arriba, pero con histogramas:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-156-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-156-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-2.pdf}
 
 \hypertarget{kernel}{%
 \subsubsection{Kernel}\label{kernel}}
 
 Los Kernels son simplemente un suavizado sobre los histogramas.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-2.pdf}
 
 \hypertarget{violin-plots}{%
 \subsubsection{Violin plots}\label{violin-plots}}
 
 Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-2.pdf}
 
 \hypertarget{bibliografia-de-consulta-1}{%
 \subsection{Bibliografía de consulta}\label{bibliografia-de-consulta-1}}
@@ -5153,7 +5469,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5161,7 +5477,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5169,7 +5485,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-3.pdf}
 
 Noten que el eje X es el índice de los valores, es decir que no agrega información.
 
@@ -5309,7 +5625,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5317,7 +5633,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5325,7 +5641,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-3.pdf}
 
 \hypertarget{modelo-lineal}{%
 \chapter{Modelo Lineal}\label{modelo-lineal}}
@@ -5374,7 +5690,7 @@ Esto es: La covarianza entre dos variables, \(x\) e \(y\) es el promedio (noten 
 
 tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-169-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
 
 Aquí marcamos \(\bar x\) y \(\bar y\) y dividimos el gráfico en cuatro cuadrantes.
 
@@ -5430,7 +5746,7 @@ Para ver una implementación práctica de estos conceptos, vamos a utilizar la l
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-170-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-181-1.pdf}
 
 Veamos la correlación entre:
 
@@ -5497,7 +5813,7 @@ sigamos utilizando los datos de \emph{sim1}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-173-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
 
 Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \texttt{y\ =\ a\_0\ +\ a\_1\ *\ x} podría servir.
 
@@ -5519,7 +5835,7 @@ Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-174-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-185-1.pdf}
 
 A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los \emph{mejores} modelos.
 
@@ -5550,7 +5866,7 @@ Para eso, eligamos un modelo cualquiera:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-175-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-186-1.pdf}
 
 La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
 
@@ -5642,7 +5958,7 @@ A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos lo
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-179-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-190-1.pdf}
 
 También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de \texttt{a1} vs\texttt{a2}, nuevamente coloreado por \texttt{-dist}. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
 
@@ -5654,7 +5970,7 @@ También podemos pensar en estos modelos como observaciones y visualizar con un 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-191-1.pdf}
 
 \hypertarget{grid-search}{%
 \subsubsection{Grid search}\label{grid-search}}
@@ -5676,7 +5992,7 @@ En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-181-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-192-1.pdf}
 
 Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
 
@@ -5691,7 +6007,7 @@ Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-182-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-193-1.pdf}
 
 \hypertarget{optimo-por-metodos-numericos}{%
 \subsubsection{óptimo por métodos numéricos}\label{optimo-por-metodos-numericos}}
@@ -5743,7 +6059,7 @@ En R, podemos hacer eso con \texttt{optim\ ()}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-195-1.pdf}
 
 \hypertarget{optimo-para-el-modelo-lineal}{%
 \subsubsection{Óptimo para el modelo lineal}\label{optimo-para-el-modelo-lineal}}
@@ -5879,7 +6195,7 @@ Hay muchas maneras de analizar los residuos. Una es con las estadísticas de res
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-188-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-1.pdf}
 
 \hypertarget{regresion-lineal-multiple}{%
 \subsection{Regresión lineal múltiple}\label{regresion-lineal-multiple}}
@@ -5896,7 +6212,7 @@ Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múl
 Para cada par de puntos en \(x_1\) y \(x_2\) vamos a definir un valor para \(y\)
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-189-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-189-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-2.pdf}
 
 \begin{itemize}
 \item
@@ -6171,7 +6487,7 @@ Para construir la nueva variable, podemos ver el precio promedio del metro cuadr
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-197-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-208-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
