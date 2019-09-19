@@ -25,7 +25,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida">
 
 
-<meta name="date" content="2019-09-18">
+<meta name="date" content="2019-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -190,13 +190,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="explicacion-3.html"><a href="explicacion-3.html"><i class="fa fa-check"></i><b>4.1</b> Explicación</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="explicacion-3.html"><a href="explicacion-3.html#graficos-basicos-en-r"><i class="fa fa-check"></i><b>4.1.1</b> Gráficos Básicos en R</a></li>
 <li class="chapter" data-level="4.1.2" data-path="explicacion-3.html"><a href="explicacion-3.html#ggplot2"><i class="fa fa-check"></i><b>4.1.2</b> <span>Ggplot2</span></a></li>
-<li class="chapter" data-level="4.1.3" data-path="explicacion-3.html"><a href="explicacion-3.html#dimensiones-del-grafico"><i class="fa fa-check"></i><b>4.1.3</b> Dimensiones del gráfico</a></li>
-<li class="chapter" data-level="4.1.4" data-path="explicacion-3.html"><a href="explicacion-3.html#treemaps"><i class="fa fa-check"></i><b>4.1.4</b> Treemaps</a></li>
+<li class="chapter" data-level="4.1.3" data-path="explicacion-3.html"><a href="explicacion-3.html#ejemplo-con-datos-reales"><i class="fa fa-check"></i><b>4.1.3</b> Ejemplo con datos reales</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html"><i class="fa fa-check"></i><b>4.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#graficos-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Graficos Ingresos - EPH</a></li>
-<li class="chapter" data-level="4.2.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#histogramas"><i class="fa fa-check"></i><b>4.2.2</b> <span>Histogramas</span></a></li>
-<li class="chapter" data-level="4.2.3" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#kernels"><i class="fa fa-check"></i><b>4.2.3</b> <span>Kernels</span></a></li>
+<li class="chapter" data-level="4.2.1" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#caso-practico-graficos-de-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Caso práctico: Gráficos de ingresos - EPH</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="documentacion-en-r.html"><a href="documentacion-en-r.html"><i class="fa fa-check"></i><b>5</b> Documentación en R</a><ul>
@@ -528,18 +525,18 @@ bases_df <span class="op">%&gt;%</span><span class="st"> </span>
 gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
 <pre><code>## # A tibble: 10 x 6
-##    country                continent  year lifeExp      pop gdpPercap
-##    &lt;fct&gt;                  &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-##  1 Hungary                Europe     1992    69.2 10348684    10536.
-##  2 Slovenia               Europe     2003    76.6  2011604    21203.
-##  3 Korea, Rep.            Asia       1997    74.6 46173816    15994.
-##  4 Tonga                  Oceania    2002    72.3   106137     5084.
-##  5 Guatemala              Americas   2002    69.0 11178650     4858.
-##  6 Poland                 Europe     1961    68.0 29978949     5476.
-##  7 New Zealand            Oceania    1964    71.4  2591950    14107.
-##  8 Costa Rica             Americas   1972    67.8  1834796     5118.
-##  9 Bosnia and Herzegovina Europe     1952    53.8  2791000      974.
-## 10 Spain                  Europe     1964    70.6 31740862     6766.</code></pre>
+##    country         continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Slovak Republic Europe     1956    68.4  3787111     5797.
+##  2 Denmark         Europe     1960    72.2  4581000    12280.
+##  3 Bulgaria        Europe     1995    71.0  8255811     6820.
+##  4 Australia       Oceania    1990    77.1 17022133    23152.
+##  5 Guinea-Bissau   Africa     1957    33.5   601095      432.
+##  6 Poland          Europe     1969    69.7 32280848     6778.
+##  7 Finland         Europe     1973    71.4  4666081    15235.
+##  8 United Kingdom  Europe     1952    69.2 50430000     9980.
+##  9 Peru            Americas   1967    51.4 12132200     5788.
+## 10 Spain           Europe     1988    76.9 39053881    16553.</code></pre>
 <p>la base tiene la siguiente info:</p>
 <ul>
 <li>country: Nombre del país</li>
@@ -584,16 +581,16 @@ gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
 <pre><code>## # A tibble: 10 x 2
 ##    country               data             
 ##    &lt;fct&gt;                 &lt;list&gt;           
-##  1 Uzbekistan            &lt;tibble [4 × 5]&gt; 
-##  2 Comoros               &lt;tibble [12 × 5]&gt;
-##  3 Sri Lanka             &lt;tibble [13 × 5]&gt;
-##  4 Senegal               &lt;tibble [12 × 5]&gt;
-##  5 Congo, Dem. Rep.      &lt;tibble [12 × 5]&gt;
-##  6 Gabon                 &lt;tibble [12 × 5]&gt;
-##  7 Nigeria               &lt;tibble [12 × 5]&gt;
-##  8 Portugal              &lt;tibble [58 × 5]&gt;
+##  1 Greece                &lt;tibble [13 × 5]&gt;
+##  2 Qatar                 &lt;tibble [8 × 5]&gt; 
+##  3 Togo                  &lt;tibble [12 × 5]&gt;
+##  4 Guadeloupe            &lt;tibble [1 × 5]&gt; 
+##  5 Philippines           &lt;tibble [12 × 5]&gt;
+##  6 Lithuania             &lt;tibble [18 × 5]&gt;
+##  7 Sri Lanka             &lt;tibble [13 × 5]&gt;
+##  8 Korea, Dem. Rep.      &lt;tibble [12 × 5]&gt;
 ##  9 Sao Tome and Principe &lt;tibble [12 × 5]&gt;
-## 10 Vanuatu               &lt;tibble [7 × 5]&gt;</code></pre>
+## 10 Gambia                &lt;tibble [12 × 5]&gt;</code></pre>
 <ul>
 <li>Ahora podemos crear una nueva columna que contenga los gráficos</li>
 </ul>
@@ -603,18 +600,18 @@ gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
 gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
 <pre><code>## # A tibble: 10 x 3
-##    country                  data              grafico
-##    &lt;fct&gt;                    &lt;list&gt;            &lt;list&gt; 
-##  1 Kuwait                   &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  2 India                    &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  3 Bahrain                  &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  4 Togo                     &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  5 Philippines              &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  6 Syria                    &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  7 Central African Republic &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  8 Trinidad and Tobago      &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  9 Venezuela                &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-## 10 Kazakhstan               &lt;tibble [4 × 5]&gt;  &lt;gg&gt;</code></pre>
+##    country      data              grafico
+##    &lt;fct&gt;        &lt;list&gt;            &lt;list&gt; 
+##  1 Ethiopia     &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  2 Burundi      &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  3 Philippines  &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  4 Mauritania   &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  5 Uganda       &lt;tibble [13 × 5]&gt; &lt;gg&gt;   
+##  6 Syria        &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  7 Kuwait       &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
+##  8 Luxembourg   &lt;tibble [49 × 5]&gt; &lt;gg&gt;   
+##  9 Fiji         &lt;tibble [10 × 5]&gt; &lt;gg&gt;   
+## 10 South Africa &lt;tibble [12 × 5]&gt; &lt;gg&gt;</code></pre>
 <p>Veamos un ejemplo</p>
 <pre class="sourceCode r"><code class="sourceCode r">gapminder_nest<span class="op">$</span>grafico[<span class="dv">2</span>]</code></pre>
 <pre><code>## [[1]]</code></pre>

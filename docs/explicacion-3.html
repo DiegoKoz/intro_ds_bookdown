@@ -25,7 +25,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida">
 
 
-<meta name="date" content="2019-09-18">
+<meta name="date" content="2019-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -190,13 +190,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="explicacion-3.html"><a href="explicacion-3.html"><i class="fa fa-check"></i><b>4.1</b> Explicación</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="explicacion-3.html"><a href="explicacion-3.html#graficos-basicos-en-r"><i class="fa fa-check"></i><b>4.1.1</b> Gráficos Básicos en R</a></li>
 <li class="chapter" data-level="4.1.2" data-path="explicacion-3.html"><a href="explicacion-3.html#ggplot2"><i class="fa fa-check"></i><b>4.1.2</b> <span>Ggplot2</span></a></li>
-<li class="chapter" data-level="4.1.3" data-path="explicacion-3.html"><a href="explicacion-3.html#dimensiones-del-grafico"><i class="fa fa-check"></i><b>4.1.3</b> Dimensiones del gráfico</a></li>
-<li class="chapter" data-level="4.1.4" data-path="explicacion-3.html"><a href="explicacion-3.html#treemaps"><i class="fa fa-check"></i><b>4.1.4</b> Treemaps</a></li>
+<li class="chapter" data-level="4.1.3" data-path="explicacion-3.html"><a href="explicacion-3.html#ejemplo-con-datos-reales"><i class="fa fa-check"></i><b>4.1.3</b> Ejemplo con datos reales</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html"><i class="fa fa-check"></i><b>4.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#graficos-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Graficos Ingresos - EPH</a></li>
-<li class="chapter" data-level="4.2.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#histogramas"><i class="fa fa-check"></i><b>4.2.2</b> <span>Histogramas</span></a></li>
-<li class="chapter" data-level="4.2.3" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#kernels"><i class="fa fa-check"></i><b>4.2.3</b> <span>Kernels</span></a></li>
+<li class="chapter" data-level="4.2.1" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#caso-practico-graficos-de-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Caso práctico: Gráficos de ingresos - EPH</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="documentacion-en-r.html"><a href="documentacion-en-r.html"><i class="fa fa-check"></i><b>5</b> Documentación en R</a><ul>
@@ -292,8 +289,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>hist()</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># iris es un set de datos clásico, que ya viene incorporado en R</span>
-iris[<span class="dv">10</span>,]</code></pre>
+iris[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</code></pre>
 <pre><code>##    id Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1   1          5.1         3.5          1.4         0.2  setosa
+## 2   2          4.9         3.0          1.4         0.2  setosa
+## 3   3          4.7         3.2          1.3         0.2  setosa
+## 4   4          4.6         3.1          1.5         0.2  setosa
+## 5   5          5.0         3.6          1.4         0.2  setosa
+## 6   6          5.4         3.9          1.7         0.4  setosa
+## 7   7          4.6         3.4          1.4         0.3  setosa
+## 8   8          5.0         3.4          1.5         0.2  setosa
+## 9   9          4.4         2.9          1.4         0.2  setosa
 ## 10 10          4.9         3.1          1.5         0.1  setosa</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(iris)</code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-106-1.png" width="768" /></p>
@@ -338,8 +344,22 @@ ruta_archivo</code></pre>
 </ul></li>
 </ul>
 <p><code>ggplot</code> tiene <strong>muchos</strong> comandos, y no tiene sentido saberlos de memoria, es siempre útil reutilizar gráficos viejos y tener a mano el <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf">machete</a>.</p>
+<div id="dimensiones-del-grafico" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> Dimensiones del gráfico</h4>
+<p>Esta forma de pensar los gráficos nos permite repenser los distintos atributos como potenciales aliados a la hora de mostrar información multidimensional. Por ejemplo:</p>
+<ul>
+<li><a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"><strong>color</strong></a> <code>color =</code></li>
+<li><strong>relleno</strong><code>fill =</code></li>
+<li><strong>forma</strong> <code>shape =</code></li>
+<li><strong>tamaño</strong> <code>size =</code></li>
+<li><strong>transparencia</strong> <code>alpha =</code></li>
+<li><p>Abrir un mismo gráfico según alguna variable discreta: <code>facet_wrap()</code></p></li>
+<li>Los atributos que queremos que <em>mapeen</em> una variable, deben ir <strong>dentro del aes()</strong>, <code>aes(... color = variable)</code></li>
+<li><p>Cuando queremos simplemente mejorar el diseño (es fijo), se asigna por fuera, o dentro de cada tipo de gráficos, <code>geom_col(color = 'green')</code>.</p></li>
+</ul>
+</div>
 <div id="grafico-de-puntos" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> Gráfico de Puntos</h4>
+<h4><span class="header-section-number">4.1.2.2</span> Gráfico de Puntos</h4>
 <p>A continuación se muestra un gráfico de varias capas de construcción, con su correspondiente porción de código. En el mismo se buscará visualizar, a partir de la base de datos <strong>iris</strong> la relación entre el ancho y el largo de los petalos, mediante un gráfico de puntos.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) <span class="co"># cargamos la librería</span></code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, Petal.Width, <span class="dt">color =</span> Species))<span class="op">+</span>
@@ -350,7 +370,7 @@ ruta_archivo</code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-110-1.png" width="960" /></p>
 </div>
 <div id="capas-del-grafico" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> Capas del Gráfico</h4>
+<h4><span class="header-section-number">4.1.2.3</span> Capas del Gráfico</h4>
 <p>Veamos ahora, el “paso a paso” del armado del mismo.</p>
 <p>En primera instancia solo defino los ejes. Y en este caso un color particular para cada Especie.</p>
 <pre class="sourceCode r"><code class="sourceCode r">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris, <span class="kw">aes</span>(<span class="dt">x =</span> Petal.Length, Petal.Width, <span class="dt">color =</span> Species))
@@ -374,13 +394,13 @@ g</code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-113-1.png" width="960" /></p>
 </div>
 <div id="extensiones-de-ggplot." class="section level4">
-<h4><span class="header-section-number">4.1.2.3</span> Extensiones de <a href="http://www.ggplot2-exts.org/gallery/">GGplot</a>.</h4>
+<h4><span class="header-section-number">4.1.2.4</span> Extensiones de <a href="http://www.ggplot2-exts.org/gallery/">GGplot</a>.</h4>
 <p>La librería GGplot tiene a su vez muchas otras librerías que extienden sus potencialidades. Entre nuestras favoritas están:</p>
 <ul>
 <li><a href="https://gganimate.com/">gganimate</a>: Para hacer gráficos animados.</li>
 <li><a href="https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html">ggridge</a>: Para hacer gráficos de densidad faceteados</li>
-<li><a href="https://ggobi.github.io/ggally/">ggally</a>: Para hacer varios gráficos juntos.
-^</li>
+<li><a href="https://ggobi.github.io/ggally/">ggally</a>: Para hacer varios gráficos juntos.</li>
+<li><a href="https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html">treemapify</a></li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GGally)
 
@@ -396,48 +416,44 @@ g</code></pre>
 esquisse<span class="op">::</span><span class="kw">esquisser</span>()</code></pre>
 </div>
 </div>
-<div id="dimensiones-del-grafico" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> Dimensiones del gráfico</h3>
-<p>Esta forma de pensar los gráficos nos permite repenser los distintos atributos como potenciales aliados a la hora de mostrar información multidimensional. Por ejemplo:</p>
-<ul>
-<li><a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"><strong>color</strong></a> <code>color =</code></li>
-<li><strong>relleno</strong><code>fill =</code></li>
-<li><strong>forma</strong> <code>shape =</code></li>
-<li><strong>tamaño</strong> <code>size =</code></li>
-<li><strong>transparencia</strong> <code>alpha =</code></li>
-<li><p>Abrir un mismo gráfico según alguna variable discreta: <code>facet_wrap()</code></p></li>
-<li>Los atributos que queremos que <em>mapeen</em> una variable, deben ir <strong>dentro del aes()</strong>, <code>aes(... color = variable)</code></li>
-<li><p>Cuando queremos simplemente mejorar el diseño (es fijo), se asigna por fuera, o dentro de cada tipo de gráficos, <code>geom_col(color = 'green')</code>.</p></li>
-</ul>
-</div>
-<div id="treemaps" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> Treemaps</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(treemapify)</code></pre>
-<p><a href="https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado">Trabajo doméstico no remunerado</a></p>
-<pre class="sourceCode r"><code class="sourceCode r">trabajo_no_remunerado &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;fuentes/prom_t_simul_dom_16_sexo__annio__g_edad_limpio.csv&#39;</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"> trabajo_no_remunerado <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(sexo <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>, grupo_edad <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>) <span class="op">%&gt;%</span>
-<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">promedio_hs_diarias =</span> <span class="kw">as.numeric</span>(promedio_hs_diarias),
-          <span class="dt">sexo =</span> <span class="kw">case_when</span>(sexo<span class="op">==</span><span class="st">&#39;m&#39;</span><span class="op">~</span><span class="st">&#39;Mujer&#39;</span>,
-                           sexo<span class="op">==</span><span class="st">&#39;v&#39;</span><span class="op">~</span><span class="st">&#39;Varón&#39;)) %&gt;% </span>
-<span class="st">  ggplot(., aes(area = promedio_hs_diarias, fill = promedio_hs_diarias, label = grupo_edad,</span>
-<span class="st">                subgroup = sexo)) +</span>
-<span class="st">  geom_treemap() +</span>
-<span class="st">  geom_treemap_subgroup_border() +</span>
-<span class="st">  geom_treemap_subgroup_text(place = &quot;centre&quot;, grow = T, alpha = 0.5, colour =</span>
-<span class="st">                             &quot;black&quot;, fontface = &quot;italic&quot;, min.size = 0) +</span>
-<span class="st">  geom_treemap_text(colour = &quot;white&quot;, place = &quot;topleft&quot;, reflow = T)+</span>
-<span class="st">  theme(legend.position = &#39;</span>none<span class="st">&#39;)</span></code></pre>
+<div id="ejemplo-con-datos-reales" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Ejemplo con datos reales</h3>
+<div id="boxplot-de-ingresos-de-la-ocupacion-principal-segun-nivel-educativo" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> Boxplot de ingresos de la ocupación principal, según nivel educativo</h4>
+<pre class="sourceCode r"><code class="sourceCode r">
+Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;fuentes/usu_individual_t119.txt&quot;</span>,
+                              <span class="dt">sep=</span><span class="st">&quot;;&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">fill =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>Hacemos un procesamiento simple: Sacamos los ingresos iguales a cero y las no respuestas de nivel educativo.<br />
+Es importante que las variables sean del tipo que conceptualmente les corresponde (el nivel educativo es una variable categórica, no continua), para que el ggplot pueda graficarlo correctamente.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Las variables sexo( CH04 ) y Nivel educativo están codificadas como números, y el R las entiende como numéricas.</span>
+<span class="kw">class</span>(Individual_t119<span class="op">$</span>NIVEL_ED)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(Individual_t119<span class="op">$</span>CH04)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">ggdata &lt;-<span class="st"> </span>Individual_t119 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>, <span class="op">!</span><span class="kw">is.na</span>(NIVEL_ED)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">NIVEL_ED =</span> <span class="kw">as.factor</span>(NIVEL_ED),
+         <span class="dt">CH04     =</span> <span class="kw">as.factor</span>(CH04))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(<span class="dt">x =</span> NIVEL_ED, <span class="dt">y =</span> P21)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40000</span>))<span class="co">#Restrinjo el gráfico hasta ingresos de $40000</span></code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-119-1.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"> trabajo_no_remunerado <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(sexo <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>, grupo_edad <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>) <span class="op">%&gt;%</span>
-<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">promedio_hs_diarias =</span> <span class="kw">as.numeric</span>(promedio_hs_diarias)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">area=</span>promedio_hs_diarias, <span class="dt">fill=</span>sexo, <span class="dt">label=</span>sexo))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_treemap</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_treemap_text</span>(<span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">place =</span> <span class="st">&quot;topleft&quot;</span>, <span class="dt">reflow =</span> T)<span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(.<span class="op">~</span>grupo_edad, <span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre>
+<p>Si queremos agregar la dimensión <em>sexo</em>, podemos hacer un <code>facet_wrap()</code></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(<span class="dt">x=</span> NIVEL_ED, <span class="dt">y =</span> P21, <span class="dt">group =</span> NIVEL_ED, <span class="dt">fill =</span> NIVEL_ED )) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40000</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>CH04, <span class="dt">labeller =</span> <span class="st">&quot;label_both&quot;</span>)</code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-120-1.png" width="960" /></p>
+<p>Por la forma en que está presentado el gráfico, el foco de atención sigue puesto en las diferencias de ingresos entre niveles educativo. Simplemente se agrega un corte por la variable de sexo.</p>
+<p>Si lo que queremos hacer es poner el foco de atención en las diferencias por sexo, simplemente basta con invertir la variable x especificada con la variable utilizada en el <code>facet_wrap</code></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(<span class="dt">x=</span> CH04, <span class="dt">y =</span> P21, <span class="dt">group =</span> CH04, <span class="dt">fill =</span> CH04 )) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40000</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>NIVEL_ED, <span class="dt">labeller =</span> <span class="st">&quot;label_both&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-121-1.png" width="960" /></p>
 
+</div>
 </div>
 </div>
             </section>
