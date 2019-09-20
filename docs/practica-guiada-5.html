@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-18">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-5.html">
-<link rel="next" href="probabilidad-y-estadistica.html">
+<link rel="prev" href="explicacion-5.html"/>
+<link rel="next" href="probabilidad-y-estadistica.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -144,9 +142,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.3" data-path="explicacion.html"><a href="explicacion.html#r-base"><i class="fa fa-check"></i><b>1.1.3</b> R base</a></li>
 <li class="chapter" data-level="1.1.4" data-path="explicacion.html"><a href="explicacion.html#objetos"><i class="fa fa-check"></i><b>1.1.4</b> Objetos:</a></li>
 <li class="chapter" data-level="1.1.5" data-path="explicacion.html"><a href="explicacion.html#data-frames"><i class="fa fa-check"></i><b>1.1.5</b> Data Frames</a></li>
-<li class="chapter" data-level="1.1.6" data-path="explicacion.html"><a href="explicacion.html#listas"><i class="fa fa-check"></i><b>1.1.6</b> Listas</a></li>
-<li class="chapter" data-level="1.1.7" data-path="explicacion.html"><a href="explicacion.html#ambientes-de-trabajo"><i class="fa fa-check"></i><b>1.1.7</b> Ambientes de trabajo</a></li>
-<li class="chapter" data-level="1.1.8" data-path="explicacion.html"><a href="explicacion.html#tipos-de-archivos-de-r"><i class="fa fa-check"></i><b>1.1.8</b> Tipos de archivos de R</a></li>
+<li class="chapter" data-level="1.1.6" data-path="explicacion.html"><a href="explicacion.html#todo-junto"><i class="fa fa-check"></i><b>1.1.6</b> Todo junto</a></li>
+<li class="chapter" data-level="1.1.7" data-path="explicacion.html"><a href="explicacion.html#listas"><i class="fa fa-check"></i><b>1.1.7</b> Listas</a></li>
+<li class="chapter" data-level="1.1.8" data-path="explicacion.html"><a href="explicacion.html#ambientes-de-trabajo"><i class="fa fa-check"></i><b>1.1.8</b> Ambientes de trabajo</a></li>
+<li class="chapter" data-level="1.1.9" data-path="explicacion.html"><a href="explicacion.html#tipos-de-archivos-de-r"><i class="fa fa-check"></i><b>1.1.9</b> Tipos de archivos de R</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="practica-guiada.html"><a href="practica-guiada.html"><i class="fa fa-check"></i><b>1.2</b> Práctica Guiada</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="practica-guiada.html"><a href="practica-guiada.html#instalacion-de-paquetes-complementarios-al-r-base"><i class="fa fa-check"></i><b>1.2.1</b> Instalación de paquetes complementarios al R Base</a></li>
@@ -303,11 +302,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>A cada paso vamos armando un código que no falle. De esta forma es más fácil detectar los errores.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(gapminder)
-
-gapminder &lt;-<span class="st"> </span>gapminder
-gapminder</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">gapminder &lt;-<span class="st"> </span>gapminder</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">gapminder</a></code></pre></div>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -332,12 +339,12 @@ gapminder</code></pre>
 </div>
 <div id="codigo-estatico-para-un-caso-particular." class="section level4">
 <h4><span class="header-section-number">6.2.1.2</span> 2. código <em>estático</em> para un caso particular.</h4>
-<pre class="sourceCode r"><code class="sourceCode r">gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &#39;Argentina&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, lifeExp))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-150-1.png" width="960" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &#39;Argentina&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, lifeExp))<span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="partes-que-queremos-generalizar." class="section level4">
 <h4><span class="header-section-number">6.2.1.3</span> 3. partes que queremos generalizar.</h4>
@@ -348,33 +355,33 @@ gapminder</code></pre>
 </div>
 <div id="funcion-que-tome-como-parametros-aquello-que-generalizamos" class="section level4">
 <h4><span class="header-section-number">6.2.1.4</span> 4. función que tome como parámetros aquello que generalizamos</h4>
-<pre class="sourceCode r"><code class="sourceCode r">graficar &lt;-<span class="st"> </span><span class="cf">function</span>(pais, variable){
-  
-  gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>pais) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## reemplze el == por %in% para que me reciba más de un país. </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes_string</span>(<span class="st">&quot;year&quot;</span>, variable, <span class="dt">color=</span> <span class="st">&quot;country&quot;</span>))<span class="op">+</span><span class="st"> </span><span class="co">## Le cambio aes por aes_string para que me reciba el texto del input</span>
-<span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()
-}
-
-<span class="kw">graficar</span>(<span class="dt">pais =</span> <span class="st">&quot;Argentina&quot;</span>, <span class="dt">variable =</span> <span class="st">&quot;lifeExp&quot;</span>)</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-151-1.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">graficar</span>(<span class="dt">pais =</span> <span class="kw">c</span>(<span class="st">&quot;Argentina&quot;</span>,<span class="st">&quot;Angola&quot;</span>), <span class="dt">variable =</span> <span class="st">&quot;lifeExp&quot;</span>)</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-151-2.png" width="960" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">graficar &lt;-<span class="st"> </span><span class="cf">function</span>(pais, variable){</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  </a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>pais) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## reemplace el == por %in% para que me reciba más de un país. </span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes_string</span>(<span class="st">&quot;year&quot;</span>, variable, <span class="dt">color=</span> <span class="st">&quot;country&quot;</span>))<span class="op">+</span><span class="st"> </span><span class="co">## Le cambio aes por aes_string para que me reciba el texto del input</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>()</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="kw">graficar</span>(<span class="dt">pais =</span> <span class="st">&quot;Argentina&quot;</span>, <span class="dt">variable =</span> <span class="st">&quot;lifeExp&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">graficar</span>(<span class="dt">pais =</span> <span class="kw">c</span>(<span class="st">&quot;Argentina&quot;</span>,<span class="st">&quot;Angola&quot;</span>), <span class="dt">variable =</span> <span class="st">&quot;lifeExp&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 </div>
 <div id="shiny-estatico-con-parametros-fijos" class="section level4">
 <h4><span class="header-section-number">6.2.1.5</span> 5. shiny estático con parámetros fijos</h4>
 <blockquote>
 <p>ver ejemplo_2_a</p>
 </blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>Agregamos los inputs en el ui</li>
-</ol>
+</div>
+<div id="agregamos-los-inputs-en-el-ui" class="section level4">
+<h4><span class="header-section-number">6.2.1.6</span> 6. Agregamos los inputs en el ui</h4>
 <p>Necesitamos agregar dos inputs: País y variable.</p>
 <p>Para opciones podemos usar <a href="https://shiny.rstudio.com/articles/selectize.html">selectize</a></p>
 <p><code>selectizeInput(inputId, label, choices, selected = NULL, multiple = FALSE,                options = NULL)</code></p>
 <p>Podemos crear la lista de opciones de países automaticamente</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(gapminder<span class="op">$</span>country)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">unique</span>(gapminder<span class="op">$</span>country)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
 <pre><code>##  [1] Afghanistan Albania     Algeria     Angola      Argentina  
 ##  [6] Australia   Austria     Bahrain     Bangladesh  Belgium    
 ## 142 Levels: Afghanistan Albania Algeria Angola Argentina ... Zimbabwe</code></pre>
@@ -383,49 +390,50 @@ gapminder</code></pre>
 </blockquote>
 </div>
 <div id="reemplazamos-los-parametros-fijos-por-los-de-input-en-el-server" class="section level4">
-<h4><span class="header-section-number">6.2.1.6</span> 7. reemplazamos los parámetros fijos por los de input en el server</h4>
+<h4><span class="header-section-number">6.2.1.7</span> 7. reemplazamos los parámetros fijos por los de input en el server</h4>
 <blockquote>
 <p>ver ejemplo_2_c</p>
 </blockquote>
 </div>
 <div id="tuneamos-a-discrecion" class="section level4">
-<h4><span class="header-section-number">6.2.1.7</span> 8. Tuneamos a discreción</h4>
+<h4><span class="header-section-number">6.2.1.8</span> 8. Tuneamos a discreción</h4>
+<p><img src="img/pimp.jpeg" width="500" /></p>
 <p>Una vez que tenemos un shiny funcionando como queríamos, podemos agregar <code>tags</code> y texto para agregar explicaciones y emprolijar los resultados.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Headers</span>
-<span class="co"># shiny::tags$h1(&#39;Nivel 1&#39;)</span>
-<span class="co"># shiny::tags$h2(&#39;Nivel 2&#39;)</span>
-<span class="co"># shiny::tags$h3(&#39;Nivel 3&#39;)</span>
-<span class="co"># shiny::tags$h4(&#39;Nivel 4&#39;)</span>
-<span class="co"># shiny::tags$h5(&#39;Nivel 5&#39;)</span>
-<span class="co"># shiny::tags$h6(&#39;Nivel 6&#39;)</span>
-
-shiny<span class="op">::</span><span class="kw">br</span>() <span class="co"># espacio en blanco</span></code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Headers</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co"># shiny::tags$h1(&#39;Nivel 1&#39;)</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># shiny::tags$h2(&#39;Nivel 2&#39;)</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># shiny::tags$h3(&#39;Nivel 3&#39;)</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co"># shiny::tags$h4(&#39;Nivel 4&#39;)</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co"># shiny::tags$h5(&#39;Nivel 5&#39;)</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co"># shiny::tags$h6(&#39;Nivel 6&#39;)</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">shiny<span class="op">::</span><span class="kw">br</span>() <span class="co"># espacio en blanco</span></a></code></pre></div>
 <br/>
-<pre class="sourceCode r"><code class="sourceCode r">shiny<span class="op">::</span><span class="kw">hr</span>() <span class="co"># linea horizontal</span></code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">shiny<span class="op">::</span><span class="kw">hr</span>() <span class="co"># linea horizontal</span></a></code></pre></div>
 <hr/>
-<pre class="sourceCode r"><code class="sourceCode r">shiny<span class="op">::</span><span class="kw">helpText</span>(<span class="st">&#39;texto para ayudas&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">shiny<span class="op">::</span><span class="kw">helpText</span>(<span class="st">&#39;texto para ayudas&#39;</span>)</a></code></pre></div>
 <span class="help-block">texto para ayudas</span>
 </div>
 <div id="multiples-pestanas" class="section level4">
-<h4><span class="header-section-number">6.2.1.8</span> Multiples pestañas</h4>
+<h4><span class="header-section-number">6.2.1.9</span> Multiples pestañas</h4>
 <p>También puede ocurrir que queremos mostrar varios resultados en un mismo shiny. En nuestro ejemplo, podríamos querer mostrar una tabla con los datos.</p>
 <ul>
 <li><p>Para eso podemos usar <code>tabsetPanel</code> en el <code>ui</code></p></li>
 <li><p>Imaginemos que queremos tener dos tabs: Una con el gráfico, y otra con una tabla de resultados:</p></li>
 </ul>
 <p>Entonces, en el shiny debemos agregar:</p>
-<pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">mainPanel</span>(
-      <span class="kw">tabsetPanel</span>(<span class="dt">type =</span> <span class="st">&quot;tabs&quot;</span>,
-                  <span class="kw">tabPanel</span>(<span class="st">&quot;Gráfico&quot;</span>, <span class="kw">plotOutput</span>(<span class="st">&quot;grafico&quot;</span>)),
-                  <span class="kw">tabPanel</span>(<span class="st">&quot;Tabla&quot;</span>, <span class="kw">tableOutput</span>(<span class="st">&quot;tabla&quot;</span>))
-      )
-
-    )</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"> <span class="kw">mainPanel</span>(</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">      <span class="kw">tabsetPanel</span>(<span class="dt">type =</span> <span class="st">&quot;tabs&quot;</span>,</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">                  <span class="kw">tabPanel</span>(<span class="st">&quot;Gráfico&quot;</span>, <span class="kw">plotOutput</span>(<span class="st">&quot;grafico&quot;</span>)),</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">                  <span class="kw">tabPanel</span>(<span class="st">&quot;Tabla&quot;</span>, <span class="kw">tableOutput</span>(<span class="st">&quot;tabla&quot;</span>))</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">      )</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    )</a></code></pre></div>
 <p>Mientras que en el server debemos generar un nuevo resultado, llamado <em>tabla</em> con los datos</p>
-<pre class="sourceCode r"><code class="sourceCode r">output<span class="op">$</span>tabla &lt;-<span class="st"> </span><span class="kw">renderTable</span>({
-    gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">        </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>input<span class="op">$</span>inputPais) 
-  })</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">output<span class="op">$</span>tabla &lt;-<span class="st"> </span><span class="kw">renderTable</span>({</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">    gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">        </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>input<span class="op">$</span>inputPais) </a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">  })</a></code></pre></div>
 <blockquote>
 <p>ver ejemplo_2_d</p>
 </blockquote>
@@ -485,19 +493,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
