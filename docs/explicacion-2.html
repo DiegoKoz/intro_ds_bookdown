@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.1 Explicación | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.1 Explicación | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="programacion-funcional.html">
-<link rel="next" href="practica-guiada-2.html">
+<link rel="prev" href="programacion-funcional.html"/>
+<link rel="next" href="practica-guiada-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -281,13 +279,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="explicacion-2" class="section level2">
 <h2><span class="header-section-number">3.1</span> Explicación</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <div id="loops" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Loops</h3>
 <p>Un <strong>loop</strong> es una estructura de código que nos permite aplicar iterativamente un mismo conjunto de comandos, variando el valor de una variable. Por ejemplo:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){
-   <span class="kw">print</span>(i<span class="op">^</span><span class="dv">2</span>)
-}</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2">   <span class="kw">print</span>(i<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb182-3" data-line-number="3">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 4
 ## [1] 9
@@ -300,10 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 100</code></pre>
 <p>Esto se lee como : “Recorre cada uno de los valores (i) del vector numérico 1 a 10, y para cada uno de ellos imprimí el cuadrado (i^2)”.<br />
 Uno puede especificar la palabra que desee que tomé cada uno de los valores que debe tomar. En el ejemplo anterior fue <strong>i</strong>, pero bien podría ser la “<strong>Valores</strong>”</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(Valores <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){
-   <span class="kw">print</span>(Valores<span class="op">^</span><span class="dv">2</span>)
-  
-}</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="cf">for</span>(Valores <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb184-2" data-line-number="2">   <span class="kw">print</span>(Valores<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb184-4" data-line-number="4">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 4
 ## [1] 9
@@ -326,20 +324,20 @@ Uno puede especificar la palabra que desee que tomé cada uno de los valores que
 <h4><span class="header-section-number">3.1.2.1</span> if</h4>
 <p>Su funcionamiento es el siguiente:<br />
 <code>if(condicion){codigo a ejecutar si se cumple la condición}</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>( <span class="dv">2</span><span class="op">+</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">4</span>){
-  <span class="kw">print</span>(<span class="st">&quot;Menos Mal&quot;</span>)
-}</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="cf">if</span>( <span class="dv">2</span><span class="op">+</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">4</span>){</a>
+<a class="sourceLine" id="cb186-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;Menos Mal&quot;</span>)</a>
+<a class="sourceLine" id="cb186-3" data-line-number="3">}</a></code></pre></div>
 <pre><code>## [1] &quot;Menos Mal&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>( <span class="dv">2</span><span class="op">+</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="fl">148.24</span>){
-  <span class="kw">print</span>(<span class="st">&quot;R, tenemos un problema&quot;</span>)
-}</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="cf">if</span>( <span class="dv">2</span><span class="op">+</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="fl">148.24</span>){</a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">  <span class="kw">print</span>(<span class="st">&quot;R, tenemos un problema&quot;</span>)</a>
+<a class="sourceLine" id="cb188-3" data-line-number="3">}</a></code></pre></div>
 </div>
 <div id="ifelse" class="section level4">
 <h4><span class="header-section-number">3.1.2.2</span> ifelse</h4>
 <p>La función <code>if_else()</code> sirve para crear o modificar dicotómicamente un objeto/variable/vector a partir del cumplimiento de una o más condiciones lógicas.<br />
 Su funcionamiento es el siguiente:<br />
 <code>if_else(condicion,función a aplicar si se cumple la condición,función a aplicar si no se cumple la condición)</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">if_else</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="op">==</span><span class="dv">4</span>, <span class="dt">true =</span> <span class="st">&quot;Joya&quot;</span>,<span class="dt">false =</span> <span class="st">&quot;Error&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="kw">if_else</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="op">==</span><span class="dv">4</span>, <span class="dt">true =</span> <span class="st">&quot;Joya&quot;</span>,<span class="dt">false =</span> <span class="st">&quot;Error&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Joya&quot;</code></pre>
 </div>
 </div>
@@ -347,25 +345,25 @@ Su funcionamiento es el siguiente:<br />
 <h3><span class="header-section-number">3.1.3</span> Funciones</h3>
 <p>La creación de <strong>funciones</strong> propias nos permite automatizar todas aquellas partes del código que se repiten mucho. Una vez diseñadas, funcionan igual que cualquier comando.</p>
 <p>Por ejemplo, podemos definir la suma de dos elementos como</p>
-<pre class="sourceCode r"><code class="sourceCode r">suma &lt;-<span class="st"> </span><span class="cf">function</span>(valor1, valor2) {
-  valor1<span class="op">+</span>valor2
-}
-
-<span class="kw">suma</span>(<span class="dv">5</span>,<span class="dv">6</span>)</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">suma &lt;-<span class="st"> </span><span class="cf">function</span>(valor1, valor2) {</a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">  valor1<span class="op">+</span>valor2</a>
+<a class="sourceLine" id="cb191-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb191-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb191-5" data-line-number="5"><span class="kw">suma</span>(<span class="dv">5</span>,<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>Obviamente las funciones no son sólo para variables numéricas. Por ejemplo, podemos pegar dos strings con una flecha en el medio</p>
-<pre class="sourceCode r"><code class="sourceCode r">funcion_prueba &lt;-<span class="st"> </span><span class="cf">function</span>(parametro1,parametro2) {
-  <span class="kw">paste</span>(parametro1, parametro2, <span class="dt">sep =</span> <span class="st">&quot; &lt;--&gt; &quot;</span>)
-}
-
-<span class="kw">funcion_prueba</span>(<span class="dt">parametro1 =</span> <span class="st">&quot;A ver&quot;</span>, <span class="dt">parametro2 =</span> <span class="st">&quot;Que pasa&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">funcion_prueba &lt;-<span class="st"> </span><span class="cf">function</span>(parametro1,parametro2) {</a>
+<a class="sourceLine" id="cb193-2" data-line-number="2">  <span class="kw">paste</span>(parametro1, parametro2, <span class="dt">sep =</span> <span class="st">&quot; &lt;--&gt; &quot;</span>)</a>
+<a class="sourceLine" id="cb193-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb193-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb193-5" data-line-number="5"><span class="kw">funcion_prueba</span>(<span class="dt">parametro1 =</span> <span class="st">&quot;A ver&quot;</span>, <span class="dt">parametro2 =</span> <span class="st">&quot;Que pasa&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;A ver &lt;--&gt; Que pasa&quot;</code></pre>
 <p>También podemos asignar un valor por default para los parametros en caso de que el usuario no defina su valor al utilizar la función.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Otra_funcion_prueba &lt;-<span class="st"> </span><span class="cf">function</span>(parametro1 ,<span class="dt">parametro2 =</span> <span class="st">&quot;String default&quot;</span>) {
-  <span class="kw">paste</span>(parametro1, parametro2, <span class="dt">sep =</span> <span class="st">&quot; &lt;--&gt; &quot;</span>)
-  
-}
-<span class="kw">Otra_funcion_prueba</span>(<span class="dt">parametro1 =</span> <span class="st">&quot;Valor 1 &quot;</span>)</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">Otra_funcion_prueba &lt;-<span class="st"> </span><span class="cf">function</span>(parametro1 ,<span class="dt">parametro2 =</span> <span class="st">&quot;String default&quot;</span>) {</a>
+<a class="sourceLine" id="cb195-2" data-line-number="2">  <span class="kw">paste</span>(parametro1, parametro2, <span class="dt">sep =</span> <span class="st">&quot; &lt;--&gt; &quot;</span>)</a>
+<a class="sourceLine" id="cb195-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb195-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="kw">Otra_funcion_prueba</span>(<span class="dt">parametro1 =</span> <span class="st">&quot;Valor 1 &quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Valor 1  &lt;--&gt; String default&quot;</code></pre>
 <p>Las funciones que creamos nosotros permanecen en el ambiente de R temporariamente. Cuando removemos los objetos del ambiente, la función deja de existir. Por ende, debemos incorporarla en cada uno de los scripts en la cual la necesitemos. Una buena práctica, es incorporar nuestras funciones útiles al comienzo de cada script junto a la carga de las librerías.</p>
 <p>Vale mencionar que <strong>lo que ocurre en una función, queda en la función</strong> excepto que explícitamente pidamos que devuelva el resultado, con el comando <code>print()</code>.</p>
@@ -390,14 +388,14 @@ Su funcionamiento es el siguiente:<br />
 <li>pmap(VECTOR_O_LIST_INPUT, FUNCTION_A_APLICAR, OTROS_OPCIONALES)</li>
 </ul>
 <p>Por ejemplo. Si queremos utilizar la función prueba sobre los datos del dataframe ABC_123</p>
-<pre class="sourceCode r"><code class="sourceCode r">ABC_<span class="dv">123</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Letras =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>],<span class="dt">Num =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)
-funcion_prueba</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">ABC_<span class="dv">123</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Letras =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>],<span class="dt">Num =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb197-2" data-line-number="2">funcion_prueba</a></code></pre></div>
 <pre><code>## function(parametro1,parametro2) {
 ##   paste(parametro1, parametro2, sep = &quot; &lt;--&gt; &quot;)
 ## }</code></pre>
 <p>Si el resultado que queremos es que junte cada fila, necesitamos pasarle dos parámetros: utilizamos <code>map2()</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">resultado &lt;-<span class="st"> </span><span class="kw">map2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)
-resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1">resultado &lt;-<span class="st"> </span><span class="kw">map2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)</a>
+<a class="sourceLine" id="cb199-2" data-line-number="2">resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;A &lt;--&gt; 1&quot;
 ## 
@@ -407,8 +405,8 @@ resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</
 ## [[3]]
 ## [1] &quot;C &lt;--&gt; 3&quot;</code></pre>
 <p>La salida de los <code>map()</code> es una <strong>lista</strong>, no un vector, por lo que si lo metemos dentro de un dataframe se vería así:</p>
-<pre class="sourceCode r"><code class="sourceCode r">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">map2</span>(Letras,Num,funcion_prueba))</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb201-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">map2</span>(Letras,Num,funcion_prueba))</a></code></pre></div>
 <pre><code>##    Letras Num resultado
 ## 1       A   1  A &lt;--&gt; 1
 ## 2       B   2  B &lt;--&gt; 2
@@ -433,10 +431,10 @@ resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</
 <p>al ponerlo dentro del dataframe desarma la lista y guarda cada elemento por separado.
 La magia de eso es que podemos <strong>guardar cualquier cosa en el dataframe</strong> no sólo valores, sino también listas, funciones, dataframes, etc.</p>
 <p>Si queremos recuperar los valores originales en este caso podemos usar <code>unlist()</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">resultado[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</a></code></pre></div>
 <pre><code>## [1] &quot;A &lt;--&gt; 1&quot; &quot;B &lt;--&gt; 2&quot; &quot;C &lt;--&gt; 3&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">unlist</span>(<span class="kw">map2</span>(Letras,Num,funcion_prueba)))</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb205-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">unlist</span>(<span class="kw">map2</span>(Letras,Num,funcion_prueba)))</a></code></pre></div>
 <pre><code>##    Letras Num resultado
 ## 1       A   1  A &lt;--&gt; 1
 ## 2       B   2  B &lt;--&gt; 2
@@ -459,7 +457,7 @@ La magia de eso es que podemos <strong>guardar cualquier cosa en el dataframe</s
 ## 19      S  19 S &lt;--&gt; 19
 ## 20      T  20 T &lt;--&gt; 20</code></pre>
 <p>Si lo que queríamos era que la función nos haga todas las combinaciones de letras y número, entonces lo que necesitamos es pasarle el segúndo parametro como algo <em>fijo</em>, poniendolo después de la función.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,funcion_prueba,ABC_<span class="dv">123</span><span class="op">$</span>Num)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">map</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,funcion_prueba,ABC_<span class="dv">123</span><span class="op">$</span>Num)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ##  [1] &quot;A &lt;--&gt; 1&quot;  &quot;A &lt;--&gt; 2&quot;  &quot;A &lt;--&gt; 3&quot;  &quot;A &lt;--&gt; 4&quot;  &quot;A &lt;--&gt; 5&quot; 
 ##  [6] &quot;A &lt;--&gt; 6&quot;  &quot;A &lt;--&gt; 7&quot;  &quot;A &lt;--&gt; 8&quot;  &quot;A &lt;--&gt; 9&quot;  &quot;A &lt;--&gt; 10&quot;
@@ -474,8 +472,8 @@ La magia de eso es que podemos <strong>guardar cualquier cosa en el dataframe</s
 <p>En este caso, el map itera sobre cada elemento de <code>letras</code>, y para cada elemento <em>i</em> hace
 <code>funcion_prueba(i,ABC$Num)</code> y guarda el resultado en la lista</p>
 <p>si lo queremos meter en el dataframe</p>
-<pre class="sourceCode r"><code class="sourceCode r">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">map</span>(Letras,funcion_prueba,Num))</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">ABC_<span class="dv">123</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb209-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">resultado=</span> <span class="kw">map</span>(Letras,funcion_prueba,Num))</a></code></pre></div>
 <pre><code>##    Letras Num
 ## 1       A   1
 ## 2       B   2
@@ -523,23 +521,23 @@ La magia de eso es que podemos <strong>guardar cualquier cosa en el dataframe</s
 <div id="funciones-implicitas" class="section level3">
 <h3><span class="header-section-number">3.1.5</span> Funciones implícitas</h3>
 <p>no es necesario que definamos la función de antemano. Podemos usar <em>funciones implícitas</em></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="cf">function</span>(x) x<span class="op">^</span><span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="kw">map_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="cf">function</span>(x) x<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map2_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>), <span class="cf">function</span>(x,y) x<span class="op">*</span>y)</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">map2_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>), <span class="cf">function</span>(x,y) x<span class="op">*</span>y)</a></code></pre></div>
 <pre><code>##  [1]  11  24  39  56  75  96 119 144 171 200</code></pre>
 </div>
 <div id="funciones-lambda" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> Funciones lambda</h3>
 <p>incluso más conciso que las funciones implíictas son las <strong>funciones lambda</strong> donde definimos las variables como <em>.x</em> <em>.y</em>, etc. La flexibilidad de estas expresiones es limitada, pero puede ser útil en algunos casos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="op">~</span>.x<span class="op">^</span><span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1"><span class="kw">map_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="op">~</span>.x<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map2_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>),<span class="op">~</span>.x<span class="op">*</span>.y)</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">map2_dbl</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),<span class="kw">c</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">20</span>),<span class="op">~</span>.x<span class="op">*</span>.y)</a></code></pre></div>
 <pre><code>##  [1]  11  24  39  56  75  96 119 144 171 200</code></pre>
 </div>
 <div id="walk" class="section level3">
 <h3><span class="header-section-number">3.1.7</span> Walk</h3>
 <p>Las funciones <code>Walk</code> Tienen la misma forma que los <code>map</code>, pero se usan cuando lo que queremos iterar no genera una salida, sino que nos interesan los efectos secundarios que generan.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">map2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">map2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;A &lt;--&gt; 1&quot;
 ## 
@@ -548,12 +546,12 @@ La magia de eso es que podemos <strong>guardar cualquier cosa en el dataframe</s
 ## 
 ## [[3]]
 ## [1] &quot;C &lt;--&gt; 3&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">walk2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">imprimir_salida &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){
-  <span class="kw">print</span>(<span class="kw">funcion_prueba</span>(x,y))
-}
-
-<span class="kw">walk2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,imprimir_salida)</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">walk2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,funcion_prueba)</a></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">imprimir_salida &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2">  <span class="kw">print</span>(<span class="kw">funcion_prueba</span>(x,y))</a>
+<a class="sourceLine" id="cb222-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb222-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb222-5" data-line-number="5"><span class="kw">walk2</span>(ABC_<span class="dv">123</span><span class="op">$</span>Letras,ABC_<span class="dv">123</span><span class="op">$</span>Num,imprimir_salida)</a></code></pre></div>
 <pre><code>## [1] &quot;A &lt;--&gt; 1&quot;
 ## [1] &quot;B &lt;--&gt; 2&quot;
 ## [1] &quot;C &lt;--&gt; 3&quot;
@@ -651,8 +649,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

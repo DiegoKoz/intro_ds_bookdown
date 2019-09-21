@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-2.html">
-<link rel="next" href="visualizacion-de-la-informacion.html">
+<link rel="prev" href="explicacion-2.html"/>
+<link rel="next" href="visualizacion-de-la-informacion.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -281,26 +279,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="practica-guiada-2" class="section level2">
 <h2><span class="header-section-number">3.2</span> Práctica Guiada</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fs)
-<span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(openxlsx)
-<span class="kw">library</span>(glue)</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">library</span>(fs)</a>
+<a class="sourceLine" id="cb224-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb224-3" data-line-number="3"><span class="kw">library</span>(openxlsx)</a>
+<a class="sourceLine" id="cb224-4" data-line-number="4"><span class="kw">library</span>(glue)</a></code></pre></div>
 <div id="ejemplo-1-iterando-en-la-eph" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Ejemplo 1: Iterando en la EPH</h3>
 <p>Lo primero que necesitamos es definir un vector o lista sobre el que iterar.</p>
 <p>Por ejemplo, podemos armar un vector con los path a las bases individuales, con el comando <code>fs::dir_ls</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">bases_individuales_path &lt;-<span class="st"> </span><span class="kw">dir_ls</span>(<span class="dt">path =</span> <span class="st">&#39;fuentes/&#39;</span>, <span class="dt">regexp=</span> <span class="st">&#39;individual&#39;</span>)
-bases_individuales_path</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">bases_individuales_path &lt;-<span class="st"> </span><span class="kw">dir_ls</span>(<span class="dt">path =</span> <span class="st">&#39;fuentes/&#39;</span>, <span class="dt">regexp=</span> <span class="st">&#39;individual&#39;</span>)</a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">bases_individuales_path</a></code></pre></div>
 <pre><code>## fuentes/usu_individual_t119.txt fuentes/usu_individual_t418.txt</code></pre>
 <p>Luego, como en la función que usamos para leer las bases definimos muchos parametros, nos podemos armar una función <em>wrapper</em> que sólo necesite un parámetro, y que simplifique la escritura del map</p>
-<pre class="sourceCode r"><code class="sourceCode r">leer_base_eph &lt;-<span class="st"> </span><span class="cf">function</span>(path) {
-  <span class="kw">read.table</span>(path,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">fill =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(ANO4,TRIMESTRE,REGION,P21,CH04, CH06)
-}
-
-bases_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(bases_individuales_path) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">base =</span> <span class="kw">map</span>(bases_individuales_path, leer_base_eph))</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">leer_base_eph &lt;-<span class="st"> </span><span class="cf">function</span>(path) {</a>
+<a class="sourceLine" id="cb227-2" data-line-number="2">  <span class="kw">read.table</span>(path,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">fill =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb227-3" data-line-number="3"><span class="st">    </span><span class="kw">select</span>(ANO4,TRIMESTRE,REGION,P21,CH04, CH06)</a>
+<a class="sourceLine" id="cb227-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb227-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb227-6" data-line-number="6">bases_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(bases_individuales_path) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb227-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">base =</span> <span class="kw">map</span>(bases_individuales_path, leer_base_eph))</a></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">bases_df</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   bases_individuales_path         base                 
 ##   &lt;fs::path&gt;                      &lt;list&gt;               
@@ -308,8 +306,8 @@ bases_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(bases_indi
 ## 2 fuentes/usu_individual_t418.txt &lt;df[,6] [57,418 × 6]&gt;</code></pre>
 <p>El resultado es un DF donde la columna <strong>base</strong> tiene en cada fila, otro DF con la base de la EPH de ese período. Esto es lo que llamamos un <em>nested DF</em> o dataframe nesteado pa les pibes.</p>
 <p>Si queremos juntar todo, podemos usar <code>unnest()</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>()
-bases_df</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">bases_df &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>()</a>
+<a class="sourceLine" id="cb230-2" data-line-number="2">bases_df</a></code></pre></div>
 <pre><code>## # A tibble: 116,787 x 7
 ##    bases_individuales_path          ANO4 TRIMESTRE REGION   P21  CH04  CH06
 ##    &lt;fs::path&gt;                      &lt;int&gt;     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -328,18 +326,19 @@ bases_df</code></pre>
 <p>¿Qué pasa si los DF que tenemos nesteados no tienen la misma cantidad de columnas?</p>
 </blockquote>
 <p>Esto mismo lo podemos usar para fragmentar el datastet por alguna variable, con el <code>group_by()</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">nest</span>()</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1">bases_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb232-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb232-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>()</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
-##   REGION data                 
-##    &lt;int&gt; &lt;list&gt;               
-## 1     41 &lt;tibble [11,509 × 6]&gt;
-## 2     44 &lt;tibble [14,204 × 6]&gt;
-## 3     42 &lt;tibble [11,150 × 6]&gt;
-## 4     43 &lt;tibble [34,702 × 6]&gt;
-## 5     40 &lt;tibble [24,432 × 6]&gt;
-## 6      1 &lt;tibble [20,790 × 6]&gt;</code></pre>
+## # Groups:   REGION [6]
+##   REGION           data
+##    &lt;int&gt; &lt;list&lt;df[,6]&gt;&gt;
+## 1     41   [11,509 × 6]
+## 2     44   [14,204 × 6]
+## 3     42   [11,150 × 6]
+## 4     43   [34,702 × 6]
+## 5     40   [24,432 × 6]
+## 6      1   [20,790 × 6]</code></pre>
 <p>Así, para cada región tenemos un DF.</p>
 <blockquote>
 <p>¿ De qué sirve todo esto?</p>
@@ -354,9 +353,9 @@ bases_df</code></pre>
 P21 = \beta_0 + \beta_1*CH04 + \beta_2*CH06
 \]</span>
 Osea, un modleo que explica el ingreso según sexo y edad</p>
-<pre class="sourceCode r"><code class="sourceCode r">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> bases_df)
-
-<span class="kw">summary</span>(lmfit)</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> bases_df)</a>
+<a class="sourceLine" id="cb234-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb234-3" data-line-number="3"><span class="kw">summary</span>(lmfit)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = P21 ~ factor(CH04) + CH06, data = bases_df)
@@ -378,7 +377,7 @@ Osea, un modleo que explica el ingreso según sexo y edad</p>
 ## F-statistic:  3406 on 2 and 116784 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>(al final de la clase podemos charlar sobre los resultados, si hay interés :-) )</p>
 <p>De forma Tidy, la librería <code>broom</code> nos da los resultados en un DF.</p>
-<pre class="sourceCode r"><code class="sourceCode r">broom<span class="op">::</span><span class="kw">tidy</span>(lmfit)</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(lmfit)</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 5
 ##   term          estimate std.error statistic p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
@@ -388,22 +387,22 @@ Osea, un modleo que explica el ingreso según sexo y edad</p>
 <p>Si lo queremos hacer por region</p>
 <div id="loopeando" class="section level4">
 <h4><span class="header-section-number">3.2.2.1</span> Loopeando</h4>
-<pre class="sourceCode r"><code class="sourceCode r">resultados &lt;-<span class="st"> </span><span class="kw">tibble</span>()
-
-<span class="cf">for</span> (region <span class="cf">in</span> <span class="kw">unique</span>(bases_df<span class="op">$</span>REGION)) {
-  
-  data &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">filter</span>(REGION<span class="op">==</span>region)
-  
-  lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> data)
-  
-  lmtidy &lt;-<span class="st"> </span>broom<span class="op">::</span><span class="kw">tidy</span>(lmfit)
-  lmtidy<span class="op">$</span>region &lt;-<span class="st"> </span>region
-  resultados &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(resultados,lmtidy)
-
-}
-
-resultados</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">resultados &lt;-<span class="st"> </span><span class="kw">tibble</span>()</a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3"><span class="cf">for</span> (region <span class="cf">in</span> <span class="kw">unique</span>(bases_df<span class="op">$</span>REGION)) {</a>
+<a class="sourceLine" id="cb238-4" data-line-number="4">  </a>
+<a class="sourceLine" id="cb238-5" data-line-number="5">  data &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb238-6" data-line-number="6"><span class="st">    </span><span class="kw">filter</span>(REGION<span class="op">==</span>region)</a>
+<a class="sourceLine" id="cb238-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb238-8" data-line-number="8">  lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> data)</a>
+<a class="sourceLine" id="cb238-9" data-line-number="9">  </a>
+<a class="sourceLine" id="cb238-10" data-line-number="10">  lmtidy &lt;-<span class="st"> </span>broom<span class="op">::</span><span class="kw">tidy</span>(lmfit)</a>
+<a class="sourceLine" id="cb238-11" data-line-number="11">  lmtidy<span class="op">$</span>region &lt;-<span class="st"> </span>region</a>
+<a class="sourceLine" id="cb238-12" data-line-number="12">  resultados &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(resultados,lmtidy)</a>
+<a class="sourceLine" id="cb238-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb238-14" data-line-number="14">}</a>
+<a class="sourceLine" id="cb238-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb238-16" data-line-number="16">resultados</a></code></pre></div>
 <pre><code>## # A tibble: 18 x 6
 ##    term          estimate std.error statistic   p.value region
 ##    &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;  &lt;int&gt;
@@ -429,48 +428,50 @@ resultados</code></pre>
 <div id="usando-map" class="section level4">
 <h4><span class="header-section-number">3.2.2.2</span> Usando MAP</h4>
 <p>Primero me armo una funcion que me simplifica el codigo</p>
-<pre class="sourceCode r"><code class="sourceCode r">fun&lt;-<span class="cf">function</span>(porcion,grupo) {  broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> porcion))}</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df_lm &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lm =</span> <span class="kw">map</span>(data,fun))
-bases_df_lm</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">fun&lt;-<span class="cf">function</span>(porcion,grupo) {  broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> porcion))}</a></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">bases_df_lm &lt;-<span class="st"> </span>bases_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb241-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb241-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lm =</span> <span class="kw">map</span>(data,fun))</a>
+<a class="sourceLine" id="cb241-5" data-line-number="5">bases_df_lm</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
-##   REGION data                  lm              
-##    &lt;int&gt; &lt;list&gt;                &lt;list&gt;          
-## 1     41 &lt;tibble [11,509 × 6]&gt; &lt;tibble [3 × 5]&gt;
-## 2     44 &lt;tibble [14,204 × 6]&gt; &lt;tibble [3 × 5]&gt;
-## 3     42 &lt;tibble [11,150 × 6]&gt; &lt;tibble [3 × 5]&gt;
-## 4     43 &lt;tibble [34,702 × 6]&gt; &lt;tibble [3 × 5]&gt;
-## 5     40 &lt;tibble [24,432 × 6]&gt; &lt;tibble [3 × 5]&gt;
-## 6      1 &lt;tibble [20,790 × 6]&gt; &lt;tibble [3 × 5]&gt;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df_lm <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">unnest</span>(lm)</code></pre>
-<pre><code>## # A tibble: 18 x 6
-##    REGION term          estimate std.error statistic   p.value
-##     &lt;int&gt; &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-##  1     41 (Intercept)     3768.     185.        20.3 3.15e- 90
-##  2     41 factor(CH04)2  -3814.     180.       -21.2 6.00e- 98
-##  3     41 CH06             106.       4.18      25.3 1.12e-137
-##  4     44 (Intercept)     7156.     291.        24.6 1.09e-130
-##  5     44 factor(CH04)2  -5938.     278.       -21.4 1.42e- 99
-##  6     44 CH06             145.       6.32      23.0 1.40e-114
-##  7     42 (Intercept)     4930.     231.        21.4 2.15e- 99
-##  8     42 factor(CH04)2  -4007.     224.       -17.9 1.71e- 70
-##  9     42 CH06              97.8      4.95      19.7 2.68e- 85
-## 10     43 (Intercept)     5107.     131.        39.0 0.       
-## 11     43 factor(CH04)2  -3949.     127.       -31.1 5.02e-209
-## 12     43 CH06              83.5      2.78      30.0 3.87e-195
-## 13     40 (Intercept)     3329.     128.        26.0 4.12e-147
-## 14     40 factor(CH04)2  -3239.     125.       -25.9 3.74e-146
-## 15     40 CH06             122.       2.89      42.2 0.       
-## 16      1 (Intercept)     5196.     197.        26.4 3.45e-151
-## 17      1 factor(CH04)2  -4051.     189.       -21.4 1.80e-100
-## 18      1 CH06              88.2      4.12      21.4 1.98e-100</code></pre>
+## # Groups:   REGION [6]
+##   REGION           data lm              
+##    &lt;int&gt; &lt;list&lt;df[,6]&gt;&gt; &lt;list&gt;          
+## 1     41   [11,509 × 6] &lt;tibble [3 × 5]&gt;
+## 2     44   [14,204 × 6] &lt;tibble [3 × 5]&gt;
+## 3     42   [11,150 × 6] &lt;tibble [3 × 5]&gt;
+## 4     43   [34,702 × 6] &lt;tibble [3 × 5]&gt;
+## 5     40   [24,432 × 6] &lt;tibble [3 × 5]&gt;
+## 6      1   [20,790 × 6] &lt;tibble [3 × 5]&gt;</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1">bases_df_lm <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb243-2" data-line-number="2"><span class="st">  </span><span class="kw">unnest</span>(lm)</a></code></pre></div>
+<pre><code>## # A tibble: 18 x 7
+## # Groups:   REGION [6]
+##    REGION           data term        estimate std.error statistic   p.value
+##     &lt;int&gt; &lt;list&lt;df[,6]&gt;&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1     41   [11,509 × 6] (Intercept)   3768.     185.        20.3 3.15e- 90
+##  2     41   [11,509 × 6] factor(CH0…  -3814.     180.       -21.2 6.00e- 98
+##  3     41   [11,509 × 6] CH06           106.       4.18      25.3 1.12e-137
+##  4     44   [14,204 × 6] (Intercept)   7156.     291.        24.6 1.09e-130
+##  5     44   [14,204 × 6] factor(CH0…  -5938.     278.       -21.4 1.42e- 99
+##  6     44   [14,204 × 6] CH06           145.       6.32      23.0 1.40e-114
+##  7     42   [11,150 × 6] (Intercept)   4930.     231.        21.4 2.15e- 99
+##  8     42   [11,150 × 6] factor(CH0…  -4007.     224.       -17.9 1.71e- 70
+##  9     42   [11,150 × 6] CH06            97.8      4.95      19.7 2.68e- 85
+## 10     43   [34,702 × 6] (Intercept)   5107.     131.        39.0 0.       
+## 11     43   [34,702 × 6] factor(CH0…  -3949.     127.       -31.1 5.02e-209
+## 12     43   [34,702 × 6] CH06            83.5      2.78      30.0 3.87e-195
+## 13     40   [24,432 × 6] (Intercept)   3329.     128.        26.0 4.12e-147
+## 14     40   [24,432 × 6] factor(CH0…  -3239.     125.       -25.9 3.74e-146
+## 15     40   [24,432 × 6] CH06           122.       2.89      42.2 0.       
+## 16      1   [20,790 × 6] (Intercept)   5196.     197.        26.4 3.45e-151
+## 17      1   [20,790 × 6] factor(CH0…  -4051.     189.       -21.4 1.80e-100
+## 18      1   [20,790 × 6] CH06            88.2      4.12      21.4 1.98e-100</code></pre>
 <p>O incluso más facil, utilizando <code>group_modify</code> (que es un atajo que solo acepta DF)</p>
-<pre class="sourceCode r"><code class="sourceCode r">bases_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_modify</span>(fun)</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">bases_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3"><span class="st">  </span><span class="kw">group_modify</span>(fun)</a></code></pre></div>
 <pre><code>## # A tibble: 18 x 6
 ## # Groups:   REGION [6]
 ##    REGION term          estimate std.error statistic   p.value
@@ -495,21 +496,22 @@ bases_df_lm</code></pre>
 ## 18     44 CH06             145.       6.32      23.0 1.40e-114</code></pre>
 <p>Pero MAP sirve para operar con cualquier objeto de R.</p>
 <p>Por ejemplo podemos guardar el <strong>objeto</strong> <code>S3:lm</code> que es la regresion lineal entrenada. Ese objeto no es ni un vector, ni una lista, ni un DF. No es una estructura de datos, sino que es algo distinto, con <em>propiedades</em> como <code>predict()</code> para predecir, el <code>summary()</code> que vimos, etc.</p>
-<pre class="sourceCode r"><code class="sourceCode r">fun&lt;-<span class="cf">function</span>(porcion,grupo) {  <span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> porcion)}
-
-bases_df <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st">  </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lm =</span> <span class="kw">map</span>(data,fun))</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">fun&lt;-<span class="cf">function</span>(porcion,grupo) {  <span class="kw">lm</span>(P21<span class="op">~</span><span class="kw">factor</span>(CH04)<span class="op">+</span>CH06,<span class="dt">data =</span> porcion)}</a>
+<a class="sourceLine" id="cb247-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb247-3" data-line-number="3">bases_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb247-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(REGION) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb247-5" data-line-number="5"><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb247-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lm =</span> <span class="kw">map</span>(data,fun))</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
-##   REGION data                  lm    
-##    &lt;int&gt; &lt;list&gt;                &lt;list&gt;
-## 1     41 &lt;tibble [11,509 × 6]&gt; &lt;lm&gt;  
-## 2     44 &lt;tibble [14,204 × 6]&gt; &lt;lm&gt;  
-## 3     42 &lt;tibble [11,150 × 6]&gt; &lt;lm&gt;  
-## 4     43 &lt;tibble [34,702 × 6]&gt; &lt;lm&gt;  
-## 5     40 &lt;tibble [24,432 × 6]&gt; &lt;lm&gt;  
-## 6      1 &lt;tibble [20,790 × 6]&gt; &lt;lm&gt;</code></pre>
+## # Groups:   REGION [6]
+##   REGION           data lm    
+##    &lt;int&gt; &lt;list&lt;df[,6]&gt;&gt; &lt;list&gt;
+## 1     41   [11,509 × 6] &lt;lm&gt;  
+## 2     44   [14,204 × 6] &lt;lm&gt;  
+## 3     42   [11,150 × 6] &lt;lm&gt;  
+## 4     43   [34,702 × 6] &lt;lm&gt;  
+## 5     40   [24,432 × 6] &lt;lm&gt;  
+## 6      1   [20,790 × 6] &lt;lm&gt;</code></pre>
 </div>
 </div>
 <div id="ejemplo-3-graficos-en-serie" class="section level3">
@@ -519,24 +521,24 @@ bases_df <span class="op">%&gt;%</span><span class="st"> </span>
 <ul>
 <li>Primero veamos los datos</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gapminder)
-
-
-gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb249-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb249-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb249-4" data-line-number="4">gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb249-5" data-line-number="5"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 6
-##    country         continent  year lifeExp      pop gdpPercap
-##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-##  1 Slovak Republic Europe     1956    68.4  3787111     5797.
-##  2 Denmark         Europe     1960    72.2  4581000    12280.
-##  3 Bulgaria        Europe     1995    71.0  8255811     6820.
-##  4 Australia       Oceania    1990    77.1 17022133    23152.
-##  5 Guinea-Bissau   Africa     1957    33.5   601095      432.
-##  6 Poland          Europe     1969    69.7 32280848     6778.
-##  7 Finland         Europe     1973    71.4  4666081    15235.
-##  8 United Kingdom  Europe     1952    69.2 50430000     9980.
-##  9 Peru            Americas   1967    51.4 12132200     5788.
-## 10 Spain           Europe     1988    76.9 39053881    16553.</code></pre>
+##    country     continent  year lifeExp       pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+##  1 Hungary     Europe     1980    69.1  10711122    12019.
+##  2 Gabon       Africa     1997    60.5   1126189    14723.
+##  3 India       Asia       1992    60.2 872000000     1164.
+##  4 Guyana      Americas   1967    59.2    672848     2325.
+##  5 Yemen, Rep. Asia       1957    34.0   5498090      805.
+##  6 Cameroon    Africa     2002    49.9  15929988     1934.
+##  7 Switzerland Europe     2007    81.7   7554661    37506.
+##  8 Norway      Europe     1953    73.2   3360888    10393.
+##  9 Lesotho     Africa     1982    55.1   1411807      797.
+## 10 Sri Lanka   Asia       1992    70.4  17587060     2154.</code></pre>
 <p>la base tiene la siguiente info:</p>
 <ul>
 <li>country: Nombre del país</li>
@@ -547,79 +549,79 @@ gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span>
 <li><p>gdpPercap</p></li>
 <li><p>Vamos a hacer un gráfico sencillo para Argentina</p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">data_argentina &lt;-<span class="st"> </span>gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(country<span class="op">==</span><span class="st">&#39;Argentina&#39;</span>)
-
-<span class="kw">ggplot</span>(data_argentina, <span class="kw">aes</span>(year, lifeExp, <span class="dt">size=</span> pop, <span class="dt">color=</span>gdpPercap))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">alpha=</span><span class="fl">0.6</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">unique</span>(data_argentina<span class="op">$</span>country))</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1">data_argentina &lt;-<span class="st"> </span>gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb251-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(country<span class="op">==</span><span class="st">&#39;Argentina&#39;</span>)</a>
+<a class="sourceLine" id="cb251-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb251-4" data-line-number="4"><span class="kw">ggplot</span>(data_argentina, <span class="kw">aes</span>(year, lifeExp, <span class="dt">size=</span> pop, <span class="dt">color=</span>gdpPercap))<span class="op">+</span></a>
+<a class="sourceLine" id="cb251-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb251-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">alpha=</span><span class="fl">0.6</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb251-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">unique</span>(data_argentina<span class="op">$</span>country))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-99-1.png" width="960" /></p>
 <ul>
 <li>Ahora que tenemos una idea de lo que queremos gráficar lo podemos poner adentro de una función que grafique.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># definimos la función</span>
-graficar_pais &lt;-<span class="st"> </span><span class="cf">function</span>(data, pais){
-  
-  <span class="kw">ggplot</span>(data, <span class="kw">aes</span>(year, lifeExp, <span class="dt">size=</span> pop, <span class="dt">color=</span>gdpPercap))<span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>()<span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">alpha=</span><span class="fl">0.6</span>)<span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> pais)
-}</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="co"># definimos la función</span></a>
+<a class="sourceLine" id="cb252-2" data-line-number="2">graficar_pais &lt;-<span class="st"> </span><span class="cf">function</span>(data, pais){</a>
+<a class="sourceLine" id="cb252-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb252-4" data-line-number="4">  <span class="kw">ggplot</span>(data, <span class="kw">aes</span>(year, lifeExp, <span class="dt">size=</span> pop, <span class="dt">color=</span>gdpPercap))<span class="op">+</span></a>
+<a class="sourceLine" id="cb252-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb252-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_line</span>(<span class="dt">alpha=</span><span class="fl">0.6</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb252-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> pais)</a>
+<a class="sourceLine" id="cb252-8" data-line-number="8">}</a></code></pre></div>
 <p>probamos la función para un caso</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">graficar_pais</span>(data_argentina, <span class="st">&#39;Argentina&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1"><span class="kw">graficar_pais</span>(data_argentina, <span class="st">&#39;Argentina&#39;</span>)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-101-1.png" width="960" /></p>
 <ul>
 <li>Nos armamos un dataset nesteado</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">gapminder_nest &lt;-<span class="st"> </span>gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">nest</span>()
-
-gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">gapminder_nest &lt;-<span class="st"> </span>gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb254-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb254-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>()</a>
+<a class="sourceLine" id="cb254-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb254-5" data-line-number="5">gapminder_nest[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
-##    country               data             
-##    &lt;fct&gt;                 &lt;list&gt;           
-##  1 Greece                &lt;tibble [13 × 5]&gt;
-##  2 Qatar                 &lt;tibble [8 × 5]&gt; 
-##  3 Togo                  &lt;tibble [12 × 5]&gt;
-##  4 Guadeloupe            &lt;tibble [1 × 5]&gt; 
-##  5 Philippines           &lt;tibble [12 × 5]&gt;
-##  6 Lithuania             &lt;tibble [18 × 5]&gt;
-##  7 Sri Lanka             &lt;tibble [13 × 5]&gt;
-##  8 Korea, Dem. Rep.      &lt;tibble [12 × 5]&gt;
-##  9 Sao Tome and Principe &lt;tibble [12 × 5]&gt;
-## 10 Gambia                &lt;tibble [12 × 5]&gt;</code></pre>
+## # Groups:   country [187]
+##    country               data
+##    &lt;fct&gt;       &lt;list&lt;df[,5]&gt;&gt;
+##  1 Afghanistan       [12 × 5]
+##  2 Albania           [12 × 5]
+##  3 Algeria           [12 × 5]
+##  4 Angola            [12 × 5]
+##  5 Argentina         [12 × 5]
+##  6 Armenia            [4 × 5]
+##  7 Aruba              [8 × 5]
+##  8 Australia         [56 × 5]
+##  9 Austria           [57 × 5]
+## 10 Azerbaijan         [4 × 5]</code></pre>
 <ul>
 <li>Ahora podemos crear una nueva columna que contenga los gráficos</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">gapminder_nest &lt;-<span class="st"> </span>gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grafico=</span> <span class="kw">map2</span>(<span class="dt">.x =</span> data, <span class="dt">.y =</span> country,<span class="dt">.f =</span>  graficar_pais))
-
-gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1">gapminder_nest &lt;-<span class="st"> </span>gapminder_nest <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb256-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grafico=</span> <span class="kw">map2</span>(<span class="dt">.x =</span> data, <span class="dt">.y =</span> country,<span class="dt">.f =</span>  graficar_pais))</a>
+<a class="sourceLine" id="cb256-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb256-4" data-line-number="4">gapminder_nest[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 3
-##    country      data              grafico
-##    &lt;fct&gt;        &lt;list&gt;            &lt;list&gt; 
-##  1 Ethiopia     &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  2 Burundi      &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  3 Philippines  &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  4 Mauritania   &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  5 Uganda       &lt;tibble [13 × 5]&gt; &lt;gg&gt;   
-##  6 Syria        &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  7 Kuwait       &lt;tibble [12 × 5]&gt; &lt;gg&gt;   
-##  8 Luxembourg   &lt;tibble [49 × 5]&gt; &lt;gg&gt;   
-##  9 Fiji         &lt;tibble [10 × 5]&gt; &lt;gg&gt;   
-## 10 South Africa &lt;tibble [12 × 5]&gt; &lt;gg&gt;</code></pre>
+## # Groups:   country [187]
+##    country               data grafico
+##    &lt;fct&gt;       &lt;list&lt;df[,5]&gt;&gt; &lt;list&gt; 
+##  1 Afghanistan       [12 × 5] &lt;gg&gt;   
+##  2 Albania           [12 × 5] &lt;gg&gt;   
+##  3 Algeria           [12 × 5] &lt;gg&gt;   
+##  4 Angola            [12 × 5] &lt;gg&gt;   
+##  5 Argentina         [12 × 5] &lt;gg&gt;   
+##  6 Armenia            [4 × 5] &lt;gg&gt;   
+##  7 Aruba              [8 × 5] &lt;gg&gt;   
+##  8 Australia         [56 × 5] &lt;gg&gt;   
+##  9 Austria           [57 × 5] &lt;gg&gt;   
+## 10 Azerbaijan         [4 × 5] &lt;gg&gt;</code></pre>
 <p>Veamos un ejemplo</p>
-<pre class="sourceCode r"><code class="sourceCode r">gapminder_nest<span class="op">$</span>grafico[<span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">gapminder_nest<span class="op">$</span>grafico[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [[1]]</code></pre>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-104-1.png" width="960" /></p>
 <p>Ahora podemos guardar todos los gráficos en un archivo PDF</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&#39;resultados/graficos_gapminder.pdf&#39;</span>)
-gapminder_nest<span class="op">$</span>grafico
-<span class="kw">dev.off</span>()</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1"><span class="kw">pdf</span>(<span class="st">&#39;resultados/graficos_gapminder.pdf&#39;</span>)</a>
+<a class="sourceLine" id="cb260-2" data-line-number="2">gapminder_nest<span class="op">$</span>grafico</a>
+<a class="sourceLine" id="cb260-3" data-line-number="3"><span class="kw">dev.off</span>()</a></code></pre></div>
 
 </div>
 </div>
@@ -682,8 +684,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Explicación | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Explicación | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tidyverse.html">
-<link rel="next" href="practica-guiada-1.html">
+<link rel="prev" href="tidyverse.html"/>
+<link rel="next" href="practica-guiada-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -284,22 +282,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A lo largo de esta clase, trabajaremos con el paquete <a href="https://www.tidyverse.org/"><strong>tidyverse</strong></a>. El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.<br />
 Entre ellos, usaremos principalmente <strong>dplyr</strong> y <strong>tidyr</strong> para realizar transformaciones sobre nuestro set de datos. En una futura clase utilizaremos <strong>ggplot</strong> para realizar gráficos.</p>
 <p>A continuación cargamos la librería a nuestro ambiente. Para ello debe estar previamente instalada en nuestra pc.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Para mostrar el funcionamiento básico de tidyverse utilizaremos a modo de ejemplo datos del <a href="https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_1trim19B489ACCDF9.pdf">Informe de Mercado de Trabajo del INDEC</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">INDICADOR &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Tasa de Actividad&quot;</span>, <span class="st">&quot;Tasa de Empleo&quot;</span>, <span class="st">&quot;Tasa de Desocupación&quot;,</span>
-<span class="st">               &quot;</span>Tasa de Actividad<span class="st">&quot;, &quot;</span>Tasa de Empleo<span class="st">&quot;, &quot;</span>Tasa de Desocupación&quot;,
-               <span class="st">&quot;Tasa de Actividad&quot;</span>, <span class="st">&quot;Tasa de Empleo&quot;</span>, <span class="st">&quot;Tasa de Desocupación&quot;)</span>
-
-<span class="st">FECHA &lt;-     c(&quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;,</span>
-<span class="st">               &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;,</span>
-<span class="st">               &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;, &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;, &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;)</span>
-
-<span class="st">TASA &lt;-      c(46.7, 42.5, 9,</span>
-<span class="st">               46.5, 42.2, 9.1, </span>
-<span class="st">               47,   42.3, 10.1)</span>
-
-<span class="st">Datos &lt;- data.frame(INDICADOR, FECHA, TASA)</span>
-<span class="st">Datos</span></code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">INDICADOR &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Tasa de Actividad&quot;</span>, <span class="st">&quot;Tasa de Empleo&quot;</span>, <span class="st">&quot;Tasa de Desocupación&quot;,</span></a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="st">               &quot;</span>Tasa de Actividad<span class="st">&quot;, &quot;</span>Tasa de Empleo<span class="st">&quot;, &quot;</span>Tasa de Desocupación&quot;,</a>
+<a class="sourceLine" id="cb108-3" data-line-number="3">               <span class="st">&quot;Tasa de Actividad&quot;</span>, <span class="st">&quot;Tasa de Empleo&quot;</span>, <span class="st">&quot;Tasa de Desocupación&quot;)</span></a>
+<a class="sourceLine" id="cb108-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb108-5" data-line-number="5"><span class="st">FECHA &lt;-     c(&quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.3</span>T<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb108-6" data-line-number="6"><span class="st">               &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;, &quot;</span><span class="fl">2018.4</span>T<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb108-7" data-line-number="7"><span class="st">               &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;, &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;, &quot;</span><span class="fl">2019.1</span>T<span class="st">&quot;)</span></a>
+<a class="sourceLine" id="cb108-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb108-9" data-line-number="9"><span class="st">TASA &lt;-      c(46.7, 42.5, 9,</span></a>
+<a class="sourceLine" id="cb108-10" data-line-number="10"><span class="st">               46.5, 42.2, 9.1, </span></a>
+<a class="sourceLine" id="cb108-11" data-line-number="11"><span class="st">               47,   42.3, 10.1)</span></a>
+<a class="sourceLine" id="cb108-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb108-13" data-line-number="13"><span class="st">Datos &lt;- data.frame(INDICADOR, FECHA, TASA)</span></a>
+<a class="sourceLine" id="cb108-14" data-line-number="14"><span class="st">Datos</span></a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA
 ## 1    Tasa de Actividad 2018.3T 46.7
 ## 2       Tasa de Empleo 2018.3T 42.5
@@ -326,19 +324,19 @@ Entre ellos, usaremos principalmente <strong>dplyr</strong> y <strong>tidyr</str
 <li>tipo de dato de cada columna</li>
 <li>las primeras observaciones de la tabla</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(Datos)</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1"><span class="kw">glimpse</span>(Datos)</a></code></pre></div>
 <p><img src="img/glimpse.png" /></p>
 </div>
 <div id="filter" class="section level4">
 <h4><span class="header-section-number">2.1.1.2</span> filter</h4>
 <p>Permite filtrar la tabla de acuerdo al cumplimiento de condiciones lógicas.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(TASA <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span> , INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;)</span></code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(TASA <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span> , INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;)</span></a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA
 ## 1 Tasa de Desocupación 2019.1T 10.1</code></pre>
 <p>Nótese que en este caso al separar con una <strong>,</strong> las condiciones se exige el cumplimiento de ambas. En caso de desear que se cumpla alguna de las condiciones debe utilizarse el caracter <strong>|</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(TASA <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span> <span class="op">|</span><span class="st"> </span>INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;)</span></code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(TASA <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span> <span class="op">|</span><span class="st"> </span>INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;)</span></a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA
 ## 1    Tasa de Actividad 2018.3T 46.7
 ## 2       Tasa de Empleo 2018.3T 42.5
@@ -354,8 +352,8 @@ Entre ellos, usaremos principalmente <strong>dplyr</strong> y <strong>tidyr</str
 <h4><span class="header-section-number">2.1.1.3</span> rename</h4>
 <p>Permite renombrar una columna de la tabla. Funciona de la siguiente manera:</p>
 <p><code>Data %&gt;% rename(nuevo_nombre = viejo_nombre)</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Periodo =</span> FECHA)</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Periodo =</span> FECHA)</a></code></pre></div>
 <pre><code>##              INDICADOR Periodo TASA
 ## 1    Tasa de Actividad 2018.3T 46.7
 ## 2       Tasa de Empleo 2018.3T 42.5
@@ -372,10 +370,10 @@ Entre ellos, usaremos principalmente <strong>dplyr</strong> y <strong>tidyr</str
 <h4><span class="header-section-number">2.1.1.4</span> mutate</h4>
 <p>Permite agregar una variable a la tabla (especificando el nombre que tomará ésta), que puede ser el resultado de operaciones sobre otras variables de la misma tabla.</p>
 <p>En caso de especificar el nombre de una columna existente, el resultado de la operación realizada “sobre-escribirá” la información de la columna con dicho nombre.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PROPORCION =</span> TASA <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)
-
-Datos</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PROPORCION =</span> TASA <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb117-4" data-line-number="4">Datos</a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA PROPORCION
 ## 1    Tasa de Actividad 2018.3T 46.7      0.467
 ## 2       Tasa de Empleo 2018.3T 42.5      0.425
@@ -392,12 +390,12 @@ Datos</code></pre>
 <p>Permite definir una variable, de forma tal que tome un valor particular para cada condición establecida. En caso de no cumplir con ninguna de las condiciones establecidas, la variable tomará valor <strong>NA</strong>.<br />
 La sintaxis de la función es:<br />
 <code>case_when(condicion lógica1 ~ valor asignado1)</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">CODIGO =</span> <span class="kw">case_when</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Actividad&quot;</span>    <span class="op">~</span><span class="st"> &quot;ACT&quot;</span>,
-                            INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Empleo&quot;</span>       <span class="op">~</span><span class="st"> &quot;EMP&quot;</span>,
-                            INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot; ~ &quot;</span>DES<span class="st">&quot;))</span>
-
-<span class="st">Datos</span></code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">CODIGO =</span> <span class="kw">case_when</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Actividad&quot;</span>    <span class="op">~</span><span class="st"> &quot;ACT&quot;</span>,</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">                            INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Empleo&quot;</span>       <span class="op">~</span><span class="st"> &quot;EMP&quot;</span>,</a>
+<a class="sourceLine" id="cb119-4" data-line-number="4">                            INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot; ~ &quot;</span>DES<span class="st">&quot;))</span></a>
+<a class="sourceLine" id="cb119-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb119-6" data-line-number="6"><span class="st">Datos</span></a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA PROPORCION CODIGO
 ## 1    Tasa de Actividad 2018.3T 46.7      0.467    ACT
 ## 2       Tasa de Empleo 2018.3T 42.5      0.425    EMP
@@ -413,9 +411,9 @@ La sintaxis de la función es:<br />
 <div id="select" class="section level4">
 <h4><span class="header-section-number">2.1.1.6</span> select</h4>
 <p>Permite especificar la serie de columnas que se desea conservar de un DataFrame. También pueden especificarse las columnas que se desean descartar (agregándoles un <em>-</em> adelante). Muy útil para agilizar el trabajo en bases de datos de gran tamaño.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos2 &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(CODIGO, FECHA, PROPORCION)
-Datos2</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">Datos2 &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(CODIGO, FECHA, PROPORCION)</a>
+<a class="sourceLine" id="cb121-3" data-line-number="3">Datos2</a></code></pre></div>
 <pre><code>##   CODIGO   FECHA PROPORCION
 ## 1    ACT 2018.3T      0.467
 ## 2    EMP 2018.3T      0.425
@@ -426,9 +424,9 @@ Datos2</code></pre>
 ## 7    ACT 2019.1T      0.470
 ## 8    EMP 2019.1T      0.423
 ## 9    DES 2019.1T      0.101</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(PROPORCION, CODIGO))
-Datos</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(PROPORCION, CODIGO))</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">Datos</a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA
 ## 1    Tasa de Actividad 2018.3T 46.7
 ## 2       Tasa de Empleo 2018.3T 42.5
@@ -443,10 +441,10 @@ Datos</code></pre>
 <div id="arrange" class="section level4">
 <h4><span class="header-section-number">2.1.1.7</span> arrange</h4>
 <p>Permite ordenar la tabla según los valores de determinada/s variable/s. Es útil cuando luego deben hacerse otras operaciones que requieran del ordenamiento de la tabla, o para mostrar resultados de forma ordenada.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(INDICADOR, FECHA)
-
-Datos</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">Datos &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(INDICADOR, FECHA)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb125-4" data-line-number="4">Datos</a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA
 ## 1    Tasa de Actividad 2018.3T 46.7
 ## 2    Tasa de Actividad 2018.4T 46.5
@@ -461,20 +459,20 @@ Datos</code></pre>
 <div id="summarise" class="section level4">
 <h4><span class="header-section-number">2.1.1.8</span> summarise</h4>
 <p>Crea una nueva tabla que resuma la información original. Para ello, definimos las variables de resumen y las formas de agregación.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;) %&gt;% </span>
-<span class="st">  summarise(INDICE_MAX = max(TASA),</span>
-<span class="st">            INDICE_MIN = min(TASA),</span>
-<span class="st">            INDICE_PROM = mean(TASA))</span></code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1">Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;) %&gt;% </span></a>
+<a class="sourceLine" id="cb127-3" data-line-number="3"><span class="st">  summarise(INDICE_MAX = max(TASA),</span></a>
+<a class="sourceLine" id="cb127-4" data-line-number="4"><span class="st">            INDICE_MIN = min(TASA),</span></a>
+<a class="sourceLine" id="cb127-5" data-line-number="5"><span class="st">            INDICE_PROM = mean(TASA))</span></a></code></pre></div>
 <pre><code>##   INDICE_MAX INDICE_MIN INDICE_PROM
 ## 1       10.1          9         9.4</code></pre>
 </div>
 <div id="group_by" class="section level4">
 <h4><span class="header-section-number">2.1.1.9</span> group_by</h4>
 <p>Esta función permite realizar operaciones de forma agrupada. Lo que hace la función es “separar” a la tabla según los valores de la variable indicada y realizar las operaciones que se especifican a continuación, de manera independiente para cada una de las “subtablas”. En nuestro ejemplo, podría ser útil para calcular el promedio de las tasas por <em>INDICADOR</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(INDICADOR) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">INDICE_PROM =</span> <span class="kw">mean</span>(TASA))</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1">Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(INDICADOR) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb129-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">INDICE_PROM =</span> <span class="kw">mean</span>(TASA))</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   INDICADOR            INDICE_PROM
 ##   &lt;fct&gt;                      &lt;dbl&gt;
@@ -494,21 +492,21 @@ Datos</code></pre>
 <h4><span class="header-section-number">2.1.2.1</span> left_join</h4>
 <p>Veamos un ejemplo de la función <strong>left_join</strong> (una de las más utilizadas en la práctica).<br />
 Para ello crearemos previamente un Dataframe que contenga las cantidades de población total y población económicamente activa para cada uno de los períodos del Dataframe <em>Datos</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Poblaciones &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">FECHA =</span> <span class="kw">c</span>(<span class="st">&quot;2018.3T&quot;</span>, <span class="st">&quot;2018.4T&quot;</span>, <span class="st">&quot;2019.1T&quot;</span>),
-                          <span class="dt">POBLACION_miles =</span> <span class="kw">c</span>(<span class="dv">27842</span>, <span class="dv">27914</span>, <span class="dv">28261</span>),
-                          <span class="dt">PEA_miles =</span> <span class="kw">c</span>(<span class="dv">12990</span>, <span class="dv">12979</span>, <span class="dv">13285</span>))
-
-Poblaciones</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1">Poblaciones &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">FECHA =</span> <span class="kw">c</span>(<span class="st">&quot;2018.3T&quot;</span>, <span class="st">&quot;2018.4T&quot;</span>, <span class="st">&quot;2019.1T&quot;</span>),</a>
+<a class="sourceLine" id="cb131-2" data-line-number="2">                          <span class="dt">POBLACION_miles =</span> <span class="kw">c</span>(<span class="dv">27842</span>, <span class="dv">27914</span>, <span class="dv">28261</span>),</a>
+<a class="sourceLine" id="cb131-3" data-line-number="3">                          <span class="dt">PEA_miles =</span> <span class="kw">c</span>(<span class="dv">12990</span>, <span class="dv">12979</span>, <span class="dv">13285</span>))</a>
+<a class="sourceLine" id="cb131-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb131-5" data-line-number="5">Poblaciones</a></code></pre></div>
 <pre><code>##     FECHA POBLACION_miles PEA_miles
 ## 1 2018.3T           27842     12990
 ## 2 2018.4T           27914     12979
 ## 3 2019.1T           28261     13285</code></pre>
 <p>Unimos nuestras dos tablas. La siguiente forma de realizarlo es equivalente a:<br />
 <code>Datos_join &lt;- left_join(Datos, Poblaciones, by = &quot;FECHA&quot;)</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos_join &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">left_join</span>(Poblaciones, <span class="dt">by =</span> <span class="st">&quot;FECHA&quot;</span>)
-
-Datos_join</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1">Datos_join &lt;-<span class="st"> </span>Datos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="st">  </span><span class="kw">left_join</span>(Poblaciones, <span class="dt">by =</span> <span class="st">&quot;FECHA&quot;</span>)</a>
+<a class="sourceLine" id="cb133-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb133-4" data-line-number="4">Datos_join</a></code></pre></div>
 <pre><code>##              INDICADOR   FECHA TASA POBLACION_miles PEA_miles
 ## 1    Tasa de Actividad 2018.3T 46.7           27842     12990
 ## 2    Tasa de Actividad 2018.4T 46.5           27914     12979
@@ -520,10 +518,10 @@ Datos_join</code></pre>
 ## 8       Tasa de Empleo 2018.4T 42.2           27914     12979
 ## 9       Tasa de Empleo 2019.1T 42.3           28261     13285</code></pre>
 <p>Finalmente, podemos calcular la cantidad de personas desocupadas en cada uno de los períodos con los que contamos.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos_join <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;) %&gt;% </span>
-<span class="st">  group_by(FECHA) %&gt;% </span>
-<span class="st">  summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))</span></code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1">Datos_join <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(INDICADOR <span class="op">==</span><span class="st"> &quot;Tasa de Desocupación&quot;) %&gt;% </span></a>
+<a class="sourceLine" id="cb135-3" data-line-number="3"><span class="st">  group_by(FECHA) %&gt;% </span></a>
+<a class="sourceLine" id="cb135-4" data-line-number="4"><span class="st">  summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))</span></a></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   FECHA   DESOCUP_miles
 ##   &lt;fct&gt;           &lt;dbl&gt;
@@ -541,10 +539,10 @@ Datos_join</code></pre>
 <img src="img/spreadVSgather.png" alt="fuente: http://www.gis-blog.com/data-management-with-r-tidyr-part-1/" />
 <p class="caption">fuente: <a href="http://www.gis-blog.com/data-management-with-r-tidyr-part-1/" class="uri">http://www.gis-blog.com/data-management-with-r-tidyr-part-1/</a></p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Utilizamos un conjunto de datos que viene con la librería datasets</span>
-<span class="kw">library</span>(datasets)
-
-<span class="kw">head</span>(iris)</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="co"># Utilizamos un conjunto de datos que viene con la librería datasets</span></a>
+<a class="sourceLine" id="cb137-2" data-line-number="2"><span class="kw">library</span>(datasets)</a>
+<a class="sourceLine" id="cb137-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb137-4" data-line-number="4"><span class="kw">head</span>(iris)</a></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -552,11 +550,11 @@ Datos_join</code></pre>
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">iris &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.)) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># le agrego un ID</span>
-<span class="st">  </span><span class="kw">select</span>(id, <span class="kw">everything</span>())    <span class="co"># lo acomodo para que el id este primero. </span>
-
-<span class="kw">head</span>(iris)</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1">iris &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb139-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.)) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># le agrego un ID</span></a>
+<a class="sourceLine" id="cb139-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(id, <span class="kw">everything</span>())    <span class="co"># lo acomodo para que el id este primero. </span></a>
+<a class="sourceLine" id="cb139-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb139-5" data-line-number="5"><span class="kw">head</span>(iris)</a></code></pre></div>
 <pre><code>##   id Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1  1          5.1         3.5          1.4         0.2  setosa
 ## 2  2          4.9         3.0          1.4         0.2  setosa
@@ -566,11 +564,11 @@ Datos_join</code></pre>
 ## 6  6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <div id="gather-y-spread" class="section level4">
 <h4><span class="header-section-number">2.1.3.1</span> Gather y Spread</h4>
-<pre class="sourceCode r"><code class="sourceCode r">iris_vertical &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(., <span class="co"># el . llama a lo que esta atras del %&gt;% </span>
-                                 <span class="dt">key   =</span> Variables,
-                                 <span class="dt">value =</span> Valores,
-                                 <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>) <span class="co">#le indico qué columnas juntar</span>
-<span class="kw">head</span>(iris_vertical)</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1">iris_vertical &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(., <span class="co"># el . llama a lo que esta atras del %&gt;% </span></a>
+<a class="sourceLine" id="cb141-2" data-line-number="2">                                 <span class="dt">key   =</span> Variables,</a>
+<a class="sourceLine" id="cb141-3" data-line-number="3">                                 <span class="dt">value =</span> Valores,</a>
+<a class="sourceLine" id="cb141-4" data-line-number="4">                                 <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>) <span class="co">#le indico qué columnas juntar</span></a>
+<a class="sourceLine" id="cb141-5" data-line-number="5"><span class="kw">head</span>(iris_vertical)</a></code></pre></div>
 <pre><code>##   id Species    Variables Valores
 ## 1  1  setosa Sepal.Length     5.1
 ## 2  2  setosa Sepal.Length     4.9
@@ -579,12 +577,12 @@ Datos_join</code></pre>
 ## 5  5  setosa Sepal.Length     5.0
 ## 6  6  setosa Sepal.Length     5.4</code></pre>
 <p>Podemos deshacer el <strong>gather</strong> con un <strong>Spread</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">iris_horizontal &lt;-<span class="st"> </span>iris_vertical <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">spread</span>(. ,
-         <span class="dt">key   =</span> Variables, <span class="co"># la llave es la variable que va a dar los nombres de columna</span>
-         <span class="dt">value =</span> Valores) <span class="co"># los valores con que se llenan las celdas</span>
-
-<span class="kw">head</span>(iris_horizontal)</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1">iris_horizontal &lt;-<span class="st"> </span>iris_vertical <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb143-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span>(. ,</a>
+<a class="sourceLine" id="cb143-3" data-line-number="3">         <span class="dt">key   =</span> Variables, <span class="co"># la llave es la variable que va a dar los nombres de columna</span></a>
+<a class="sourceLine" id="cb143-4" data-line-number="4">         <span class="dt">value =</span> Valores) <span class="co"># los valores con que se llenan las celdas</span></a>
+<a class="sourceLine" id="cb143-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb143-6" data-line-number="6"><span class="kw">head</span>(iris_horizontal)</a></code></pre></div>
 <pre><code>##   id Species Petal.Length Petal.Width Sepal.Length Sepal.Width
 ## 1  1  setosa          1.4         0.2          5.1         3.5
 ## 2  2  setosa          1.4         0.2          4.9         3.0
@@ -597,48 +595,48 @@ Datos_join</code></pre>
 <div id="lubridate" class="section level3">
 <h3><span class="header-section-number">2.1.4</span> Lubridate</h3>
 <p>El paquete lubridate está pensado para trabajar con los datos tipo fecha (date) o fecha-hora (datetime) para cambiarles el formato, realizar operaciones y extraer información</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">library</span>(lubridate)</a></code></pre></div>
 <div id="cambio-de-formato" class="section level4">
 <h4><span class="header-section-number">2.1.4.1</span> Cambio de formato</h4>
 <p>Existe una gran cantidad de funciones para realizar esto. La idea general es poder llevar los objetos datetime a un formato común compuesto de los elementos: año, mes, día, hora, minuto y segundo (también se puede setear el huso horario)</p>
-<pre class="sourceCode r"><code class="sourceCode r">fecha  &lt;-<span class="st"> &quot;04/12/92 17:35:16&quot;</span>
-fecha</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1">fecha  &lt;-<span class="st"> &quot;04/12/92 17:35:16&quot;</span></a>
+<a class="sourceLine" id="cb146-2" data-line-number="2">fecha</a></code></pre></div>
 <pre><code>## [1] &quot;04/12/92 17:35:16&quot;</code></pre>
 <p>Con la función dmy_hms podemos convertir este string a una fecha: estamos indicando que el formato de la fecha es día(d), mes(m), año(y), hora(h), minuto(m) y segundo(s).</p>
-<pre class="sourceCode r"><code class="sourceCode r">fecha  &lt;-<span class="st"> </span><span class="kw">dmy_hms</span>(fecha)
-fecha</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">fecha  &lt;-<span class="st"> </span><span class="kw">dmy_hms</span>(fecha)</a>
+<a class="sourceLine" id="cb148-2" data-line-number="2">fecha</a></code></pre></div>
 <pre><code>## [1] &quot;1992-12-04 17:35:16 UTC&quot;</code></pre>
 <p>Muchas funciones de lubridate operan con esta misma lógica.</p>
 <p>Otra función para realizar un cambio de formato es <em>parse_date_time</em>. Permite construir objetos datetime a partir de datos más complejos, como por ejemplo cuando aparece el nombre del mes y el año.</p>
 <p>En el parámetro <em>x</em> pasamos el dato de la fecha y en el parámetro <em>orders</em> especificamos el orden en el cual se encuentra la información de la fecha.</p>
-<pre class="sourceCode r"><code class="sourceCode r">fecha2  &lt;-<span class="st"> &quot;Dec-92&quot;</span>
-fecha2 &lt;-<span class="st"> </span><span class="kw">parse_date_time</span>(fecha2, <span class="dt">orders =</span> <span class="st">&#39;my&#39;</span>)
-fecha2</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1">fecha2  &lt;-<span class="st"> &quot;Dec-92&quot;</span></a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">fecha2 &lt;-<span class="st"> </span><span class="kw">parse_date_time</span>(fecha2, <span class="dt">orders =</span> <span class="st">&#39;my&#39;</span>)</a>
+<a class="sourceLine" id="cb150-3" data-line-number="3">fecha2</a></code></pre></div>
 <pre><code>## [1] &quot;1992-12-01 UTC&quot;</code></pre>
 </div>
 <div id="extraccion-de-informacion" class="section level4">
 <h4><span class="header-section-number">2.1.4.2</span> Extracción de información</h4>
 <p>Existen muchas funciones muy sencillas para extraer información de un objeto datetime. Algunas son:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">year</span>(fecha)  <span class="co"># Obtener el año</span></code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">year</span>(fecha)  <span class="co"># Obtener el año</span></a></code></pre></div>
 <pre><code>## [1] 1992</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">month</span>(fecha) <span class="co"># Obtener el mes</span></code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="kw">month</span>(fecha) <span class="co"># Obtener el mes</span></a></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">day</span>(fecha)   <span class="co"># Obtener el día</span></code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">day</span>(fecha)   <span class="co"># Obtener el día</span></a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wday</span>(fecha, <span class="dt">label =</span> <span class="ot">TRUE</span>) <span class="co"># Obtener el nombre del día</span></code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">wday</span>(fecha, <span class="dt">label =</span> <span class="ot">TRUE</span>) <span class="co"># Obtener el nombre del día</span></a></code></pre></div>
 <pre><code>## [1] vie
 ## Levels: dom &lt; lun &lt; mar &lt; mié &lt; jue &lt; vie &lt; sáb</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hour</span>(fecha) <span class="co"># Obtener la hora</span></code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">hour</span>(fecha) <span class="co"># Obtener la hora</span></a></code></pre></div>
 <pre><code>## [1] 17</code></pre>
 </div>
 <div id="operaciones" class="section level4">
 <h4><span class="header-section-number">2.1.4.3</span> Operaciones</h4>
 <p>Podemos sumar o restarle cualquier período de tiempo a un objeto datetime</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sumo dos días </span>
-fecha <span class="op">+</span><span class="st"> </span><span class="kw">days</span>(<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="co"># Sumo dos días </span></a>
+<a class="sourceLine" id="cb162-2" data-line-number="2">fecha <span class="op">+</span><span class="st"> </span><span class="kw">days</span>(<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;1992-12-06 17:35:16 UTC&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Resto 1 semana y dos horas</span>
-fecha <span class="op">-</span><span class="st"> </span>(<span class="kw">weeks</span>(<span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">hours</span>(<span class="dv">2</span>))</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1"><span class="co"># Resto 1 semana y dos horas</span></a>
+<a class="sourceLine" id="cb164-2" data-line-number="2">fecha <span class="op">-</span><span class="st"> </span>(<span class="kw">weeks</span>(<span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">hours</span>(<span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;1992-11-27 15:35:16 UTC&quot;</code></pre>
 
 </div>
@@ -702,8 +700,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

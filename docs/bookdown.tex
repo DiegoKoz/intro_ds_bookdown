@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-19}
+    \date{2019-09-20}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -3094,14 +3094,15 @@ Esto mismo lo podemos usar para fragmentar el datastet por alguna variable, con 
 
 \begin{verbatim}
 ## # A tibble: 6 x 2
-##   REGION data                 
-##    <int> <list>               
-## 1     41 <tibble [11,509 x 6]>
-## 2     44 <tibble [14,204 x 6]>
-## 3     42 <tibble [11,150 x 6]>
-## 4     43 <tibble [34,702 x 6]>
-## 5     40 <tibble [24,432 x 6]>
-## 6      1 <tibble [20,790 x 6]>
+## # Groups:   REGION [6]
+##   REGION           data
+##    <int> <list<df[,6]>>
+## 1     41   [11,509 x 6]
+## 2     44   [14,204 x 6]
+## 3     42   [11,150 x 6]
+## 4     43   [34,702 x 6]
+## 5     40   [24,432 x 6]
+## 6      1   [20,790 x 6]
 \end{verbatim}
 
 Así, para cada región tenemos un DF.
@@ -3245,14 +3246,15 @@ Primero me armo una funcion que me simplifica el codigo
 
 \begin{verbatim}
 ## # A tibble: 6 x 3
-##   REGION data                  lm              
-##    <int> <list>                <list>          
-## 1     41 <tibble [11,509 x 6]> <tibble [3 x 5]>
-## 2     44 <tibble [14,204 x 6]> <tibble [3 x 5]>
-## 3     42 <tibble [11,150 x 6]> <tibble [3 x 5]>
-## 4     43 <tibble [34,702 x 6]> <tibble [3 x 5]>
-## 5     40 <tibble [24,432 x 6]> <tibble [3 x 5]>
-## 6      1 <tibble [20,790 x 6]> <tibble [3 x 5]>
+## # Groups:   REGION [6]
+##   REGION           data lm              
+##    <int> <list<df[,6]>> <list>          
+## 1     41   [11,509 x 6] <tibble [3 x 5]>
+## 2     44   [14,204 x 6] <tibble [3 x 5]>
+## 3     42   [11,150 x 6] <tibble [3 x 5]>
+## 4     43   [34,702 x 6] <tibble [3 x 5]>
+## 5     40   [24,432 x 6] <tibble [3 x 5]>
+## 6      1   [20,790 x 6] <tibble [3 x 5]>
 \end{verbatim}
 
 \begin{Shaded}
@@ -3263,27 +3265,28 @@ Primero me armo una funcion que me simplifica el codigo
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 18 x 6
-##    REGION term          estimate std.error statistic   p.value
-##     <int> <chr>            <dbl>     <dbl>     <dbl>     <dbl>
-##  1     41 (Intercept)     3768.     185.        20.3 3.15e- 90
-##  2     41 factor(CH04)2  -3814.     180.       -21.2 6.00e- 98
-##  3     41 CH06             106.       4.18      25.3 1.12e-137
-##  4     44 (Intercept)     7156.     291.        24.6 1.09e-130
-##  5     44 factor(CH04)2  -5938.     278.       -21.4 1.42e- 99
-##  6     44 CH06             145.       6.32      23.0 1.40e-114
-##  7     42 (Intercept)     4930.     231.        21.4 2.15e- 99
-##  8     42 factor(CH04)2  -4007.     224.       -17.9 1.71e- 70
-##  9     42 CH06              97.8      4.95      19.7 2.68e- 85
-## 10     43 (Intercept)     5107.     131.        39.0 0.       
-## 11     43 factor(CH04)2  -3949.     127.       -31.1 5.02e-209
-## 12     43 CH06              83.5      2.78      30.0 3.87e-195
-## 13     40 (Intercept)     3329.     128.        26.0 4.12e-147
-## 14     40 factor(CH04)2  -3239.     125.       -25.9 3.74e-146
-## 15     40 CH06             122.       2.89      42.2 0.       
-## 16      1 (Intercept)     5196.     197.        26.4 3.45e-151
-## 17      1 factor(CH04)2  -4051.     189.       -21.4 1.80e-100
-## 18      1 CH06              88.2      4.12      21.4 1.98e-100
+## # A tibble: 18 x 7
+## # Groups:   REGION [6]
+##    REGION           data term        estimate std.error statistic   p.value
+##     <int> <list<df[,6]>> <chr>          <dbl>     <dbl>     <dbl>     <dbl>
+##  1     41   [11,509 x 6] (Intercept)   3768.     185.        20.3 3.15e- 90
+##  2     41   [11,509 x 6] factor(CH0~  -3814.     180.       -21.2 6.00e- 98
+##  3     41   [11,509 x 6] CH06           106.       4.18      25.3 1.12e-137
+##  4     44   [14,204 x 6] (Intercept)   7156.     291.        24.6 1.09e-130
+##  5     44   [14,204 x 6] factor(CH0~  -5938.     278.       -21.4 1.42e- 99
+##  6     44   [14,204 x 6] CH06           145.       6.32      23.0 1.40e-114
+##  7     42   [11,150 x 6] (Intercept)   4930.     231.        21.4 2.15e- 99
+##  8     42   [11,150 x 6] factor(CH0~  -4007.     224.       -17.9 1.71e- 70
+##  9     42   [11,150 x 6] CH06            97.8      4.95      19.7 2.68e- 85
+## 10     43   [34,702 x 6] (Intercept)   5107.     131.        39.0 0.       
+## 11     43   [34,702 x 6] factor(CH0~  -3949.     127.       -31.1 5.02e-209
+## 12     43   [34,702 x 6] CH06            83.5      2.78      30.0 3.87e-195
+## 13     40   [24,432 x 6] (Intercept)   3329.     128.        26.0 4.12e-147
+## 14     40   [24,432 x 6] factor(CH0~  -3239.     125.       -25.9 3.74e-146
+## 15     40   [24,432 x 6] CH06           122.       2.89      42.2 0.       
+## 16      1   [20,790 x 6] (Intercept)   5196.     197.        26.4 3.45e-151
+## 17      1   [20,790 x 6] factor(CH0~  -4051.     189.       -21.4 1.80e-100
+## 18      1   [20,790 x 6] CH06            88.2      4.12      21.4 1.98e-100
 \end{verbatim}
 
 O incluso más facil, utilizando \texttt{group\_modify} (que es un atajo que solo acepta DF)
@@ -3338,14 +3341,15 @@ Por ejemplo podemos guardar el \textbf{objeto} \texttt{S3:lm} que es la regresio
 
 \begin{verbatim}
 ## # A tibble: 6 x 3
-##   REGION data                  lm    
-##    <int> <list>                <list>
-## 1     41 <tibble [11,509 x 6]> <lm>  
-## 2     44 <tibble [14,204 x 6]> <lm>  
-## 3     42 <tibble [11,150 x 6]> <lm>  
-## 4     43 <tibble [34,702 x 6]> <lm>  
-## 5     40 <tibble [24,432 x 6]> <lm>  
-## 6      1 <tibble [20,790 x 6]> <lm>
+## # Groups:   REGION [6]
+##   REGION           data lm    
+##    <int> <list<df[,6]>> <list>
+## 1     41   [11,509 x 6] <lm>  
+## 2     44   [14,204 x 6] <lm>  
+## 3     42   [11,150 x 6] <lm>  
+## 4     43   [34,702 x 6] <lm>  
+## 5     40   [24,432 x 6] <lm>  
+## 6      1   [20,790 x 6] <lm>
 \end{verbatim}
 
 \hypertarget{ejemplo-3-graficos-en-serie}{%
@@ -3373,18 +3377,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country    continent  year lifeExp       pop gdpPercap
-##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
-##  1 Taiwan     Asia       1980    71.5  17848320     6995.
-##  2 Guatemala  Americas   1987    60.8   7326406     4246.
-##  3 Austria    Europe     1997    77.5   8069876    29096.
-##  4 China      Asia       1977    64.0 943455000      741.
-##  5 Singapore  Asia       1962    65.8   1750200     3675.
-##  6 Luxembourg Europe     1989    74.7    377621    40737.
-##  7 Egypt      Africa     1957    44.4  25009741     1459.
-##  8 Luxembourg Europe     2001    78.0    444779    63933.
-##  9 Peru       Americas   1982    61.4  18125129     6435.
-## 10 Bolivia    Americas   1962    43.4   3593918     2181.
+##    country        continent  year lifeExp      pop gdpPercap
+##    <fct>          <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Italy          Europe     1980    74.1 56451247    16202.
+##  2 Syria          Asia       1962    50.3  4834621     2193.
+##  3 Portugal       Europe     1986    73.7  9907411    12267.
+##  4 Thailand       Asia       1957    53.6 25041917      794.
+##  5 Zambia         Africa     1967    47.8  3900000     1777.
+##  6 Finland        Europe     1991    75.4  5013786    21582.
+##  7 Czech Republic Europe     1981    70.9 10297904    15123.
+##  8 Congo, Rep.    Africa     1972    54.9  1340458     3213.
+##  9 Bulgaria       Europe     1964    71.1  8144339     4722.
+## 10 El Salvador    Americas   1957    48.6  2355805     3422.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -3461,25 +3465,25 @@ probamos la función para un caso
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(country) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{nest}\NormalTok{()}
 
-\NormalTok{gapminder_nest }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{gapminder_nest[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{,]}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    country            data             
-##    <fct>              <list>           
-##  1 Martinique         <tibble [1 x 5]> 
-##  2 Guinea-Bissau      <tibble [12 x 5]>
-##  3 Rwanda             <tibble [12 x 5]>
-##  4 Burkina Faso       <tibble [12 x 5]>
-##  5 Yemen, Rep.        <tibble [12 x 5]>
-##  6 Niger              <tibble [12 x 5]>
-##  7 Solomon Islands    <tibble [9 x 5]> 
-##  8 Austria            <tibble [57 x 5]>
-##  9 Dominican Republic <tibble [12 x 5]>
-## 10 Serbia             <tibble [12 x 5]>
+## # Groups:   country [187]
+##    country               data
+##    <fct>       <list<df[,5]>>
+##  1 Afghanistan       [12 x 5]
+##  2 Albania           [12 x 5]
+##  3 Algeria           [12 x 5]
+##  4 Angola            [12 x 5]
+##  5 Argentina         [12 x 5]
+##  6 Armenia            [4 x 5]
+##  7 Aruba              [8 x 5]
+##  8 Australia         [56 x 5]
+##  9 Austria           [57 x 5]
+## 10 Azerbaijan         [4 x 5]
 \end{verbatim}
 
 \begin{itemize}
@@ -3493,25 +3497,25 @@ probamos la función para un caso
 \NormalTok{gapminder_nest <-}\StringTok{ }\NormalTok{gapminder_nest }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{grafico=} \KeywordTok{map2}\NormalTok{(}\DataTypeTok{.x =}\NormalTok{ data, }\DataTypeTok{.y =}\NormalTok{ country,}\DataTypeTok{.f =}\NormalTok{  graficar_pais))}
 
-\NormalTok{gapminder_nest }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\NormalTok{gapminder_nest[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{,]}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 10 x 3
-##    country              data              grafico
-##    <fct>                <list>            <list> 
-##  1 Venezuela            <tibble [12 x 5]> <gg>   
-##  2 Netherlands Antilles <tibble [8 x 5]>  <gg>   
-##  3 Thailand             <tibble [13 x 5]> <gg>   
-##  4 Canada               <tibble [57 x 5]> <gg>   
-##  5 Mongolia             <tibble [12 x 5]> <gg>   
-##  6 Sri Lanka            <tibble [13 x 5]> <gg>   
-##  7 Azerbaijan           <tibble [4 x 5]>  <gg>   
-##  8 Gabon                <tibble [12 x 5]> <gg>   
-##  9 Rwanda               <tibble [12 x 5]> <gg>   
-## 10 Angola               <tibble [12 x 5]> <gg>
+## # Groups:   country [187]
+##    country               data grafico
+##    <fct>       <list<df[,5]>> <list> 
+##  1 Afghanistan       [12 x 5] <gg>   
+##  2 Albania           [12 x 5] <gg>   
+##  3 Algeria           [12 x 5] <gg>   
+##  4 Angola            [12 x 5] <gg>   
+##  5 Argentina         [12 x 5] <gg>   
+##  6 Armenia            [4 x 5] <gg>   
+##  7 Aruba              [8 x 5] <gg>   
+##  8 Australia         [56 x 5] <gg>   
+##  9 Austria           [57 x 5] <gg>   
+## 10 Azerbaijan         [4 x 5] <gg>
 \end{verbatim}
 
 Veamos un ejemplo
@@ -16005,20 +16009,20 @@ El código se puede seguir corriendo con \texttt{Cmd/Ctrl\ +\ Enter} línea a l�
 Un bloque debería ser relativamente autónomo, y enfocado alrededor de una sola tarea.
 Las siguientes secciones decriben el encabezado de bloque que consiste en \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r}, seguido por un nombre opcional para el bloque, seguido entonces por \textbf{opciones separadas por comas}, y concluyendo con \texttt{\}}. Inmediatamente después sigue tu código de R el bloque y el fin del bloque se indica con un \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}} final.
 
-Hay un nombre de bloque que tiene comportamiento especial: \texttt{setup}. Cuando te encuentras en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.
-
-La salida de los bloques puede personalizarse con options, argumentos suministrados al encabezado del bloque.
+Hay un nombre de bloque que tiene comportamiento especial: \texttt{setup}. Cuando nos encontramos en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.
 
 \hypertarget{opciones-en-los-bloques-de-codigo}{%
 \subsection{Opciones en los bloques de código}\label{opciones-en-los-bloques-de-codigo}}
 
 La salida de los bloques puede personalizarse con \textbf{options}, argumentos suministrados en el encabezado del bloque. Knitr provee casi 60 opciones para que puedas usar para personalizar tus bloques de código, la lista completa puede verse en \url{http://yihui.name/knitr/options/}.
 
+Las que más utilizamos nosotros son:
+
 \begin{itemize}
 \item
   \texttt{eval\ =\ FALSE} evita que código sea evaluado. (Y obviamente si el código no es ejecutado no se generaran resultados). Esto es útil para mostrar códigos de ejemplo, o para deshabilitar un gran bloque de código sin comentar cada línea.
 \item
-  \texttt{include\ =\ FALSE} ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para que código de configuracion que no quieres que abarrote tu reporte.
+  \texttt{include\ =\ FALSE} ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para el código de configuracion que no quieres que abarrote tu reporte.
 \item
   \texttt{echo\ =\ FALSE} evita que se vea el código, pero no los resultados en el archivo final. Utiliza esto cuando quieres escribir reportes enfocados a personas que no quieren ver el código subyacente de R.
 \item
@@ -16026,7 +16030,7 @@ La salida de los bloques puede personalizarse con \textbf{options}, argumentos s
 \item
   \texttt{results\ =\ \textquotesingle{}hide\textquotesingle{}} oculta el output impreso; \texttt{fig.show\ =\ \textquotesingle{}hide\textquotesingle{}} oculta gráficos.
 \item
-  \texttt{error\ =\ TRUE} causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la version final de tu reporte.
+  \texttt{error\ =\ TRUE} causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente querés incluir en la version final de tu reporte.
 \end{itemize}
 
 \includegraphics{img/opciones formato chunk.png}
@@ -16036,7 +16040,7 @@ Contamos con algunas de estas opciones en el menú de \textbf{Configuración} en
 \hypertarget{tablas}{%
 \subsection{Tablas}\label{tablas}}
 
-Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional puedes usar la función \texttt{knitr::kable()}. Aún más, recomendamos mirar los paquetes \href{https://haozhu233.github.io/kableExtra/awesome_table_in_html.html\#grouped_columns__rows}{kableExtra} y \href{https://www.displayr.com/formattable/}{formattable}.
+Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional podemos usar la función \texttt{knitr::kable()}. Aún más, recomendamos mirar los paquetes \href{https://haozhu233.github.io/kableExtra/awesome_table_in_html.html\#grouped_columns__rows}{kableExtra} y \href{https://www.displayr.com/formattable/}{formattable}.
 
 Para una mayor personalización, se pueden considerar también los paquetes \texttt{xtable}, \texttt{stargazer}, \texttt{pander}, \texttt{tables}, y \texttt{ascii}. Cada uno provee un set de herramientas para generar tablas con formato a partir código de R.
 
@@ -16172,7 +16176,7 @@ Flexdashboard también proporciona herramientas simples para crear barras latera
 
 El objetivo de esta clase es comenzar a trabajar utilizando el formato RNotebook para realizar reportes compilados directamente en RStudio, de forma tal que nuestro trabajo pueda quedar documentado y ser fácilmente compartido con otras personas.
 
-Para esto utilizaremos un dataframe del paquete \textbf{datos}. Deberemos instalarlo en caso de contar con el mismo, y luego cargarlo con la función \texttt{library()}. En particular, utilizaremos los datos de \textbf{encuesta}, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU.
+Para esto utilizaremos un dataframe del paquete \textbf{datos}. Deberemos instalarlo en caso de no contar con el mismo, y luego cargarlo con la función \texttt{library()}. En particular, utilizaremos los datos de \textbf{encuesta}, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16258,7 +16262,7 @@ En este módulo veremos la utilización de Shinyapss para elaborar reportes reac
 \hypertarget{explicacion-5}{%
 \section{Explicación}\label{explicacion-5}}
 
-\href{https://shiny.rstudio.com/}{\includegraphics[width=5.20833in,height=\textheight]{img/shiny_logo.png}}
+\includegraphics[width=5.20833in,height=\textheight]{img/shiny_logo.png}
 
 \hypertarget{que-es-un-shiny-app}{%
 \subsection{¿Qué es un shiny app?}\label{que-es-un-shiny-app}}
@@ -16280,10 +16284,16 @@ Un Shiny App tiene dos componentes
 \begin{itemize}
 \tightlist
 \item
-  Interfaz de Usuario (\emph{UI}): Contiene los \emph{dispositivos} para recibir el \textbf{input} del usuario y mostrar los \textbf{outputs}
+  Interfaz de Usuario (\emph{UI}): Contiene los \emph{widgets} para recibir el \textbf{input} del usuario y mostrar los \textbf{outputs}
 \item
-  Server: Recibe los \textbf{inputs} del UI y con ellos general los \textbf{outputs}
+  Server: Recibe los \textbf{inputs} del UI y con ellos genera los \textbf{outputs}
 \end{itemize}
+
+\begin{quote}
+Un widget es un elemento web que le permite al usuario enviar un mensaje.
+\end{quote}
+
+\includegraphics[width=7.8125in,height=\textheight]{img/basic-widgets.png}
 
 \hypertarget{ejemplo-1.-old-faithful-geyser}{%
 \subsubsection{Ejemplo 1. Old Faithful Geyser}\label{ejemplo-1.-old-faithful-geyser}}
@@ -16334,7 +16344,7 @@ Elementos del ui:
       \begin{itemize}
       \tightlist
       \item
-        \texttt{sliderInput}: Definimos que el tipo de input se es \emph{slider}, y sus parámetros
+        \texttt{sliderInput}: Definimos que el input será ingresado desde un widget de tipo \emph{slider}, y sus parámetros
       \end{itemize}
     \item
       \texttt{mainPanel}: Dentro del \emph{mainPanel} definimos los elementos que van en el panel central
@@ -16510,7 +16520,7 @@ Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna va
 \NormalTok{graficar <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(pais, variable)\{}
   
 \NormalTok{  gapminder }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(country }\OperatorTok{%in%}\StringTok{ }\NormalTok{pais) }\OperatorTok{%>%}\StringTok{ }\CommentTok{## reemplze el == por %in% para que me reciba más de un país. }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(country }\OperatorTok{%in%}\StringTok{ }\NormalTok{pais) }\OperatorTok{%>%}\StringTok{ }\CommentTok{## reemplace el == por %in% para que me reciba más de un país. }
 \StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes_string}\NormalTok{(}\StringTok{"year"}\NormalTok{, variable, }\DataTypeTok{color=} \StringTok{"country"}\NormalTok{))}\OperatorTok{+}\StringTok{ }\CommentTok{## Le cambio aes por aes_string para que me reciba el texto del input}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{()}\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
@@ -16537,13 +16547,8 @@ Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna va
 ver ejemplo\_2\_a
 \end{quote}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
-\tightlist
-\item
-  Agregamos los inputs en el ui
-\end{enumerate}
+\hypertarget{agregamos-los-inputs-en-el-ui}{%
+\subsubsection{6. Agregamos los inputs en el ui}\label{agregamos-los-inputs-en-el-ui}}
 
 Necesitamos agregar dos inputs: País y variable.
 
@@ -16578,6 +16583,8 @@ ver ejemplo\_2\_c
 
 \hypertarget{tuneamos-a-discrecion}{%
 \subsubsection{8. Tuneamos a discreción}\label{tuneamos-a-discrecion}}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/pimp.jpeg}
 
 Una vez que tenemos un shiny funcionando como queríamos, podemos agregar \texttt{tags} y texto para agregar explicaciones y emprolijar los resultados.
 

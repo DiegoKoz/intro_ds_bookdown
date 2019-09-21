@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-3.html">
-<link rel="next" href="documentacion-en-r.html">
+<link rel="prev" href="explicacion-3.html"/>
+<link rel="next" href="documentacion-en-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -285,24 +283,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.2.1</span> Caso práctico: Gráficos de ingresos - EPH</h3>
 <p>Para esta práctica utilizaremos las variables de ingresos captadas por la <a href="https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos">Encuesta Permanente de Hogares</a></p>
 <p>A continuación utilzaremos los conceptos abordados, para realizar gráficos a partir de las variables de ingresos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Cargamos las librerías a utilizar</span>
-
-<span class="kw">library</span>(tidyverse) <span class="co"># tiene ggplot, dplyr, tidyr, y otros</span>
-<span class="kw">library</span>(ggthemes)  <span class="co"># estilos de gráficos</span>
-<span class="kw">library</span>(ggrepel)   <span class="co"># etiquetas de texto más prolijas que las de ggplot</span>
-<span class="kw">library</span>(scales)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">
-Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;fuentes/usu_individual_t119.txt&quot;</span>,
-                              <span class="dt">sep=</span><span class="st">&quot;;&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">fill =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="co">#Cargamos las librerías a utilizar</span></a>
+<a class="sourceLine" id="cb289-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb289-3" data-line-number="3"><span class="kw">library</span>(tidyverse) <span class="co"># tiene ggplot, dplyr, tidyr, y otros</span></a>
+<a class="sourceLine" id="cb289-4" data-line-number="4"><span class="kw">library</span>(ggthemes)  <span class="co"># estilos de gráficos</span></a>
+<a class="sourceLine" id="cb289-5" data-line-number="5"><span class="kw">library</span>(ggrepel)   <span class="co"># etiquetas de texto más prolijas que las de ggplot</span></a>
+<a class="sourceLine" id="cb289-6" data-line-number="6"><span class="kw">library</span>(scales)</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb290-2" data-line-number="2">Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;fuentes/usu_individual_t119.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb290-3" data-line-number="3">                              <span class="dt">sep=</span><span class="st">&quot;;&quot;</span>, <span class="dt">dec=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">fill =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <div id="histogramas" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> <a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">Histogramas</a></h4>
 <p>Por ejemplo, si observamos el ingreso de la ocupación principal:</p>
-<pre class="sourceCode r"><code class="sourceCode r">hist_data &lt;-Individual_t119 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>) 
-
-<span class="kw">ggplot</span>(hist_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span>
-<span class="kw">geom_histogram</span>(<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span>
-<span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">hist_data &lt;-Individual_t119 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb291-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>) </a>
+<a class="sourceLine" id="cb291-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="kw">ggplot</span>(hist_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb291-5" data-line-number="5"><span class="kw">geom_histogram</span>(<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb291-6" data-line-number="6"><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-124-1.png" width="960" /></p>
 <p>En este gráfico, los posibles valores de p21 se dividen en 30 <strong>bins</strong> consecutivos y el gráfico muestra cuantas observaciones caen en cada uno de ellos</p>
 </div>
@@ -310,23 +308,23 @@ Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>
 <h4><span class="header-section-number">4.2.1.2</span> <a href="https://plot.ly/ggplot2/geom_density/">Kernels</a></h4>
 <p>La función <code>geom_density()</code> nos permite construir <strong>kernels</strong> de la distribución. Es particularmente útil cuando tenemos una variable continua, dado que los histogramas rompen esa sensación de continuidad.</p>
 <p>Veamos un ejemplo sencillo con los ingresos de la ocupación principal. Luego iremos complejizandolo</p>
-<pre class="sourceCode r"><code class="sourceCode r">kernel_data &lt;-Individual_t119 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>) 
-
-<span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span>
-<span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span>
-<span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">kernel_data &lt;-Individual_t119 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb292-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>) </a>
+<a class="sourceLine" id="cb292-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb292-4" data-line-number="4"><span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb292-5" data-line-number="5"><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb292-6" data-line-number="6"><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-125-1.png" width="960" />
 <strong>El eje y no tiene demasiada interpretabilidad en los Kernel, porque hace a la forma en que se construyen las distribuciones</strong>.</p>
 <p>El parametro adjust, dentro de la función <code>geom_density</code>nos permite reducir o ampliar el rango de suavizado de la distribución. Su valor por default es 1. Veamos que sucede si lo seteamos en 2</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span>
-<span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>,<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span>
-<span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb293-2" data-line-number="2"><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="dv">2</span>,<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb293-3" data-line-number="3"><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-126-1.png" width="960" /></p>
 <p>Como es esperable, la distribución del ingreso tiene “picos” en los valores redondos, ya que la gente suele declarar un valor aproximado al ingreso efectivo que percibe. Nadie declara ingresos de 30001. Al suavizar la serie con un kernel, eliminamos ese efecto.Si seteamos el rango para el suavizado en valores menores a 1, podemos observar estos picos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span>
-<span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="fl">0.01</span>,<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span>
-<span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="kw">ggplot</span>(kernel_data, <span class="kw">aes</span>(<span class="dt">x =</span> P21,<span class="dt">weights =</span> PONDIIO))<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="kw">geom_density</span>(<span class="dt">adjust =</span> <span class="fl">0.01</span>,<span class="dt">fill=</span><span class="st">&#39;salmon&#39;</span>, <span class="dt">color=</span><span class="st">&#39;grey25&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb294-3" data-line-number="3"><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">50000</span>))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-127-1.png" width="960" /></p>
 </div>
 <div id="geom-smooth" class="section level4">
@@ -343,31 +341,31 @@ Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>
 <li>Tipo de establecimiento.</li>
 </ul></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">ggdata &lt;-<span class="st"> </span>Individual_t119 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>,
-         <span class="op">!</span><span class="kw">is.na</span>(NIVEL_ED),
-         NIVEL_ED<span class="op">!=</span><span class="dv">7</span>, 
-         PP04A <span class="op">!=</span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">NIVEL_ED =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">1</span>  <span class="op">~</span><span class="st"> &#39;Primaria </span><span class="ch">\n</span><span class="st"> Incompleta&#39;</span>, <span class="co"># &#39;\n&#39; significa carriage return, o enter</span>
-                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">2</span>  <span class="op">~</span><span class="st"> &#39;Primaria </span><span class="ch">\n</span><span class="st"> Completa&#39;</span>,
-                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">3</span>  <span class="op">~</span><span class="st"> &#39;Secundaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,
-                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">4</span>  <span class="op">~</span><span class="st"> &#39;Secundaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,
-                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">5</span>  <span class="op">~</span><span class="st"> &#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,
-                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">6</span>  <span class="op">~</span><span class="st"> &#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,
-                                     <span class="ot">FALSE</span>          <span class="op">~</span><span class="st"> &#39;Otro&#39;</span>),
-                           <span class="dt">levels=</span> <span class="kw">c</span>(<span class="st">&#39;Primaria </span><span class="ch">\n</span><span class="st"> Incompleta&#39;</span>,
-                                     <span class="st">&#39;Primaria </span><span class="ch">\n</span><span class="st"> Completa&#39;</span>,
-                                     <span class="st">&#39;Secundaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,
-                                     <span class="st">&#39;Secundaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,
-                                     <span class="st">&#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,
-                                     <span class="st">&#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>)),
-         <span class="dt">Sexo     =</span> <span class="kw">case_when</span>(CH04 <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> &#39;Varón&#39;,</span>
-<span class="st">                              CH04 == 2 ~ &#39;</span>Mujer<span class="st">&#39;),</span>
-<span class="st">         Establecimiento    = case_when(PP04A == 1 ~ &#39;</span>Estatal<span class="st">&#39;,</span>
-<span class="st">                                        PP04A == 2 ~ &#39;</span>Privado<span class="st">&#39;,</span>
-<span class="st">                                        FALSE      ~ &#39;</span>Otro<span class="st">&#39;))</span>
-
-<span class="st">ggdata</span></code></pre>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">ggdata &lt;-<span class="st"> </span>Individual_t119 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P21<span class="op">&gt;</span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb295-3" data-line-number="3">         <span class="op">!</span><span class="kw">is.na</span>(NIVEL_ED),</a>
+<a class="sourceLine" id="cb295-4" data-line-number="4">         NIVEL_ED<span class="op">!=</span><span class="dv">7</span>, </a>
+<a class="sourceLine" id="cb295-5" data-line-number="5">         PP04A <span class="op">!=</span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb295-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">NIVEL_ED =</span> <span class="kw">factor</span>(<span class="kw">case_when</span>(NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">1</span>  <span class="op">~</span><span class="st"> &#39;Primaria </span><span class="ch">\n</span><span class="st"> Incompleta&#39;</span>, <span class="co"># &#39;\n&#39; significa carriage return, o enter</span></a>
+<a class="sourceLine" id="cb295-7" data-line-number="7">                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">2</span>  <span class="op">~</span><span class="st"> &#39;Primaria </span><span class="ch">\n</span><span class="st"> Completa&#39;</span>,</a>
+<a class="sourceLine" id="cb295-8" data-line-number="8">                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">3</span>  <span class="op">~</span><span class="st"> &#39;Secundaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,</a>
+<a class="sourceLine" id="cb295-9" data-line-number="9">                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">4</span>  <span class="op">~</span><span class="st"> &#39;Secundaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,</a>
+<a class="sourceLine" id="cb295-10" data-line-number="10">                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">5</span>  <span class="op">~</span><span class="st"> &#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,</a>
+<a class="sourceLine" id="cb295-11" data-line-number="11">                                     NIVEL_ED <span class="op">==</span><span class="st"> </span><span class="dv">6</span>  <span class="op">~</span><span class="st"> &#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,</a>
+<a class="sourceLine" id="cb295-12" data-line-number="12">                                     <span class="ot">FALSE</span>          <span class="op">~</span><span class="st"> &#39;Otro&#39;</span>),</a>
+<a class="sourceLine" id="cb295-13" data-line-number="13">                           <span class="dt">levels=</span> <span class="kw">c</span>(<span class="st">&#39;Primaria </span><span class="ch">\n</span><span class="st"> Incompleta&#39;</span>,</a>
+<a class="sourceLine" id="cb295-14" data-line-number="14">                                     <span class="st">&#39;Primaria </span><span class="ch">\n</span><span class="st"> Completa&#39;</span>,</a>
+<a class="sourceLine" id="cb295-15" data-line-number="15">                                     <span class="st">&#39;Secundaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,</a>
+<a class="sourceLine" id="cb295-16" data-line-number="16">                                     <span class="st">&#39;Secundaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>,</a>
+<a class="sourceLine" id="cb295-17" data-line-number="17">                                     <span class="st">&#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Incompleta&#39;</span>,</a>
+<a class="sourceLine" id="cb295-18" data-line-number="18">                                     <span class="st">&#39;Superior </span><span class="ch">\n</span><span class="st">Universitaria </span><span class="ch">\n</span><span class="st">Completa&#39;</span>)),</a>
+<a class="sourceLine" id="cb295-19" data-line-number="19">         <span class="dt">Sexo     =</span> <span class="kw">case_when</span>(CH04 <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> &#39;Varón&#39;,</span></a>
+<a class="sourceLine" id="cb295-20" data-line-number="20"><span class="st">                              CH04 == 2 ~ &#39;</span>Mujer<span class="st">&#39;),</span></a>
+<a class="sourceLine" id="cb295-21" data-line-number="21"><span class="st">         Establecimiento    = case_when(PP04A == 1 ~ &#39;</span>Estatal<span class="st">&#39;,</span></a>
+<a class="sourceLine" id="cb295-22" data-line-number="22"><span class="st">                                        PP04A == 2 ~ &#39;</span>Privado<span class="st">&#39;,</span></a>
+<a class="sourceLine" id="cb295-23" data-line-number="23"><span class="st">                                        FALSE      ~ &#39;</span>Otro<span class="st">&#39;))</span></a>
+<a class="sourceLine" id="cb295-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb295-25" data-line-number="25"><span class="st">ggdata</span></a></code></pre></div>
 <pre><code>##                            CODUSU ANO4 TRIMESTRE NRO_HOGAR COMPONENTE H15
 ## 1   TQRMNORUQHKNKNCDEFOCD00629563 2019         1         1          1   1
 ## 2   TQRMNOPUVHKOKMCDEFOCD00629564 2019         1         1          2   1
@@ -12109,62 +12107,62 @@ Individual_t119 &lt;-<span class="st"> </span><span class="kw">read.table</span>
 ## 558       3    115 Varón         Privado
 ##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 19390 rows ]</code></pre>
 <p>Para graficar un suavizado de las series, se utiliza la función <a href="http://ggplot2.tidyverse.org/reference/geom_smooth.html"><code>geom_smooth()</code></a>. Con suavizado nos referimos al gráfico de un modelo realizado sobre los datos, que estima el valor en el punto x,y (para el grupo). Las regresiones lineales son un ejemplo de esto, aunque no el único, ni el que viene por default.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Sexo, <span class="dt">shape =</span> Sexo, <span class="dt">alpha =</span> P21))<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(
-    <span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,
-    <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,
-    <span class="dt">title =</span> <span class="st">&#39;Ingreso por ocupación principal&#39;</span>,
-    <span class="dt">subtitle =</span> <span class="st">&#39;Según edad, nivel educativo y sexo&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma)<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_alpha</span>(<span class="dt">guide =</span> <span class="ot">FALSE</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(.<span class="op">~</span>NIVEL_ED)</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Sexo, <span class="dt">shape =</span> Sexo, <span class="dt">alpha =</span> P21))<span class="op">+</span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb297-4" data-line-number="4">    <span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,</a>
+<a class="sourceLine" id="cb297-5" data-line-number="5">    <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,</a>
+<a class="sourceLine" id="cb297-6" data-line-number="6">    <span class="dt">title =</span> <span class="st">&#39;Ingreso por ocupación principal&#39;</span>,</a>
+<a class="sourceLine" id="cb297-7" data-line-number="7">    <span class="dt">subtitle =</span> <span class="st">&#39;Según edad, nivel educativo y sexo&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb297-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb297-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma)<span class="op">+</span></a>
+<a class="sourceLine" id="cb297-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_alpha</span>(<span class="dt">guide =</span> <span class="ot">FALSE</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb297-11" data-line-number="11"><span class="st">  </span><span class="kw">facet_grid</span>(.<span class="op">~</span>NIVEL_ED)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-129-1.png" width="768" /></p>
 <p>Si corremos el comando <code>geom_smooth()</code> por default, nos advierte que esta utilizando el método GAM, de <a href="https://m-clark.github.io/generalized-additive-models/building_gam.html">general additive models</a>.</p>
 <p>el <strong>sombreado gris</strong> que envuelve cada línea es el intervalo de confianza de dicho punto (95% por default).</p>
 <p>También podemos utilizar métodos lineales, agregando el parámetro <code>method = 'lm'</code>. Haciendo esto, el gráfico muestra una regresión lineal simple. Si queremos otro tipo de regresión lineal, le podemos explicitar la fórmula.<br />
 En el ejemplo siguiente, utilizamos la formula <span class="math inline">\(y = \beta_0 +\beta_1x +\beta_2 x^2\)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Sexo, <span class="dt">weight =</span> PONDIIO)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(x, <span class="dv">2</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,
-       <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,
-       <span class="dt">title =</span> <span class="st">&#39;Regresion cuadrática del Ingreso por ocupación principal respecto de la Edad&#39;</span>,
-       <span class="dt">subtitle =</span> <span class="st">&#39;Según Nivel educativo y sexo&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>NIVEL_ED)</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Sexo, <span class="dt">weight =</span> PONDIIO)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(x, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,</a>
+<a class="sourceLine" id="cb298-4" data-line-number="4">       <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,</a>
+<a class="sourceLine" id="cb298-5" data-line-number="5">       <span class="dt">title =</span> <span class="st">&#39;Regresion cuadrática del Ingreso por ocupación principal respecto de la Edad&#39;</span>,</a>
+<a class="sourceLine" id="cb298-6" data-line-number="6">       <span class="dt">subtitle =</span> <span class="st">&#39;Según Nivel educativo y sexo&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb298-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>NIVEL_ED)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-130-1.png" width="768" /></p>
 <p>Si quisiéramos, además de ver la relación entre ingreso, Edad, Sexo y Nivel educativo, incorporar el tipo de establecimiento,público o privado. Podemos facetear el gráfico por dos variables en lugar de una, lo que crea una <strong>matriz de gráficos</strong> según los cruces.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Establecimiento, <span class="dt">weight =</span> PONDIIO)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(
-  <span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,
-  <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,
-  <span class="dt">title =</span> <span class="st">&#39;Tendencia del ingreso por ocupación principal&#39;</span>,
-  <span class="dt">subtitle =</span> <span class="st">&#39;Según edad, nivel educativo, sexo y tipo de establecimiento&#39;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(Sexo <span class="op">~</span><span class="st"> </span>NIVEL_ED)</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">ggplot</span>(ggdata, <span class="kw">aes</span>(CH06, P21, <span class="dt">colour =</span> Establecimiento, <span class="dt">weight =</span> PONDIIO)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">  <span class="dt">x =</span> <span class="st">&#39;Edad&#39;</span>,</a>
+<a class="sourceLine" id="cb299-5" data-line-number="5">  <span class="dt">y =</span> <span class="st">&#39;ingreso&#39;</span>,</a>
+<a class="sourceLine" id="cb299-6" data-line-number="6">  <span class="dt">title =</span> <span class="st">&#39;Tendencia del ingreso por ocupación principal&#39;</span>,</a>
+<a class="sourceLine" id="cb299-7" data-line-number="7">  <span class="dt">subtitle =</span> <span class="st">&#39;Según edad, nivel educativo, sexo y tipo de establecimiento&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb299-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_grid</span>(Sexo <span class="op">~</span><span class="st"> </span>NIVEL_ED)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-131-1.png" width="768" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste0</span>(<span class="st">&quot;resultados/&quot;</span>, <span class="st">&quot;regresion lineal.png&quot;</span>),<span class="dt">scale =</span> <span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="kw">paste0</span>(<span class="st">&quot;resultados/&quot;</span>, <span class="st">&quot;regresion lineal.png&quot;</span>),<span class="dt">scale =</span> <span class="dv">2</span>)</a></code></pre></div>
 </div>
 <div id="treemaps-bonus-track" class="section level4">
 <h4><span class="header-section-number">4.2.1.4</span> Treemaps (bonus track)</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(treemapify)</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">library</span>(treemapify)</a></code></pre></div>
 <p><a href="https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado">Trabajo doméstico no remunerado</a></p>
-<pre class="sourceCode r"><code class="sourceCode r">trabajo_no_remunerado &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;fuentes/prom_t_simul_dom_16_sexo__annio__g_edad_limpio.csv&#39;</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"> trabajo_no_remunerado <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(sexo <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>, grupo_edad <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>) <span class="op">%&gt;%</span>
-<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">promedio_hs_diarias =</span> <span class="kw">as.numeric</span>(promedio_hs_diarias),
-          <span class="dt">sexo =</span> <span class="kw">case_when</span>(sexo<span class="op">==</span><span class="st">&#39;m&#39;</span><span class="op">~</span><span class="st">&#39;Mujer&#39;</span>,
-                           sexo<span class="op">==</span><span class="st">&#39;v&#39;</span><span class="op">~</span><span class="st">&#39;Varón&#39;)) %&gt;% </span>
-<span class="st">  ggplot(., aes(area = promedio_hs_diarias, fill = promedio_hs_diarias, label = grupo_edad,</span>
-<span class="st">                subgroup = sexo)) +</span>
-<span class="st">  geom_treemap() +</span>
-<span class="st">  geom_treemap_subgroup_border() +</span>
-<span class="st">  geom_treemap_subgroup_text(place = &quot;centre&quot;, grow = T, alpha = 0.5, colour =</span>
-<span class="st">                             &quot;black&quot;, fontface = &quot;italic&quot;, min.size = 0) +</span>
-<span class="st">  geom_treemap_text(colour = &quot;white&quot;, place = &quot;topleft&quot;, reflow = T)+</span>
-<span class="st">  theme(legend.position = &#39;</span>none<span class="st">&#39;)</span></code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1">trabajo_no_remunerado &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;fuentes/prom_t_simul_dom_16_sexo__annio__g_edad_limpio.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"> trabajo_no_remunerado <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(sexo <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>, grupo_edad <span class="op">!=</span><span class="st"> &#39;TOTAL&#39;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">promedio_hs_diarias =</span> <span class="kw">as.numeric</span>(promedio_hs_diarias),</a>
+<a class="sourceLine" id="cb303-4" data-line-number="4">          <span class="dt">sexo =</span> <span class="kw">case_when</span>(sexo<span class="op">==</span><span class="st">&#39;m&#39;</span><span class="op">~</span><span class="st">&#39;Mujer&#39;</span>,</a>
+<a class="sourceLine" id="cb303-5" data-line-number="5">                           sexo<span class="op">==</span><span class="st">&#39;v&#39;</span><span class="op">~</span><span class="st">&#39;Varón&#39;)) %&gt;% </span></a>
+<a class="sourceLine" id="cb303-6" data-line-number="6"><span class="st">  ggplot(., aes(area = promedio_hs_diarias, fill = promedio_hs_diarias, label = grupo_edad,</span></a>
+<a class="sourceLine" id="cb303-7" data-line-number="7"><span class="st">                subgroup = sexo)) +</span></a>
+<a class="sourceLine" id="cb303-8" data-line-number="8"><span class="st">  geom_treemap() +</span></a>
+<a class="sourceLine" id="cb303-9" data-line-number="9"><span class="st">  geom_treemap_subgroup_border() +</span></a>
+<a class="sourceLine" id="cb303-10" data-line-number="10"><span class="st">  geom_treemap_subgroup_text(place = &quot;centre&quot;, grow = T, alpha = 0.5, colour =</span></a>
+<a class="sourceLine" id="cb303-11" data-line-number="11"><span class="st">                             &quot;black&quot;, fontface = &quot;italic&quot;, min.size = 0) +</span></a>
+<a class="sourceLine" id="cb303-12" data-line-number="12"><span class="st">  geom_treemap_text(colour = &quot;white&quot;, place = &quot;topleft&quot;, reflow = T)+</span></a>
+<a class="sourceLine" id="cb303-13" data-line-number="13"><span class="st">  theme(legend.position = &#39;</span>none<span class="st">&#39;)</span></a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-134-1.png" width="960" /></p>
 
 </div>
@@ -12229,8 +12227,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

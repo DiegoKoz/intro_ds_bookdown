@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-1.html">
-<link rel="next" href="programacion-funcional.html">
+<link rel="prev" href="explicacion-1.html"/>
+<link rel="next" href="programacion-funcional.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -282,9 +280,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practica-guiada-1" class="section level2">
 <h2><span class="header-section-number">2.2</span> Práctica Guiada</h2>
 <p>En esta ocasión utilizaremos los datos de la librería <code>gapminder</code> para utilizar todo lo que aprendimos sobre el <code>tidyverse</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(gapminder)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(gapminder)</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="kw">library</span>(gapminder)</a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">glimpse</span>(gapminder)</a></code></pre></div>
 <pre><code>## Observations: 1,704
 ## Variables: 6
 ## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Af…
@@ -299,15 +297,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Calcular el promedio, el máximo y el mínimo de la esperanza de vida de cada continente en el año 2007. Presentar los datos ordenados según la esperanza de vida promedio.</p>
 </blockquote>
 <p>Necesitamos filtrar los datos tal que sólo queden aquellos correspondientes a 2007. Luego, agrupamos los casos de acuerdo a su <em>continente</em>, y calculamos los indicadores agregados solicitados. Luego, ordenamos los resultados.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio1 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">esp_vida_prom =</span> <span class="kw">mean</span>(lifeExp),
-            <span class="dt">esp_vida_max =</span>  <span class="kw">max</span>(lifeExp),
-            <span class="dt">esp_vida_min =</span>  <span class="kw">min</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(esp_vida_prom)
-
-ejercicio1</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">ejercicio1 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb169-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb169-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">esp_vida_prom =</span> <span class="kw">mean</span>(lifeExp),</a>
+<a class="sourceLine" id="cb169-5" data-line-number="5">            <span class="dt">esp_vida_max =</span>  <span class="kw">max</span>(lifeExp),</a>
+<a class="sourceLine" id="cb169-6" data-line-number="6">            <span class="dt">esp_vida_min =</span>  <span class="kw">min</span>(lifeExp)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb169-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(esp_vida_prom)</a>
+<a class="sourceLine" id="cb169-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb169-9" data-line-number="9">ejercicio1</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 4
 ##   continent esp_vida_prom esp_vida_max esp_vida_min
 ##   &lt;fct&gt;             &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
@@ -323,16 +321,16 @@ ejercicio1</code></pre>
 <p>Construir una nueva variable en el dataset que contenga una estimación del PBI. Estimar la mediana del PBI, y construir otra variable que tome valor “ALTO” cuando el PBI supera ese valor, y “BAJO” cuando no.</p>
 </blockquote>
 <p>Calculamos el PBI como el producto entre la población y el PBI per cápita para cada uno de los países y años. A continuación, guardamos el cálculo de la mediana del PBI en un valor llamado <em>mediana_GDP</em>. Por último, utilizamos la función <code>case_when</code> para poder construir la variable de nivel de PBI de acuerdo a la condición lógica solicitada. Nótese que el dataframe <code>ejercicio2</code> ha sido re-escrito.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio2 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)
-
-mediana_GDP &lt;-<span class="st"> </span><span class="kw">median</span>(ejercicio2<span class="op">$</span>GDP)
-
-ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP_level =</span> <span class="kw">case_when</span>(GDP <span class="op">&gt;</span><span class="st"> </span>mediana_GDP <span class="op">~</span><span class="st"> &quot;ALTO&quot;</span>,
-                               GDP <span class="op">&lt;</span><span class="st"> </span>mediana_GDP <span class="op">~</span><span class="st"> &quot;BAJO&quot;</span>))
-
-<span class="kw">head</span>(ejercicio2)</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">ejercicio2 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb171-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP =</span> pop <span class="op">*</span><span class="st"> </span>gdpPercap)</a>
+<a class="sourceLine" id="cb171-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb171-4" data-line-number="4">mediana_GDP &lt;-<span class="st"> </span><span class="kw">median</span>(ejercicio2<span class="op">$</span>GDP)</a>
+<a class="sourceLine" id="cb171-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb171-6" data-line-number="6">ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb171-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">GDP_level =</span> <span class="kw">case_when</span>(GDP <span class="op">&gt;</span><span class="st"> </span>mediana_GDP <span class="op">~</span><span class="st"> &quot;ALTO&quot;</span>,</a>
+<a class="sourceLine" id="cb171-8" data-line-number="8">                               GDP <span class="op">&lt;</span><span class="st"> </span>mediana_GDP <span class="op">~</span><span class="st"> &quot;BAJO&quot;</span>))</a>
+<a class="sourceLine" id="cb171-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb171-10" data-line-number="10"><span class="kw">head</span>(ejercicio2)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##   country    continent  year lifeExp     pop gdpPercap        GDP GDP_level
 ##   &lt;fct&gt;      &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    
@@ -349,13 +347,13 @@ ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</spa
 <p>Crear una copia de la base donde sólo se conserven las variables <em>country</em>, <em>year</em> y <em>lifeExp</em>, pero con los nombres <em>pais</em>, <em>anio</em> y <em>espVida</em>.</p>
 </blockquote>
 <p>Utilizamos <code>select()</code> para quedarnos con las columnas solicitadas, y <code>rename()</code> para cambiar sus nombres.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio3 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">pais =</span> country,
-         <span class="dt">anio =</span> year,
-         <span class="dt">espVida =</span> lifeExp)
-
-<span class="kw">head</span>(ejercicio3)</code></pre>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1">ejercicio3 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb173-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, lifeExp) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">pais =</span> country,</a>
+<a class="sourceLine" id="cb173-4" data-line-number="4">         <span class="dt">anio =</span> year,</a>
+<a class="sourceLine" id="cb173-5" data-line-number="5">         <span class="dt">espVida =</span> lifeExp)</a>
+<a class="sourceLine" id="cb173-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb173-7" data-line-number="7"><span class="kw">head</span>(ejercicio3)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   pais         anio espVida
 ##   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
@@ -371,13 +369,13 @@ ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</spa
 <blockquote>
 <p>Crear una copia de la base donde sólo se conserven las variables <em>country</em>, <em>year</em> y <em>gdpPercap</em>, pero con los nombres <em>pais</em>, <em>anio</em> y <em>pbiPercap</em>.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio4 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(country, year, gdpPercap) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">pais =</span> country,
-         <span class="dt">anio =</span> year,
-         <span class="dt">pbiPercap =</span> gdpPercap)
-
-<span class="kw">head</span>(ejercicio4)</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">ejercicio4 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb175-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(country, year, gdpPercap) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb175-3" data-line-number="3"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">pais =</span> country,</a>
+<a class="sourceLine" id="cb175-4" data-line-number="4">         <span class="dt">anio =</span> year,</a>
+<a class="sourceLine" id="cb175-5" data-line-number="5">         <span class="dt">pbiPercap =</span> gdpPercap)</a>
+<a class="sourceLine" id="cb175-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb175-7" data-line-number="7"><span class="kw">head</span>(ejercicio4)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   pais         anio pbiPercap
 ##   &lt;fct&gt;       &lt;int&gt;     &lt;dbl&gt;
@@ -394,9 +392,9 @@ ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</spa
 <p>Crear una nueva tabla que contenga los datos de las tablas <code>ejercicio3</code> y <code>ejercicio4</code>. Deben unirse de acuerdo al <em>pais</em> y al <em>anio</em>.</p>
 </blockquote>
 <p>Podemos utilizar la función <code>left_join()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio5 &lt;-<span class="st"> </span><span class="kw">left_join</span>(ejercicio3, ejercicio4, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;pais&quot;</span>, <span class="st">&quot;anio&quot;</span>))
-
-<span class="kw">head</span>(ejercicio5)</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">ejercicio5 &lt;-<span class="st"> </span><span class="kw">left_join</span>(ejercicio3, ejercicio4, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;pais&quot;</span>, <span class="st">&quot;anio&quot;</span>))</a>
+<a class="sourceLine" id="cb177-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb177-3" data-line-number="3"><span class="kw">head</span>(ejercicio5)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   pais         anio espVida pbiPercap
 ##   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -413,10 +411,10 @@ ejercicio2 &lt;-<span class="st"> </span>ejercicio2 <span class="op">%&gt;%</spa
 <p>Presentar los datos de la tabla <code>ejercicio1</code> de forma tal que <em>esp_vida_prom</em>, <em>esp_vida_max</em> y <em>esp_vida_min</em> sean valores de una variable llamada <em>indicador</em>, y los valores se encuentren en la variable <em>valor</em>.</p>
 </blockquote>
 <p>Utilizamos <code>gather()</code>, porque queremos transformar los datos de un formato “horizontal” a uno “vertical”.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ejercicio6 &lt;-<span class="st"> </span>ejercicio1 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">gather</span>(., <span class="dt">key =</span> indicador, <span class="dt">value =</span> valor, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>)
-
-<span class="kw">head</span>(ejercicio6)</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">ejercicio6 &lt;-<span class="st"> </span>ejercicio1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(., <span class="dt">key =</span> indicador, <span class="dt">value =</span> valor, <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb179-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb179-4" data-line-number="4"><span class="kw">head</span>(ejercicio6)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   continent indicador     valor
 ##   &lt;fct&gt;     &lt;chr&gt;         &lt;dbl&gt;
@@ -488,8 +486,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

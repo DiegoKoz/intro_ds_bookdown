@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-6.html">
-<link rel="next" href="modelo-lineal.html">
+<link rel="prev" href="explicacion-6.html"/>
+<link rel="next" href="modelo-lineal.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -281,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="practica-guiada-6" class="section level2">
 <h2><span class="header-section-number">7.2</span> Práctica Guiada</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <div id="generacion-de-datos-aleatorios" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Generación de datos aleatorios</h3>
 <p>Para generar datos aleatorios, usamos las funciones:</p>
@@ -293,25 +291,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Pero antes, tenemos que fijar la <em>semilla</em> para que los datos sean reproducibles</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1234</span>)
-<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> )</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a>
+<a class="sourceLine" id="cb332-2" data-line-number="2"><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> )</a></code></pre></div>
 <pre><code>##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42912469
 ##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89003783
 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95949406</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">df=</span><span class="dv">1</span> )</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">df=</span><span class="dv">1</span> )</a></code></pre></div>
 <pre><code>##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  0.007839245
 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -0.249237745
 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -4.271087169</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rchisq</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">rchisq</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0455256 3.1902100
 ##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1386091 0.2966193
 ## [15] 0.5110879</code></pre>
 <p>Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando <code>plot</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> ))</code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> ))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-172-1.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span> ))</code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span> ))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-172-2.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rchisq</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">rchisq</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span>))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-172-3.png" width="960" /></p>
 <p>Noten que el eje X es el índice de los valores, es decir que no agrega información.</p>
 </div>
@@ -322,8 +320,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">femicidios &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&#39;fuentes/vict_fem_annio__g_edad_limpio.csv&#39;</span>)
-femicidios</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">femicidios &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&#39;fuentes/vict_fem_annio__g_edad_limpio.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb341-2" data-line-number="2">femicidios</a></code></pre></div>
 <pre><code>## # A tibble: 19 x 3
 ##     anio cantidad_femicidios grupo_edad
 ##    &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;     
@@ -348,15 +346,15 @@ femicidios</code></pre>
 ## 19  2017 9                   TOTAL</code></pre>
 <p>Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron ‘-’ en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.</p>
 <p>Vamos a reorganizar la información para corregir todas estas cosas</p>
-<pre class="sourceCode r"><code class="sourceCode r">femicidios &lt;-<span class="st"> </span>femicidios <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(anio<span class="op">!=</span><span class="dv">2017</span>, grupo_edad <span class="op">!=</span><span class="st">&#39;Ignorado&#39;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co">#Sacamos al 2017 y los casos donde se ignora la edad</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cantidad_femicidios =</span> <span class="kw">case_when</span>(cantidad_femicidios<span class="op">==</span><span class="st">&#39;-&#39;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>, <span class="co"># reemplazamos el - por 0</span>
-                                         <span class="ot">TRUE</span> <span class="op">~</span><span class="kw">as.numeric</span>(cantidad_femicidios)), <span class="co"># y convertimos la variable en numerica</span>
-         <span class="dt">grupo_edad =</span> <span class="kw">case_when</span>(grupo_edad <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;0 - 15&#39;</span>,<span class="st">&#39;16 - 20&#39;</span>,<span class="st">&#39;21 - 40&#39;</span>) <span class="op">~</span><span class="st"> &#39;0-40&#39;</span>, <span class="co"># agrupamos para tener sólo dos grupos</span>
-                                grupo_edad <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;41 - 60&#39;</span>,<span class="st">&#39;61 y más&#39;</span>) <span class="op">~</span><span class="st"> &#39;41 y más&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(grupo_edad) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">cantidad_femicidios=</span> <span class="kw">sum</span>(cantidad_femicidios)) <span class="co"># sumamos los años y grupos para tener datos agregados</span>
-femicidios</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1">femicidios &lt;-<span class="st"> </span>femicidios <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb343-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(anio<span class="op">!=</span><span class="dv">2017</span>, grupo_edad <span class="op">!=</span><span class="st">&#39;Ignorado&#39;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co">#Sacamos al 2017 y los casos donde se ignora la edad</span></a>
+<a class="sourceLine" id="cb343-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cantidad_femicidios =</span> <span class="kw">case_when</span>(cantidad_femicidios<span class="op">==</span><span class="st">&#39;-&#39;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>, <span class="co"># reemplazamos el - por 0</span></a>
+<a class="sourceLine" id="cb343-4" data-line-number="4">                                         <span class="ot">TRUE</span> <span class="op">~</span><span class="kw">as.numeric</span>(cantidad_femicidios)), <span class="co"># y convertimos la variable en numerica</span></a>
+<a class="sourceLine" id="cb343-5" data-line-number="5">         <span class="dt">grupo_edad =</span> <span class="kw">case_when</span>(grupo_edad <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;0 - 15&#39;</span>,<span class="st">&#39;16 - 20&#39;</span>,<span class="st">&#39;21 - 40&#39;</span>) <span class="op">~</span><span class="st"> &#39;0-40&#39;</span>, <span class="co"># agrupamos para tener sólo dos grupos</span></a>
+<a class="sourceLine" id="cb343-6" data-line-number="6">                                grupo_edad <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;41 - 60&#39;</span>,<span class="st">&#39;61 y más&#39;</span>) <span class="op">~</span><span class="st"> &#39;41 y más&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb343-7" data-line-number="7"><span class="st">  </span><span class="kw">group_by</span>(grupo_edad) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb343-8" data-line-number="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">cantidad_femicidios=</span> <span class="kw">sum</span>(cantidad_femicidios)) <span class="co"># sumamos los años y grupos para tener datos agregados</span></a>
+<a class="sourceLine" id="cb343-9" data-line-number="9">femicidios</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   grupo_edad cantidad_femicidios
 ##   &lt;chr&gt;                    &lt;dbl&gt;
@@ -369,7 +367,7 @@ femicidios</code></pre>
 <li><span class="math inline">\(H_1\)</span> Hay asociación entre las variables</li>
 </ul>
 <p>La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(femicidios<span class="op">$</span>cantidad_femicidios)</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">chisq.test</span>(femicidios<span class="op">$</span>cantidad_femicidios)</a></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -380,9 +378,9 @@ femicidios</code></pre>
 <div id="descripcion-estadistica-de-los-datos" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> Descripción estadística de los datos</h3>
 <p>Volveremos a ver los datos de <a href="https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios">sueldos de funcionarios</a></p>
-<pre class="sourceCode r"><code class="sourceCode r">sueldos &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;fuentes/sueldo_funcionarios_2019.csv&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">sueldos &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;fuentes/sueldo_funcionarios_2019.csv&#39;</span>)</a></code></pre></div>
 <p>Con el comando <code>summary</code> podemos ver algunos de los principales estadísticos de resumen</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</code></pre>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="kw">summary</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  197746  210061  226866  225401  231168  249662</code></pre>
 </div>
@@ -390,11 +388,11 @@ femicidios</code></pre>
 <h3><span class="header-section-number">7.2.4</span> Gráficos estadísticos</h3>
 <p>No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.</p>
 <p>A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1"><span class="kw">boxplot</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-178-1.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">hist</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-178-2.png" width="960" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i))</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">density</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i))</a></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-178-3.png" width="960" /></p>
 
 </div>
@@ -458,8 +456,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

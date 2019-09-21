@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Explicación | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Explicación | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="documentacion-en-r.html">
-<link rel="next" href="practica-guiada-4.html">
+<link rel="prev" href="documentacion-en-r.html"/>
+<link rel="next" href="practica-guiada-4.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -334,26 +332,26 @@ output: html_document
 El código se puede seguir corriendo con <code>Cmd/Ctrl + Enter</code> línea a línea. Sin embargo, los bloques de código tienen otro atajo de teclado: <code>Cmd/Ctrl + Shift + Enter</code>, que ejecuta todo el código en el bloque.</p>
 <p>Un bloque debería ser relativamente autónomo, y enfocado alrededor de una sola tarea.
 Las siguientes secciones decriben el encabezado de bloque que consiste en <code>```{r</code>, seguido por un nombre opcional para el bloque, seguido entonces por <strong>opciones separadas por comas</strong>, y concluyendo con <code>}</code>. Inmediatamente después sigue tu código de R el bloque y el fin del bloque se indica con un <code>```</code> final.</p>
-<p>Hay un nombre de bloque que tiene comportamiento especial: <code>setup</code>. Cuando te encuentras en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.</p>
-<p>La salida de los bloques puede personalizarse con options, argumentos suministrados al encabezado del bloque.</p>
+<p>Hay un nombre de bloque que tiene comportamiento especial: <code>setup</code>. Cuando nos encontramos en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.</p>
 </div>
 <div id="opciones-en-los-bloques-de-codigo" class="section level3">
 <h3><span class="header-section-number">5.1.6</span> Opciones en los bloques de código</h3>
 <p>La salida de los bloques puede personalizarse con <strong>options</strong>, argumentos suministrados en el encabezado del bloque. Knitr provee casi 60 opciones para que puedas usar para personalizar tus bloques de código, la lista completa puede verse en <a href="http://yihui.name/knitr/options/" class="uri">http://yihui.name/knitr/options/</a>.</p>
+<p>Las que más utilizamos nosotros son:</p>
 <ul>
 <li><p><code>eval = FALSE</code> evita que código sea evaluado. (Y obviamente si el código no es ejecutado no se generaran resultados). Esto es útil para mostrar códigos de ejemplo, o para deshabilitar un gran bloque de código sin comentar cada línea.</p></li>
-<li><p><code>include = FALSE</code> ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para que código de configuracion que no quieres que abarrote tu reporte.</p></li>
+<li><p><code>include = FALSE</code> ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para el código de configuracion que no quieres que abarrote tu reporte.</p></li>
 <li><p><code>echo = FALSE</code> evita que se vea el código, pero no los resultados en el archivo final. Utiliza esto cuando quieres escribir reportes enfocados a personas que no quieren ver el código subyacente de R.</p></li>
 <li><p><code>message = FALSE</code> o <code>warning = FALSE</code> evita que aparezcan mensajes o advertencias en el archivo final.</p></li>
 <li><p><code>results = 'hide'</code> oculta el output impreso; <code>fig.show = 'hide'</code> oculta gráficos.</p></li>
-<li><p><code>error = TRUE</code> causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la version final de tu reporte.</p></li>
+<li><p><code>error = TRUE</code> causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente querés incluir en la version final de tu reporte.</p></li>
 </ul>
 <p><img src="img/opciones%20formato%20chunk.png" /></p>
 <p>Contamos con algunas de estas opciones en el menú de <strong>Configuración</strong> en la parte superior-derecha del <em>Chunk</em> de código.</p>
 </div>
 <div id="tablas" class="section level3">
 <h3><span class="header-section-number">5.1.7</span> Tablas</h3>
-<p>Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional puedes usar la función <code>knitr::kable()</code>. Aún más, recomendamos mirar los paquetes <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#grouped_columns__rows">kableExtra</a> y <a href="https://www.displayr.com/formattable/">formattable</a>.</p>
+<p>Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional podemos usar la función <code>knitr::kable()</code>. Aún más, recomendamos mirar los paquetes <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#grouped_columns__rows">kableExtra</a> y <a href="https://www.displayr.com/formattable/">formattable</a>.</p>
 <p>Para una mayor personalización, se pueden considerar también los paquetes <code>xtable</code>, <code>stargazer</code>, <code>pander</code>, <code>tables</code>, y <code>ascii</code>. Cada uno provee un set de herramientas para generar tablas con formato a partir código de R.</p>
 </div>
 <div id="opciones-globales" class="section level3">
@@ -366,12 +364,12 @@ Las siguientes secciones decriben el encabezado de bloque que consiste en <code>
 <h3><span class="header-section-number">5.1.9</span> Código en la línea</h3>
 <p>Otra forma de incluir código R en un documento R Markdown es insertarlo directamente en el texto, encerrando entre <code>``</code> <code>&quot;r codigo&quot;</code>. Esto puede ser muy útil si queremos mencionar propiedades o atributos de los datos o resultados en el texto.</p>
 <p>Cuando insertamos números en el texto, <code>format()</code> nos va a ser de mucha ayuda. Esto permite establecer el número de digitos para que no imprimas con un grado rídiculo de precisión, y una big.mark para hacer que los números sean mas fáciles de leer. Por ejemplo, en una función de ayuda:</p>
-<pre class="sourceCode r"><code class="sourceCode r">formato &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  <span class="kw">format</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">big.mark =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">decimal.mark =</span> <span class="st">&quot;,&quot;</span>)
-  }
-<span class="kw">formato</span>(<span class="dv">3452345</span>)</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">formato &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb305-2" data-line-number="2">  <span class="kw">format</span>(x, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">big.mark =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">decimal.mark =</span> <span class="st">&quot;,&quot;</span>)</a>
+<a class="sourceLine" id="cb305-3" data-line-number="3">  }</a>
+<a class="sourceLine" id="cb305-4" data-line-number="4"><span class="kw">formato</span>(<span class="dv">3452345</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;3.452.345&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formato</span>(.<span class="dv">12358124331</span>)</code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">formato</span>(.<span class="dv">12358124331</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;0,12&quot;</code></pre>
 </div>
 <div id="formatos" class="section level3">
@@ -489,8 +487,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

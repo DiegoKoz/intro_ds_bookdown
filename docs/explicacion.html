@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.1 Explicación | Notas de clase del curso de introducción a Data Science</title>
-  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.1 Explicación | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
 
-<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-19">
+<meta name="date" content="2019-09-20" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduccion-a-r.html">
-<link rel="next" href="practica-guiada.html">
+<link rel="prev" href="introduccion-a-r.html"/>
+<link rel="next" href="practica-guiada.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,7 +55,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -320,23 +318,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">1.1.2.1</span> Definición de objetos</h4>
 <p>Los <strong>Objetos/Elementos</strong> constituyen la categoría esencial del R. De hecho, todo en R es un objeto, y se almacena con un nombre específico que <strong>no debe poseer espacios</strong>. Un número, un vector, una función, la progresión de letras del abecedario, una base de datos, un gráfico, constituyen para R objetos de distinto tipo. Los objetos que vamos creando a medida que trabajamos pueden visualizarse en el panel derecho superior de la pantalla (el <em>Environment</em>).</p>
 <p>El operador <strong><code>&lt;-</code></strong> (<strong>Alt + Guión</strong>) sirve para definir un objeto. <strong>A la izquierda</strong> del <strong><code>&lt;-</code></strong> debe ubicarse el nombre que tomará el elemento a crear. <strong>Del lado derecho</strong> debe ir la definición del mismo.</p>
-<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="dv">1</span></code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">A &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p>Por ejemplo, podemos crear el elemento <strong>A</strong>, cuyo valor será 1. Para esto, debemos <em>correr</em> el código presionando <strong>Ctrl + Enter</strong>, con el cursor ubicado en cualquier parte de la línea. Al definir un elemento, el mismo queda guardado en el ambiente del programa, y podrá ser utilizado posteriormente para observar su contenido o para realizar una operación con el mismo.</p>
-<pre class="sourceCode r"><code class="sourceCode r">A </code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">A </a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A<span class="op">+</span><span class="dv">6</span></code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">A<span class="op">+</span><span class="dv">6</span></a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <p>Al correr una linea con el nombre del objeto, la consola del programa nos muestra su contenido. Entre corchetes observamos el número de orden del elemento en cuestión. Si corremos una operación, la consola nos muestra el resultado de la misma.</p>
 <p>El operador <strong><code>=</code></strong> es <strong>equivalente</strong> a <strong><code>&lt;-</code></strong>, pero en la práctica no se utiliza para la definición de objetos.</p>
-<pre class="sourceCode r"><code class="sourceCode r">B =<span class="st"> </span><span class="dv">2</span>
-B</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">B =<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">B</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p><strong><code>&lt;-</code></strong> es un operador <strong>Unidireccional</strong>, es decir que:<br />
 <code>A &lt;- B</code> implica que <strong>A</strong> va tomar como valor el contenido del objeto <strong>B</strong>, y no al revés.</p>
-<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span>B
-A      <span class="co"># Ahora A toma el valor de B, y B continúa conservando el mismo valor</span></code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">A &lt;-<span class="st"> </span>B</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">A      <span class="co"># Ahora A toma el valor de B, y B continúa conservando el mismo valor</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">B</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">B</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 </div>
@@ -353,45 +351,45 @@ A      <span class="co"># Ahora A toma el valor de B, y B continúa conservando 
 <li><span class="math inline">\(==\)</span> (igual a-)</li>
 <li><span class="math inline">\(!=\)</span> (distinto a-)</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Redefinimos los valores A y B</span>
-A &lt;-<span class="st"> </span><span class="dv">10</span>
-B &lt;-<span class="st"> </span><span class="dv">20</span>
-
-<span class="co"># Realizamos comparaciones lógicas</span>
-A <span class="op">&gt;</span><span class="st">  </span>B</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># Redefinimos los valores A y B</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">A &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">B &lt;-<span class="st"> </span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="co"># Realizamos comparaciones lógicas</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">A <span class="op">&gt;</span><span class="st">  </span>B</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A <span class="op">&gt;=</span><span class="st"> </span>B</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">A <span class="op">&gt;=</span><span class="st"> </span>B</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A <span class="op">&lt;</span><span class="st">  </span>B</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">A <span class="op">&lt;</span><span class="st">  </span>B</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A <span class="op">&lt;=</span><span class="st"> </span>B</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">A <span class="op">&lt;=</span><span class="st"> </span>B</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A <span class="op">==</span><span class="st"> </span>B</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">A <span class="op">==</span><span class="st"> </span>B</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">A <span class="op">!=</span><span class="st"> </span>B</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">A <span class="op">!=</span><span class="st"> </span>B</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">C &lt;-<span class="st"> </span>A <span class="op">!=</span><span class="st"> </span>B
-C</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">C &lt;-<span class="st"> </span>A <span class="op">!=</span><span class="st"> </span>B</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">C</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Como muestra el último ejemplo, el resultado de una operación lógica puede almacenarse como el valor de un objeto.</p>
 </div>
 <div id="operadores-aritmeticos" class="section level4">
 <h4><span class="header-section-number">1.1.3.2</span> Operadores aritméticos:</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#suma</span>
-A &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span>
-A</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co">#suma</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">A &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">+</span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">A</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Resta</span>
-B &lt;-<span class="st"> </span><span class="dv">6-8</span>
-B</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co">#Resta</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">B &lt;-<span class="st"> </span><span class="dv">6-8</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">B</a></code></pre></div>
 <pre><code>## [1] -2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#cociente</span>
-C &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">/</span><span class="fl">2.5</span>
-C</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co">#cociente</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">C &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">/</span><span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">C</a></code></pre></div>
 <pre><code>## [1] 2.4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#multiplicacion</span>
-D &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">*</span><span class="fl">2.5</span>
-D</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co">#multiplicacion</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">D &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">*</span><span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">D</a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 </div>
 <div id="funciones" class="section level4">
@@ -407,19 +405,19 @@ D</code></pre>
 </li>
 <li>mean() promedio aritmético de todos los elementos de un vector</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;Pega&quot;</span>, <span class="st">&quot;estas&quot;</span>, <span class="dv">4</span>, <span class="st">&quot;palabras&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;Pega&quot;</span>, <span class="st">&quot;estas&quot;</span>, <span class="dv">4</span>, <span class="st">&quot;palabras&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Pega estas 4 palabras&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Puedo concatenar caracteres almacenados en objetos</span>
-<span class="kw">paste</span>(A, B, C, <span class="dt">sep =</span> <span class="st">&quot;**&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co">#Puedo concatenar caracteres almacenados en objetos</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">paste</span>(A, B, C, <span class="dt">sep =</span> <span class="st">&quot;**&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;11**-2**2.4&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Paste0 pega los caracteres sin separador</span>
-<span class="kw">paste0</span>(A, B, C)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># Paste0 pega los caracteres sin separador</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">paste0</span>(A, B, C)</a></code></pre></div>
 <pre><code>## [1] &quot;11-22.4&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">sum</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="caracteres-especiales" class="section level4">
@@ -455,54 +453,54 @@ D</code></pre>
 <h4><span class="header-section-number">1.1.4.1</span> Valores</h4>
 <p>Los valores y vectores pueden ser a su vez de distintas <em>clases</em>:</p>
 <p><strong>Numeric</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st">  </span><span class="dv">1</span>
-<span class="kw">class</span>(A)</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">A &lt;-<span class="st">  </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">class</span>(A)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p><strong>Character</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st">  </span><span class="kw">paste</span>(<span class="st">&#39;Soy&#39;</span>, <span class="st">&#39;una&#39;</span>, <span class="st">&#39;concatenación&#39;, &#39;</span>de<span class="st">&#39;, &#39;</span>caracteres<span class="st">&#39;, sep = &quot; &quot;)</span>
-<span class="st">A</span></code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">A &lt;-<span class="st">  </span><span class="kw">paste</span>(<span class="st">&#39;Soy&#39;</span>, <span class="st">&#39;una&#39;</span>, <span class="st">&#39;concatenación&#39;, &#39;</span>de<span class="st">&#39;, &#39;</span>caracteres<span class="st">&#39;, sep = &quot; &quot;)</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="st">A</span></a></code></pre></div>
 <pre><code>## [1] &quot;Soy una concatenación de caracteres&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(A)</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="kw">class</span>(A)</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p><strong>Factor</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="st">&quot;Soy un factor, con niveles fijos&quot;</span>)
-<span class="kw">class</span>(A)</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">A &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="st">&quot;Soy un factor, con niveles fijos&quot;</span>)</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">class</span>(A)</a></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <p>La diferencia entre un <em>character</em> y un <em>factor</em> es que el último tiene solo algunos valores permitidos (levels), con un orden interno predefinido (el cual, por ejemplo, se respetará a la hora de realizar un gráfico)</p>
 </div>
 <div id="vectores" class="section level4">
 <h4><span class="header-section-number">1.1.4.2</span> Vectores</h4>
 <p>Para crear un <strong>vector</strong> utilizamos el comando <code>c()</code>, de combinar.</p>
-<pre class="sourceCode r"><code class="sourceCode r">C &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)
-C</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">C &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">C</a></code></pre></div>
 <pre><code>## [1] 1 3 4</code></pre>
 <p>Podemos sumarle 2 a cada elemento del <strong>vector</strong> anterior</p>
-<pre class="sourceCode r"><code class="sourceCode r">C &lt;-<span class="st"> </span>C <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
-C</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">C &lt;-<span class="st"> </span>C <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">C</a></code></pre></div>
 <pre><code>## [1] 3 5 6</code></pre>
 <p>O sumarle 1 al primer elemento, 2 al segundo, y 3 al tercer elemento del <strong>vector</strong> anterior</p>
-<pre class="sourceCode r"><code class="sourceCode r">D &lt;-<span class="st"> </span>C <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> <span class="co"># esto es equivalente a hacer 3+1, 5+2, 6+9 </span>
-D</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">D &lt;-<span class="st"> </span>C <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span> <span class="co"># esto es equivalente a hacer 3+1, 5+2, 6+9 </span></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">D</a></code></pre></div>
 <pre><code>## [1] 4 7 9</code></pre>
 <p><code>1:3</code> significa que queremos todos los números enteros desde 1 hasta 3.</p>
 <p>Podemos crear un <strong>vector</strong> que contenga las palabras: “Carlos”, “Federico”, “Pedro”</p>
-<pre class="sourceCode r"><code class="sourceCode r">E &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Federico&quot;</span>, <span class="st">&quot;Pedro&quot;</span>)
-E</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">E &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Federico&quot;</span>, <span class="st">&quot;Pedro&quot;</span>)</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2">E</a></code></pre></div>
 <pre><code>## [1] &quot;Carlos&quot;   &quot;Federico&quot; &quot;Pedro&quot;</code></pre>
 <p>Para acceder a algún elemento del vector, podemos buscarlo por su número de orden, entre <code>[ ]</code></p>
-<pre class="sourceCode r"><code class="sourceCode r">E[<span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">E[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;Federico&quot;</code></pre>
 <p>Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objeto, dándole el nombre que deseemos</p>
-<pre class="sourceCode r"><code class="sourceCode r">elemento2 &lt;-<span class="st"> </span>E[<span class="dv">2</span>]</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">elemento2</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">elemento2 &lt;-<span class="st"> </span>E[<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">elemento2</a></code></pre></div>
 <pre><code>## [1] &quot;Federico&quot;</code></pre>
 <p>Para <strong>borrar</strong> un objeto del ambiente de trabajo, utilizamos el comando <em><code>rm()</code></em></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(elemento2)
-elemento2</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">rm</span>(elemento2)</a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">elemento2</a></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;elemento2&#39; not found</code></pre>
 <p>También podemos cambiar el texto del segundo elemento de E, por el texto “Pablo”</p>
-<pre class="sourceCode r"><code class="sourceCode r">E[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Pablo&quot;</span>
-E</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">E[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Pablo&quot;</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">E</a></code></pre></div>
 <pre><code>## [1] &quot;Carlos&quot; &quot;Pablo&quot;  &quot;Pedro&quot;</code></pre>
 </div>
 </div>
@@ -511,20 +509,20 @@ E</code></pre>
 <p>Un Data Frame es una tabla de datos, donde cada columna representa una variable, y cada fila una observación.</p>
 <p>Este objeto suele ser central en el proceso de trabajo, y suele ser la forma en que se cargan datos externos para trabajar en el ambiente de R, y en que se exportan los resultados de nuestros trabajo.</p>
 <p>También se puede crear como la combinación de N vectores de igual tamaño. Por ejemplo, tomamos algunos valores del <a href="http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179">Indice de salarios</a></p>
-<pre class="sourceCode r"><code class="sourceCode r">INDICE  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,   <span class="dv">100</span>,   <span class="dv">100</span>,
-             <span class="fl">101.8</span>, <span class="fl">101.2</span>, <span class="fl">100.73</span>,
-             <span class="fl">102.9</span>, <span class="fl">102.4</span>, <span class="fl">103.2</span>)
-
-FECHA  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Oct-16&quot;</span>, <span class="st">&quot;Oct-16&quot;</span>, <span class="st">&quot;Oct-16&quot;</span>,
-             <span class="st">&quot;Nov-16&quot;</span>, <span class="st">&quot;Nov-16&quot;</span>, <span class="st">&quot;Nov-16&quot;</span>,
-             <span class="st">&quot;Dic-16&quot;</span>, <span class="st">&quot;Dic-16&quot;</span>, <span class="st">&quot;Dic-16&quot;</span>)
-
-GRUPO  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Privado_Registrado&quot;</span>,<span class="st">&quot;Público&quot;,&quot;</span>Privado_No_Registrado<span class="st">&quot;,</span>
-<span class="st">             &quot;</span>Privado_Registrado<span class="st">&quot;,&quot;</span>Público&quot;,<span class="st">&quot;Privado_No_Registrado&quot;</span>,
-             <span class="st">&quot;Privado_Registrado&quot;</span>,<span class="st">&quot;Público&quot;,&quot;</span>Privado_No_Registrado<span class="st">&quot;)</span>
-<span class="st">             </span>
-<span class="st">Datos &lt;- data.frame(INDICE, FECHA, GRUPO)</span>
-<span class="st">Datos</span></code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">INDICE  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,   <span class="dv">100</span>,   <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">             <span class="fl">101.8</span>, <span class="fl">101.2</span>, <span class="fl">100.73</span>,</a>
+<a class="sourceLine" id="cb72-3" data-line-number="3">             <span class="fl">102.9</span>, <span class="fl">102.4</span>, <span class="fl">103.2</span>)</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb72-5" data-line-number="5">FECHA  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Oct-16&quot;</span>, <span class="st">&quot;Oct-16&quot;</span>, <span class="st">&quot;Oct-16&quot;</span>,</a>
+<a class="sourceLine" id="cb72-6" data-line-number="6">             <span class="st">&quot;Nov-16&quot;</span>, <span class="st">&quot;Nov-16&quot;</span>, <span class="st">&quot;Nov-16&quot;</span>,</a>
+<a class="sourceLine" id="cb72-7" data-line-number="7">             <span class="st">&quot;Dic-16&quot;</span>, <span class="st">&quot;Dic-16&quot;</span>, <span class="st">&quot;Dic-16&quot;</span>)</a>
+<a class="sourceLine" id="cb72-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb72-9" data-line-number="9">GRUPO  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;Privado_Registrado&quot;</span>,<span class="st">&quot;Público&quot;,&quot;</span>Privado_No_Registrado<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb72-10" data-line-number="10"><span class="st">             &quot;</span>Privado_Registrado<span class="st">&quot;,&quot;</span>Público&quot;,<span class="st">&quot;Privado_No_Registrado&quot;</span>,</a>
+<a class="sourceLine" id="cb72-11" data-line-number="11">             <span class="st">&quot;Privado_Registrado&quot;</span>,<span class="st">&quot;Público&quot;,&quot;</span>Privado_No_Registrado<span class="st">&quot;)</span></a>
+<a class="sourceLine" id="cb72-12" data-line-number="12"><span class="st">             </span></a>
+<a class="sourceLine" id="cb72-13" data-line-number="13"><span class="st">Datos &lt;- data.frame(INDICE, FECHA, GRUPO)</span></a>
+<a class="sourceLine" id="cb72-14" data-line-number="14"><span class="st">Datos</span></a></code></pre></div>
 <pre><code>##   INDICE  FECHA                 GRUPO
 ## 1 100.00 Oct-16    Privado_Registrado
 ## 2 100.00 Oct-16               Público
@@ -537,43 +535,43 @@ GRUPO  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="st"
 ## 9 103.20 Dic-16 Privado_No_Registrado</code></pre>
 <p>Tal como en un <strong>vector</strong> se ubica a los elementos mediante <code>[ ]</code>, en un <strong>dataframe</strong> se obtienen sus elementos de la forma <strong><code>[fila, columna]</code></strong>.</p>
 <p>Otra opción es especificar la columna, mediante el operador <strong><code>$</code></strong>, y luego seleccionar dentro de esa columna el registro deseado mediante el número de orden.</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos<span class="op">$</span>FECHA</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">Datos<span class="op">$</span>FECHA</a></code></pre></div>
 <pre><code>## [1] Oct-16 Oct-16 Oct-16 Nov-16 Nov-16 Nov-16 Dic-16 Dic-16 Dic-16
 ## Levels: Dic-16 Nov-16 Oct-16</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">Datos[<span class="dv">3</span>,<span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">Datos[<span class="dv">3</span>,<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] Oct-16
 ## Levels: Dic-16 Nov-16 Oct-16</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">Datos<span class="op">$</span>FECHA[<span class="dv">3</span>]</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">Datos<span class="op">$</span>FECHA[<span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] Oct-16
 ## Levels: Dic-16 Nov-16 Oct-16</code></pre>
 <p>¿que pasa si hacemos <code>Datos$FECHA[3,2]</code> ?</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos<span class="op">$</span>FECHA[<span class="dv">3</span>,<span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">Datos<span class="op">$</span>FECHA[<span class="dv">3</span>,<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## Error in `[.default`(Datos$FECHA, 3, 2): incorrect number of dimensions</code></pre>
 <p>Nótese que el último comando tiene un número incorrecto de dimensiones, porque estamos refiriendonos 2 veces a la columna FECHA.</p>
 <p>Acorde a lo visto anteriormente, el acceso a los <strong>dataframes</strong> mediante <code>[ ]</code> puede utilizarse para realizar filtros sobre la base, especificando una condición para las filas. Por ejemplo, puedo utilizar los <code>[ ]</code> para conservar del <strong>dataframe</strong> <code>Datos</code> unicamente los registros con fecha de Diciembre 2016:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Datos[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>,]</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">Datos[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>,]</a></code></pre></div>
 <pre><code>##   INDICE  FECHA                 GRUPO
 ## 7  102.9 Dic-16    Privado_Registrado
 ## 8  102.4 Dic-16               Público
 ## 9  103.2 Dic-16 Privado_No_Registrado</code></pre>
 <p>La lógica del paso anterior sería: Accedo al dataframe <code>Datos</code>, pidiendo únicamente conservar las filas (por eso la condición se ubica a la <em>izquierda</em> de la <code>,</code>) que cumplan el requisito de pertenecer a la categoría <strong>“Dic-16”</strong> de la variable <strong>FECHA</strong>.</p>
 <p>Aún más, podría aplicar el filtro y al mismo tiempo identificar una variable de interés para luego realizar un cálculo sobre aquella. Por ejemplo, podría calcular la media de los indices en el mes de Diciembre.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">###Por separado</span>
-Indices_Dic &lt;-<span class="st"> </span>Datos<span class="op">$</span>INDICE[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>]
-Indices_Dic</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co">###Por separado</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">Indices_Dic &lt;-<span class="st"> </span>Datos<span class="op">$</span>INDICE[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>]</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3">Indices_Dic</a></code></pre></div>
 <pre><code>## [1] 102.9 102.4 103.2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(Indices_Dic)</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">mean</span>(Indices_Dic)</a></code></pre></div>
 <pre><code>## [1] 102.8333</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">### Todo junto</span>
-<span class="kw">mean</span>(Datos<span class="op">$</span>INDICE[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>])</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="co">### Todo junto</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">mean</span>(Datos<span class="op">$</span>INDICE[Datos<span class="op">$</span>FECHA<span class="op">==</span><span class="st">&quot;Dic-16&quot;</span>])</a></code></pre></div>
 <pre><code>## [1] 102.8333</code></pre>
 <p>La lógica de esta sintaxis sería: “Me quedo con la variable <strong>INDICE</strong>, cuando la variable FECHA sea igual a <strong>&quot;Dic-16&quot;</strong>, luego calculo la media de dichos valores”.</p>
 </div>
 <div id="listas" class="section level3">
 <h3><span class="header-section-number">1.1.6</span> Listas</h3>
 <p>Contienen una concatenación de objetos de cualquier tipo. Así como un vector contiene valores, un dataframe contiene vectores, una lista puede contener dataframes, pero también vectores, o valores, y <em>todo ello a la vez</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">superlista &lt;-<span class="st"> </span><span class="kw">list</span>(A,B,C,D,E,FECHA, <span class="dt">DF =</span> Datos, INDICE, GRUPO)
-superlista</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">superlista &lt;-<span class="st"> </span><span class="kw">list</span>(A,B,C,D,E,FECHA, <span class="dt">DF =</span> Datos, INDICE, GRUPO)</a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">superlista</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] Soy un factor, con niveles fijos
 ## Levels: Soy un factor, con niveles fijos
@@ -614,7 +612,7 @@ superlista</code></pre>
 ## [4] &quot;Privado_Registrado&quot;    &quot;Público&quot;               &quot;Privado_No_Registrado&quot;
 ## [7] &quot;Privado_Registrado&quot;    &quot;Público&quot;               &quot;Privado_No_Registrado&quot;</code></pre>
 <p>Para acceder un elemento de una lista, podemos utilizar el operador <strong><code>$</code></strong>, que se puede usar a su vez de forma iterativa.</p>
-<pre class="sourceCode r"><code class="sourceCode r">superlista<span class="op">$</span>DF<span class="op">$</span>FECHA[<span class="dv">2</span>]</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">superlista<span class="op">$</span>DF<span class="op">$</span>FECHA[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] Oct-16
 ## Levels: Dic-16 Nov-16 Oct-16</code></pre>
 </div>
@@ -731,8 +729,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
