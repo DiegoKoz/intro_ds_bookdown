@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-20}
+    \date{2019-09-25}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -3377,18 +3377,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country        continent  year lifeExp      pop gdpPercap
-##    <fct>          <fct>     <int>   <dbl>    <int>     <dbl>
-##  1 Italy          Europe     1980    74.1 56451247    16202.
-##  2 Syria          Asia       1962    50.3  4834621     2193.
-##  3 Portugal       Europe     1986    73.7  9907411    12267.
-##  4 Thailand       Asia       1957    53.6 25041917      794.
-##  5 Zambia         Africa     1967    47.8  3900000     1777.
-##  6 Finland        Europe     1991    75.4  5013786    21582.
-##  7 Czech Republic Europe     1981    70.9 10297904    15123.
-##  8 Congo, Rep.    Africa     1972    54.9  1340458     3213.
-##  9 Bulgaria       Europe     1964    71.1  8144339     4722.
-## 10 El Salvador    Americas   1957    48.6  2355805     3422.
+##    country     continent  year lifeExp       pop gdpPercap
+##    <fct>       <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Niger       Africa     1952    37.4   3379468      762.
+##  2 New Zealand Oceania    1989    75.0   3341632    18984.
+##  3 Guatemala   Americas   1972    53.7   5149581     4031.
+##  4 Canada      Americas   1960    71.0  18266765    12701.
+##  5 Algeria     Africa     1977    58.0  17152804     4910.
+##  6 Sweden      Europe     1979    75.6   8293723    19934.
+##  7 Paraguay    Americas   1982    66.9   3366439     4259.
+##  8 Zambia      Africa     1977    51.4   5216550     1589.
+##  9 Russia      FSU        1995    64.6 148495015     7851.
+## 10 Austria     Europe     1975    71.3   7578903    18016.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -16660,26 +16660,6 @@ ver ejemplo\_2\_d
 \hypertarget{probabilidad-y-estadistica}{%
 \chapter{Probabilidad y Estadística}\label{probabilidad-y-estadistica}}
 
-Esta clase es un repaso de los rudimentos de probabilidad y estadística. El objetivo es obtener las herramientas básicas para la interpretación de resultados estadísticos.
-
-\begin{itemize}
-\tightlist
-\item
-  Introducción a probabilidad
-\item
-  Introducción a distribuciones
-\item
-  El problema de la inversión
-\item
-  Estadística
-\item
-  Población y muestra
-\item
-  Estimadores puntuales, tests de hipótesis
-\item
-  Boxplots, histogramas y kernels
-\end{itemize}
-
 \hypertarget{explicacion-6}{%
 \section{Explicación}\label{explicacion-6}}
 
@@ -16711,7 +16691,7 @@ Previo a estudiar las herramientas de la estadística descriptiva, es necesario 
 \def\labelenumi{\Alph{enumi})}
 \tightlist
 \item
-  \(P(A) \geq 0 \forall \ A \subseteq \Omega\)
+  \(P(A) \geq 0 \ \forall \ A \subseteq \Omega\)
 \item
   \(P(\Omega)=1\)
 \item
@@ -16749,17 +16729,33 @@ Sigamos con el ejemplo de dado.
 
 Podríamos definir la distribución de probabilidad, si el dado no está cargado, como:
 
-\begin{verbatim}
-## # A tibble: 6 x 2
-##   valor probabilidad
-##   <int> <chr>       
-## 1     1 1/6         
-## 2     2 1/6         
-## 3     3 1/6         
-## 4     4 1/6         
-## 5     5 1/6         
-## 6     6 1/6
-\end{verbatim}
+valor
+
+probabilidad
+
+1
+
+1/6
+
+2
+
+1/6
+
+3
+
+1/6
+
+4
+
+1/6
+
+5
+
+1/6
+
+6
+
+1/6
 
 Como el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución \emph{discreta}.
 
@@ -16768,13 +16764,13 @@ Como el conjunto de resultados posibles es acotado, podemos definirlo en una tab
 
 ¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?
 
-Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una \textbf{distribución continua}
+Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una \textbf{distribución continua}.
 
 \begin{quote}
 Por ejemplo, la altura de la población
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-1.pdf}
 
 \begin{itemize}
 \item
@@ -16787,7 +16783,7 @@ Por ejemplo, la altura de la población
 
 Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-3.pdf}
 
 \begin{quote}
 Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
@@ -16799,7 +16795,7 @@ Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámet
   Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
 \end{itemize}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-3.pdf}
 
 \hypertarget{estadistica}{%
 \subsection{Estadística}\label{estadistica}}
@@ -17015,7 +17011,7 @@ Es el valor que parte la distribución a la mitad
 
 La moda es el valor más frecuente de la distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-161-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-1.pdf}
 
 \hypertarget{cuantiles}{%
 \subsubsection{Cuantiles}\label{cuantiles}}
@@ -17024,7 +17020,7 @@ Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un
 
 Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-161-1.pdf}
 
 \hypertarget{desvio-estandar}{%
 \subsubsection{Desvío estándar}\label{desvio-estandar}}
@@ -17061,7 +17057,7 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
 
 Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
 
 Algunas cosas que resaltan:
 
@@ -17075,13 +17071,13 @@ Algunas cosas que resaltan:
 
 Podemos generar 100 números aleatorios en lugar de 15:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
 
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
 También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
 
 \hypertarget{histograma}{%
 \subsubsection{Histograma}\label{histograma}}
@@ -17098,21 +17094,21 @@ Otra forma de analizar una distribución es mediante los histogramas:
 
 Veamos el mismo ejemplo que arriba, pero con histogramas:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-2.pdf}
 
 \hypertarget{kernel}{%
 \subsubsection{Kernel}\label{kernel}}
 
 Los Kernels son simplemente un suavizado sobre los histogramas.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-2.pdf}
 
 \hypertarget{violin-plots}{%
 \subsubsection{Violin plots}\label{violin-plots}}
 
 Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-2.pdf}
 
 \hypertarget{bibliografia-de-consulta-1}{%
 \subsection{Bibliografía de consulta}\label{bibliografia-de-consulta-1}}
@@ -17132,12 +17128,6 @@ Quién quiera profundizar en estos temas, puede ver los siguientes materiales:
 \hypertarget{practica-guiada-6}{%
 \section{Práctica Guiada}\label{practica-guiada-6}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{generacion-de-datos-aleatorios}{%
 \subsection{Generación de datos aleatorios}\label{generacion-de-datos-aleatorios}}
 
@@ -17151,18 +17141,10 @@ Para generar datos aleatorios, usamos las funciones:
   \texttt{rt} para generar datos que surgen de una distribución T-student
 \item
   \texttt{rchisq} para generar datos que surgen de una distribución Chi cuadrado
+\item
+  \texttt{runif} para generar datos que surgen de una distribución uniforme
+  \textgreater{} Pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproducibles
 \end{itemize}
-
-\begin{quote}
-Pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproducibles
-\end{quote}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
-\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{ )}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42912469
@@ -17170,23 +17152,11 @@ Pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproduc
 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95949406
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{rt}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{, }\DataTypeTok{df=}\DecValTok{1}\NormalTok{ )}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  0.007839245
 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -0.249237745
 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -4.271087169
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{rchisq}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{df=}\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0455256 3.1902100
@@ -17194,151 +17164,85 @@ Pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproduc
 ## [15] 0.5110879
 \end{verbatim}
 
-Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando \texttt{plot}
+\begin{verbatim}
+##  [1] 0.75911999 0.42403021 0.56088725 0.11613577 0.30302180 0.47880269
+##  [7] 0.34483055 0.60071414 0.07608332 0.95599261 0.02220682 0.84171063
+## [13] 0.63244245 0.31009417 0.74256937
+\end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{ ))}
-\end{Highlighting}
-\end{Shaded}
+hagamos un ggplot para visualizar la info
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-170-1.pdf}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{rt}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{df=}\DecValTok{1}\NormalTok{ ))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-2.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{rchisq}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{df=}\DecValTok{1}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-172-3.pdf}
-
-Noten que el eje X es el índice de los valores, es decir que no agrega información.
+\begin{quote}
+Qué pasa si lo corremos varias veces?
+\end{quote}
 
 \hypertarget{tests}{%
 \subsection{Tests}\label{tests}}
 
-Utilicemos ahora datos reales.
-
-Los datos salen de \url{https://data.buenosaires.gob.ar/dataset/femicidios}
-
-\begin{quote}
-Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
-\end{quote}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{femicidios <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\DataTypeTok{file =} \StringTok{'fuentes/vict_fem_annio__g_edad_limpio.csv'}\NormalTok{)}
-\NormalTok{femicidios}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## # A tibble: 19 x 3
-##     anio cantidad_femicidios grupo_edad
-##    <dbl> <chr>               <chr>     
-##  1  2015 1                   0 - 15    
-##  2  2015 2                   16 - 20   
-##  3  2015 5                   21 - 40   
-##  4  2015 3                   41 - 60   
-##  5  2015 -                   61 y más  
-##  6  2015 1                   Ignorado  
-##  7  2016 2                   0 - 15    
-##  8  2016 3                   16 - 20   
-##  9  2016 4                   21 - 40   
-## 10  2016 1                   41 - 60   
-## 11  2016 2                   61 y más  
-## 12  2016 2                   Ignorado  
-## 13  2017 …                   0 - 15    
-## 14  2017 …                   16 - 20   
-## 15  2017 …                   21 - 40   
-## 16  2017 …                   41 - 60   
-## 17  2017 …                   61 y más  
-## 18  2017 …                   Ignorado  
-## 19  2017 9                   TOTAL
+## 
+##  Two Sample t-test
+## 
+## data:  dist1 and dist2
+## t = -33.391, df = 198, p-value < 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -5.059234 -4.494982
+## sample estimates:
+## mean of x mean of y 
+##  10.17864  14.95575
 \end{verbatim}
-
-Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron `-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
-
-Vamos a reorganizar la información para corregir todas estas cosas
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{femicidios <-}\StringTok{ }\NormalTok{femicidios }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(anio}\OperatorTok{!=}\DecValTok{2017}\NormalTok{, grupo_edad }\OperatorTok{!=}\StringTok{'Ignorado'}\NormalTok{) }\OperatorTok{%>%}\StringTok{  }\CommentTok{#Sacamos al 2017 y los casos donde se ignora la edad}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{cantidad_femicidios =} \KeywordTok{case_when}\NormalTok{(cantidad_femicidios}\OperatorTok{==}\StringTok{'-'} \OperatorTok{~}\StringTok{ }\DecValTok{0}\NormalTok{, }\CommentTok{# reemplazamos el - por 0}
-                                         \OtherTok{TRUE} \OperatorTok{~}\KeywordTok{as.numeric}\NormalTok{(cantidad_femicidios)), }\CommentTok{# y convertimos la variable en numerica}
-         \DataTypeTok{grupo_edad =} \KeywordTok{case_when}\NormalTok{(grupo_edad }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'0 - 15'}\NormalTok{,}\StringTok{'16 - 20'}\NormalTok{,}\StringTok{'21 - 40'}\NormalTok{) }\OperatorTok{~}\StringTok{ '0-40'}\NormalTok{, }\CommentTok{# agrupamos para tener sólo dos grupos}
-\NormalTok{                                grupo_edad }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'41 - 60'}\NormalTok{,}\StringTok{'61 y más'}\NormalTok{) }\OperatorTok{~}\StringTok{ '41 y más'}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(grupo_edad) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{cantidad_femicidios=} \KeywordTok{sum}\NormalTok{(cantidad_femicidios)) }\CommentTok{# sumamos los años y grupos para tener datos agregados}
-\NormalTok{femicidios}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 2 x 2
-##   grupo_edad cantidad_femicidios
-##   <chr>                    <dbl>
-## 1 0-40                        17
-## 2 41 y más                     6
-\end{verbatim}
-
-Con esta tabla de contingencia podemos hacer un test de hipótesis.
-
-¿Cuál usamos? Nos fijamos en el machete, o googleamos, y vemos que como queremos comparar la cantidad de casos por grupos categóricos, tenemos que usar el test Chi.
-
-\begin{itemize}
-\tightlist
-\item
-  \(H_0\) No hay asociación entre las variables
-\item
-  \(H_1\) Hay asociación entre las variables
-\end{itemize}
-
-La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{chisq.test}\NormalTok{(femicidios}\OperatorTok{$}\NormalTok{cantidad_femicidios)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
-##  Chi-squared test for given probabilities
+##  Two Sample t-test
 ## 
-## data:  femicidios$cantidad_femicidios
-## X-squared = 5.2609, df = 1, p-value = 0.02181
+## data:  dist1 and dist2
+## t = -8.9832, df = 18, p-value = 4.529e-08
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -5.963134 -3.702580
+## sample estimates:
+## mean of x mean of y 
+##  10.05722  14.89008
 \end{verbatim}
 
-Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+\begin{verbatim}
+## 
+##  Two Sample t-test
+## 
+## data:  dist1 and dist2
+## t = -6.8836, df = 8, p-value = 0.0001266
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -5.335167 -2.657580
+## sample estimates:
+## mean of x mean of y 
+##  10.07898  14.07535
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  dist1 and dist2
+## t = -3.618, df = 29.93, p-value = 0.00108
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -2.5848637 -0.7194778
+## sample estimates:
+## mean of x mean of y 
+##   9.68726  11.33943
+\end{verbatim}
 
 \hypertarget{descripcion-estadistica-de-los-datos}{%
 \subsection{Descripción estadística de los datos}\label{descripcion-estadistica-de-los-datos}}
 
-Volveremos a ver los datos de \href{https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios}{sueldos de funcionarios}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sueldos <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{'fuentes/sueldo_funcionarios_2019.csv'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+Volvamos a ver los datos de \href{https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios}{sueldos de funcionarios}
 
 Con el comando \texttt{summary} podemos ver algunos de los principales estadísticos de resumen
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(sueldos}\OperatorTok{$}\NormalTok{asignacion_por_cargo_i)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -17348,33 +17252,9 @@ Con el comando \texttt{summary} podemos ver algunos de los principales estadíst
 \hypertarget{graficos-estadisticos-1}{%
 \subsection{Gráficos estadísticos}\label{graficos-estadisticos-1}}
 
-No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.
-
 A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{boxplot}\NormalTok{(sueldos}\OperatorTok{$}\NormalTok{asignacion_por_cargo_i)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{hist}\NormalTok{(sueldos}\OperatorTok{$}\NormalTok{asignacion_por_cargo_i)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-2.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(sueldos}\OperatorTok{$}\NormalTok{asignacion_por_cargo_i))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-3.pdf}
 
 \hypertarget{modelo-lineal}{%
 \chapter{Modelo Lineal}\label{modelo-lineal}}
@@ -17400,16 +17280,6 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{warning =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{message =} \OtherTok{FALSE}\NormalTok{)}
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\KeywordTok{library}\NormalTok{(modelr)}
-\KeywordTok{library}\NormalTok{(GGally)}
-\KeywordTok{library}\NormalTok{(plot3D)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{covarianza-y-correlacion.}{%
 \subsection{Covarianza y Correlación.}\label{covarianza-y-correlacion.}}
 
@@ -17423,7 +17293,7 @@ Esto es: La covarianza entre dos variables, \(x\) e \(y\) es el promedio (noten 
 
 tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-179-1.pdf}
 
 Aquí marcamos \(\bar x\) y \(\bar y\) y dividimos el gráfico en cuatro cuadrantes.
 
@@ -17467,19 +17337,7 @@ Para ver una implementación práctica de estos conceptos, vamos a utilizar la l
 
 -\(am\): Tipo de transmisión: automático (am=0) o manual (am=1)
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mtcars }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{carb,}\OperatorTok{-}\NormalTok{vs) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{cyl =} \KeywordTok{factor}\NormalTok{(cyl),}
-         \DataTypeTok{am =} \KeywordTok{factor}\NormalTok{(am)) }\OperatorTok{%>%}\StringTok{ }
-\KeywordTok{ggpairs}\NormalTok{(., }
-        \DataTypeTok{title =} \StringTok{"Matriz de correlaciones"}\NormalTok{,}
-        \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour=}\NormalTok{ am))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-181-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
 
 Veamos la correlación entre:
 
@@ -17490,12 +17348,6 @@ Veamos la correlación entre:
 \item
   \(hp\): Gross horsepower: Potencia del motor
 \end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{cor}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg, mtcars}\OperatorTok{$}\NormalTok{hp)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] -0.7761684
@@ -17511,12 +17363,6 @@ nos da negativa y alta.
 
 \(H_0\) : ρ =0\\
 \(H_1\) : ρ \(\neq\) 0
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{cor.test}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg,mtcars}\OperatorTok{$}\NormalTok{hp)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
@@ -17539,14 +17385,7 @@ Con este p-value rechazamos \(H_0\)
 
 sigamos utilizando los datos de \emph{sim1}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-183-1.pdf}
 
 Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \texttt{y\ =\ a\_0\ +\ a\_1\ *\ x} podría servir.
 
@@ -17555,20 +17394,7 @@ Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \tex
 
 Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar \texttt{geom\_abline\ ()} que toma una pendiente e intercepto como parámetros.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{models <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}
-  \DataTypeTok{a1 =} \KeywordTok{runif}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{-20}\NormalTok{, }\DecValTok{40}\NormalTok{),}
-  \DataTypeTok{a2 =} \KeywordTok{runif}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{-5}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\NormalTok{)}
-
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2), }\DataTypeTok{data =}\NormalTok{ models, }\DataTypeTok{alpha =} \DecValTok{1}\OperatorTok{/}\DecValTok{4}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-185-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
 
 A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los \emph{mejores} modelos.
 
@@ -17583,39 +17409,13 @@ Para eso, eligamos un modelo cualquiera:
 
 (para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dist1 <-}\StringTok{ }\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}
-    \DataTypeTok{dodge =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) }\OperatorTok{/}\StringTok{ }\DecValTok{20}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-    \DataTypeTok{x1 =}\NormalTok{ x }\OperatorTok{+}\StringTok{ }\NormalTok{dodge,}
-    \DataTypeTok{pred =} \DecValTok{7} \OperatorTok{+}\StringTok{ }\NormalTok{x1 }\OperatorTok{*}\StringTok{ }\FloatTok{1.5}
-\NormalTok{  )}
-
-\KeywordTok{ggplot}\NormalTok{(dist1, }\KeywordTok{aes}\NormalTok{(x1, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\DataTypeTok{intercept =} \DecValTok{7}\NormalTok{, }\DataTypeTok{slope =} \FloatTok{1.5}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey40"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"grey40"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ y, }\DataTypeTok{ymax =}\NormalTok{ pred), }\DataTypeTok{colour =} \StringTok{"#3366FF"}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-186-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-185-1.pdf}
 
 La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
 
 Para computar la distancia, primero necesitamos una función que represente a nuestro modelo:
 
 Para eso, vamos a crear una función que reciba un vector con los parámetros del modelo, y el set de datos, y genere la predicción:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{model1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, data) \{}
-\NormalTok{  a[}\DecValTok{1}\NormalTok{] }\OperatorTok{+}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{x }\OperatorTok{*}\StringTok{ }\NormalTok{a[}\DecValTok{2}\NormalTok{]}
-\NormalTok{\}}
-
-\KeywordTok{model1}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{, }\FloatTok{1.5}\NormalTok{), sim1)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.0 13.0 14.5 14.5
@@ -17626,17 +17426,6 @@ Para eso, vamos a crear una función que reciba un vector con los parámetros de
 Ahora, necesitamos una forma de calcular los residuos y agruparlos. Esto lo vamos a hacer con el error cuadrático medio
 
 \[ECM = \sqrt\frac{\sum_i^n{(\hat{y_i} - y_i)^2}}{n}\]
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{measure_distance <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(mod, data) \{}
-\NormalTok{  diff <-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{y }\OperatorTok{-}\StringTok{ }\KeywordTok{model1}\NormalTok{(mod, data)}
-  \KeywordTok{sqrt}\NormalTok{(}\KeywordTok{mean}\NormalTok{(diff }\OperatorTok{^}\StringTok{ }\DecValTok{2}\NormalTok{))}
-\NormalTok{\}}
-
-\KeywordTok{measure_distance}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{, }\FloatTok{1.5}\NormalTok{), sim1)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] 2.665212
@@ -17649,98 +17438,41 @@ Ahora podemos calcular el \textbf{ECM} para todos los modelos del dataframe \emp
 
 Tenemos que pasar los valores de a1 y a2 (dos parámetros --\textgreater{} map2), pero como nuestra función toma sólo uno (el vector a), nos armamos una función de ayuda para \emph{wrapear} a1 y a2
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sim1_dist <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a1, a2) \{}
-  \KeywordTok{measure_distance}\NormalTok{(}\KeywordTok{c}\NormalTok{(a1, a2), sim1)}
-\NormalTok{\}}
-
-\NormalTok{models <-}\StringTok{ }\NormalTok{models }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{dist =}\NormalTok{ purrr}\OperatorTok{::}\KeywordTok{map2_dbl}\NormalTok{(a1, a2, sim1_dist))}
-\NormalTok{models}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## # A tibble: 250 x 3
 ##        a1     a2  dist
 ##     <dbl>  <dbl> <dbl>
-##  1 -18.3   4.74  11.2 
-##  2  35.8   4.51  45.7 
-##  3   4.63  1.16   5.59
-##  4  37.4   4.65  48.0 
-##  5  -3.67  3.78   5.64
-##  6  11.0  -3.80  30.5 
-##  7  38.7   0.963 28.7 
-##  8   2.18 -1.43  23.5 
-##  9  -1.37  1.75   7.61
-## 10 -17.9   1.38  26.0 
+##  1  26.6  -3.45   17.8
+##  2  -2.24 -3.72   41.7
+##  3  -4.55 -3.32   41.4
+##  4   8.28  4.20   17.2
+##  5 -15.8   1.82   21.4
+##  6  -6.40 -4.88   52.7
+##  7 -13.1   1.37   21.3
+##  8 -15.2   3.29   13.3
+##  9   6.45 -0.426  13.6
+## 10  38.9  -0.238  23.2
 ## # ... with 240 more rows
 \end{verbatim}
 
 A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por \texttt{-dist}: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}
-    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2, }\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist), }
-    \DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(models, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{)}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-190-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-189-1.pdf}
 
 También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de \texttt{a1} vs\texttt{a2}, nuevamente coloreado por \texttt{-dist}. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(models, }\KeywordTok{aes}\NormalTok{(a1, a2)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(models, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{), }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-191-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-190-1.pdf}
 
 \hypertarget{grid-search}{%
 \subsubsection{Grid search}\label{grid-search}}
 
 En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{grid <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}
-  \DataTypeTok{a1 =} \KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{),}
-  \DataTypeTok{a2 =} \KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{)}
-\NormalTok{  ) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{dist =}\NormalTok{ purrr}\OperatorTok{::}\KeywordTok{map2_dbl}\NormalTok{(a1, a2, sim1_dist))}
-
-\NormalTok{grid }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(a1, a2)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(grid, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{), }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist)) }
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-192-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-191-1.pdf}
 
 Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}
-    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2, }\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist), }
-    \DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(grid, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{)}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-193-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-192-1.pdf}
 
 \hypertarget{optimo-por-metodos-numericos}{%
 \subsubsection{óptimo por métodos numéricos}\label{optimo-por-metodos-numericos}}
@@ -17758,13 +17490,6 @@ En R, podemos hacer eso con \texttt{optim\ ()}:
 \item
   le pasamos nuestra función de distancia, y los parámetros que nuestra función necesita (data)
 \end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{best <-}\StringTok{ }\KeywordTok{optim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{), measure_distance, }\DataTypeTok{data =}\NormalTok{ sim1)}
-\NormalTok{best}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## $par
@@ -17784,15 +17509,7 @@ En R, podemos hacer eso con \texttt{optim\ ()}:
 ## NULL
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ best}\OperatorTok{$}\NormalTok{par[}\DecValTok{1}\NormalTok{], }\DataTypeTok{slope =}\NormalTok{ best}\OperatorTok{$}\NormalTok{par[}\DecValTok{2}\NormalTok{])}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-195-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-194-1.pdf}
 
 \hypertarget{optimo-para-el-modelo-lineal}{%
 \subsubsection{Óptimo para el modelo lineal}\label{optimo-para-el-modelo-lineal}}
@@ -17817,20 +17534,8 @@ La solución del óptima que surge de minimizar el Error Cuadrático Medio es:
 
 R tiene una función específica para el modelo lineal \texttt{lm()}. Cómo esta función sirve tanto para regresiones lineales simples como múltiples, debemos especificar el modelo en las \emph{formulas}: \texttt{y\ \textasciitilde{}\ x}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sim1_mod <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y }\OperatorTok{~}\StringTok{ }\NormalTok{x, }\DataTypeTok{data =}\NormalTok{ sim1)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{interpretando-la-salida-de-la-regresion}{%
 \subsubsection{Interpretando la salida de la regresión}\label{interpretando-la-salida-de-la-regresion}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(sim1_mod)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
@@ -17884,30 +17589,20 @@ Los residuos del modelo indican cuanto le erra el modelo en cada una de las obse
 
 Podemos agregar los residuos al dataframe con \texttt{add\_residuals\ ()} de la librería \texttt{modelr}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sim1 <-}\StringTok{ }\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{add_residuals}\NormalTok{(sim1_mod)}
-
-\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## # A tibble: 10 x 3
 ##        x     y  resid
 ##    <int> <dbl>  <dbl>
-##  1     3  7.36 -3.02 
-##  2     6 16.0  -0.574
-##  3     6 16.9   0.365
-##  4     1  2.13 -4.15 
-##  5     6 13.3  -3.26 
-##  6    10 23.3  -1.39 
+##  1     4 11.9  -0.534
+##  2     1  7.51  1.24 
+##  3     3 10.5   0.136
+##  4     3 10.5   0.130
+##  5     6 16.0  -0.574
+##  6     6 16.9   0.365
 ##  7     2 10.2   1.92 
-##  8     4 11.9  -0.534
-##  9     7 19.9   1.35 
-## 10     4 14.3   1.83
+##  8     8 18.4  -2.24 
+##  9     9 22.8   0.120
+## 10     1  4.20 -2.07
 \end{verbatim}
 
 \begin{itemize}
@@ -17920,15 +17615,7 @@ Podemos agregar los residuos al dataframe con \texttt{add\_residuals\ ()} de la 
 
 Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el \texttt{summary}. Otra forma es graficándolos.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, resid)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_ref_line}\NormalTok{(}\DataTypeTok{h =} \DecValTok{0}\NormalTok{, }\DataTypeTok{size =} \DecValTok{2}\NormalTok{,}\DataTypeTok{colour =} \StringTok{"firebrick"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-198-1.pdf}
 
 \hypertarget{regresion-lineal-multiple}{%
 \subsection{Regresión lineal múltiple}\label{regresion-lineal-multiple}}
@@ -17945,7 +17632,7 @@ Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múl
 Para cada par de puntos en \(x_1\) y \(x_2\) vamos a definir un valor para \(y\)
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-2.pdf}
 
 \begin{itemize}
 \item
@@ -17974,45 +17661,12 @@ Un punto pendiente de estas clases que es muy importante son los \textbf{supuest
 \hypertarget{practica-guiada-7}{%
 \section{Práctica Guiada}\label{practica-guiada-7}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{datos-de-properati}{%
 \subsection{Datos de Properati}\label{datos-de-properati}}
 
 Para este ejercicio utilizaremos los datos provistos por Properati: \url{https://www.properati.com.ar/data/}
 
 Primero acondicionamos la base original, para quedarnos con una base más fácil de trabajar, y que contiene unicamente los datos interesantes. (no es necesario correrlo)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ar_properties <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"~/Downloads/ar_properties.csv"}\NormalTok{)}
-\NormalTok{ar_properties }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(operation_type}\OperatorTok{==}\StringTok{'Venta'}\NormalTok{,}
-\NormalTok{         property_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Casa'}\NormalTok{,}\StringTok{'PH'}\NormalTok{,}\StringTok{'Departamento'}\NormalTok{),}
-\NormalTok{         currency}\OperatorTok{==}\StringTok{'USD'}\NormalTok{,}
-\NormalTok{         l1}\OperatorTok{==}\StringTok{'Argentina'}\NormalTok{,}
-\NormalTok{         l2}\OperatorTok{==}\StringTok{'Capital Federal'}\NormalTok{,}
-         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms),}
-         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(surface_total),}
-         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(surface_covered),}
-         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(bathrooms),}
-         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(l3))  }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\KeywordTok{c}\NormalTok{(lat,lon, title,description, ad_type,start_date, end_date,operation_type,currency, l1, l2,l4,l5,l6,price_period,bedrooms))   }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{saveRDS}\NormalTok{(}\StringTok{'fuentes/datos_properati.RDS'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df <-}\StringTok{ }\KeywordTok{read_rds}\NormalTok{(}\StringTok{'fuentes/datos_properati.RDS'}\NormalTok{)}
-
-\KeywordTok{glimpse}\NormalTok{(df)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## Observations: 52,246
@@ -18028,22 +17682,10 @@ Primero acondicionamos la base original, para quedarnos con una base más fácil
 ## $ property_type   <chr> "PH", "PH", "PH", "PH", "PH", "PH", "PH", "PH"...
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(df}\OperatorTok{$}\NormalTok{price)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    6000  119000  170000  251944  272000 6000000
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df[df}\OperatorTok{$}\NormalTok{price}\OperatorTok{<}\DecValTok{10000}\NormalTok{,]}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 4 x 9
@@ -18056,20 +17698,7 @@ Primero acondicionamos la base original, para quedarnos con una base más fácil
 ## # ... with 2 more variables: price <dbl>, property_type <chr>
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(price}\OperatorTok{>}\DecValTok{10000}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 Tenemos un par de outliers que no tienen mucho sentido. Es posible que el precio este mal cargado.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df[df}\OperatorTok{$}\NormalTok{price}\OperatorTok{>}\DecValTok{5000000}\NormalTok{,]}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 11 x 9
@@ -18090,18 +17719,6 @@ Tenemos un par de outliers que no tienen mucho sentido. Es posible que el precio
 \end{verbatim}
 
 Los precios más alto tienen algunas cosas sorprendentes, pero sería arriesgado descartarlos por errores.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{l3}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(lm_fit)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
@@ -18209,24 +17826,7 @@ En particular, podemos notar de esta primera regresión que algunos barrios tien
 
 Para construir la nueva variable, podemos ver el precio promedio del metro cuadrado por barrio
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df_barrios <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(l3) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{precio_m2 =} \KeywordTok{mean}\NormalTok{(price}\OperatorTok{/}\NormalTok{surface_total)) }
-  
-\KeywordTok{ggplot}\NormalTok{(df_barrios,}\KeywordTok{aes}\NormalTok{(precio_m2)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-208-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(df_barrios}\OperatorTok{$}\NormalTok{precio_m2)}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-207-1.pdf}
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -18248,52 +17848,25 @@ Podemos dividr los tres grupos al rededor de los quartiles 1 y 3.
   \end{quote}
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df_barrios <-}\StringTok{ }\NormalTok{df_barrios }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{barrio=} \KeywordTok{case_when}\NormalTok{(precio_m2}\OperatorTok{<}\DecValTok{2000} \OperatorTok{~}\StringTok{ 'bajo'}\NormalTok{,}
-\NormalTok{                           precio_m2}\OperatorTok{>}\DecValTok{2000} \OperatorTok{&}\StringTok{ }\NormalTok{precio_m2}\OperatorTok{<}\DecValTok{2500} \OperatorTok{~}\StringTok{ 'medio'}\NormalTok{,}
-\NormalTok{                           precio_m2}\OperatorTok{>}\DecValTok{2500} \OperatorTok{~}\StringTok{ 'alto'}\NormalTok{))}
-
-\NormalTok{df_barrios }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## # A tibble: 10 x 3
 ##    l3                precio_m2 barrio
 ##    <chr>                 <dbl> <chr> 
-##  1 Villa Riachuelo       1479. bajo  
-##  2 Tribunales            2238. medio 
-##  3 San Nicolás           2439. medio 
-##  4 Parque Chacabuco      1938. bajo  
-##  5 Villa Pueyrredón      2292. medio 
-##  6 Villa Luro            2147. medio 
-##  7 Caballito             2687. alto  
-##  8 Parque Avellaneda     1616. bajo  
-##  9 Parque Patricios      1925. bajo  
-## 10 Barrio Norte          3221. alto
+##  1 Belgrano              3421. alto  
+##  2 Coghlan               2780. alto  
+##  3 Villa Real            2065. medio 
+##  4 San Telmo             2398. medio 
+##  5 Villa Luro            2147. medio 
+##  6 Puerto Madero         6069. alto  
+##  7 Constitución          1758. bajo  
+##  8 Recoleta              3357. alto  
+##  9 Parque Avellaneda     1616. bajo  
+## 10 Las Cañitas           3724. alto
 \end{verbatim}
 
 Con esta nueva variable podemos modificar la tabla original.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{left_join}\NormalTok{(df_barrios, }\DataTypeTok{by=}\StringTok{'l3'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 y volvemos a calcular el modelo
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{barrio}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
-
-\KeywordTok{summary}\NormalTok{(lm_fit)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
@@ -18324,17 +17897,6 @@ y volvemos a calcular el modelo
 \end{verbatim}
 
 Si queremos que compare contra `barrio medio' podemos convertir la variable en factor y explicitar los niveles
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{barrio =} \KeywordTok{factor}\NormalTok{(barrio, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{'medio'}\NormalTok{, }\StringTok{'alto'}\NormalTok{,}\StringTok{'bajo'}\NormalTok{)))}
-
-\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{barrio}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
-
-\KeywordTok{summary}\NormalTok{(lm_fit)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## 
@@ -18379,14 +17941,6 @@ Lo que hicimos arriba con los barrios se conoce como feature engineerin: Generam
   Hay una que ya hicimos: En lugar de pensar en el precio total, podemos pensar en el precio por \(m^2\). De esta manera ya no tendría sentido agregar la variable surface\_total
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(precio_m2 }\OperatorTok{~}\StringTok{ }\NormalTok{barrio  }\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
-
-\KeywordTok{summary}\NormalTok{(lm_fit)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## 
 ## Call:
@@ -18424,30 +17978,12 @@ Al normalizar el precio por los metros, rooms pasa de tomar valores positivos a 
 
 Para predecir un nuevo caso, podemos construir un dataframe con las variables. Por ejemplo
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{caso_nuevo <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}\DataTypeTok{barrio=}\StringTok{'alto'}\NormalTok{,}
-       \DataTypeTok{rooms=}\DecValTok{3}\NormalTok{,}
-       \DataTypeTok{bathrooms=}\DecValTok{2}\NormalTok{,}
-       \DataTypeTok{property_type=}\StringTok{'Departamento'}\NormalTok{,}
-       \DataTypeTok{surface_total=}\DecValTok{78}\NormalTok{) }
-
-\KeywordTok{predict}\NormalTok{(lm_fit,}\DataTypeTok{newdata =}\NormalTok{ caso_nuevo)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ##        1 
 ## 3253.356
 \end{verbatim}
 
 Pero debemos recordar que este es el valor por metro cuadrado. Para obtener lo que realmente nos interesa, tenemos que hacer el camino inverso del feature engenieering:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{predict}\NormalTok{(lm_fit,caso_nuevo)}\OperatorTok{*}\NormalTok{caso_nuevo}\OperatorTok{$}\NormalTok{surface_total}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##        1 
@@ -18463,8 +17999,12 @@ Un problema de lo que vimos en esta práctica es que las salidas de \texttt{summ
 \tightlist
 \item
   \href{https://cran.r-project.org/web/packages/broom/vignettes/broom.html}{Broom}
-\item
-  \href{https://modelr.tidyverse.org/}{Modelr}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://modelr.tidyverse.org/}{Modelr}
+  \end{itemize}
 \end{itemize}
 
 \hypertarget{diseno-y-analisis-de-encuestas}{%

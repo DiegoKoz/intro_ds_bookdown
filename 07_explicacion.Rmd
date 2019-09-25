@@ -1,19 +1,9 @@
 # Probabilidad y Estadística
-  
-Esta clase es un repaso de los rudimentos de probabilidad y estadística. El objetivo es obtener las herramientas básicas para la interpretación de resultados estadísticos. 
-
-+ Introducción a probabilidad
-+ Introducción a distribuciones
-+ El problema de la inversión
-+ Estadística
-+ Población y muestra
-+ Estimadores puntuales, tests de hipótesis
-+ Boxplots, histogramas y kernels
-
 ## Explicación
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(echo=FALSE)
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, fig.width = 15)
 library(tidyverse)
 library(kableExtra)
 library(cowplot)
@@ -36,7 +26,7 @@ Previo a estudiar las herramientas de la estadística descriptiva, es necesario 
 - Un __evento__ es el conjunto de resultados ocurridos.
 - En este marco, la __probabilidad__ es un atributo de los eventos. Es la forma de medir los eventos tal que, siguiendo la definición moderna de probabilidad:
 
-A) $P(A) \geq 0 \forall \ A \subseteq \Omega$
+A) $P(A) \geq 0 \ \forall \ A \subseteq \Omega$
 A) $P(\Omega)=1$
 A) $P(A\cup B) = P(A) + P(B)\ si\ A \cap B = \emptyset$
 
@@ -61,7 +51,8 @@ Sigamos con el ejemplo de dado.
 Podríamos definir la distribución de probabilidad, si el dado no está cargado, como:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-tibble(valor=1:6, probabilidad = rep("1/6", 6))
+tibble(valor=1:6, probabilidad = rep("1/6", 6)) %>% 
+  kable()
 ```
 
 Como el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución _discreta_.
@@ -70,7 +61,7 @@ Como el conjunto de resultados posibles es acotado, podemos definirlo en una tab
 
 ¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?
 
-Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una __distribución continua__
+Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una __distribución continua__.
 
 > Por ejemplo, la altura de la población
 

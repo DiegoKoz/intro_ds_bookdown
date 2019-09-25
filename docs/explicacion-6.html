@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-20" />
+<meta name="date" content="2019-09-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>En este marco, la <strong>probabilidad</strong> es un atributo de los eventos. Es la forma de medir los eventos tal que, siguiendo la definición moderna de probabilidad:</li>
 </ul>
 <ol style="list-style-type: upper-alpha">
-<li><span class="math inline">\(P(A) \geq 0 \forall \ A \subseteq \Omega\)</span></li>
+<li><span class="math inline">\(P(A) \geq 0 \ \forall \ A \subseteq \Omega\)</span></li>
 <li><span class="math inline">\(P(\Omega)=1\)</span></li>
 <li><span class="math inline">\(P(A\cup B) = P(A) + P(B)\ si\ A \cap B = \emptyset\)</span></li>
 </ol>
@@ -316,39 +316,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">7.1.1.2.1</span> Distribuciones discretas</h5>
 <p>Sigamos con el ejemplo de dado.</p>
 <p>Podríamos definir la distribución de probabilidad, si el dado no está cargado, como:</p>
-<pre><code>## # A tibble: 6 x 2
-##   valor probabilidad
-##   &lt;int&gt; &lt;chr&gt;       
-## 1     1 1/6         
-## 2     2 1/6         
-## 3     3 1/6         
-## 4     4 1/6         
-## 5     5 1/6         
-## 6     6 1/6</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+valor
+</th>
+<th style="text-align:left;">
+probabilidad
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+1/6
+</td>
+</tr>
+</tbody>
+</table>
 <p>Como el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución <em>discreta</em>.</p>
 </div>
 <div id="distribuciones-continuas" class="section level5">
 <h5><span class="header-section-number">7.1.1.2.2</span> Distribuciones continuas</h5>
 <p>¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?</p>
-<p>Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una <strong>distribución continua</strong></p>
+<p>Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una <strong>distribución continua</strong>.</p>
 <blockquote>
 <p>Por ejemplo, la altura de la población</p>
 </blockquote>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-158-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-157-1.png" width="1440" /></p>
 <ul>
 <li><p>En este caso, no podemos definir en una tabla la probabilidad de cada uno de los posibles valores. <em>de hecho, la probabilidad puntual es 0</em>.</p></li>
 <li><p>Sin embargo, sí podemos definir una <em>función de probabilidad</em>, la <em>densidad</em>.</p></li>
 <li><p>Según qué función utilicemos, cambiará la forma de la curva.</p></li>
 </ul>
 <p>Por ejemplo:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-159-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-159-2.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-159-3.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-158-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-158-2.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-158-3.png" width="1440" /></p>
 <blockquote>
 <p>Una distribución de probabilidad se <strong>caracteriza</strong> por sus <em>parámetros</em>.</p>
 </blockquote>
 <ul>
 <li>Por ejemplo, la distribución normal se caracteriza por su <em>esperanza</em> y su <em>varianza</em> (o desvío estándar)</li>
 </ul>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-160-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-160-2.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-160-3.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-159-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-159-2.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-159-3.png" width="1440" /></p>
 </div>
 </div>
 </div>
@@ -477,13 +530,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Moda</strong></li>
 </ul>
 <p>La moda es el valor más frecuente de la distribución</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-161-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-160-1.png" width="1440" /></p>
 </div>
 <div id="cuantiles" class="section level4">
 <h4><span class="header-section-number">7.1.3.2</span> Cuantiles</h4>
 <p>Así como dijimos que la mediana es el valor que deja al 50% de los datos de un lado y al 50% del otro, podemos generalizar este concepto a cualquier X%. Esto son los cuantiles. El cuantil x, es el valor tal que queda un x% de la distribución a izquierda, y 1-x a derecha.</p>
 <p>Algunos de los más utilizados son el del 25%, también conocido como <span class="math inline">\(Q_1\)</span> (el <em>cuartil</em> 1), el <span class="math inline">\(Q_2\)</span> (la mediana) y el <span class="math inline">\(Q_3\)</span> (el <em>cuartil</em> 3), que deja el 75% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-162-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-161-1.png" width="1440" /></p>
 </div>
 <div id="desvio-estandar" class="section level4">
 <h4><span class="header-section-number">7.1.3.3</span> Desvío estándar</h4>
@@ -506,17 +559,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Outliers, definidos como aquellos puntos que se encuentran a más de 1,5 veces el rango intercuartílico del centro de la distribución.</li>
 </ul>
 <p>Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-163-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-162-1.png" width="1440" /></p>
 <p>Algunas cosas que resaltan:</p>
 <ul>
 <li>la distribución <span class="math inline">\(\chi^2\)</span> no toma valores en los negativos.</li>
 <li>La normal esta más concentrada en el centro de la distribución.</li>
 </ul>
 <p>Podemos generar 100 números aleatorios en lugar de 15:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-164-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-163-1.png" width="1440" /></p>
 <p>Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.</p>
 <p>También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-165-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-164-1.png" width="1440" /></p>
 </div>
 <div id="histograma" class="section level4">
 <h4><span class="header-section-number">7.1.4.2</span> Histograma</h4>
@@ -526,17 +579,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango.</li>
 </ul>
 <p>Veamos el mismo ejemplo que arriba, pero con histogramas:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-166-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-166-2.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-165-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-165-2.png" width="1440" /></p>
 </div>
 <div id="kernel" class="section level4">
 <h4><span class="header-section-number">7.1.4.3</span> Kernel</h4>
 <p>Los Kernels son simplemente un suavizado sobre los histogramas.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-167-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-167-2.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-166-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-166-2.png" width="1440" /></p>
 </div>
 <div id="violin-plots" class="section level4">
 <h4><span class="header-section-number">7.1.4.4</span> Violin plots</h4>
 <p>Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-168-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-168-2.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-167-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-167-2.png" width="1440" /></p>
 </div>
 </div>
 <div id="bibliografia-de-consulta-1" class="section level3">
