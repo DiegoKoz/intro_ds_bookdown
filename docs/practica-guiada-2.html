@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-25" />
+<meta name="date" content="2019-09-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -527,18 +535,18 @@ Osea, un modleo que explica el ingreso según sexo y edad</p>
 <a class="sourceLine" id="cb249-4" data-line-number="4">gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb249-5" data-line-number="5"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 6
-##    country         continent  year lifeExp      pop gdpPercap
-##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-##  1 Belgium         Europe     1973    71.6  9738400    17640.
-##  2 Netherlands     Europe     1956    72.5 10889351    11083.
-##  3 Bulgaria        Europe     1963    70.3  8078145     4413.
-##  4 Germany         Europe     2001    78.6 82280551    30061.
-##  5 Gambia          Africa     1992    52.6  1025384      666.
-##  6 Bahrain         Asia       1957    53.8   138655    11636.
-##  7 Slovak Republic Europe     1993    71.9  5323577     9637.
-##  8 Netherlands     Europe     1999    78.1 15801947    32505.
-##  9 Bulgaria        Europe     1950    61.4  7250500     2132.
-## 10 Zambia          Africa     1967    47.8  3900000     1777.</code></pre>
+##    country continent  year lifeExp       pop gdpPercap
+##    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+##  1 Gambia  Africa     1957    32.1    323150      521.
+##  2 Turkey  Europe     1967    54.3  33411317     2826.
+##  3 Latvia  FSU        2005    71.2   2290237    13218 
+##  4 Chad    Africa     1962    41.7   3150417     1390.
+##  5 Eritrea Africa     2007    58.0   4906585      641.
+##  6 Moldova Europe     1992    67.3   4448083     2840.
+##  7 Japan   Asia       1986    78.3 121491913    21588.
+##  8 Hungary Europe     1999    71.1  10172673    12874.
+##  9 Latvia  FSU        1990    69.5   2663590    10218.
+## 10 Taiwan  Asia       1965    67.4  12977635     2298.</code></pre>
 <p>la base tiene la siguiente info:</p>
 <ul>
 <li>country: Nombre del país</li>

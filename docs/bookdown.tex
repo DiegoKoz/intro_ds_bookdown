@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-09-25}
+    \date{2019-09-30}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -3377,18 +3377,18 @@ El objetivo de este ejercicio es hacer un gráfico por país de forma automátic
 
 \begin{verbatim}
 ## # A tibble: 10 x 6
-##    country     continent  year lifeExp       pop gdpPercap
-##    <fct>       <fct>     <int>   <dbl>     <int>     <dbl>
-##  1 Niger       Africa     1952    37.4   3379468      762.
-##  2 New Zealand Oceania    1989    75.0   3341632    18984.
-##  3 Guatemala   Americas   1972    53.7   5149581     4031.
-##  4 Canada      Americas   1960    71.0  18266765    12701.
-##  5 Algeria     Africa     1977    58.0  17152804     4910.
-##  6 Sweden      Europe     1979    75.6   8293723    19934.
-##  7 Paraguay    Americas   1982    66.9   3366439     4259.
-##  8 Zambia      Africa     1977    51.4   5216550     1589.
-##  9 Russia      FSU        1995    64.6 148495015     7851.
-## 10 Austria     Europe     1975    71.3   7578903    18016.
+##    country     continent  year lifeExp      pop gdpPercap
+##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+##  1 Bhutan      Asia       2002    63.5  2094176     3256.
+##  2 Iraq        Asia       1952    45.3  5441766     4130.
+##  3 Hungary     Europe     1972    69.8 10394091    10169.
+##  4 Hungary     Europe     1984    69.0 10668095    12787.
+##  5 Netherlands Europe     1983    76.2 14362381    21704.
+##  6 Romania     Europe     1967    66.8 19284814     6471.
+##  7 Costa Rica  Americas   2007    78.8  4133884     9645.
+##  8 Poland      Europe     2002    74.7 38625976    12002.
+##  9 Gambia      Africa     1997    55.9  1235767      654.
+## 10 Norway      Europe     2007    80.2  4627926    49357.
 \end{verbatim}
 
 la base tiene la siguiente info:
@@ -16671,7 +16671,12 @@ Previo a estudiar las herramientas de la estadística descriptiva, es necesario 
 \hypertarget{marco-conceptual}{%
 \subsubsection{Marco conceptual}\label{marco-conceptual}}
 
-\includegraphics[width=10.41667in,height=\textheight]{img/marco_proba.png}
+\begin{verbatim}
+## TypeError: Attempting to change the setter of an unconfigurable property.
+## TypeError: Attempting to change the setter of an unconfigurable property.
+\end{verbatim}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-156-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -16770,7 +16775,7 @@ Si, por definición o por practicidad, no se puede enumerar cada caso, lo que te
 Por ejemplo, la altura de la población
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-157-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf}
 
 \begin{itemize}
 \item
@@ -16783,7 +16788,7 @@ Por ejemplo, la altura de la población
 
 Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-158-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-3.pdf}
 
 \begin{quote}
 Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
@@ -16795,7 +16800,7 @@ Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámet
   Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
 \end{itemize}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-159-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-3.pdf}
 
 \hypertarget{estadistica}{%
 \subsection{Estadística}\label{estadistica}}
@@ -16973,11 +16978,7 @@ Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si 
   Finalmente, según la información que tengamos de la población y cuál es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
 \end{itemize}
 
-\begin{figure}
-\centering
-\includegraphics[width=10.41667in,height=\textheight]{img/tests.jpeg}
-\caption{fuente: \url{http://abacus.bates.edu/~ganderso/biology/resources/statistics.html}}
-\end{figure}
+\includegraphics{img/tests.png}
 
 \hypertarget{algunos-estimadores-importantes}{%
 \subsection{Algunos estimadores importantes}\label{algunos-estimadores-importantes}}
@@ -17011,7 +17012,7 @@ Es el valor que parte la distribución a la mitad
 
 La moda es el valor más frecuente de la distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-160-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-161-1.pdf}
 
 \hypertarget{cuantiles}{%
 \subsubsection{Cuantiles}\label{cuantiles}}
@@ -17020,7 +17021,7 @@ Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un
 
 Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-161-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
 
 \hypertarget{desvio-estandar}{%
 \subsubsection{Desvío estándar}\label{desvio-estandar}}
@@ -17057,7 +17058,7 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
 
 Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-162-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
 
 Algunas cosas que resaltan:
 
@@ -17071,13 +17072,13 @@ Algunas cosas que resaltan:
 
 Podemos generar 100 números aleatorios en lugar de 15:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-163-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
 
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
 También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-164-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-1.pdf}
 
 \hypertarget{histograma}{%
 \subsubsection{Histograma}\label{histograma}}
@@ -17094,21 +17095,21 @@ Otra forma de analizar una distribución es mediante los histogramas:
 
 Veamos el mismo ejemplo que arriba, pero con histogramas:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-165-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-2.pdf}
 
 \hypertarget{kernel}{%
 \subsubsection{Kernel}\label{kernel}}
 
 Los Kernels son simplemente un suavizado sobre los histogramas.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-166-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-2.pdf}
 
 \hypertarget{violin-plots}{%
 \subsubsection{Violin plots}\label{violin-plots}}
 
 Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-167-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-168-2.pdf}
 
 \hypertarget{bibliografia-de-consulta-1}{%
 \subsection{Bibliografía de consulta}\label{bibliografia-de-consulta-1}}
@@ -17172,7 +17173,7 @@ Para generar datos aleatorios, usamos las funciones:
 
 hagamos un ggplot para visualizar la info
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-170-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-171-1.pdf}
 
 \begin{quote}
 Qué pasa si lo corremos varias veces?
@@ -17254,7 +17255,7 @@ Con el comando \texttt{summary} podemos ver algunos de los principales estadíst
 
 A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-177-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-178-3.pdf}
 
 \hypertarget{modelo-lineal}{%
 \chapter{Modelo Lineal}\label{modelo-lineal}}
@@ -17293,7 +17294,7 @@ Esto es: La covarianza entre dos variables, \(x\) e \(y\) es el promedio (noten 
 
 tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-179-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
 
 Aquí marcamos \(\bar x\) y \(\bar y\) y dividimos el gráfico en cuatro cuadrantes.
 
@@ -17337,7 +17338,7 @@ Para ver una implementación práctica de estos conceptos, vamos a utilizar la l
 
 -\(am\): Tipo de transmisión: automático (am=0) o manual (am=1)
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-180-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-181-1.pdf}
 
 Veamos la correlación entre:
 
@@ -17385,7 +17386,7 @@ Con este p-value rechazamos \(H_0\)
 
 sigamos utilizando los datos de \emph{sim1}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-183-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
 
 Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \texttt{y\ =\ a\_0\ +\ a\_1\ *\ x} podría servir.
 
@@ -17394,7 +17395,7 @@ Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \tex
 
 Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar \texttt{geom\_abline\ ()} que toma una pendiente e intercepto como parámetros.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-184-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-185-1.pdf}
 
 A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los \emph{mejores} modelos.
 
@@ -17409,7 +17410,7 @@ Para eso, eligamos un modelo cualquiera:
 
 (para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-185-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-186-1.pdf}
 
 La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
 
@@ -17457,22 +17458,22 @@ Tenemos que pasar los valores de a1 y a2 (dos parámetros --\textgreater{} map2)
 
 A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por \texttt{-dist}: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-189-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-190-1.pdf}
 
 También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de \texttt{a1} vs\texttt{a2}, nuevamente coloreado por \texttt{-dist}. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-190-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-191-1.pdf}
 
 \hypertarget{grid-search}{%
 \subsubsection{Grid search}\label{grid-search}}
 
 En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-191-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-192-1.pdf}
 
 Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-192-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-193-1.pdf}
 
 \hypertarget{optimo-por-metodos-numericos}{%
 \subsubsection{óptimo por métodos numéricos}\label{optimo-por-metodos-numericos}}
@@ -17509,7 +17510,7 @@ En R, podemos hacer eso con \texttt{optim\ ()}:
 ## NULL
 \end{verbatim}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-194-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-195-1.pdf}
 
 \hypertarget{optimo-para-el-modelo-lineal}{%
 \subsubsection{Óptimo para el modelo lineal}\label{optimo-para-el-modelo-lineal}}
@@ -17615,7 +17616,7 @@ Podemos agregar los residuos al dataframe con \texttt{add\_residuals\ ()} de la 
 
 Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el \texttt{summary}. Otra forma es graficándolos.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-198-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-1.pdf}
 
 \hypertarget{regresion-lineal-multiple}{%
 \subsection{Regresión lineal múltiple}\label{regresion-lineal-multiple}}
@@ -17632,7 +17633,7 @@ Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múl
 Para cada par de puntos en \(x_1\) y \(x_2\) vamos a definir un valor para \(y\)
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-199-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-200-2.pdf}
 
 \begin{itemize}
 \item
@@ -17826,7 +17827,7 @@ En particular, podemos notar de esta primera regresión que algunos barrios tien
 
 Para construir la nueva variable, podemos ver el precio promedio del metro cuadrado por barrio
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-207-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-208-1.pdf}
 
 \begin{verbatim}
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 

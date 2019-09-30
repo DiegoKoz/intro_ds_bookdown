@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-25" />
+<meta name="date" content="2019-09-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -288,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>Esto es: La covarianza entre dos variables, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> es el promedio (noten que hay una sumatoria y un dividido n) de las diferencias de los puntos a sus medias en <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
 <p>tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-179-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-180-1.png" width="1440" /></p>
 <p>Aquí marcamos <span class="math inline">\(\bar x\)</span> y <span class="math inline">\(\bar y\)</span> y dividimos el gráfico en cuatro cuadrantes.</p>
 <ol style="list-style-type: decimal">
 <li>En el primer cuadrante los puntos son más chicos a sus medias en <span class="math inline">\(x\)</span> y en <span class="math inline">\(y\)</span>, <span class="math inline">\((x-\hat x)\)</span> es negativo y <span class="math inline">\((y-\hat y)\)</span> también. Por lo tanto, su producto es positivo.</li>
@@ -310,7 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Con <code>ggpairs()</code>, podemos graficar todas las variables, y buscar las correlaciones. Coloreamos por:</li>
 </ul>
 <p>-<span class="math inline">\(am\)</span>: Tipo de transmisión: automático (am=0) o manual (am=1)</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-180-1.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-181-1.png" width="960" /></p>
 <p>Veamos la correlación entre:</p>
 <ul>
 <li><span class="math inline">\(mpg\)</span>: Miles/(US) gallon. Eficiencia de combustible</li>
@@ -340,12 +348,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="modelo-lineal-1" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Modelo Lineal</h3>
 <p>sigamos utilizando los datos de <em>sim1</em></p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-183-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-184-1.png" width="1440" /></p>
 <p>Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal <code>y = a_0 + a_1 * x</code> podría servir.</p>
 <div id="modelos-al-azar" class="section level4">
 <h4><span class="header-section-number">8.1.2.1</span> Modelos al azar</h4>
 <p>Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar <code>geom_abline ()</code> que toma una pendiente e intercepto como parámetros.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-184-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-185-1.png" width="1440" /></p>
 <p>A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los <em>mejores</em> modelos.</p>
 </div>
 <div id="distancias" class="section level4">
@@ -354,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para eso, eligamos un modelo cualquiera:</p>
 <p><span class="math display">\[ y= 7 + 1.5*x\]</span></p>
 <p>(para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-185-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-186-1.png" width="1440" /></p>
 <p>La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real</p>
 <p>Para computar la distancia, primero necesitamos una función que represente a nuestro modelo:</p>
 <p>Para eso, vamos a crear una función que reciba un vector con los parámetros del modelo, y el set de datos, y genere la predicción:</p>
@@ -384,16 +392,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10  38.9  -0.238  23.2
 ## # … with 240 more rows</code></pre>
 <p>A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por <code>-dist</code>: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-189-1.png" width="1440" /></p>
-<p>También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de <code>a1</code> vs<code>a2</code>, nuevamente coloreado por <code>-dist</code>. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.</p>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-190-1.png" width="1440" /></p>
+<p>También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de <code>a1</code> vs<code>a2</code>, nuevamente coloreado por <code>-dist</code>. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.</p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-191-1.png" width="1440" /></p>
 </div>
 <div id="grid-search" class="section level4">
 <h4><span class="header-section-number">8.1.2.4</span> Grid search</h4>
 <p>En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-191-1.png" width="1440" /></p>
-<p>Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:</p>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-192-1.png" width="1440" /></p>
+<p>Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:</p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-193-1.png" width="1440" /></p>
 </div>
 <div id="optimo-por-metodos-numericos" class="section level4">
 <h4><span class="header-section-number">8.1.2.5</span> óptimo por métodos numéricos</h4>
@@ -419,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $message
 ## NULL</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-194-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-195-1.png" width="1440" /></p>
 </div>
 <div id="optimo-para-el-modelo-lineal" class="section level4">
 <h4><span class="header-section-number">8.1.2.6</span> Óptimo para el modelo lineal</h4>
@@ -492,7 +500,7 @@ y = a_1 + a_2x + \epsilon
 <li>Lo que debemos buscar es que los residuos estén homogéneamente distribuidos en torno al 0.</li>
 </ul>
 <p>Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el <code>summary</code>. Otra forma es graficándolos.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-198-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-199-1.png" width="1440" /></p>
 </div>
 </div>
 <div id="regresion-lineal-multiple" class="section level3">
@@ -504,7 +512,7 @@ y = a_1 + a_2x + \epsilon
 <blockquote>
 <p>Para cada par de puntos en <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> vamos a definir un valor para <span class="math inline">\(y\)</span></p>
 </blockquote>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-199-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-199-2.png" width="960" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-200-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-200-2.png" width="960" /></p>
 <ul>
 <li><p>El criterio para elegir el mejor modelo va a seguir siendo <em>minimizar las distancias verticales</em>. Esto quiere decir, respecto de la variable que queremos predecir.</p></li>
 <li><p><strong>interpretación de los parámetros</strong>: El valor estimado del parámetro se puede leer como “cuanto varía <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x\)</span> varía en una unidad, <strong>cuando todo lo demás permanece constante</strong>”. Noten que ahora para interpretar los resultados tenemos que hacer la abstracción de dejar todas las demás variables constantes</p></li>
