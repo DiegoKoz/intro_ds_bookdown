@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
+  <title>9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
   <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  <meta property="og:title" content="9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  <meta name="twitter:title" content="9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"/>
+<link rel="prev" href="explicacion-8.html"/>
 <link rel="next" href="mineria-de-textos.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -273,11 +273,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1.5" data-path="explicacion-8.html"><a href="explicacion-8.html#no-respuesta"><i class="fa fa-check"></i><b>9.1.5</b> No respuesta</a></li>
 <li class="chapter" data-level="9.1.6" data-path="explicacion-8.html"><a href="explicacion-8.html#ponderadores-expansores"><i class="fa fa-check"></i><b>9.1.6</b> Ponderadores / Expansores</a></li>
 <li class="chapter" data-level="9.1.7" data-path="explicacion-8.html"><a href="explicacion-8.html#ejemplos"><i class="fa fa-check"></i><b>9.1.7</b> Ejemplos</a></li>
+<li class="chapter" data-level="9.1.8" data-path="explicacion-8.html"><a href="explicacion-8.html#encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires"><i class="fa fa-check"></i><b>9.1.8</b> Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><i class="fa fa-check"></i><b>9.2</b> Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</a></li>
-<li class="chapter" data-level="9.3" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.3</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#encuesta-permanente-de-hogares-1"><i class="fa fa-check"></i><b>9.3.1</b> Encuesta Permanente de Hogares</a></li>
-<li class="chapter" data-level="9.3.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#ejemplo-de-utilizacion-de-la-encuesta"><i class="fa fa-check"></i><b>9.3.2</b> Ejemplo de utilización de la encuesta</a></li>
+<li class="chapter" data-level="9.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#encuesta-permanente-de-hogares-1"><i class="fa fa-check"></i><b>9.2.1</b> Encuesta Permanente de Hogares</a></li>
+<li class="chapter" data-level="9.2.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#ejemplo-de-utilizacion-de-la-encuesta"><i class="fa fa-check"></i><b>9.2.2</b> Ejemplo de utilización de la encuesta</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="mineria-de-textos.html"><a href="mineria-de-textos.html"><i class="fa fa-check"></i><b>10</b> Minería de Textos</a><ul>
@@ -342,10 +342,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="practica-guiada-8" class="section level2">
-<h2><span class="header-section-number">9.3</span> Práctica Guiada</h2>
+<h2><span class="header-section-number">9.2</span> Práctica Guiada</h2>
 <p>En esta sección trabajaremos con las bases de la Encuesta Permanente de Hogares del INDEC, para ejemplificar la forma de trabajar con encuestas en general. Realizaremos tres ejercicios que luego serán replicados, en la sección de <em>práctica independiente</em>, pero con la Encuesta Anual de Hogares de CABA.</p>
 <div id="encuesta-permanente-de-hogares-1" class="section level3">
-<h3><span class="header-section-number">9.3.1</span> Encuesta Permanente de Hogares</h3>
+<h3><span class="header-section-number">9.2.1</span> Encuesta Permanente de Hogares</h3>
 <p>Recomendaciones para trabajar con esta encuesta:</p>
 <ul>
 <li>Tener a mano el diseño de registro</li>
@@ -380,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb414-8" data-line-number="8"><span class="co">## IV12_3: villa de emergencia</span></a></code></pre></div>
 <hr />
 <div id="ejercicio-1" class="section level4">
-<h4><span class="header-section-number">9.3.1.1</span> Ejercicio 1</h4>
+<h4><span class="header-section-number">9.2.1.1</span> Ejercicio 1</h4>
 <blockquote>
 <p>Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?</p>
 </blockquote>
@@ -408,7 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 <div id="ejercicio-2" class="section level4">
-<h4><span class="header-section-number">9.3.1.2</span> Ejercicio 2</h4>
+<h4><span class="header-section-number">9.2.1.2</span> Ejercicio 2</h4>
 <blockquote>
 <p>Calcular el ingreso de la ocupación principal promedio, para las/os ocupadas/os por aglomerados y sexo</p>
 </blockquote>
@@ -448,7 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 </div>
 <div id="ejercicio-3" class="section level4">
-<h4><span class="header-section-number">9.3.1.3</span> Ejercicio 3</h4>
+<h4><span class="header-section-number">9.2.1.3</span> Ejercicio 3</h4>
 <blockquote>
 <p>Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo</p>
 </blockquote>
@@ -487,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="ejemplo-de-utilizacion-de-la-encuesta" class="section level3">
-<h3><span class="header-section-number">9.3.2</span> Ejemplo de utilización de la encuesta</h3>
+<h3><span class="header-section-number">9.2.2</span> Ejemplo de utilización de la encuesta</h3>
 <p><a href="http://www.rpubs.com/natsumi_shokida/">La desigualdad de género se puede medir</a></p>
 
 </div>
@@ -498,7 +498,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="explicacion-8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="mineria-de-textos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

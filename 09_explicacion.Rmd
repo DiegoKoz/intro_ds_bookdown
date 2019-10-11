@@ -173,7 +173,7 @@ Para más detalles sobre la ENGHO:
 * [Presentación](https://www.indec.gob.ar/engho/)
 * [Bases de datos](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4)
 
-## Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires
+### Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires
 
 __Comentamos__:
 
