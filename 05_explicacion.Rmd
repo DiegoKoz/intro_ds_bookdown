@@ -45,7 +45,7 @@ Para producir un reporte completo que contenga todo el texto, código y resultad
 
 La prosa en los archivos .Rmd está escrita en Markdown, una colección simple de convenciones para dar formato a archivos de texto plano. Markdown está diseñado para ser fácil de leer y fácil de escribir, siendo también muy fácil de aprender. Del _Cheatsheet_:
 
-![](img/Selection_001.png)
+![](img/Selection_001.png){width=500}
 
 ### Bloques de código
 

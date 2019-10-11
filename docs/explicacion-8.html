@@ -24,15 +24,15 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-30" />
+<meta name="date" content="2019-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="diseno-y-analisis-de-encuestas.html"/>
-<link rel="next" href="practica-guiada-8.html"/>
+<link rel="prev" href="analisis-de-encuestas.html"/>
+<link rel="next" href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,6 +55,10 @@
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/chromatography-0.1/chromatography.js"></script>
 <script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
+<link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
 
 
 <style type="text/css">
@@ -260,10 +264,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="diseno-y-analisis-de-encuestas.html"><a href="diseno-y-analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Diseño y análisis de encuestas</a><ul>
-<li class="chapter" data-level="9.1" data-path="explicacion-8.html"><a href="explicacion-8.html"><i class="fa fa-check"></i><b>9.1</b> Explicación</a></li>
-<li class="chapter" data-level="9.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.2</b> Práctica Guiada</a></li>
+<li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
+<li class="chapter" data-level="9.1" data-path="explicacion-8.html"><a href="explicacion-8.html"><i class="fa fa-check"></i><b>9.1</b> Explicación</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="explicacion-8.html"><a href="explicacion-8.html#poblacion-y-muestra-1"><i class="fa fa-check"></i><b>9.1.1</b> Población y muestra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="explicacion-8.html"><a href="explicacion-8.html#tipos-de-muestra"><i class="fa fa-check"></i><b>9.1.2</b> Tipos de muestra</a></li>
+<li class="chapter" data-level="9.1.3" data-path="explicacion-8.html"><a href="explicacion-8.html#el-cuestionario"><i class="fa fa-check"></i><b>9.1.3</b> El cuestionario</a></li>
+<li class="chapter" data-level="9.1.4" data-path="explicacion-8.html"><a href="explicacion-8.html#sesgos"><i class="fa fa-check"></i><b>9.1.4</b> Sesgos</a></li>
+<li class="chapter" data-level="9.1.5" data-path="explicacion-8.html"><a href="explicacion-8.html#no-respuesta"><i class="fa fa-check"></i><b>9.1.5</b> No respuesta</a></li>
+<li class="chapter" data-level="9.1.6" data-path="explicacion-8.html"><a href="explicacion-8.html#ponderadores-expansores"><i class="fa fa-check"></i><b>9.1.6</b> Ponderadores / Expansores</a></li>
+<li class="chapter" data-level="9.1.7" data-path="explicacion-8.html"><a href="explicacion-8.html#ejemplos"><i class="fa fa-check"></i><b>9.1.7</b> Ejemplos</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><i class="fa fa-check"></i><b>9.2</b> Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</a></li>
+<li class="chapter" data-level="9.3" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.3</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#encuesta-permanente-de-hogares-1"><i class="fa fa-check"></i><b>9.3.1</b> Encuesta Permanente de Hogares</a></li>
+<li class="chapter" data-level="9.3.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#ejemplo-de-utilizacion-de-la-encuesta"><i class="fa fa-check"></i><b>9.3.2</b> Ejemplo de utilización de la encuesta</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mineria-de-textos.html"><a href="mineria-de-textos.html"><i class="fa fa-check"></i><b>10</b> Minería de Textos</a><ul>
+<li class="chapter" data-level="10.1" data-path="explicacion-9.html"><a href="explicacion-9.html"><i class="fa fa-check"></i><b>10.1</b> Explicación</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="explicacion-9.html"><a href="explicacion-9.html#introduccion-2"><i class="fa fa-check"></i><b>10.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.1.2" data-path="explicacion-9.html"><a href="explicacion-9.html#bag-of-words"><i class="fa fa-check"></i><b>10.1.2</b> Bag of Words</a></li>
+<li class="chapter" data-level="10.1.3" data-path="explicacion-9.html"><a href="explicacion-9.html#normalizacion"><i class="fa fa-check"></i><b>10.1.3</b> Normalización</a></li>
+<li class="chapter" data-level="10.1.4" data-path="explicacion-9.html"><a href="explicacion-9.html#expresiones-regulares."><i class="fa fa-check"></i><b>10.1.4</b> <span>Expresiones regulares.</span></a></li>
+<li class="chapter" data-level="10.1.5" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-palabras"><i class="fa fa-check"></i><b>10.1.5</b> Distancia de palabras</a></li>
+<li class="chapter" data-level="10.1.6" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-documentos"><i class="fa fa-check"></i><b>10.1.6</b> Distancia de Documentos</a></li>
+<li class="chapter" data-level="10.1.7" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modelling"><i class="fa fa-check"></i><b>10.1.7</b> Topic Modelling</a></li>
+<li class="chapter" data-level="10.1.8" data-path="explicacion-9.html"><a href="explicacion-9.html#descargas-de-tweets-con-rtweet"><i class="fa fa-check"></i><b>10.1.8</b> Descargas de tweets con <code>rtweet</code></a></li>
+<li class="chapter" data-level="10.1.9" data-path="explicacion-9.html"><a href="explicacion-9.html#armado-del-corpus-con-tm"><i class="fa fa-check"></i><b>10.1.9</b> Armado del corpus con <code>tm</code></a></li>
+<li class="chapter" data-level="10.1.10" data-path="explicacion-9.html"><a href="explicacion-9.html#limpieza-del-corpus"><i class="fa fa-check"></i><b>10.1.10</b> Limpieza del Corpus</a></li>
+<li class="chapter" data-level="10.1.11" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modeling"><i class="fa fa-check"></i><b>10.1.11</b> Topic Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>11</b> Mapas</a><ul>
+<li class="chapter" data-level="11.1" data-path="explicacion-10.html"><a href="explicacion-10.html"><i class="fa fa-check"></i><b>11.1</b> Explicación</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="explicacion-10.html"><a href="explicacion-10.html#datos-georreferenciados"><i class="fa fa-check"></i><b>11.1.1</b> Datos georreferenciados</a></li>
+<li class="chapter" data-level="11.1.2" data-path="explicacion-10.html"><a href="explicacion-10.html#proyecciones-y-distorsiones"><i class="fa fa-check"></i><b>11.1.2</b> Proyecciones y distorsiones</a></li>
+<li class="chapter" data-level="11.1.3" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-datos-espaciales"><i class="fa fa-check"></i><b>11.1.3</b> Tipos de datos espaciales</a></li>
+<li class="chapter" data-level="11.1.4" data-path="explicacion-10.html"><a href="explicacion-10.html#paquete-sf"><i class="fa fa-check"></i><b>11.1.4</b> Paquete sf</a></li>
+<li class="chapter" data-level="11.1.5" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-archivo"><i class="fa fa-check"></i><b>11.1.5</b> Tipos de archivo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html"><i class="fa fa-check"></i><b>11.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#representacion-de-la-informacion-en-mapas"><i class="fa fa-check"></i><b>11.2.1</b> Representación de la información en mapas</a></li>
+<li class="chapter" data-level="11.2.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#mapeo-de-palos-borrachos-rosados-en-buenos-aires"><i class="fa fa-check"></i><b>11.2.2</b> Mapeo de Palos borrachos rosados en Buenos Aires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mapa-de-data-science.html"><a href="mapa-de-data-science.html"><i class="fa fa-check"></i><b>12</b> Mapa de Data Science</a></li>
+<li class="chapter" data-level="13" data-path="tecnicas.html"><a href="tecnicas.html"><i class="fa fa-check"></i><b>13</b> Técnicas</a><ul>
+<li class="chapter" data-level="13.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html"><i class="fa fa-check"></i><b>13.1</b> Según tipo de aprendizaje:</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>13.1.1</b> Aprendizaje Supervisado:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>13.1.2</b> Aprendizaje No supervisado:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-semi-supervisado"><i class="fa fa-check"></i><b>13.1.3</b> <span>Aprendizaje Semi-supervisado</span></a></li>
+<li class="chapter" data-level="13.1.4" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#modelos-generativos"><i class="fa fa-check"></i><b>13.1.4</b> <span>Modelos generativos</span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html"><i class="fa fa-check"></i><b>13.2</b> Según el tipo de datos:</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-estructurados"><i class="fa fa-check"></i><b>13.2.1</b> Datos estructurados:</a></li>
+<li class="chapter" data-level="13.2.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-no-estructurados"><i class="fa fa-check"></i><b>13.2.2</b> Datos no estructurados:</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="desde-el-punto-de-vista-del-remuestreo.html"><a href="desde-el-punto-de-vista-del-remuestreo.html"><i class="fa fa-check"></i><b>13.3</b> Desde el punto de vista del remuestreo:</a></li>
+<li class="chapter" data-level="13.4" data-path="desde-el-punto-de-vista-de-la-optimizacion.html"><a href="desde-el-punto-de-vista-de-la-optimizacion.html"><i class="fa fa-check"></i><b>13.4</b> Desde el punto de vista de la optimización:</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>14</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="15" data-path="meta-flujo-de-trabajo.html"><a href="meta-flujo-de-trabajo.html"><i class="fa fa-check"></i><b>15</b> Meta flujo de trabajo</a></li>
+<li class="chapter" data-level="16" data-path="otros-temas.html"><a href="otros-temas.html"><i class="fa fa-check"></i><b>16</b> Otros temas</a></li>
+<li class="chapter" data-level="17" data-path="implementaciones.html"><a href="implementaciones.html"><i class="fa fa-check"></i><b>17</b> Implementaciones:</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/DiegoKoz/intro_ds" target="blank">Repositorio en github</a></li>
@@ -287,15 +350,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="explicacion-8" class="section level2">
 <h2><span class="header-section-number">9.1</span> Explicación</h2>
-
+<div id="poblacion-y-muestra-1" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Población y muestra</h3>
+<p><strong>Población</strong>: El universo en estudio ( <strong>N</strong> ).</p>
+<p>Sobre esos elementos se observan variables, que son características que cambian de individuo a individuo.</p>
+<p><img src="img/poblacion-estadistica.jpg" width="300" /></p>
+<ul>
+<li><p>La población se define en relación al problema de investigación a abordar.</p></li>
+<li>Puede ser una población finita:
+<ul>
+<li>Los votantes en una elección.</li>
+<li>Asalariados de CABA.</li>
+</ul></li>
+<li>O bien infinita:
+<ul>
+<li>El lanzamiento de una moneda</li>
+<li>El lanzamiento de un dado</li>
+</ul></li>
+<li>En otros casos el límite es difuso:
+<ul>
+<li>Si la población cambia en el tiempo, ¿los votantes en los meses previos a una elección son finitos o infinitos?</li>
+</ul></li>
+</ul>
+<p><strong>Muestra</strong>: Subconjunto de <strong>n</strong> observaciones de una población.</p>
+<ul>
+<li>Son los elementos de la población que podemos <strong>medir</strong>, para <strong>realizar inferencia respecto a la población</strong></li>
+</ul>
+</div>
+<div id="tipos-de-muestra" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Tipos de muestra</h3>
+<p><strong>Probabilísticas</strong>: La <strong>selección aleatoria</strong> de la muestra nos garantiza independencia en las observaciones, lo que nos permite saber cuántas observaciones necesito para obtener un cierto margen de error.</p>
+<ul>
+<li>Muestreo aleatorio simple</li>
+</ul>
+<p>Todos los individuos tienen la misma probabilidad de ser elegidos.</p>
+<p><img src="img/muestreo-probabilistico-simple.jpg" width="300" /></p>
+<ul>
+<li>Muestreo aleatorio estratificado</li>
+</ul>
+<p>Los individuos se dividen en grupos o estratos. La muestra se elige escogiendo en cada estrato individuos elegidos por muestro aleatorio simple.</p>
+<p><img src="img/muestreo-estratificado.jpg" width="300" /></p>
+<p><strong>No probabilísticas</strong>: No surge de un proceso de selección aleatoria. Los sujetos en una muestra no probabilística generalmente son seleccionados en función de su accesibilidad o a criterio personal del investigador.</p>
+<ul>
+<li>Los eventos no son independientes</li>
+<li>No se puede extrapolar de la muestra a la población</li>
+<li>Sirve para captar atributos de un subconjunto de la población</li>
+</ul>
+<p><img src="img/muestreo-conveniencia.jpg" width="300" /></p>
+</div>
+<div id="el-cuestionario" class="section level3">
+<h3><span class="header-section-number">9.1.3</span> El cuestionario</h3>
+<p><strong>Cuestionario</strong>: Es el instrumento con el que vamos a recolectar los datos. Ahí se encuentran las preguntas y también algunas aclaraciones que puede venir bien tener a mano.</p>
+<p>Diversas cuestiones a tener en cuenta:</p>
+<ul>
+<li>El propósito del cuestionario, hay que tener bien claros los objetivos principales</li>
+<li>El período de referencia</li>
+<li>Completitud del universo de estudio (¿Toda la población se puede clasificar en las respuestas o queda alguien afuera?)</li>
+<li>El flujo del cuestionario, pensar si hay subpoblaciones a las que ciertas preguntas no aplican, dado lo que ya respondieron anteriormente</li>
+<li>Las instrucciones deben ser claras y completas, los términos importantes tienen que estar bien definidos para encuestador y/o para el encuestado</li>
+<li>Establecer la mejor secuencia de aspectos o temas</li>
+<li>El cuestionario no tiene que ser innecesariamente largo (Problema de no-respuesta)</li>
+<li>No conviene empezar con preguntas difíciles/muy directas/que puedan incomodar</li>
+<li>Las preguntas no deben sugerir/inducir hacia lo que se desea como respuesta</li>
+</ul>
+<p>Para cada pregunta, preguntémonos:</p>
+<ul>
+<li>¿Es demasiado general? ¿Es demasiado detallada?</li>
+<li>¿Las palabras utilizadas son sencillas? ¿La estructura es breve y clara?</li>
+<li>¿Sería más práctico subdividir la pregunta en otras más específicas? (y a la inversa)</li>
+<li>¿Se refiere a una cuestión sobre la cual todos los encuestados deberian tener información para responder?</li>
+<li>¿Es posible contestar la pregunta sin cometer un error? O, ¿Qué grado de error se puede tener?</li>
+<li>¿Es necesario o sería útil complementar la pregunta con algún ejemplo? ¿Y con alguna ilustración?</li>
+<li>¿La pregunta puede llegar a incomodar?</li>
+<li>¿Conviene que sea una pregunta abierta o con categorías?</li>
+<li>¿Puede la pregunta ser interpretada por diferentes personas de diferente manera? (Ej: Jefatura de hogar)</li>
+</ul>
+<blockquote>
+<p>Probar el cuestionario!!</p>
+</blockquote>
+</div>
+<div id="sesgos" class="section level3">
+<h3><span class="header-section-number">9.1.4</span> Sesgos</h3>
+<p>Tenemos un problema de <strong>sesgo</strong> cuando hay un peso desproporcionado a favor o en contra de una cosa, persona o grupo en comparación con otra, generalmente de una manera que se considera injusta. Es la diferencia entre lo que estimamos y lo que queríamos estimar.</p>
+<p>¿De dónde puede salir ese sesgo?</p>
+<ul>
+<li><p>De la <strong>Muestra</strong>: tomamos una muestra que pensábamos que representaba a la población que queríamos estudiar pero resulta que hay factores que no tuvimos en cuenta. Por ejemplo: Hacer una encuesta sobre condiciones de vida por twitter, hacer una encuesta sobre uso de tecnologías en la puerta de un Shopping, etc.</p></li>
+<li><p>De la <strong>recolección de datos</strong>. Si en vez de tener una muestra clara, le pedimos al encuestador que elija gente “aleatoriamente” en una esquina, puede haber sesgos debidos a sus prejuicios, la verguenza para hablar con cierto tipo de gente, etc. Si le pedimos a la policía que elija gente para pedir DNIs al azar puede haber sesgos (el famoso “portación de cara”).</p></li>
+<li><p>De la <strong>limpieza y análisis de los datos</strong>: Si a la hora de emprolijar los datos que obtuvimos, nos preocupamos más por aquellas observaciones que tienen cierta característica en particular, podemos sesgar los indicadores que calculemos luego. Por ejemplo: Si en una encuesta de ingresos reviso sólo los montos que me parecen muy bajos, pero no los que me parecen muy altos.</p></li>
+</ul>
+<p>Al respecto, podemos pensar en:</p>
+<ul>
+<li>La formas en que se pregunta: tanto en el cuestionario como en los encuestadores, que todo sea lo más homogéneo posible, así la calidad de los datos no dependen del encuestador que tocó en cada caso.</li>
+<li>Sensibilización/perfiles del encuestador
+<ul>
+<li>Ej: Sexo en censo (no es por observación)</li>
+</ul></li>
+</ul>
+</div>
+<div id="no-respuesta" class="section level3">
+<h3><span class="header-section-number">9.1.5</span> No respuesta</h3>
+<p>En las encuestas suele ocurrir que sea imposible obtener una respuesta por parte de algunos encuestados para una, más de una, o todas las variables que se procuran captar. Se dice entonces que se está en presencia de “no respuestas”. La falta de valores puede provenir de múltiples factores como pueden ser no haber encontrado a la persona a encuestar, la mala voluntad/desgano/miedo del encuestado o su ignorancia respecto del tema, que algún encuestador no se esfuerce mucho por que cada pregunta obtenga una respuesta, el tipo de pregunta, la longitud del cuestionario, etc.</p>
+<ul>
+<li>No respuesta sesgada
+<ul>
+<li>Ej: Ingresos en la EPH tienen no respuesta sesgada en ingresos altos</li>
+</ul></li>
+<li>Corrección de no respuesta
+<ul>
+<li>Con imputación</li>
+<li>Con ponderadores</li>
+</ul></li>
+</ul>
+</div>
+<div id="ponderadores-expansores" class="section level3">
+<h3><span class="header-section-number">9.1.6</span> Ponderadores / Expansores</h3>
+<p>Los llamados <strong>ponderadores o factores de expansión</strong> son valores que se utilizan a fines de <em>pesar</em> la información de las variables captadas a través de una muestra para generar estadísticas. Sirven para <strong>reproducir los valores poblacionales</strong> de dichas estadísticas. Podemos pensar al expansor (cuando es una cantidad) como aquel que indica a cuántas personas se está representando con una observación de la muestra, o al ponderador (cuando es un porcentaje o proporción) como la proporción de la población a la que se representa con ese caso.</p>
+<p>Estos ponderadores se obtienen como el <strong>inverso de la probabilidad</strong> de que la observación haya sido seleccionada. O sea, si yo tengo la probabilidad 1/10 de ser seleccionada en una muestra, seguramente represente a 10 personas con mis respuestas.</p>
+<p>En la sección de práctica guiada veremos cómo operar con ponderadores en R.</p>
+</div>
+<div id="ejemplos" class="section level3">
+<h3><span class="header-section-number">9.1.7</span> Ejemplos</h3>
+<div id="encuesta-permanente-de-hogares" class="section level4">
+<h4><span class="header-section-number">9.1.7.1</span> Encuesta Permanente de Hogares</h4>
+<p><img src="img/EPH.png" width="1000" /></p>
+<p><strong>Comentamos</strong>:</p>
+<ul>
+<li>Objetivos de la encuesta</li>
+<li>Cobertura</li>
+<li>Frecuencia y periodicidad</li>
+<li>Muestra de viviendas</li>
+<li>Esquema de rotación</li>
+<li>3 cuestionarios
+<ul>
+<li>vivienda</li>
+<li>hogar</li>
+<li>individuo</li>
+</ul></li>
+<li>Ponderadores
+<ul>
+<li>“PONDERA”</li>
+<li>Ponderadores de corrección de no-respuesta de ingresos</li>
+</ul></li>
+</ul>
+<p>Para más detalles sobre la Encuesta Permanente de Hogares:</p>
+<ul>
+<li><a href="https://pablotis.github.io/Presentaciones/clase1_eph.html" class="uri">https://pablotis.github.io/Presentaciones/clase1_eph.html</a></li>
+</ul>
+</div>
+<div id="encuesta-nacional-de-gastos-de-los-hogares-engho" class="section level4">
+<h4><span class="header-section-number">9.1.7.2</span> Encuesta Nacional de Gastos de los Hogares (ENGHO)</h4>
+<p><strong>Comentamos</strong>:</p>
+<ul>
+<li>Objetivos de la encuesta</li>
+<li>Cobertura:
+<ul>
+<li>45.000 hogares, ubicados en centros urbanos de 2000 habitantes y más de todo el país</li>
+</ul></li>
+<li>Frecuencia y periodicidad
+<ul>
+<li>octubre de 2017 hasta diciembre de 2018</li>
+</ul></li>
+<li>Muestra de viviendas</li>
+<li>5 cuestionarios
+<ul>
+<li>Cuestionario 1. Características de los hogares</li>
+<li>Cuestionario 2. Gastos diarios</li>
+<li>Cuestionario 3. Gastos varios</li>
+<li>Cuestionario 4. Gastos personales</li>
+<li>Cuestionario 5. Ingresos</li>
+</ul></li>
+<li>Ponderadores</li>
+</ul>
+<p>Para más detalles sobre la ENGHO:</p>
+<ul>
+<li><a href="https://www.indec.gob.ar/engho/">Presentación</a></li>
+<li><a href="https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4">Bases de datos</a></li>
+</ul>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="diseno-y-analisis-de-encuestas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practica-guiada-8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="analisis-de-encuestas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

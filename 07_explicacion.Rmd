@@ -1,8 +1,16 @@
 # Probabilidad y Estadística
+
+- Introducción a probabilidad
+- Introducción a distribuciones
+- El problema de la inversión: Probabilidad vs. Estadística
+- Población y muestra
+- Estimadores puntuales, tests de hipótesis
+- Boxplots, histogramas y kernels
+
 ## Explicación
 
 
-```{r setup, include = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, fig.width = 15)
 library(tidyverse)
 library(kableExtra)

@@ -121,16 +121,16 @@ resultados
 
 Primero me armo una funcion que me simplifica el codigo
 ```{r}
-fun<-function(porcion,grupo) {  broom::tidy(lm(P21~factor(CH04)+CH06,data = porcion))}
+fun<-function(porcion,...) {  broom::tidy(lm(P21~factor(CH04)+CH06,data = porcion))}
 ```
 
 ```{r}
-bases_df_lm <- bases_df %>% 
+bases_df_lm <- bases_df %>%
   group_by(REGION) %>%
-  nest() %>% 
+  nest() %>%
   mutate(lm = map(data,fun))
 bases_df_lm
-bases_df_lm %>% 
+bases_df_lm %>%
   unnest(lm)
 ```
 

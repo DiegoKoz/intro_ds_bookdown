@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
+  <title>9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
   <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  <meta property="og:title" content="9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  <meta name="twitter:title" content="9.3 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
   
   <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-09-30" />
+<meta name="date" content="2019-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="explicacion-8.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"/>
+<link rel="next" href="mineria-de-textos.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,6 +55,10 @@
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/chromatography-0.1/chromatography.js"></script>
 <script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
+<link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
 
 
 <style type="text/css">
@@ -260,10 +264,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="diseno-y-analisis-de-encuestas.html"><a href="diseno-y-analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Diseño y análisis de encuestas</a><ul>
-<li class="chapter" data-level="9.1" data-path="explicacion-8.html"><a href="explicacion-8.html"><i class="fa fa-check"></i><b>9.1</b> Explicación</a></li>
-<li class="chapter" data-level="9.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.2</b> Práctica Guiada</a></li>
+<li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
+<li class="chapter" data-level="9.1" data-path="explicacion-8.html"><a href="explicacion-8.html"><i class="fa fa-check"></i><b>9.1</b> Explicación</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="explicacion-8.html"><a href="explicacion-8.html#poblacion-y-muestra-1"><i class="fa fa-check"></i><b>9.1.1</b> Población y muestra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="explicacion-8.html"><a href="explicacion-8.html#tipos-de-muestra"><i class="fa fa-check"></i><b>9.1.2</b> Tipos de muestra</a></li>
+<li class="chapter" data-level="9.1.3" data-path="explicacion-8.html"><a href="explicacion-8.html#el-cuestionario"><i class="fa fa-check"></i><b>9.1.3</b> El cuestionario</a></li>
+<li class="chapter" data-level="9.1.4" data-path="explicacion-8.html"><a href="explicacion-8.html#sesgos"><i class="fa fa-check"></i><b>9.1.4</b> Sesgos</a></li>
+<li class="chapter" data-level="9.1.5" data-path="explicacion-8.html"><a href="explicacion-8.html#no-respuesta"><i class="fa fa-check"></i><b>9.1.5</b> No respuesta</a></li>
+<li class="chapter" data-level="9.1.6" data-path="explicacion-8.html"><a href="explicacion-8.html#ponderadores-expansores"><i class="fa fa-check"></i><b>9.1.6</b> Ponderadores / Expansores</a></li>
+<li class="chapter" data-level="9.1.7" data-path="explicacion-8.html"><a href="explicacion-8.html#ejemplos"><i class="fa fa-check"></i><b>9.1.7</b> Ejemplos</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><i class="fa fa-check"></i><b>9.2</b> Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</a></li>
+<li class="chapter" data-level="9.3" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.3</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#encuesta-permanente-de-hogares-1"><i class="fa fa-check"></i><b>9.3.1</b> Encuesta Permanente de Hogares</a></li>
+<li class="chapter" data-level="9.3.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#ejemplo-de-utilizacion-de-la-encuesta"><i class="fa fa-check"></i><b>9.3.2</b> Ejemplo de utilización de la encuesta</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mineria-de-textos.html"><a href="mineria-de-textos.html"><i class="fa fa-check"></i><b>10</b> Minería de Textos</a><ul>
+<li class="chapter" data-level="10.1" data-path="explicacion-9.html"><a href="explicacion-9.html"><i class="fa fa-check"></i><b>10.1</b> Explicación</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="explicacion-9.html"><a href="explicacion-9.html#introduccion-2"><i class="fa fa-check"></i><b>10.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.1.2" data-path="explicacion-9.html"><a href="explicacion-9.html#bag-of-words"><i class="fa fa-check"></i><b>10.1.2</b> Bag of Words</a></li>
+<li class="chapter" data-level="10.1.3" data-path="explicacion-9.html"><a href="explicacion-9.html#normalizacion"><i class="fa fa-check"></i><b>10.1.3</b> Normalización</a></li>
+<li class="chapter" data-level="10.1.4" data-path="explicacion-9.html"><a href="explicacion-9.html#expresiones-regulares."><i class="fa fa-check"></i><b>10.1.4</b> <span>Expresiones regulares.</span></a></li>
+<li class="chapter" data-level="10.1.5" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-palabras"><i class="fa fa-check"></i><b>10.1.5</b> Distancia de palabras</a></li>
+<li class="chapter" data-level="10.1.6" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-documentos"><i class="fa fa-check"></i><b>10.1.6</b> Distancia de Documentos</a></li>
+<li class="chapter" data-level="10.1.7" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modelling"><i class="fa fa-check"></i><b>10.1.7</b> Topic Modelling</a></li>
+<li class="chapter" data-level="10.1.8" data-path="explicacion-9.html"><a href="explicacion-9.html#descargas-de-tweets-con-rtweet"><i class="fa fa-check"></i><b>10.1.8</b> Descargas de tweets con <code>rtweet</code></a></li>
+<li class="chapter" data-level="10.1.9" data-path="explicacion-9.html"><a href="explicacion-9.html#armado-del-corpus-con-tm"><i class="fa fa-check"></i><b>10.1.9</b> Armado del corpus con <code>tm</code></a></li>
+<li class="chapter" data-level="10.1.10" data-path="explicacion-9.html"><a href="explicacion-9.html#limpieza-del-corpus"><i class="fa fa-check"></i><b>10.1.10</b> Limpieza del Corpus</a></li>
+<li class="chapter" data-level="10.1.11" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modeling"><i class="fa fa-check"></i><b>10.1.11</b> Topic Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>11</b> Mapas</a><ul>
+<li class="chapter" data-level="11.1" data-path="explicacion-10.html"><a href="explicacion-10.html"><i class="fa fa-check"></i><b>11.1</b> Explicación</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="explicacion-10.html"><a href="explicacion-10.html#datos-georreferenciados"><i class="fa fa-check"></i><b>11.1.1</b> Datos georreferenciados</a></li>
+<li class="chapter" data-level="11.1.2" data-path="explicacion-10.html"><a href="explicacion-10.html#proyecciones-y-distorsiones"><i class="fa fa-check"></i><b>11.1.2</b> Proyecciones y distorsiones</a></li>
+<li class="chapter" data-level="11.1.3" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-datos-espaciales"><i class="fa fa-check"></i><b>11.1.3</b> Tipos de datos espaciales</a></li>
+<li class="chapter" data-level="11.1.4" data-path="explicacion-10.html"><a href="explicacion-10.html#paquete-sf"><i class="fa fa-check"></i><b>11.1.4</b> Paquete sf</a></li>
+<li class="chapter" data-level="11.1.5" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-archivo"><i class="fa fa-check"></i><b>11.1.5</b> Tipos de archivo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html"><i class="fa fa-check"></i><b>11.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#representacion-de-la-informacion-en-mapas"><i class="fa fa-check"></i><b>11.2.1</b> Representación de la información en mapas</a></li>
+<li class="chapter" data-level="11.2.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#mapeo-de-palos-borrachos-rosados-en-buenos-aires"><i class="fa fa-check"></i><b>11.2.2</b> Mapeo de Palos borrachos rosados en Buenos Aires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mapa-de-data-science.html"><a href="mapa-de-data-science.html"><i class="fa fa-check"></i><b>12</b> Mapa de Data Science</a></li>
+<li class="chapter" data-level="13" data-path="tecnicas.html"><a href="tecnicas.html"><i class="fa fa-check"></i><b>13</b> Técnicas</a><ul>
+<li class="chapter" data-level="13.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html"><i class="fa fa-check"></i><b>13.1</b> Según tipo de aprendizaje:</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>13.1.1</b> Aprendizaje Supervisado:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>13.1.2</b> Aprendizaje No supervisado:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-semi-supervisado"><i class="fa fa-check"></i><b>13.1.3</b> <span>Aprendizaje Semi-supervisado</span></a></li>
+<li class="chapter" data-level="13.1.4" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#modelos-generativos"><i class="fa fa-check"></i><b>13.1.4</b> <span>Modelos generativos</span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html"><i class="fa fa-check"></i><b>13.2</b> Según el tipo de datos:</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-estructurados"><i class="fa fa-check"></i><b>13.2.1</b> Datos estructurados:</a></li>
+<li class="chapter" data-level="13.2.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-no-estructurados"><i class="fa fa-check"></i><b>13.2.2</b> Datos no estructurados:</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="desde-el-punto-de-vista-del-remuestreo.html"><a href="desde-el-punto-de-vista-del-remuestreo.html"><i class="fa fa-check"></i><b>13.3</b> Desde el punto de vista del remuestreo:</a></li>
+<li class="chapter" data-level="13.4" data-path="desde-el-punto-de-vista-de-la-optimizacion.html"><a href="desde-el-punto-de-vista-de-la-optimizacion.html"><i class="fa fa-check"></i><b>13.4</b> Desde el punto de vista de la optimización:</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>14</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="15" data-path="meta-flujo-de-trabajo.html"><a href="meta-flujo-de-trabajo.html"><i class="fa fa-check"></i><b>15</b> Meta flujo de trabajo</a></li>
+<li class="chapter" data-level="16" data-path="otros-temas.html"><a href="otros-temas.html"><i class="fa fa-check"></i><b>16</b> Otros temas</a></li>
+<li class="chapter" data-level="17" data-path="implementaciones.html"><a href="implementaciones.html"><i class="fa fa-check"></i><b>17</b> Implementaciones:</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/DiegoKoz/intro_ds" target="blank">Repositorio en github</a></li>
@@ -286,8 +349,155 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="practica-guiada-8" class="section level2">
-<h2><span class="header-section-number">9.2</span> Práctica Guiada</h2>
+<h2><span class="header-section-number">9.3</span> Práctica Guiada</h2>
+<p>En esta sección trabajaremos con las bases de la Encuesta Permanente de Hogares del INDEC, para ejemplificar la forma de trabajar con encuestas en general. Realizaremos tres ejercicios que luego serán replicados, en la sección de <em>práctica independiente</em>, pero con la Encuesta Anual de Hogares de CABA.</p>
+<div id="encuesta-permanente-de-hogares-1" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Encuesta Permanente de Hogares</h3>
+<p>Recomendaciones para trabajar con esta encuesta:</p>
+<ul>
+<li>Tener a mano el diseño de registro</li>
+<li>Utilizar el paquete <code>eph</code></li>
+<li>Si queremos estar seguros sobre la definición de una categoría, apelar a los documentos metodológicos (por ejemplo: el caso de los asalariados encubiertos)</li>
+<li>tirar frecuencias o plots de las variables antes de usarlas (-9, 0, NAs, etc…)</li>
+</ul>
+<p>Cargamos las librerías</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1"><span class="co"># install.packages(&quot;eph&quot;)</span></a>
+<a class="sourceLine" id="cb412-2" data-line-number="2"><span class="kw">library</span>(eph)         <span class="co"># para trabajar con EPH</span></a>
+<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="kw">library</span>(tidyverse)   </a>
+<a class="sourceLine" id="cb412-4" data-line-number="4"><span class="kw">library</span>(expss)       <span class="co"># para trabajar con la etiqueta de los datos</span></a></code></pre></div>
+<p>Cargamos las bases con una función del paquete <code>eph</code>, que no va a descargar en disco la información pero sí la va a cargar en el entorno de trabajo de R.</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">?eph<span class="op">::</span>get_microdata</a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3">individual &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>)</a>
+<a class="sourceLine" id="cb413-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>)</a></code></pre></div>
+<p>Sobre las bases:</p>
+<ul>
+<li>Qué tienen en común (CODUSU, NRO_HOGAR)</li>
+<li>Para qué nos pueden servir esas variables en común</li>
+<li>La función <code>organize_labels()</code> permite etiquetar los datos</li>
+<li>Seleccionamos variables relevantes para el ejercicio: información contenida en cada una</li>
+</ul>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">individual &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(individual, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)</a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb414-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(hogar, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb414-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb414-7" data-line-number="7"><span class="co">## IV12_2: zona inundable</span></a>
+<a class="sourceLine" id="cb414-8" data-line-number="8"><span class="co">## IV12_3: villa de emergencia</span></a></code></pre></div>
+<hr />
+<div id="ejercicio-1" class="section level4">
+<h4><span class="header-section-number">9.3.1.1</span> Ejercicio 1</h4>
+<blockquote>
+<p>Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?</p>
+</blockquote>
+<p>Notemos que la pregunta refiere a las personas, pero la información sobre la ubicación de la vivienda figura en la base de hogares.</p>
+<ul>
+<li>Join de bases individual y hogar (y al revés?)</li>
+<li>Las variables de filtro y agrupamiento</li>
+<li>El rol de los ponderadores</li>
+<li>Función para mostrar los resultados etiquetados</li>
+</ul>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1">ejercicio1 &lt;-<span class="st"> </span><span class="kw">left_join</span>(individual, hogar, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;CODUSU&quot;</span>, <span class="st">&quot;NRO_HOGAR&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IV12_<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>IV12_<span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Cantidad =</span> <span class="kw">sum</span>(PONDERA)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.)</a>
+<a class="sourceLine" id="cb415-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb415-7" data-line-number="7">ejercicio1</a></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+## # Groups:   IV12_2 [2]
+##   IV12_2     IV12_3     Cantidad
+##   &lt;labelled&gt; &lt;labelled&gt;    &lt;int&gt;
+## 1 Si         Si           173476
+## 2 Si         No.         3311861
+## 3 No.        Si           411544</code></pre>
+<hr />
+</div>
+<div id="ejercicio-2" class="section level4">
+<h4><span class="header-section-number">9.3.1.2</span> Ejercicio 2</h4>
+<blockquote>
+<p>Calcular el ingreso de la ocupación principal promedio, para las/os ocupadas/os por aglomerados y sexo</p>
+</blockquote>
+<ul>
+<li>La variable de filtro</li>
+<li>Las variables de agrupamiento</li>
+<li>La media ponderada y un nuevo ponderador</li>
+<li>Cálculo de la brecha</li>
+<li>Función para presentar en formato porcentual</li>
+</ul>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">ejercicio2 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(ESTADO <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iop =</span> <span class="kw">weighted.mean</span>(P21, PONDIIO)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
+<a class="sourceLine" id="cb417-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iop) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
+<a class="sourceLine" id="cb417-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb417-11" data-line-number="11">ejercicio2</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 4
+## # Groups:   AGLOMERADO [32]
+##    AGLOMERADO                        Varon  Mujer Brecha
+##    &lt;labelled&gt;                        &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Bahia Blanca - Cerri             27015. 16331. 39.5% 
+##  2 Mar del Plata - Batan            26720. 16759. 37.3% 
+##  3 Cdro. Rivadavia - R.Tilly        35599. 22464. 36.9% 
+##  4 San Nicolas - Villa Constitucion 21593. 13896. 35.6% 
+##  5 Rio Gallegos                     30725. 20323. 33.9% 
+##  6 Rio Cuarto                       21263. 14452. 32.0% 
+##  7 Posadas                          19034. 13175. 30.8% 
+##  8 Partidos del GBA                 21590. 15174. 29.7% 
+##  9 Ciudad de Buenos Aires           32350. 22803. 29.5% 
+## 10 Gran Cordoba                     19962. 14603. 26.8% 
+## # … with 22 more rows</code></pre>
+<hr />
+</div>
+<div id="ejercicio-3" class="section level4">
+<h4><span class="header-section-number">9.3.1.3</span> Ejercicio 3</h4>
+<blockquote>
+<p>Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo</p>
+</blockquote>
+<ul>
+<li>La variable de filtro: Ingreso total individual positivo</li>
+<li>Las variables de agrupamiento: El aglomerado y el sexo</li>
+<li>Un nuevo ponderador</li>
+</ul>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">ejercicio3 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P47T <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iti =</span> <span class="kw">weighted.mean</span>(P47T, PONDII)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
+<a class="sourceLine" id="cb419-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iti) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
+<a class="sourceLine" id="cb419-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb419-11" data-line-number="11">ejercicio3</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 4
+## # Groups:   AGLOMERADO [32]
+##    AGLOMERADO                        Varon  Mujer Brecha
+##    &lt;labelled&gt;                        &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; 
+##  1 Cdro. Rivadavia - R.Tilly        37999. 22549. 40.7% 
+##  2 Bahia Blanca - Cerri             30233. 19515. 35.5% 
+##  3 San Nicolas - Villa Constitucion 24605. 15944. 35.2% 
+##  4 Gran Rosario                     25308. 16809. 33.6% 
+##  5 Posadas                          22053. 14888. 32.5% 
+##  6 Ushuaia - Rio Grande             36878. 25410. 31.1% 
+##  7 Partidos del GBA                 24179. 16846. 30.3% 
+##  8 Gran Resistencia                 17314. 12178. 29.7% 
+##  9 Neuquen - Plottier               30285. 21577. 28.8% 
+## 10 Gran La Plata                    25823. 18996. 26.4% 
+## # … with 22 more rows</code></pre>
+<hr />
+</div>
+</div>
+<div id="ejemplo-de-utilizacion-de-la-encuesta" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Ejemplo de utilización de la encuesta</h3>
+<p><a href="http://www.rpubs.com/natsumi_shokida/">La desigualdad de género se puede medir</a></p>
 
+</div>
 </div>
 <!-- </div> -->
             </section>
@@ -295,8 +505,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="explicacion-8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mineria-de-textos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -115,7 +115,8 @@ ggdata <- Individual_t119 %>%
                                         PP04A == 2 ~ 'Privado',
                                         FALSE      ~ 'Otro'))
 
-ggdata
+ggdata %>% 
+  sample_n(10)
 ```
 
 Para graficar un suavizado de las series, se utiliza la función [```geom_smooth()```](http://ggplot2.tidyverse.org/reference/geom_smooth.html). Con suavizado nos referimos al gráfico de un modelo realizado sobre los datos, que estima el valor en el punto x,y (para el grupo). Las regresiones lineales son un ejemplo de esto, aunque no el único, ni el que viene por default.

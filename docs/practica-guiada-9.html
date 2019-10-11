@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science</title>
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11.2 Práctica Guiada | Notas de clase del curso de introducción a Data Science" />
+  
+  <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  
+
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
+
+
+<meta name="date" content="2019-10-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="explicacion-10.html"/>
+<link rel="next" href="mapa-de-data-science.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
+<link href="libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
+<script src="libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introducción</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#presentacion"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-del-curso"><i class="fa fa-check"></i>Objetivos del curso</a></li>
+<li><a href="index.html#webpage"><span>Webpage</span></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#temario"><i class="fa fa-check"></i>Temario:</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bibliografia-de-consulta"><i class="fa fa-check"></i>Bibliografía de consulta</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion-a-r.html"><a href="introduccion-a-r.html"><i class="fa fa-check"></i><b>1</b> Introducción a R</a><ul>
+<li class="chapter" data-level="1.1" data-path="explicacion.html"><a href="explicacion.html"><i class="fa fa-check"></i><b>1.1</b> Explicación</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="explicacion.html"><a href="explicacion.html#que-es-r"><i class="fa fa-check"></i><b>1.1.1</b> ¿Qué es R?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="explicacion.html"><a href="explicacion.html#logica-sintactica."><i class="fa fa-check"></i><b>1.1.2</b> Lógica sintáctica.</a></li>
+<li class="chapter" data-level="1.1.3" data-path="explicacion.html"><a href="explicacion.html#r-base"><i class="fa fa-check"></i><b>1.1.3</b> R base</a></li>
+<li class="chapter" data-level="1.1.4" data-path="explicacion.html"><a href="explicacion.html#objetos"><i class="fa fa-check"></i><b>1.1.4</b> Objetos:</a></li>
+<li class="chapter" data-level="1.1.5" data-path="explicacion.html"><a href="explicacion.html#data-frames"><i class="fa fa-check"></i><b>1.1.5</b> Data Frames</a></li>
+<li class="chapter" data-level="1.1.6" data-path="explicacion.html"><a href="explicacion.html#listas"><i class="fa fa-check"></i><b>1.1.6</b> Listas</a></li>
+<li class="chapter" data-level="1.1.7" data-path="explicacion.html"><a href="explicacion.html#ambientes-de-trabajo"><i class="fa fa-check"></i><b>1.1.7</b> Ambientes de trabajo</a></li>
+<li class="chapter" data-level="1.1.8" data-path="explicacion.html"><a href="explicacion.html#tipos-de-archivos-de-r"><i class="fa fa-check"></i><b>1.1.8</b> Tipos de archivos de R</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="practica-guiada.html"><a href="practica-guiada.html"><i class="fa fa-check"></i><b>1.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="practica-guiada.html"><a href="practica-guiada.html#instalacion-de-paquetes-complementarios-al-r-base"><i class="fa fa-check"></i><b>1.2.1</b> Instalación de paquetes complementarios al R Base</a></li>
+<li class="chapter" data-level="1.2.2" data-path="practica-guiada.html"><a href="practica-guiada.html#lectura-y-escritura-de-archivos"><i class="fa fa-check"></i><b>1.2.2</b> Lectura y escritura de archivos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>2</b> Tidyverse</a><ul>
+<li class="chapter" data-level="2.1" data-path="explicacion-1.html"><a href="explicacion-1.html"><i class="fa fa-check"></i><b>2.1</b> Explicación</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="explicacion-1.html"><a href="explicacion-1.html#dplyr"><i class="fa fa-check"></i><b>2.1.1</b> Dplyr</a></li>
+<li class="chapter" data-level="2.1.2" data-path="explicacion-1.html"><a href="explicacion-1.html#joins"><i class="fa fa-check"></i><b>2.1.2</b> Joins</a></li>
+<li class="chapter" data-level="2.1.3" data-path="explicacion-1.html"><a href="explicacion-1.html#tidyr"><i class="fa fa-check"></i><b>2.1.3</b> Tidyr</a></li>
+<li class="chapter" data-level="2.1.4" data-path="explicacion-1.html"><a href="explicacion-1.html#lubridate"><i class="fa fa-check"></i><b>2.1.4</b> Lubridate</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html"><i class="fa fa-check"></i><b>2.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-1"><i class="fa fa-check"></i><b>2.2.1</b> Ejemplo 1</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-2"><i class="fa fa-check"></i><b>2.2.2</b> Ejemplo 2</a></li>
+<li class="chapter" data-level="2.2.3" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-3"><i class="fa fa-check"></i><b>2.2.3</b> Ejemplo 3</a></li>
+<li class="chapter" data-level="2.2.4" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-4"><i class="fa fa-check"></i><b>2.2.4</b> Ejemplo 4</a></li>
+<li class="chapter" data-level="2.2.5" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-5"><i class="fa fa-check"></i><b>2.2.5</b> Ejemplo 5</a></li>
+<li class="chapter" data-level="2.2.6" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#ejemplo-6"><i class="fa fa-check"></i><b>2.2.6</b> Ejemplo 6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="programacion-funcional.html"><a href="programacion-funcional.html"><i class="fa fa-check"></i><b>3</b> Programacion Funcional</a><ul>
+<li class="chapter" data-level="3.1" data-path="explicacion-2.html"><a href="explicacion-2.html"><i class="fa fa-check"></i><b>3.1</b> Explicación</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="explicacion-2.html"><a href="explicacion-2.html#loops"><i class="fa fa-check"></i><b>3.1.1</b> Loops</a></li>
+<li class="chapter" data-level="3.1.2" data-path="explicacion-2.html"><a href="explicacion-2.html#estructuras-condicionales"><i class="fa fa-check"></i><b>3.1.2</b> Estructuras Condicionales</a></li>
+<li class="chapter" data-level="3.1.3" data-path="explicacion-2.html"><a href="explicacion-2.html#funciones-1"><i class="fa fa-check"></i><b>3.1.3</b> Funciones</a></li>
+<li class="chapter" data-level="3.1.4" data-path="explicacion-2.html"><a href="explicacion-2.html#purrr"><i class="fa fa-check"></i><b>3.1.4</b> PURRR</a></li>
+<li class="chapter" data-level="3.1.5" data-path="explicacion-2.html"><a href="explicacion-2.html#funciones-implicitas"><i class="fa fa-check"></i><b>3.1.5</b> Funciones implícitas</a></li>
+<li class="chapter" data-level="3.1.6" data-path="explicacion-2.html"><a href="explicacion-2.html#funciones-lambda"><i class="fa fa-check"></i><b>3.1.6</b> Funciones lambda</a></li>
+<li class="chapter" data-level="3.1.7" data-path="explicacion-2.html"><a href="explicacion-2.html#walk"><i class="fa fa-check"></i><b>3.1.7</b> Walk</a></li>
+<li class="chapter" data-level="3.1.8" data-path="explicacion-2.html"><a href="explicacion-2.html#cuando-usar-estas-herramientas"><i class="fa fa-check"></i><b>3.1.8</b> Cuando usar estas herramientas?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html"><i class="fa fa-check"></i><b>3.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#ejemplo-1-iterando-en-la-eph"><i class="fa fa-check"></i><b>3.2.1</b> Ejemplo 1: Iterando en la EPH</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#ejemplo-2.-regresion-lineal"><i class="fa fa-check"></i><b>3.2.2</b> Ejemplo 2. Regresión lineal</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#ejemplo-3-graficos-en-serie"><i class="fa fa-check"></i><b>3.2.3</b> Ejemplo 3: Gráficos en serie</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizacion-de-la-informacion.html"><a href="visualizacion-de-la-informacion.html"><i class="fa fa-check"></i><b>4</b> Visualización de la información</a><ul>
+<li class="chapter" data-level="4.1" data-path="explicacion-3.html"><a href="explicacion-3.html"><i class="fa fa-check"></i><b>4.1</b> Explicación</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="explicacion-3.html"><a href="explicacion-3.html#graficos-basicos-en-r"><i class="fa fa-check"></i><b>4.1.1</b> Gráficos Básicos en R</a></li>
+<li class="chapter" data-level="4.1.2" data-path="explicacion-3.html"><a href="explicacion-3.html#ggplot2"><i class="fa fa-check"></i><b>4.1.2</b> <span>Ggplot2</span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="explicacion-3.html"><a href="explicacion-3.html#ejemplo-con-datos-reales"><i class="fa fa-check"></i><b>4.1.3</b> Ejemplo con datos reales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html"><i class="fa fa-check"></i><b>4.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html#caso-practico-graficos-de-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Caso práctico: Gráficos de ingresos - EPH</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="documentacion-en-r.html"><a href="documentacion-en-r.html"><i class="fa fa-check"></i><b>5</b> Documentación en R</a><ul>
+<li class="chapter" data-level="5.1" data-path="explicacion-4.html"><a href="explicacion-4.html"><i class="fa fa-check"></i><b>5.1</b> Explicación</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="explicacion-4.html"><a href="explicacion-4.html#r-markdown-introduccion"><i class="fa fa-check"></i><b>5.1.1</b> R Markdown: Introducción</a></li>
+<li class="chapter" data-level="5.1.2" data-path="explicacion-4.html"><a href="explicacion-4.html#requisitos"><i class="fa fa-check"></i><b>5.1.2</b> Requisitos</a></li>
+<li class="chapter" data-level="5.1.3" data-path="explicacion-4.html"><a href="explicacion-4.html#markdown-basico"><i class="fa fa-check"></i><b>5.1.3</b> Markdown básico</a></li>
+<li class="chapter" data-level="5.1.4" data-path="explicacion-4.html"><a href="explicacion-4.html#formateo-de-texto"><i class="fa fa-check"></i><b>5.1.4</b> Formateo de texto</a></li>
+<li class="chapter" data-level="5.1.5" data-path="explicacion-4.html"><a href="explicacion-4.html#bloques-de-codigo"><i class="fa fa-check"></i><b>5.1.5</b> Bloques de código</a></li>
+<li class="chapter" data-level="5.1.6" data-path="explicacion-4.html"><a href="explicacion-4.html#opciones-en-los-bloques-de-codigo"><i class="fa fa-check"></i><b>5.1.6</b> Opciones en los bloques de código</a></li>
+<li class="chapter" data-level="5.1.7" data-path="explicacion-4.html"><a href="explicacion-4.html#tablas"><i class="fa fa-check"></i><b>5.1.7</b> Tablas</a></li>
+<li class="chapter" data-level="5.1.8" data-path="explicacion-4.html"><a href="explicacion-4.html#opciones-globales"><i class="fa fa-check"></i><b>5.1.8</b> Opciones globales</a></li>
+<li class="chapter" data-level="5.1.9" data-path="explicacion-4.html"><a href="explicacion-4.html#codigo-en-la-linea"><i class="fa fa-check"></i><b>5.1.9</b> Código en la línea</a></li>
+<li class="chapter" data-level="5.1.10" data-path="explicacion-4.html"><a href="explicacion-4.html#formatos"><i class="fa fa-check"></i><b>5.1.10</b> Formatos</a></li>
+<li class="chapter" data-level="5.1.11" data-path="explicacion-4.html"><a href="explicacion-4.html#otros-formatos"><i class="fa fa-check"></i><b>5.1.11</b> Otros formatos</a></li>
+<li class="chapter" data-level="5.1.12" data-path="explicacion-4.html"><a href="explicacion-4.html#notebooks"><i class="fa fa-check"></i><b>5.1.12</b> Notebooks</a></li>
+<li class="chapter" data-level="5.1.13" data-path="explicacion-4.html"><a href="explicacion-4.html#publicar"><i class="fa fa-check"></i><b>5.1.13</b> Publicar</a></li>
+<li class="chapter" data-level="5.1.14" data-path="explicacion-4.html"><a href="explicacion-4.html#flexdashboard"><i class="fa fa-check"></i><b>5.1.14</b> FlexDashboard</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="practica-guiada-4.html"><a href="practica-guiada-4.html"><i class="fa fa-check"></i><b>5.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="practica-guiada-4.html"><a href="practica-guiada-4.html#introduccion-1"><i class="fa fa-check"></i><b>5.2.1</b> Introducción</a></li>
+<li class="chapter" data-level="5.2.2" data-path="practica-guiada-4.html"><a href="practica-guiada-4.html#explorando-los-datos"><i class="fa fa-check"></i><b>5.2.2</b> Explorando los datos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="shiny-apps.html"><a href="shiny-apps.html"><i class="fa fa-check"></i><b>6</b> Shiny apps</a><ul>
+<li class="chapter" data-level="6.1" data-path="explicacion-5.html"><a href="explicacion-5.html"><i class="fa fa-check"></i><b>6.1</b> Explicación</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="explicacion-5.html"><a href="explicacion-5.html#que-es-un-shiny-app"><i class="fa fa-check"></i><b>6.1.1</b> ¿Qué es un shiny app?</a></li>
+<li class="chapter" data-level="6.1.2" data-path="explicacion-5.html"><a href="explicacion-5.html#galeria-de-ejemplos"><i class="fa fa-check"></i><b>6.1.2</b> Galería de ejemplos</a></li>
+<li class="chapter" data-level="6.1.3" data-path="explicacion-5.html"><a href="explicacion-5.html#componentes-fundamentales-de-un-shiny-app"><i class="fa fa-check"></i><b>6.1.3</b> Componentes fundamentales de un Shiny app</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html"><i class="fa fa-check"></i><b>6.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-2.-gapminder"><i class="fa fa-check"></i><b>6.2.1</b> Ejemplo 2. Gapminder</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="probabilidad-y-estadistica.html"><a href="probabilidad-y-estadistica.html"><i class="fa fa-check"></i><b>7</b> Probabilidad y Estadística</a><ul>
+<li class="chapter" data-level="7.1" data-path="explicacion-6.html"><a href="explicacion-6.html"><i class="fa fa-check"></i><b>7.1</b> Explicación</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="explicacion-6.html"><a href="explicacion-6.html#probabilidad"><i class="fa fa-check"></i><b>7.1.1</b> Probabilidad</a></li>
+<li class="chapter" data-level="7.1.2" data-path="explicacion-6.html"><a href="explicacion-6.html#estadistica"><i class="fa fa-check"></i><b>7.1.2</b> Estadística</a></li>
+<li class="chapter" data-level="7.1.3" data-path="explicacion-6.html"><a href="explicacion-6.html#algunos-estimadores-importantes"><i class="fa fa-check"></i><b>7.1.3</b> Algunos estimadores importantes</a></li>
+<li class="chapter" data-level="7.1.4" data-path="explicacion-6.html"><a href="explicacion-6.html#graficos-estadisticos"><i class="fa fa-check"></i><b>7.1.4</b> Gráficos estadísticos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="explicacion-6.html"><a href="explicacion-6.html#bibliografia-de-consulta-1"><i class="fa fa-check"></i><b>7.1.5</b> Bibliografía de consulta</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html"><i class="fa fa-check"></i><b>7.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#generacion-de-datos-aleatorios"><i class="fa fa-check"></i><b>7.2.1</b> Generación de datos aleatorios</a></li>
+<li class="chapter" data-level="7.2.2" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#tests"><i class="fa fa-check"></i><b>7.2.2</b> Tests</a></li>
+<li class="chapter" data-level="7.2.3" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#descripcion-estadistica-de-los-datos"><i class="fa fa-check"></i><b>7.2.3</b> Descripción estadística de los datos</a></li>
+<li class="chapter" data-level="7.2.4" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#graficos-estadisticos-1"><i class="fa fa-check"></i><b>7.2.4</b> Gráficos estadísticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelo-lineal.html"><a href="modelo-lineal.html"><i class="fa fa-check"></i><b>8</b> Modelo Lineal</a><ul>
+<li class="chapter" data-level="8.1" data-path="explicacion-7.html"><a href="explicacion-7.html"><i class="fa fa-check"></i><b>8.1</b> Explicación</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="explicacion-7.html"><a href="explicacion-7.html#covarianza-y-correlacion."><i class="fa fa-check"></i><b>8.1.1</b> Covarianza y Correlación.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="explicacion-7.html"><a href="explicacion-7.html#modelo-lineal-1"><i class="fa fa-check"></i><b>8.1.2</b> Modelo Lineal</a></li>
+<li class="chapter" data-level="8.1.3" data-path="explicacion-7.html"><a href="explicacion-7.html#regresion-lineal-multiple"><i class="fa fa-check"></i><b>8.1.3</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
+<li class="chapter" data-level="9.1" data-path="explicacion-8.html"><a href="explicacion-8.html"><i class="fa fa-check"></i><b>9.1</b> Explicación</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="explicacion-8.html"><a href="explicacion-8.html#poblacion-y-muestra-1"><i class="fa fa-check"></i><b>9.1.1</b> Población y muestra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="explicacion-8.html"><a href="explicacion-8.html#tipos-de-muestra"><i class="fa fa-check"></i><b>9.1.2</b> Tipos de muestra</a></li>
+<li class="chapter" data-level="9.1.3" data-path="explicacion-8.html"><a href="explicacion-8.html#el-cuestionario"><i class="fa fa-check"></i><b>9.1.3</b> El cuestionario</a></li>
+<li class="chapter" data-level="9.1.4" data-path="explicacion-8.html"><a href="explicacion-8.html#sesgos"><i class="fa fa-check"></i><b>9.1.4</b> Sesgos</a></li>
+<li class="chapter" data-level="9.1.5" data-path="explicacion-8.html"><a href="explicacion-8.html#no-respuesta"><i class="fa fa-check"></i><b>9.1.5</b> No respuesta</a></li>
+<li class="chapter" data-level="9.1.6" data-path="explicacion-8.html"><a href="explicacion-8.html#ponderadores-expansores"><i class="fa fa-check"></i><b>9.1.6</b> Ponderadores / Expansores</a></li>
+<li class="chapter" data-level="9.1.7" data-path="explicacion-8.html"><a href="explicacion-8.html#ejemplos"><i class="fa fa-check"></i><b>9.1.7</b> Ejemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><a href="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires.html"><i class="fa fa-check"></i><b>9.2</b> Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</a></li>
+<li class="chapter" data-level="9.3" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html"><i class="fa fa-check"></i><b>9.3</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#encuesta-permanente-de-hogares-1"><i class="fa fa-check"></i><b>9.3.1</b> Encuesta Permanente de Hogares</a></li>
+<li class="chapter" data-level="9.3.2" data-path="practica-guiada-8.html"><a href="practica-guiada-8.html#ejemplo-de-utilizacion-de-la-encuesta"><i class="fa fa-check"></i><b>9.3.2</b> Ejemplo de utilización de la encuesta</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="mineria-de-textos.html"><a href="mineria-de-textos.html"><i class="fa fa-check"></i><b>10</b> Minería de Textos</a><ul>
+<li class="chapter" data-level="10.1" data-path="explicacion-9.html"><a href="explicacion-9.html"><i class="fa fa-check"></i><b>10.1</b> Explicación</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="explicacion-9.html"><a href="explicacion-9.html#introduccion-2"><i class="fa fa-check"></i><b>10.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.1.2" data-path="explicacion-9.html"><a href="explicacion-9.html#bag-of-words"><i class="fa fa-check"></i><b>10.1.2</b> Bag of Words</a></li>
+<li class="chapter" data-level="10.1.3" data-path="explicacion-9.html"><a href="explicacion-9.html#normalizacion"><i class="fa fa-check"></i><b>10.1.3</b> Normalización</a></li>
+<li class="chapter" data-level="10.1.4" data-path="explicacion-9.html"><a href="explicacion-9.html#expresiones-regulares."><i class="fa fa-check"></i><b>10.1.4</b> <span>Expresiones regulares.</span></a></li>
+<li class="chapter" data-level="10.1.5" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-palabras"><i class="fa fa-check"></i><b>10.1.5</b> Distancia de palabras</a></li>
+<li class="chapter" data-level="10.1.6" data-path="explicacion-9.html"><a href="explicacion-9.html#distancia-de-documentos"><i class="fa fa-check"></i><b>10.1.6</b> Distancia de Documentos</a></li>
+<li class="chapter" data-level="10.1.7" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modelling"><i class="fa fa-check"></i><b>10.1.7</b> Topic Modelling</a></li>
+<li class="chapter" data-level="10.1.8" data-path="explicacion-9.html"><a href="explicacion-9.html#descargas-de-tweets-con-rtweet"><i class="fa fa-check"></i><b>10.1.8</b> Descargas de tweets con <code>rtweet</code></a></li>
+<li class="chapter" data-level="10.1.9" data-path="explicacion-9.html"><a href="explicacion-9.html#armado-del-corpus-con-tm"><i class="fa fa-check"></i><b>10.1.9</b> Armado del corpus con <code>tm</code></a></li>
+<li class="chapter" data-level="10.1.10" data-path="explicacion-9.html"><a href="explicacion-9.html#limpieza-del-corpus"><i class="fa fa-check"></i><b>10.1.10</b> Limpieza del Corpus</a></li>
+<li class="chapter" data-level="10.1.11" data-path="explicacion-9.html"><a href="explicacion-9.html#topic-modeling"><i class="fa fa-check"></i><b>10.1.11</b> Topic Modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>11</b> Mapas</a><ul>
+<li class="chapter" data-level="11.1" data-path="explicacion-10.html"><a href="explicacion-10.html"><i class="fa fa-check"></i><b>11.1</b> Explicación</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="explicacion-10.html"><a href="explicacion-10.html#datos-georreferenciados"><i class="fa fa-check"></i><b>11.1.1</b> Datos georreferenciados</a></li>
+<li class="chapter" data-level="11.1.2" data-path="explicacion-10.html"><a href="explicacion-10.html#proyecciones-y-distorsiones"><i class="fa fa-check"></i><b>11.1.2</b> Proyecciones y distorsiones</a></li>
+<li class="chapter" data-level="11.1.3" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-datos-espaciales"><i class="fa fa-check"></i><b>11.1.3</b> Tipos de datos espaciales</a></li>
+<li class="chapter" data-level="11.1.4" data-path="explicacion-10.html"><a href="explicacion-10.html#paquete-sf"><i class="fa fa-check"></i><b>11.1.4</b> Paquete sf</a></li>
+<li class="chapter" data-level="11.1.5" data-path="explicacion-10.html"><a href="explicacion-10.html#tipos-de-archivo"><i class="fa fa-check"></i><b>11.1.5</b> Tipos de archivo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html"><i class="fa fa-check"></i><b>11.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#representacion-de-la-informacion-en-mapas"><i class="fa fa-check"></i><b>11.2.1</b> Representación de la información en mapas</a></li>
+<li class="chapter" data-level="11.2.2" data-path="practica-guiada-9.html"><a href="practica-guiada-9.html#mapeo-de-palos-borrachos-rosados-en-buenos-aires"><i class="fa fa-check"></i><b>11.2.2</b> Mapeo de Palos borrachos rosados en Buenos Aires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mapa-de-data-science.html"><a href="mapa-de-data-science.html"><i class="fa fa-check"></i><b>12</b> Mapa de Data Science</a></li>
+<li class="chapter" data-level="13" data-path="tecnicas.html"><a href="tecnicas.html"><i class="fa fa-check"></i><b>13</b> Técnicas</a><ul>
+<li class="chapter" data-level="13.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html"><i class="fa fa-check"></i><b>13.1</b> Según tipo de aprendizaje:</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>13.1.1</b> Aprendizaje Supervisado:</a></li>
+<li class="chapter" data-level="13.1.2" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>13.1.2</b> Aprendizaje No supervisado:</a></li>
+<li class="chapter" data-level="13.1.3" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#aprendizaje-semi-supervisado"><i class="fa fa-check"></i><b>13.1.3</b> <span>Aprendizaje Semi-supervisado</span></a></li>
+<li class="chapter" data-level="13.1.4" data-path="segun-tipo-de-aprendizaje.html"><a href="segun-tipo-de-aprendizaje.html#modelos-generativos"><i class="fa fa-check"></i><b>13.1.4</b> <span>Modelos generativos</span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html"><i class="fa fa-check"></i><b>13.2</b> Según el tipo de datos:</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-estructurados"><i class="fa fa-check"></i><b>13.2.1</b> Datos estructurados:</a></li>
+<li class="chapter" data-level="13.2.2" data-path="segun-el-tipo-de-datos.html"><a href="segun-el-tipo-de-datos.html#datos-no-estructurados"><i class="fa fa-check"></i><b>13.2.2</b> Datos no estructurados:</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="desde-el-punto-de-vista-del-remuestreo.html"><a href="desde-el-punto-de-vista-del-remuestreo.html"><i class="fa fa-check"></i><b>13.3</b> Desde el punto de vista del remuestreo:</a></li>
+<li class="chapter" data-level="13.4" data-path="desde-el-punto-de-vista-de-la-optimizacion.html"><a href="desde-el-punto-de-vista-de-la-optimizacion.html"><i class="fa fa-check"></i><b>13.4</b> Desde el punto de vista de la optimización:</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="flujo-de-trabajo.html"><a href="flujo-de-trabajo.html"><i class="fa fa-check"></i><b>14</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="15" data-path="meta-flujo-de-trabajo.html"><a href="meta-flujo-de-trabajo.html"><i class="fa fa-check"></i><b>15</b> Meta flujo de trabajo</a></li>
+<li class="chapter" data-level="16" data-path="otros-temas.html"><a href="otros-temas.html"><i class="fa fa-check"></i><b>16</b> Otros temas</a></li>
+<li class="chapter" data-level="17" data-path="implementaciones.html"><a href="implementaciones.html"><i class="fa fa-check"></i><b>17</b> Implementaciones:</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/DiegoKoz/intro_ds" target="blank">Repositorio en github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de clase del curso de introducción a Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practica-guiada-9" class="section level2">
+<h2><span class="header-section-number">11.2</span> Práctica Guiada</h2>
+<p>Cargamos las librerías. En esta ocasión usaremos por primera vez el paquete <code>sf</code>.</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb478-2" data-line-number="2"><span class="kw">library</span>(ggthemes)</a>
+<a class="sourceLine" id="cb478-3" data-line-number="3"><span class="kw">library</span>(sf)</a></code></pre></div>
+<div id="representacion-de-la-informacion-en-mapas" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Representación de la información en mapas</h3>
+<p>Trabajaremos con datos del portal de datos abiertos de la Ciudad de Buenos Aires. En este caso, usamos los radios censales de la ciudad y los hemos descargado de <a href="https://bitsandbricks.github.io/data/CABA_rc.geojson" class="uri">https://bitsandbricks.github.io/data/CABA_rc.geojson</a>.</p>
+<p>La función <code>st_read</code> nos permite levantar un archivo de tipo <em>.geojson</em>. (también permite cargar otros con capas, pero no lo veremos en esta ocasión).</p>
+<p>Vemos que el mismo cuenta con 3.554 <em>features</em> y 8 campos.<br />
+<code>epsg (SRID): 4326</code> y <code>proj4string: +proj=longlat +datum=WGS84 +no_defs</code> refieren a que nuestros datos usan el sistema de coordenadas WGS84, también conocido por su código EPSG 4326 . Es el mismo que usan los sistemas GPS, Google Maps, y las aplicaciones de internet en general.</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1">radios &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;fuentes/CABA_rc.geojson&quot;</span>)</a></code></pre></div>
+<pre><code>## Reading layer `CABA_rc&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/CABA_rc.geojson&#39; using driver `GeoJSON&#39;
+## Simple feature collection with 3554 features and 8 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -58.53092 ymin: -34.70574 xmax: -58.33455 ymax: -34.528
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
+<p>Como los 8 campos son equivalentes a columnas/variables, podemos pedir un summary de la información contenida en <code>radios</code>.</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">summary</span>(radios)</a></code></pre></div>
+<pre><code>##     RADIO_ID          BARRIO         COMUNA       POBLACION     
+##  1_1_1  :   1   PALERMO  : 295   1      : 329   Min.   :   0.0  
+##  1_10_1 :   1   CABALLITO: 215   13     : 305   1st Qu.: 646.2  
+##  1_10_10:   1   RECOLETA : 198   14     : 295   Median : 786.0  
+##  1_10_11:   1   BALVANERA: 191   3      : 254   Mean   : 813.2  
+##  1_10_12:   1   FLORES   : 183   4      : 252   3rd Qu.: 928.0  
+##  1_10_13:   1   BELGRANO : 170   7      : 250   Max.   :3945.0  
+##  (Other):3548   (Other)  :2302   (Other):1869                   
+##    VIVIENDAS         HOGARES        HOGARES_NBI        AREA_KM2       
+##  Min.   :   0.0   Min.   :   0.0   Min.   :  0.00   Min.   :0.004468  
+##  1st Qu.: 311.2   1st Qu.: 259.0   1st Qu.:  2.00   1st Qu.:0.018626  
+##  Median : 377.0   Median : 310.0   Median :  6.00   Median :0.035548  
+##  Mean   : 401.4   Mean   : 323.6   Mean   : 19.35   Mean   :0.057350  
+##  3rd Qu.: 462.0   3rd Qu.: 371.0   3rd Qu.: 23.00   3rd Qu.:0.062847  
+##  Max.   :1405.0   Max.   :1093.0   Max.   :403.00   Max.   :3.804422  
+##                                                                       
+##           geometry   
+##  MULTIPOLYGON :3554  
+##  epsg:4326    :   0  
+##  +proj=long...:   0  
+##                      
+##                      
+##                      
+## </code></pre>
+<p>A la hora de graficar, podemos representar la información utilizando la combinación del famoso <code>ggplot()</code> en conjunto con <code>geom_sf</code>, que identifica la variable con la geometría y la grafica.</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> radios)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-260-1.png" width="1440" /></p>
+<p>Podemos colorear los radios censales de acuerdo a la cantidad de viviendas que hay en cada una de ellas, convocando a la variable en el parámetro de relleno. A su vez, podemos “jugar” con el color y ancho de los bordes.</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb484-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>() </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-261-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb485-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-261-2.png" width="1440" /></p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb486-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size=</span>.<span class="dv">1</span>) </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-261-3.png" width="1440" /></p>
+<p>O bien podemos omitir los bordes.</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb487-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-262-1.png" width="1440" /></p>
+<p>También podemos usar el campo del relleno para realizar una transformación de los datos. Por ejemplo, podemos calcular la densidad de la población utilizando los datos de <code>POBLACION</code> y <code>AREA_KM2</code>. Aprovechamos para mejorar otras cuestiones estéticas 🌈</p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb488-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb488-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_fill_viridis_c</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb488-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
+<a class="sourceLine" id="cb488-5" data-line-number="5"><span class="st">         subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb488-6" data-line-number="6"><span class="st">         fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;) +</span></a>
+<a class="sourceLine" id="cb488-7" data-line-number="7"><span class="st">  theme_void()</span></a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-263-1.png" width="1440" /></p>
+<p>También podemos rellenar de acuerdo a la variable <code>BARRIO</code>, que es una forma de graficar agregados. De todas formas, luego veremos como agruparlos con <code>group_by</code>.</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> BARRIO)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb489-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb489-3" data-line-number="3"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-264-1.png" width="1440" /></p>
+<p>También podemos representar rápidamente la información de alguna de las variables realizando un <code>select()</code> de la misma y la geometría, y pidiendo un <code>plot()</code> (el parámetro <code>lwd</code> define el ancho de las líneas de cada geometría, en este caso, los radios censales). En términos visuales, es como haber agregado por <code>BARRIO</code> la información, no?</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1">radios <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb490-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(BARRIO, geometry) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb490-3" data-line-number="3"><span class="st">  </span><span class="kw">plot</span>(<span class="dt">lwd=</span><span class="fl">0.06</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-265-1.png" width="1440" /></p>
+<div id="agrupando-poligonos" class="section level4">
+<h4><span class="header-section-number">11.2.1.1</span> Agrupando polígonos</h4>
+<p>Sin embargo, si lo que queremos es reconstruir los polígonos de los barrios, sólo necesitamos hacer un <code>group_by</code> y un <code>summarise</code>, y automáticamente en la columna <code>geometry</code> se crea el polígono combinado. Además, podemos hacer una agregación de las demás variables.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1"><span class="kw">glimpse</span>(radios)</a></code></pre></div>
+<pre><code>## Observations: 3,554
+## Variables: 9
+## $ RADIO_ID    &lt;fct&gt; 1_1_1, 1_12_1, 1_12_10, 1_12_11, 1_12_2, 1_12_3, 1_1…
+## $ BARRIO      &lt;fct&gt; RETIRO, SAN NICOLAS, SAN NICOLAS, SAN NICOLAS, SAN N…
+## $ COMUNA      &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ POBLACION   &lt;dbl&gt; 336, 341, 296, 528, 229, 723, 393, 600, 472, 786, 32…
+## $ VIVIENDAS   &lt;dbl&gt; 82, 365, 629, 375, 445, 744, 341, 505, 504, 546, 275…
+## $ HOGARES     &lt;dbl&gt; 65, 116, 101, 136, 129, 314, 209, 275, 202, 347, 129…
+## $ HOGARES_NBI &lt;dbl&gt; 19, 25, 1, 7, 16, 104, 110, 32, 49, 89, 15, 57, 1, 1…
+## $ AREA_KM2    &lt;dbl&gt; 1.79899705, 0.01856469, 0.04438025, 0.36634000, 0.01…
+## $ geometry    &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-58.37189 -..., MULTIPO…</code></pre>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1">barrios_geo &lt;-<span class="st"> </span>radios <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-3" data-line-number="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">POBLACION =</span> <span class="kw">sum</span>(POBLACION),</a>
+<a class="sourceLine" id="cb493-4" data-line-number="4">              <span class="dt">VIVIENDAS =</span> <span class="kw">sum</span>(VIVIENDAS),</a>
+<a class="sourceLine" id="cb493-5" data-line-number="5">              <span class="dt">HOGARES =</span> <span class="kw">sum</span>(HOGARES),</a>
+<a class="sourceLine" id="cb493-6" data-line-number="6">              <span class="dt">HOGARES_NBI =</span> <span class="kw">sum</span>(HOGARES_NBI),</a>
+<a class="sourceLine" id="cb493-7" data-line-number="7">              <span class="dt">AREA_KM2 =</span> <span class="kw">sum</span>(AREA_KM2))</a>
+<a class="sourceLine" id="cb493-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb493-9" data-line-number="9"><span class="kw">glimpse</span>(barrios_geo)</a></code></pre></div>
+<pre><code>## Observations: 48
+## Variables: 7
+## $ BARRIO      &lt;fct&gt; AGRONOMIA, ALMAGRO, BALVANERA, BARRACAS, BELGRANO, B…
+## $ POBLACION   &lt;dbl&gt; 13912, 131699, 138926, 89452, 126267, 45113, 47306, …
+## $ VIVIENDAS   &lt;dbl&gt; 6262, 71216, 77981, 33058, 71363, 18133, 21687, 9348…
+## $ HOGARES     &lt;dbl&gt; 5284, 58327, 60387, 31249, 54666, 16287, 18519, 7518…
+## $ HOGARES_NBI &lt;dbl&gt; 70, 3404, 7122, 3850, 542, 3460, 1248, 1656, 785, 10…
+## $ AREA_KM2    &lt;dbl&gt; 2.122096, 4.050120, 4.342357, 7.956272, 7.729648, 5.…
+## $ geometry    &lt;GEOMETRY [°]&gt; POLYGON ((-58.48244 -34.598..., POLYGON ((-…</code></pre>
+<p>Si pedimos un <code>plot()</code> del objeto, nos devuelve la representación geográfica con los datos de cada una de las variables.</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1"><span class="kw">plot</span>(barrios_geo)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-268-1.png" width="1440" /></p>
+<p>Si deseamos agregar otra capa al gráfico que incluya texto o etiquetas de los datos, contamos con <code>geom_sf_text()</code>, en la cual podemos también solicitar que se etiqueten sólo aquellos datos que cumplen con alguna condición.</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb496-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb496-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf_text</span>(<span class="dt">data =</span> barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb496-4" data-line-number="4"><span class="st">                   </span><span class="kw">filter</span>(POBLACION<span class="op">/</span>AREA_KM2<span class="op">&gt;</span><span class="dv">25000</span>), </a>
+<a class="sourceLine" id="cb496-5" data-line-number="5">                 <span class="kw">aes</span>(<span class="dt">label =</span> BARRIO), <span class="dt">size=</span><span class="dv">3</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb496-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb496-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>(<span class="dt">option =</span> <span class="st">&#39;C&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb496-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
+<a class="sourceLine" id="cb496-9" data-line-number="9"><span class="st">        subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb496-10" data-line-number="10"><span class="st">        fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;)+</span></a>
+<a class="sourceLine" id="cb496-11" data-line-number="11"><span class="st">  theme_void()</span></a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-269-1.png" width="960" /></p>
+</div>
+<div id="volcando-en-el-mapa-informacion-de-multiples-fuentes-subtes" class="section level4">
+<h4><span class="header-section-number">11.2.1.2</span> Volcando en el mapa información de múltiples fuentes: Subtes</h4>
+<p>Ahora utilizaremos la información de líneas y estaciones de subte. Hemos descargado los .geojson de <a href="http://bitsandbricks.github.io/data/subte_lineas.geojson" class="uri">http://bitsandbricks.github.io/data/subte_lineas.geojson</a> y <a href="http://bitsandbricks.github.io/data/subte_estaciones.geojson" class="uri">http://bitsandbricks.github.io/data/subte_estaciones.geojson</a>.</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1">subte_lineas &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_lineas.geojson&#39;</span>)</a></code></pre></div>
+<pre><code>## Reading layer `subte_lineas&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/subte_lineas.geojson&#39; using driver `GeoJSON&#39;
+## Simple feature collection with 80 features and 2 fields
+## geometry type:  MULTILINESTRING
+## dimension:      XY
+## bbox:           xmin: -58.48639 ymin: -34.64331 xmax: -58.36993 ymax: -34.55564
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1"><span class="kw">glimpse</span>(subte_lineas)</a></code></pre></div>
+<pre><code>## Observations: 80
+## Variables: 3
+## $ ID       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ LINEASUB &lt;fct&gt; LINEA D, LINEA D, LINEA D, LINEA D, LINEA D, LINEA D, L…
+## $ geometry &lt;MULTILINESTRING [°]&gt; MULTILINESTRING ((-58.45213..., MULTILI…</code></pre>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1">subte_estaciones &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_estaciones.geojson&#39;</span>)</a></code></pre></div>
+<pre><code>## Reading layer `subte_estaciones&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/subte_estaciones.geojson&#39; using driver `GeoJSON&#39;
+## Simple feature collection with 86 features and 3 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -58.48639 ymin: -34.64331 xmax: -58.36993 ymax: -34.55564
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">glimpse</span>(subte_estaciones)</a></code></pre></div>
+<pre><code>## Observations: 86
+## Variables: 4
+## $ ID       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ ESTACION &lt;fct&gt; CASEROS, INCLAN, HUMBERTO 1�, VENEZUELA, ONCE - 30 DE D…
+## $ LINEA    &lt;fct&gt; H, H, H, H, H, D, D, D, D, D, D, D, C, C, C, C, C, C, C…
+## $ geometry &lt;POINT [°]&gt; POINT (-58.39893 -34.63575), POINT (-58.40097 -34…</code></pre>
+<p>Con <code>geom_sf</code> agregamos diferentes capas de información geográfica:</p>
+<ul>
+<li>los barrios: coloreados según su proporción de hogares con necesidades básicas insatisfechas, sin color de borde.</li>
+<li>las líneas de subte: líneas en amarillo</li>
+<li>las estaciones de subte: puntos en naranja</li>
+</ul>
+<p>Alguna reflexión sobre los resultados?</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb505-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> HOGARES_NBI<span class="op">/</span>HOGARES), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb505-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_lineas, <span class="dt">color =</span> <span class="st">&quot;yellow&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb505-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_estaciones, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb505-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb505-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb505-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Sistema de transporte subterráneo (SUBTE)&quot;</span>,</a>
+<a class="sourceLine" id="cb505-8" data-line-number="8">         <span class="dt">subtitle =</span> <span class="st">&quot;Ciudad de Buenos Aires&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+</div>
+</div>
+<div id="mapeo-de-palos-borrachos-rosados-en-buenos-aires" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Mapeo de Palos borrachos rosados en Buenos Aires</h3>
+<p><img src="img/Palo%20borracho%20rosado.jpg" width="500" /></p>
+<p>Ahora utilizaremos información del portal de datos abiertos de la Ciudad de Buenos Aires sobre arbolado. Nos hemos quedado con una selección de dicha base de datos, conservando sólo a los árboles de tipo “palo borracho rosado”.</p>
+<p>Notemos que en este caso la información está en formato .rds, es un dataframe donde los ejemplares están georreferenciados con variables long-lat, no hay una geometría como en los casos anteriores.</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;fuentes/arbolado_palo_borracho.rds&#39;</span>)</a>
+<a class="sourceLine" id="cb506-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb506-3" data-line-number="3">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb506-4" data-line-number="4"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 20
+##     long   lat tipo_sitio id_arbol altura_tot diametro inclinacio
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+##  1 -58.5 -34.6 Árbol        2.90e7          8       38          0
+##  2 -58.4 -34.7 Árbol        3.40e7          8       34          0
+##  3 -58.5 -34.6 Árbol        4.01e7          6       42          0
+##  4 -58.5 -34.6 Árbol        4.10e6          9       82          0
+##  5 -58.5 -34.5 Árbol        2.61e7         10       35          0
+##  6 -58.5 -34.7 Árbol        2.19e8          3        8          0
+##  7 -58.5 -34.6 Árbol        2.90e7         11       68          0
+##  8 -58.4 -34.6 Árbol        1.20e5          4       42          0
+##  9 -58.4 -34.6 Árbol        1.26e5         15       39          0
+## 10 -58.4 -34.6 Árbol        6.51e4          2       10          0
+## # … with 13 more variables: id_especie &lt;dbl&gt;, nombre_fam &lt;chr&gt;,
+## #   nombre_gen &lt;chr&gt;, nombre_cie &lt;chr&gt;, nombre_com &lt;chr&gt;,
+## #   tipo_folla &lt;chr&gt;, origen &lt;chr&gt;, codigo_man &lt;chr&gt;, barrio &lt;chr&gt;,
+## #   comuna &lt;dbl&gt;, calle &lt;chr&gt;, chapa1 &lt;dbl&gt;, chapa2 &lt;dbl&gt;</code></pre>
+<div id="transformacion-de-datos-tabulados-a-datos-sf" class="section level4">
+<h4><span class="header-section-number">11.2.2.1</span> Transformación de datos tabulados a datos sf</h4>
+<p>Para transformar los datos a tipo <code>sf</code>, tenemos la función <code>st_as_sf()</code>, a la cual le indicamos en el parámetro <code>coords</code> las variables que contienen las coordenadas. Con la función <code>st_set_crs()</code> podemos indicar el sistema de coordenadas de referencia.</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(palos_borrachos, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&#39;long&#39;</span>,<span class="st">&#39;lat&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb508-2" data-line-number="2"><span class="st">    </span><span class="kw">st_set_crs</span>(<span class="dv">4326</span>)</a>
+<a class="sourceLine" id="cb508-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb508-4" data-line-number="4"><span class="kw">glimpse</span>(palos_borrachos)</a></code></pre></div>
+<pre><code>## Observations: 1,750
+## Variables: 19
+## $ tipo_sitio &lt;chr&gt; &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;,…
+## $ id_arbol   &lt;dbl&gt; 2836, 3009, 3156, 3615, 3619, 4017, 4018, 4307, 4594,…
+## $ altura_tot &lt;dbl&gt; 2, 9, 11, 3, 10, 19, 24, 11, 8, 8, 6, 10, 7, 10, 10, …
+## $ diametro   &lt;dbl&gt; 4, 60, 40, 10, 23, 75, 75, 50, 35, 70, 34, 65, 45, 60…
+## $ inclinacio &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 27, 0…
+## $ id_especie &lt;dbl&gt; 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 2…
+## $ nombre_fam &lt;chr&gt; &quot;Bombacáceas&quot;, &quot;Bombacáceas&quot;, &quot;Bombacáceas&quot;, &quot;Bombacá…
+## $ nombre_gen &lt;chr&gt; &quot;Ceiba&quot;, &quot;Ceiba&quot;, &quot;Ceiba&quot;, &quot;Ceiba&quot;, &quot;Ceiba&quot;, &quot;Ceiba&quot;,…
+## $ nombre_cie &lt;chr&gt; &quot;Ceiba speciosa&quot;, &quot;Ceiba speciosa&quot;, &quot;Ceiba speciosa&quot;,…
+## $ nombre_com &lt;chr&gt; &quot;Palo borracho rosado&quot;, &quot;Palo borracho rosado&quot;, &quot;Palo…
+## $ tipo_folla &lt;chr&gt; &quot;Árbol Latifoliado Caducifolio&quot;, &quot;Árbol Latifoliado C…
+## $ origen     &lt;chr&gt; &quot;Nativo/Autóctono&quot;, &quot;Nativo/Autóctono&quot;, &quot;Nativo/Autóc…
+## $ codigo_man &lt;chr&gt; &quot;12-017&quot;, &quot;05-008&quot;, &quot;11-002&quot;, &quot;11-021&quot;, &quot;11-021&quot;, &quot;11…
+## $ barrio     &lt;chr&gt; &quot;MONSERRAT&quot;, &quot;SAN NICOLAS&quot;, &quot;RECOLETA&quot;, &quot;RECOLETA&quot;, &quot;…
+## $ comuna     &lt;dbl&gt; 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+## $ calle      &lt;chr&gt; &quot;Mexico&quot;, &quot;Cordoba Av.&quot;, &quot;Larrea&quot;, &quot;Pacheco De Melo, …
+## $ chapa1     &lt;dbl&gt; 1558, 0, 942, 0, 2256, 1614, 1614, 1695, 0, 0, 1815, …
+## $ chapa2     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ geometry   &lt;POINT [°]&gt; POINT (-58.38838 -34.61559), POINT (-58.39205 -…</code></pre>
+<p>Ahora podemos mapear los palos borrachos en los barrios de CABA que ya estuvimos trabajando!</p>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo) <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> palos_borrachos, <span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">size=</span>.<span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb510-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;localización de los palos borrachos de Buenos Aires&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb510-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_void</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb510-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+</div>
+<div id="join-espacial" class="section level4">
+<h4><span class="header-section-number">11.2.2.2</span> Join espacial</h4>
+<p>Ahora probemos la forma de unir la información contenida en <code>palos_borrachos</code> con la de <code>barrios_geo</code>. Para eso usamos <code>st_join()</code>, pero… en qué orden deberíamos unirlos?</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb511-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(barrios_geo) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb511-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## Simple feature collection with 10 features and 24 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -58.52215 ymin: -34.6865 xmax: -58.37308 ymax: -34.54222
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs
+## # A tibble: 10 x 25
+##    tipo_sitio id_arbol altura_tot diametro inclinacio id_especie nombre_fam
+##    &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     
+##  1 Árbol        4.10e7         12       78          0         25 Bombacáce…
+##  2 Árbol        1.60e7         10       70          0         25 Bombacáce…
+##  3 Árbol        8.41e4         12       60         15         25 Bombacáce…
+##  4 Árbol        1.10e8         11       28          0         25 Bombacáce…
+##  5 Árbol        1.40e7         10      106          0         25 Bombacáce…
+##  6 Árbol        1.70e7          6       36          0         25 Bombacáce…
+##  7 Árbol        2.00e7          8       22          0         25 Bombacáce…
+##  8 Árbol        1.80e7          7       28          0         25 Bombacáce…
+##  9 Árbol        4.00e6          7       22          0         25 Bombacáce…
+## 10 Árbol        4.01e7          8       51         10         25 Bombacáce…
+## # … with 18 more variables: nombre_gen &lt;chr&gt;, nombre_cie &lt;chr&gt;,
+## #   nombre_com &lt;chr&gt;, tipo_folla &lt;chr&gt;, origen &lt;chr&gt;, codigo_man &lt;chr&gt;,
+## #   barrio &lt;chr&gt;, comuna &lt;dbl&gt;, calle &lt;chr&gt;, chapa1 &lt;dbl&gt;, chapa2 &lt;dbl&gt;,
+## #   geometry &lt;POINT [°]&gt;, BARRIO &lt;fct&gt;, POBLACION &lt;dbl&gt;, VIVIENDAS &lt;dbl&gt;,
+## #   HOGARES &lt;dbl&gt;, HOGARES_NBI &lt;dbl&gt;, AREA_KM2 &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1">barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb513-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb513-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## Simple feature collection with 10 features and 24 fields
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: -58.52876 ymin: -34.69224 xmax: -58.35054 ymax: -34.54969
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs
+## # A tibble: 10 x 25
+##    BARRIO POBLACION VIVIENDAS HOGARES HOGARES_NBI AREA_KM2
+##    &lt;fct&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+##  1 VILLA…    126374     38915   39848        4150     9.29
+##  2 PALER…    226534    141710  103167        2425    16.0 
+##  3 RETIRO     65413     34363   24147        3104     4.53
+##  4 PARQU…     17489      7530    6466          85     1.38
+##  5 VILLA…    126374     38915   39848        4150     9.29
+##  6 VILLA…     21736      9757    8285         291     1.85
+##  7 VILLA…     66521     29002   24035         280     6.37
+##  8 PARQU…     17489      7530    6466          85     1.38
+##  9 VILLA…     32502     14141   12002         340     2.57
+## 10 FLORES    164310     65408   60248        6234     8.59
+## # … with 19 more variables: geometry &lt;POLYGON [°]&gt;, tipo_sitio &lt;chr&gt;,
+## #   id_arbol &lt;dbl&gt;, altura_tot &lt;dbl&gt;, diametro &lt;dbl&gt;, inclinacio &lt;dbl&gt;,
+## #   id_especie &lt;dbl&gt;, nombre_fam &lt;chr&gt;, nombre_gen &lt;chr&gt;,
+## #   nombre_cie &lt;chr&gt;, nombre_com &lt;chr&gt;, tipo_folla &lt;chr&gt;, origen &lt;chr&gt;,
+## #   codigo_man &lt;chr&gt;, barrio &lt;chr&gt;, comuna &lt;dbl&gt;, calle &lt;chr&gt;,
+## #   chapa1 &lt;dbl&gt;, chapa2 &lt;dbl&gt;</code></pre>
+<p>Si queremos visualizar la densidad de borrachos por barrio:</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1">palos_borrachos_barrio &lt;-<span class="st"> </span>barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb515-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos)</a>
+<a class="sourceLine" id="cb515-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb515-4" data-line-number="4">palos_borrachos_barrio <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb515-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb515-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">densidad=</span><span class="kw">n</span>()<span class="op">/</span><span class="kw">unique</span>(AREA_KM2)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb515-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>densidad, <span class="dt">label=</span>BARRIO))<span class="op">+</span></a>
+<a class="sourceLine" id="cb515-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_sf</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb515-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_sf_text</span>( <span class="dt">color=</span><span class="st">&#39;white&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb515-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_void</span>()</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-278-1.png" width="960" /></p>
+
+</div>
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="explicacion-10.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mapa-de-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
