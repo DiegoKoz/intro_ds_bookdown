@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -360,17 +364,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>También se conocen como Matrices Documento-Término o Término-Documento, según la orientación</p></li>
 </ul>
 <p><strong>Ejemplo</strong>: opiniones de trip advisor:</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb421-2" data-line-number="2"><span class="kw">library</span>(tm)</a>
-<a class="sourceLine" id="cb421-3" data-line-number="3">doc1=<span class="st">&#39;Lugar espectacular e inolvidable&#39;</span></a>
-<a class="sourceLine" id="cb421-4" data-line-number="4">doc2=<span class="st">&#39;Precioso lugar, la comida era espectacular, de 10, precioso!&#39;</span></a>
-<a class="sourceLine" id="cb421-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb421-6" data-line-number="6">texto &lt;-<span class="st"> </span><span class="kw">c</span>(doc1,doc2)</a>
-<a class="sourceLine" id="cb421-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb421-8" data-line-number="8">myCorpus =<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(texto))</a>
-<a class="sourceLine" id="cb421-9" data-line-number="9">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb421-10" data-line-number="10">m =<span class="st"> </span><span class="kw">as.matrix</span>(myDTM)</a>
-<a class="sourceLine" id="cb421-11" data-line-number="11">m</a></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="kw">library</span>(tm)</a>
+<a class="sourceLine" id="cb415-3" data-line-number="3">doc1=<span class="st">&#39;Lugar espectacular e inolvidable&#39;</span></a>
+<a class="sourceLine" id="cb415-4" data-line-number="4">doc2=<span class="st">&#39;Precioso lugar, la comida era espectacular, de 10, precioso!&#39;</span></a>
+<a class="sourceLine" id="cb415-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb415-6" data-line-number="6">texto &lt;-<span class="st"> </span><span class="kw">c</span>(doc1,doc2)</a>
+<a class="sourceLine" id="cb415-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb415-8" data-line-number="8">myCorpus =<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(texto))</a>
+<a class="sourceLine" id="cb415-9" data-line-number="9">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb415-10" data-line-number="10">m =<span class="st"> </span><span class="kw">as.matrix</span>(myDTM)</a>
+<a class="sourceLine" id="cb415-11" data-line-number="11">m</a></code></pre></div>
 <pre><code>##     Terms
 ## Docs 10, comida era espectacular espectacular, inolvidable lugar lugar,
 ##    1   0      0   0            1             0           1     1      0
@@ -403,19 +407,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p><strong>Ejemplo</strong>: Limpiando el texto:</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">doc1=<span class="st">&#39;Lugar espectacular e inolvidable&#39;</span></a>
-<a class="sourceLine" id="cb423-2" data-line-number="2">doc2=<span class="st">&#39;Precioso lugar, la comida era espectacular, de 10, precioso!&#39;</span></a>
-<a class="sourceLine" id="cb423-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb423-4" data-line-number="4">texto &lt;-<span class="st"> </span><span class="kw">c</span>(doc1,doc2)</a>
-<a class="sourceLine" id="cb423-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb423-6" data-line-number="6">myCorpus =<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(texto))</a>
-<a class="sourceLine" id="cb423-7" data-line-number="7">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(tolower))</a>
-<a class="sourceLine" id="cb423-8" data-line-number="8">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removePunctuation)</a>
-<a class="sourceLine" id="cb423-9" data-line-number="9">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeNumbers)</a>
-<a class="sourceLine" id="cb423-10" data-line-number="10">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;es&quot;</span>))</a>
-<a class="sourceLine" id="cb423-11" data-line-number="11">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb423-12" data-line-number="12">m =<span class="st"> </span><span class="kw">as.matrix</span>(myDTM)</a>
-<a class="sourceLine" id="cb423-13" data-line-number="13">m</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">doc1=<span class="st">&#39;Lugar espectacular e inolvidable&#39;</span></a>
+<a class="sourceLine" id="cb417-2" data-line-number="2">doc2=<span class="st">&#39;Precioso lugar, la comida era espectacular, de 10, precioso!&#39;</span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb417-4" data-line-number="4">texto &lt;-<span class="st"> </span><span class="kw">c</span>(doc1,doc2)</a>
+<a class="sourceLine" id="cb417-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb417-6" data-line-number="6">myCorpus =<span class="st"> </span><span class="kw">VCorpus</span>(<span class="kw">VectorSource</span>(texto))</a>
+<a class="sourceLine" id="cb417-7" data-line-number="7">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(tolower))</a>
+<a class="sourceLine" id="cb417-8" data-line-number="8">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removePunctuation)</a>
+<a class="sourceLine" id="cb417-9" data-line-number="9">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeNumbers)</a>
+<a class="sourceLine" id="cb417-10" data-line-number="10">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;es&quot;</span>))</a>
+<a class="sourceLine" id="cb417-11" data-line-number="11">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb417-12" data-line-number="12">m =<span class="st"> </span><span class="kw">as.matrix</span>(myDTM)</a>
+<a class="sourceLine" id="cb417-13" data-line-number="13">m</a></code></pre></div>
 <pre><code>##     Terms
 ## Docs comida espectacular inolvidable lugar precioso
 ##    1      0            1           1     1        0
@@ -426,9 +430,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Un elemento fundamental para la manipulación del texto son las <em>expresiones regulares</em>. Éstas sirven para captar <em>patrones</em> que aparecen en el texto y luego operar sobre ellos (extraerlos, reemplazarlos, detectarlos, etc.)</p>
 <p><img src="img/regex.png" width="1000" /></p>
 <p>por ejemplo</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1">un_texto &lt;-<span class="st"> &#39;una concatenación de caracteres&#39;</span></a>
-<a class="sourceLine" id="cb425-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb425-3" data-line-number="3"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;una&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">un_texto &lt;-<span class="st"> &#39;una concatenación de caracteres&#39;</span></a>
+<a class="sourceLine" id="cb419-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;una&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Para generar una expresión regular, utilizamos distintos elementos:</p>
 <div id="caracteres-especiales." class="section level4">
@@ -436,26 +440,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Son formas de referirnos a tipos de caracteres</p>
 <p><img src="img/characters.png" width="300" /></p>
 <p>por ejemplo</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;[[:punct:]]&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;[[:punct:]]&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;[[:alnum:]]&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;[[:alnum:]]&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p><img src="img/cuantificadores.png" width="300" /></p>
 <p>Los cuantificadores nos permiten decír “Este caracter, X veces”</p>
 <p>por ejemplo</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1"><span class="kw">nchar</span>(un_texto)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1"><span class="kw">nchar</span>(un_texto)</a></code></pre></div>
 <pre><code>## [1] 31</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;(</span><span class="ch">\\</span><span class="st">w|</span><span class="ch">\\</span><span class="st">W){29,33}&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;(</span><span class="ch">\\</span><span class="st">w|</span><span class="ch">\\</span><span class="st">W){29,33}&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;(</span><span class="ch">\\</span><span class="st">w|</span><span class="ch">\\</span><span class="st">W){32,35}&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">str_detect</span>(un_texto, <span class="st">&#39;(</span><span class="ch">\\</span><span class="st">w|</span><span class="ch">\\</span><span class="st">W){32,35}&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Esto se lee como “caracteres de palabras (a,b,c…z ; A,B,C… Z ; 0,1,2..9) <strong>ó</strong> otros caracteres distintos, entre 29 y 33 veces”.</p>
 <p>A veces para extraer pedazos de texto nos conviene chequear que hay antes y después. Eso lo hacemos con los <em>lookarounds</em></p>
 <p><img src="img/lookaheads.png" width="300" /></p>
 <p>Por ejemplo, si queremos recuerar el DNI de la persona entre muchas otras palabras:</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1">texto_con_dni &lt;-<span class="st"> &#39;Lorem ipsum dolor sit amet, DNI 38765239,faucibus et dui tellus, eros mi elit...&#39;</span></a>
-<a class="sourceLine" id="cb437-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb437-3" data-line-number="3"><span class="kw">str_extract</span>(texto_con_dni, <span class="dt">pattern =</span> <span class="st">&#39;(?&lt;=DNI )</span><span class="ch">\\</span><span class="st">d{3,}&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">texto_con_dni &lt;-<span class="st"> &#39;Lorem ipsum dolor sit amet, DNI 38765239,faucibus et dui tellus, eros mi elit...&#39;</span></a>
+<a class="sourceLine" id="cb431-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb431-3" data-line-number="3"><span class="kw">str_extract</span>(texto_con_dni, <span class="dt">pattern =</span> <span class="st">&#39;(?&lt;=DNI )</span><span class="ch">\\</span><span class="st">d{3,}&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;38765239&quot;</code></pre>
 <p>el patrón se lee “Luego de <em>DNI </em> tres o más dígitos”</p>
 </div>
@@ -527,37 +531,37 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 </ul>
 <p><img src="img/LDA.png" width="1000" /></p>
 
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb439-1" data-line-number="1"><span class="co"># install.packages(&quot;rtweet&quot;)</span></a>
-<a class="sourceLine" id="cb439-2" data-line-number="2"><span class="kw">library</span>(rtweet)</a>
-<a class="sourceLine" id="cb439-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb439-4" data-line-number="4"><span class="kw">library</span>(tm)</a>
-<a class="sourceLine" id="cb439-5" data-line-number="5"><span class="kw">library</span>(wordcloud2)</a>
-<a class="sourceLine" id="cb439-6" data-line-number="6"><span class="kw">library</span>(topicmodels)</a>
-<a class="sourceLine" id="cb439-7" data-line-number="7"><span class="kw">library</span>(LDAvis)</a>
-<a class="sourceLine" id="cb439-8" data-line-number="8"><span class="kw">library</span>(tsne)</a></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" data-line-number="1"><span class="co"># install.packages(&quot;rtweet&quot;)</span></a>
+<a class="sourceLine" id="cb433-2" data-line-number="2"><span class="kw">library</span>(rtweet)</a>
+<a class="sourceLine" id="cb433-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb433-4" data-line-number="4"><span class="kw">library</span>(tm)</a>
+<a class="sourceLine" id="cb433-5" data-line-number="5"><span class="kw">library</span>(wordcloud2)</a>
+<a class="sourceLine" id="cb433-6" data-line-number="6"><span class="kw">library</span>(topicmodels)</a>
+<a class="sourceLine" id="cb433-7" data-line-number="7"><span class="kw">library</span>(LDAvis)</a>
+<a class="sourceLine" id="cb433-8" data-line-number="8"><span class="kw">library</span>(tsne)</a></code></pre></div>
 </div>
 <div id="descargas-de-tweets-con-rtweet" class="section level3">
 <h3><span class="header-section-number">10.1.8</span> Descargas de tweets con <code>rtweet</code></h3>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1">rt &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="dt">q =</span> <span class="st">&quot;metrovias OR bondi OR Subte OR autopista OR transporte público&quot;,type = &quot;</span>mixed<span class="st">&quot;, n = 18000, include_rts = FALSE,</span></a>
-<a class="sourceLine" id="cb440-2" data-line-number="2"><span class="st">                    lang=&#39;es&#39;)</span></a>
-<a class="sourceLine" id="cb440-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb440-4" data-line-number="4"><span class="st">saveRDS(rt,&#39;fuentes/rt.RDS&#39;)</span></a></code></pre></div>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1">rt &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;fuentes/rt.RDS&#39;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1">rt <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb442-2" data-line-number="2"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" data-line-number="1">rt &lt;-<span class="st"> </span><span class="kw">search_tweets</span>(<span class="dt">q =</span> <span class="st">&quot;metrovias OR bondi OR Subte OR autopista OR transporte público&quot;,type = &quot;</span>mixed<span class="st">&quot;, n = 18000, include_rts = FALSE,</span></a>
+<a class="sourceLine" id="cb434-2" data-line-number="2"><span class="st">                    lang=&#39;es&#39;)</span></a>
+<a class="sourceLine" id="cb434-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb434-4" data-line-number="4"><span class="st">saveRDS(rt,&#39;fuentes/rt.RDS&#39;)</span></a></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1">rt &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;fuentes/rt.RDS&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1">rt <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb436-2" data-line-number="2"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 90
 ##    user_id status_id created_at          screen_name text  source
 ##    &lt;chr&gt;   &lt;chr&gt;     &lt;dttm&gt;              &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; 
-##  1 225288… 11741366… 2019-09-18 01:42:55 edelamadrid Un s… Twitt…
-##  2 141353… 11744968… 2019-09-19 01:34:13 microprosa  &quot;@ar… Twitt…
-##  3 672362… 11732417… 2019-09-15 14:26:53 djriveraros @mag… Twitt…
-##  4 150072… 11745045… 2019-09-19 02:04:39 ElNacional… #ENC… Twitt…
-##  5 943586… 11751139… 2019-09-20 18:26:05 Kukt8       @gav… Twitt…
-##  6 1638691 11743557… 2019-09-18 16:13:12 Fotomaf     He u… Twitt…
-##  7 467564… 11750803… 2019-09-20 16:12:41 fercastill… @Sam… Twitt…
-##  8 339036… 11740717… 2019-09-17 21:24:45 rutaarauca… 🇨🇱 🐎… Hoots…
-##  9 267300… 11725036… 2019-09-13 13:33:55 shisusR     &quot;Yo … Twitt…
-## 10 104960… 11725291… 2019-09-13 15:15:09 amosbcn     Cola… Twitt…
+##  1 163714… 11729330… 2019-09-14 18:00:03 EsDiarioPo… Huel… EsDia…
+##  2 301177… 11740080… 2019-09-17 17:11:37 Kisachang   Tran… Twitt…
+##  3 150072… 11743187… 2019-09-18 13:46:13 ElNacional… &quot;#EN… Tweet…
+##  4 111495… 11751529… 2019-09-20 21:01:13 LuisReinaCh Este… Twitt…
+##  5 278348… 11747051… 2019-09-19 15:21:48 abcdezihua  Usua… IFTTT 
+##  6 333414… 11751009… 2019-09-20 17:34:23 sofidlm     Mi f… Twitt…
+##  7 164933… 11746525… 2019-09-19 11:52:55 pabloperoz… Tend… Twitt…
+##  8 432293… 11751127… 2019-09-20 18:21:18 Lolibaez    La g… Twitt…
+##  9 712042… 11744812… 2019-09-19 00:31:57 OaxIndepen… Apru… Twitt…
+## 10 103788… 11725858… 2019-09-13 19:00:38 ferrosarmi… ⚠️ #… NAC C…
 ## # … with 84 more variables: display_text_width &lt;dbl&gt;,
 ## #   reply_to_status_id &lt;chr&gt;, reply_to_user_id &lt;chr&gt;,
 ## #   reply_to_screen_name &lt;chr&gt;, is_quote &lt;lgl&gt;, is_retweet &lt;lgl&gt;,
@@ -592,24 +596,24 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 ## #   profile_expanded_url &lt;chr&gt;, account_lang &lt;lgl&gt;,
 ## #   profile_banner_url &lt;chr&gt;, profile_background_url &lt;chr&gt;,
 ## #   profile_image_url &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1"><span class="kw">range</span>(rt<span class="op">$</span>created_at)</a></code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="kw">range</span>(rt<span class="op">$</span>created_at)</a></code></pre></div>
 <pre><code>## [1] &quot;2019-09-13 03:04:47 UTC&quot; &quot;2019-09-21 18:24:56 UTC&quot;</code></pre>
 <p>Nos da los tweets de los últimos nueve días, o el máximo que indicamos más reciente</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1">rt <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb446-2" data-line-number="2"><span class="st">  </span><span class="kw">ts_plot</span>(<span class="st">&quot;3 hours&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme</span>(<span class="dt">plot.title =</span> ggplot2<span class="op">::</span><span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb446-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb446-6" data-line-number="6">    <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb446-7" data-line-number="7">    <span class="dt">title =</span> <span class="st">&quot;Frecuencia de los tweets relacionados al tránsito&quot;</span>,</a>
-<a class="sourceLine" id="cb446-8" data-line-number="8">    <span class="dt">subtitle =</span> <span class="st">&quot;Agregado a intervalos de tres horas&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-235-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1">rt <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb440-2" data-line-number="2"><span class="st">  </span><span class="kw">ts_plot</span>(<span class="st">&quot;3 hours&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb440-3" data-line-number="3"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb440-4" data-line-number="4"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme</span>(<span class="dt">plot.title =</span> ggplot2<span class="op">::</span><span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb440-5" data-line-number="5"><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb440-6" data-line-number="6">    <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb440-7" data-line-number="7">    <span class="dt">title =</span> <span class="st">&quot;Frecuencia de los tweets relacionados al tránsito&quot;</span>,</a>
+<a class="sourceLine" id="cb440-8" data-line-number="8">    <span class="dt">subtitle =</span> <span class="st">&quot;Agregado a intervalos de tres horas&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-234-1.png" width="1440" /></p>
 <ul>
 <li>Me quedo con el texto</li>
 </ul>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1">texto &lt;-<span class="st">  </span>rt<span class="op">$</span>text </a>
-<a class="sourceLine" id="cb447-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb447-3" data-line-number="3">texto[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1">texto &lt;-<span class="st">  </span>rt<span class="op">$</span>text </a>
+<a class="sourceLine" id="cb441-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb441-3" data-line-number="3">texto[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
 <pre><code>##  [1] &quot;▶ Dos sujetos robaron a usuarios de un vehículo de transporte público https://t.co/3c0fSjKrWF https://t.co/uGYN8CyLuZ&quot;                                                                                                                                                                                      
 ##  [2] &quot;Detienen a dos menores por asalto a transporte público https://t.co/R2VNKPLV0v https://t.co/MOVow5LUiE&quot;                                                                                                                                                                                                     
 ##  [3] &quot;Detienen a dos menores por asalto a transporte público\n\nhttps://t.co/6Ff1iewafX https://t.co/eRfyw8RLZy&quot;                                                                                                                                                                                                  
@@ -627,7 +631,7 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 <ul>
 <li>Primero creo un objeto de tipo Corpus. Utilizamos algo distinto a los conocidos vectores of dataframes porque es un objeto optimizado para trabajar con texto. Esto nos permite que los procesos sean mucho más eficientes, y por lo tanto trabajar con grandes corpus de manera rápida</li>
 </ul>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(texto))</a></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(texto))</a></code></pre></div>
 </div>
 <div id="limpieza-del-corpus" class="section level3">
 <h3><span class="header-section-number">10.1.10</span> Limpieza del Corpus</h3>
@@ -641,14 +645,14 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 <li>Sacar los números</li>
 <li>Sacar las stopwords</li>
 </ol>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(tolower))</a>
-<a class="sourceLine" id="cb450-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removePunctuation)</a>
-<a class="sourceLine" id="cb450-3" data-line-number="3">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeNumbers)</a>
-<a class="sourceLine" id="cb450-4" data-line-number="4">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;es&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(tolower))</a>
+<a class="sourceLine" id="cb444-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removePunctuation)</a>
+<a class="sourceLine" id="cb444-3" data-line-number="3">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeNumbers)</a>
+<a class="sourceLine" id="cb444-4" data-line-number="4">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">stopwords</span>(<span class="dt">kind =</span> <span class="st">&quot;es&quot;</span>))</a></code></pre></div>
 <p>También deberíamos sacar las palabras que utilizamos para descargar la información.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="co"># metrovias OR bondi OR Subte OR autopista OR transporte público</span></a>
-<a class="sourceLine" id="cb451-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">c</span>(<span class="st">&#39;metrovias&#39;</span>, <span class="st">&#39;bondi&#39;</span>,<span class="st">&#39;subte&#39;</span>,<span class="st">&#39;autopista&#39;</span>,<span class="st">&#39;transporte&#39;</span>, <span class="st">&#39;público&#39; ))</span></a></code></pre></div>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="kw">inspect</span>(myCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1"><span class="co"># metrovias OR bondi OR Subte OR autopista OR transporte público</span></a>
+<a class="sourceLine" id="cb445-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, removeWords, <span class="kw">c</span>(<span class="st">&#39;metrovias&#39;</span>, <span class="st">&#39;bondi&#39;</span>,<span class="st">&#39;subte&#39;</span>,<span class="st">&#39;autopista&#39;</span>,<span class="st">&#39;transporte&#39;</span>, <span class="st">&#39;público&#39; ))</span></a></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="kw">inspect</span>(myCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</a></code></pre></div>
 <pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
 ## Metadata:  corpus specific: 1, document level (indexed): 0
 ## Content:  documents: 10
@@ -668,25 +672,25 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 <div id="expresiones-regulares" class="section level4">
 <h4><span class="header-section-number">10.1.10.1</span> Expresiones regulares</h4>
 <p>Para que sea más sencilla la construcción de la expresión regular, usamos la librería <a href="https://rverbalexpressions.netlify.com/index.html">RVerbalExpressions</a></p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="co"># devtools::install_github(&quot;VerbalExpressions/RVerbalExpressions&quot;)</span></a>
-<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="kw">library</span>(RVerbalExpressions)</a>
-<a class="sourceLine" id="cb454-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb454-4" data-line-number="4">expresion &lt;-<span class="st"> </span><span class="kw">rx</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb454-5" data-line-number="5"><span class="st">  </span><span class="kw">rx_find</span>(<span class="st">&#39;http&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb454-6" data-line-number="6"><span class="st">  </span><span class="kw">rx_maybe</span>(<span class="st">&#39;s&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb454-7" data-line-number="7"><span class="st">  </span><span class="co"># rx_maybe(&#39;://&#39;) %&gt;% #como ya lo pasamos por los otros filtros, ya no hay puntuacion</span></a>
-<a class="sourceLine" id="cb454-8" data-line-number="8"><span class="st">  </span><span class="kw">rx_anything_but</span>(<span class="dt">value =</span> <span class="st">&#39; &#39;</span>)</a>
-<a class="sourceLine" id="cb454-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb454-10" data-line-number="10">expresion</a></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb448-1" data-line-number="1"><span class="co"># devtools::install_github(&quot;VerbalExpressions/RVerbalExpressions&quot;)</span></a>
+<a class="sourceLine" id="cb448-2" data-line-number="2"><span class="kw">library</span>(RVerbalExpressions)</a>
+<a class="sourceLine" id="cb448-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb448-4" data-line-number="4">expresion &lt;-<span class="st"> </span><span class="kw">rx</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb448-5" data-line-number="5"><span class="st">  </span><span class="kw">rx_find</span>(<span class="st">&#39;http&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb448-6" data-line-number="6"><span class="st">  </span><span class="kw">rx_maybe</span>(<span class="st">&#39;s&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb448-7" data-line-number="7"><span class="st">  </span><span class="co"># rx_maybe(&#39;://&#39;) %&gt;% #como ya lo pasamos por los otros filtros, ya no hay puntuacion</span></a>
+<a class="sourceLine" id="cb448-8" data-line-number="8"><span class="st">  </span><span class="kw">rx_anything_but</span>(<span class="dt">value =</span> <span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb448-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb448-10" data-line-number="10">expresion</a></code></pre></div>
 <pre><code>## [1] &quot;(http)(s)?([^ ]*)&quot;</code></pre>
 <p>Probamos la expresion con un ejemplo</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1">txt &lt;-<span class="st"> &quot;detienen  dos menores  asalto  transporte público\n</span><span class="ch">\n</span><span class="st">httpstcoffiewafx httpstcoerfywrlzy&quot;</span>      </a>
-<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="kw">str_remove_all</span>(txt, <span class="dt">pattern =</span> expresion)</a></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1">txt &lt;-<span class="st"> &quot;detienen  dos menores  asalto  transporte público\n</span><span class="ch">\n</span><span class="st">httpstcoffiewafx httpstcoerfywrlzy&quot;</span>      </a>
+<a class="sourceLine" id="cb450-2" data-line-number="2"><span class="kw">str_remove_all</span>(txt, <span class="dt">pattern =</span> expresion)</a></code></pre></div>
 <pre><code>## [1] &quot;detienen  dos menores  asalto  transporte público\n\n &quot;</code></pre>
 <p>Lo pasamos por el corpus</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(<span class="cf">function</span>(x) <span class="kw">str_remove_all</span>(x, <span class="dt">pattern =</span> expresion)))</a>
-<a class="sourceLine" id="cb458-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(<span class="cf">function</span>(x) <span class="kw">str_remove_all</span>(x, <span class="dt">pattern =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)))</a></code></pre></div>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="kw">inspect</span>(myCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(<span class="cf">function</span>(x) <span class="kw">str_remove_all</span>(x, <span class="dt">pattern =</span> expresion)))</a>
+<a class="sourceLine" id="cb452-2" data-line-number="2">myCorpus =<span class="st"> </span><span class="kw">tm_map</span>(myCorpus, <span class="kw">content_transformer</span>(<span class="cf">function</span>(x) <span class="kw">str_remove_all</span>(x, <span class="dt">pattern =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="kw">inspect</span>(myCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</a></code></pre></div>
 <pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
 ## Metadata:  corpus specific: 1, document level (indexed): 0
 ## Content:  documents: 10
@@ -702,8 +706,8 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 ##  [9] cronicaglobal  queremos    sostenible   queremos eficienteesperas mas   minutos  hora punta   eficiencia                                                                              
 ## [10]  caga  alguna persona   queda viendo   cartera   saco  pagar     esperan ver  chingo  billetes … ven   igual  jodido      voy   combi</code></pre>
 <p>Creamos una matriz de Término-documento</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1"><span class="kw">inspect</span>(myDTM)</a></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1">myDTM =<span class="st"> </span><span class="kw">DocumentTermMatrix</span>(myCorpus, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">minWordLength =</span> <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">inspect</span>(myDTM)</a></code></pre></div>
 <pre><code>## &lt;&lt;DocumentTermMatrix (documents: 17697, terms: 43484)&gt;&gt;
 ## Non-/sparse entries: 227647/769308701
 ## Sparsity           : 100%
@@ -722,9 +726,9 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 ##   2359    0      0     0     0         0       0   0        0       0   0
 ##   3539    0      0     0     0         0       0   0        0       0   0
 ##   5963    0      0     0     0         2       0   0        0       0   0</code></pre>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1">palabras_frecuentes &lt;-<span class="st"> </span><span class="kw">findMostFreqTerms</span>(myDTM,<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">INDEX =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nDocs</span>(myDTM)))[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb464-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb464-3" data-line-number="3">palabras_frecuentes</a></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">palabras_frecuentes &lt;-<span class="st"> </span><span class="kw">findMostFreqTerms</span>(myDTM,<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">INDEX =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">nDocs</span>(myDTM)))[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb458-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb458-3" data-line-number="3">palabras_frecuentes</a></code></pre></div>
 <pre><code>##   publico     gente    ciudad     metro  servicio       ser movilidad 
 ##      1425      1081      1026       934       890       737       692 
 ##       así   sistema       uso       hoy     mejor       día      solo 
@@ -733,9 +737,9 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 ##       532       512       498       495       491       485       461 
 ##     puede       vez   calidad     tener 
 ##       447       446       443       441</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">palabras_frecuentes &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">word =</span> <span class="kw">names</span>(palabras_frecuentes), <span class="dt">freq =</span>palabras_frecuentes)</a>
-<a class="sourceLine" id="cb466-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb466-3" data-line-number="3"><span class="kw">wordcloud2</span>(palabras_frecuentes, <span class="dt">shuffle =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">palabras_frecuentes &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">word =</span> <span class="kw">names</span>(palabras_frecuentes), <span class="dt">freq =</span>palabras_frecuentes)</a>
+<a class="sourceLine" id="cb460-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb460-3" data-line-number="3"><span class="kw">wordcloud2</span>(palabras_frecuentes, <span class="dt">shuffle =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <div id="htmlwidget-64d060614370758aaa1c" style="width:1440px;height:672px;" class="wordcloud2 html-widget"></div>
 <script type="application/json" data-for="htmlwidget-64d060614370758aaa1c">{"x":{"word":["publico","gente","ciudad","metro","servicio","ser","movilidad","así","sistema","uso","hoy","mejor","día","solo","hacer","personas","mejorar","menos","hace","usar","bien","puede","vez","calidad","tener"],"freq":[1425,1081,1026,934,890,737,692,583,572,572,560,557,553,533,532,512,498,495,491,485,461,447,446,443,441],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":0.126315789473684,"backgroundColor":"white","gridSize":0,"minRotation":-0.785398163397448,"maxRotation":0.785398163397448,"shuffle":false,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
@@ -743,19 +747,19 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 <div id="topic-modeling" class="section level3">
 <h3><span class="header-section-number">10.1.11</span> Topic Modeling</h3>
 <p>necesito eliminar los documentos vacíos (que luego de la limpieza quedaron sin ningúna palabra)</p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1">ui =<span class="st"> </span><span class="kw">unique</span>(myDTM<span class="op">$</span>i)</a>
-<a class="sourceLine" id="cb467-2" data-line-number="2">dtm =<span class="st"> </span>myDTM[ui,]</a>
-<a class="sourceLine" id="cb467-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb467-4" data-line-number="4"><span class="kw">dim</span>(myDTM)</a></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">ui =<span class="st"> </span><span class="kw">unique</span>(myDTM<span class="op">$</span>i)</a>
+<a class="sourceLine" id="cb461-2" data-line-number="2">dtm =<span class="st"> </span>myDTM[ui,]</a>
+<a class="sourceLine" id="cb461-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb461-4" data-line-number="4"><span class="kw">dim</span>(myDTM)</a></code></pre></div>
 <pre><code>## [1] 17697 43484</code></pre>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="kw">dim</span>(dtm)</a></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="kw">dim</span>(dtm)</a></code></pre></div>
 <pre><code>## [1] 17677 43484</code></pre>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1">lda_fit &lt;-<span class="st"> </span><span class="kw">LDA</span>(dtm, <span class="dt">k =</span> <span class="dv">10</span>,<span class="dt">method =</span> <span class="st">&quot;Gibbs&quot;</span>, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">delta=</span><span class="fl">0.6</span>,<span class="dt">seed =</span> <span class="dv">1234</span>))</a>
-<a class="sourceLine" id="cb471-2" data-line-number="2">lda_fit</a>
-<a class="sourceLine" id="cb471-3" data-line-number="3"><span class="kw">saveRDS</span>(lda_fit,<span class="st">&#39;resultados/lda_fit.rds&#39;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1">lda_fit &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;resultados/lda_fit.rds&#39;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1">Terms &lt;-<span class="st"> </span><span class="kw">terms</span>(lda_fit, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb473-2" data-line-number="2">Terms</a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1">lda_fit &lt;-<span class="st"> </span><span class="kw">LDA</span>(dtm, <span class="dt">k =</span> <span class="dv">10</span>,<span class="dt">method =</span> <span class="st">&quot;Gibbs&quot;</span>, <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">delta=</span><span class="fl">0.6</span>,<span class="dt">seed =</span> <span class="dv">1234</span>))</a>
+<a class="sourceLine" id="cb465-2" data-line-number="2">lda_fit</a>
+<a class="sourceLine" id="cb465-3" data-line-number="3"><span class="kw">saveRDS</span>(lda_fit,<span class="st">&#39;resultados/lda_fit.rds&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">lda_fit &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;resultados/lda_fit.rds&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1">Terms &lt;-<span class="st"> </span><span class="kw">terms</span>(lda_fit, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb467-2" data-line-number="2">Terms</a></code></pre></div>
 <pre><code>##       Topic 1    Topic 2     Topic 3    Topic 4        Topic 5  
 ##  [1,] &quot;mejorar&quot;  &quot;movilidad&quot; &quot;servicio&quot; &quot;ciudad&quot;       &quot;día&quot;    
 ##  [2,] &quot;hace&quot;     &quot;uso&quot;       &quot;ser&quot;      &quot;pasaje&quot;       &quot;cada&quot;   
@@ -778,29 +782,29 @@ CosSim(x,y) = \frac{\langle x,y \rangle}{\|x\|\ \|y\|} = \frac{\sum_i x_iy_i}{\s
 ##  [8,] &quot;país&quot;        &quot;unidad&quot;    &quot;luego&quot;     &quot;claudiashein&quot; &quot;vida&quot;  
 ##  [9,] &quot;crisis&quot;      &quot;falta&quot;     &quot;seguro&quot;    &quot;cdmx&quot;         &quot;menos&quot; 
 ## [10,] &quot;caracas&quot;     &quot;dos&quot;       &quot;cuenta&quot;    &quot;autos&quot;        &quot;bien&quot;</code></pre>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1">topicmodels_json_ldavis &lt;-<span class="st"> </span><span class="cf">function</span>(fitted, dtm){</a>
-<a class="sourceLine" id="cb475-2" data-line-number="2">    svd_tsne &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">tsne</span>(<span class="kw">svd</span>(x)<span class="op">$</span>u)</a>
-<a class="sourceLine" id="cb475-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb475-4" data-line-number="4">    <span class="co"># Find required quantities</span></a>
-<a class="sourceLine" id="cb475-5" data-line-number="5">    phi &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">posterior</span>(fitted)<span class="op">$</span>terms)</a>
-<a class="sourceLine" id="cb475-6" data-line-number="6">    theta &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">posterior</span>(fitted)<span class="op">$</span>topics)</a>
-<a class="sourceLine" id="cb475-7" data-line-number="7">    vocab &lt;-<span class="st"> </span><span class="kw">colnames</span>(phi)</a>
-<a class="sourceLine" id="cb475-8" data-line-number="8">    term_freq &lt;-<span class="st"> </span>slam<span class="op">::</span><span class="kw">col_sums</span>(dtm)</a>
-<a class="sourceLine" id="cb475-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb475-10" data-line-number="10">    <span class="co"># Convert to json</span></a>
-<a class="sourceLine" id="cb475-11" data-line-number="11">    json_lda &lt;-<span class="st"> </span>LDAvis<span class="op">::</span><span class="kw">createJSON</span>(<span class="dt">phi =</span> phi, <span class="dt">theta =</span> theta,</a>
-<a class="sourceLine" id="cb475-12" data-line-number="12">                            <span class="dt">vocab =</span> vocab,</a>
-<a class="sourceLine" id="cb475-13" data-line-number="13">                            <span class="dt">mds.method =</span> svd_tsne,</a>
-<a class="sourceLine" id="cb475-14" data-line-number="14">                            <span class="dt">plot.opts =</span> <span class="kw">list</span>(<span class="dt">xlab=</span><span class="st">&quot;tsne&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>),</a>
-<a class="sourceLine" id="cb475-15" data-line-number="15">                            <span class="dt">doc.length =</span> <span class="kw">as.vector</span>(<span class="kw">table</span>(dtm<span class="op">$</span>i)),</a>
-<a class="sourceLine" id="cb475-16" data-line-number="16">                            <span class="dt">term.frequency =</span> term_freq)</a>
-<a class="sourceLine" id="cb475-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb475-18" data-line-number="18">    <span class="kw">return</span>(json_lda)</a>
-<a class="sourceLine" id="cb475-19" data-line-number="19">}</a></code></pre></div>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1">json_res &lt;-<span class="st"> </span><span class="kw">topicmodels_json_ldavis</span>(lda_fit, dtm)</a>
-<a class="sourceLine" id="cb476-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb476-3" data-line-number="3"><span class="co">#en consola</span></a>
-<a class="sourceLine" id="cb476-4" data-line-number="4"><span class="co"># serVis(json_res)</span></a></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1">topicmodels_json_ldavis &lt;-<span class="st"> </span><span class="cf">function</span>(fitted, dtm){</a>
+<a class="sourceLine" id="cb469-2" data-line-number="2">    svd_tsne &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">tsne</span>(<span class="kw">svd</span>(x)<span class="op">$</span>u)</a>
+<a class="sourceLine" id="cb469-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb469-4" data-line-number="4">    <span class="co"># Find required quantities</span></a>
+<a class="sourceLine" id="cb469-5" data-line-number="5">    phi &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">posterior</span>(fitted)<span class="op">$</span>terms)</a>
+<a class="sourceLine" id="cb469-6" data-line-number="6">    theta &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">posterior</span>(fitted)<span class="op">$</span>topics)</a>
+<a class="sourceLine" id="cb469-7" data-line-number="7">    vocab &lt;-<span class="st"> </span><span class="kw">colnames</span>(phi)</a>
+<a class="sourceLine" id="cb469-8" data-line-number="8">    term_freq &lt;-<span class="st"> </span>slam<span class="op">::</span><span class="kw">col_sums</span>(dtm)</a>
+<a class="sourceLine" id="cb469-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb469-10" data-line-number="10">    <span class="co"># Convert to json</span></a>
+<a class="sourceLine" id="cb469-11" data-line-number="11">    json_lda &lt;-<span class="st"> </span>LDAvis<span class="op">::</span><span class="kw">createJSON</span>(<span class="dt">phi =</span> phi, <span class="dt">theta =</span> theta,</a>
+<a class="sourceLine" id="cb469-12" data-line-number="12">                            <span class="dt">vocab =</span> vocab,</a>
+<a class="sourceLine" id="cb469-13" data-line-number="13">                            <span class="dt">mds.method =</span> svd_tsne,</a>
+<a class="sourceLine" id="cb469-14" data-line-number="14">                            <span class="dt">plot.opts =</span> <span class="kw">list</span>(<span class="dt">xlab=</span><span class="st">&quot;tsne&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>),</a>
+<a class="sourceLine" id="cb469-15" data-line-number="15">                            <span class="dt">doc.length =</span> <span class="kw">as.vector</span>(<span class="kw">table</span>(dtm<span class="op">$</span>i)),</a>
+<a class="sourceLine" id="cb469-16" data-line-number="16">                            <span class="dt">term.frequency =</span> term_freq)</a>
+<a class="sourceLine" id="cb469-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb469-18" data-line-number="18">    <span class="kw">return</span>(json_lda)</a>
+<a class="sourceLine" id="cb469-19" data-line-number="19">}</a></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1">json_res &lt;-<span class="st"> </span><span class="kw">topicmodels_json_ldavis</span>(lda_fit, dtm)</a>
+<a class="sourceLine" id="cb470-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb470-3" data-line-number="3"><span class="co">#en consola</span></a>
+<a class="sourceLine" id="cb470-4" data-line-number="4"><span class="co"># serVis(json_res)</span></a></code></pre></div>
 
 </div>
 </div>

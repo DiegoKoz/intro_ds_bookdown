@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -408,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>bounding box:</li>
 </ul>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-256-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-255-1.png" width="1440" /></p>
 <ul>
 <li>EPSG (SRID): el sistema de coordenadas</li>
 </ul>
@@ -422,8 +426,8 @@ Sistema de números que definen ubicaciones sobre la superficie de la Tierra; fu
 <li><p>GeoJSON: Es una alternativa más moderna; un estándar abierto que corrige los dos inconvenientes mencionados antes. Para nuestros ejercicios usaremos datos geográficos en este último formato.</p></li>
 <li><p>dataframes con columnas lat-long: Los datos también pueden ser presentados en un dataframe común, con una variable referida a la latitud y otra a la longitud. Podemos utilizar la función <code>st_as_sf</code> para realizar una conversión a tipo sf, y <code>st_set_crs</code> para indicar el sistema de coordenadas de referencia. Por ejemplo:</p></li>
 </ul>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1">base &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(base, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&#39;long&#39;</span>,<span class="st">&#39;lat&#39;</span>))<span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb477-2" data-line-number="2"><span class="st">  </span><span class="kw">st_set_crs</span>(<span class="dv">4326</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1">base &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(base, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&#39;long&#39;</span>,<span class="st">&#39;lat&#39;</span>))<span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb471-2" data-line-number="2"><span class="st">  </span><span class="kw">st_set_crs</span>(<span class="dv">4326</span>)</a></code></pre></div>
 
 </div>
 </div>

@@ -1,22 +1,14 @@
 # Modelo Lineal
-
-+ Análisis de correlación.
-+ Presentación conceptual del modelo lineal
-+ El modelo lineal desde una perspectiva computacional
-+ Supuestos del modelo lineal
-+ Modelo lineal en R
-+ Modelo lineal en el tidyverse
-
 ## Explicación
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
-```{r }
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r warning=FALSE}
 library(tidyverse)
 library(modelr)
 library(GGally)
 library(plot3D)
+
 ```
 
 ### Covarianza y Correlación.

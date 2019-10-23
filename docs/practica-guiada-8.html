@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -354,15 +358,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>tirar frecuencias o plots de las variables antes de usarlas (-9, 0, NAs, etc…)</li>
 </ul>
 <p>Cargamos las librerías</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1"><span class="co"># install.packages(&quot;eph&quot;)</span></a>
-<a class="sourceLine" id="cb412-2" data-line-number="2"><span class="kw">library</span>(eph)         <span class="co"># para trabajar con EPH</span></a>
-<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="kw">library</span>(tidyverse)   </a>
-<a class="sourceLine" id="cb412-4" data-line-number="4"><span class="kw">library</span>(expss)       <span class="co"># para trabajar con la etiqueta de los datos</span></a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="co"># install.packages(&quot;eph&quot;)</span></a>
+<a class="sourceLine" id="cb406-2" data-line-number="2"><span class="kw">library</span>(eph)         <span class="co"># para trabajar con EPH</span></a>
+<a class="sourceLine" id="cb406-3" data-line-number="3"><span class="kw">library</span>(tidyverse)   </a>
+<a class="sourceLine" id="cb406-4" data-line-number="4"><span class="kw">library</span>(expss)       <span class="co"># para trabajar con la etiqueta de los datos</span></a></code></pre></div>
 <p>Cargamos las bases con una función del paquete <code>eph</code>, que no va a descargar en disco la información pero sí la va a cargar en el entorno de trabajo de R.</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">?eph<span class="op">::</span>get_microdata</a>
-<a class="sourceLine" id="cb413-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb413-3" data-line-number="3">individual &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>)</a>
-<a class="sourceLine" id="cb413-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">?eph<span class="op">::</span>get_microdata</a>
+<a class="sourceLine" id="cb407-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb407-3" data-line-number="3">individual &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>)</a>
+<a class="sourceLine" id="cb407-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">get_microdata</span>(<span class="dt">year =</span> <span class="dv">2019</span>, <span class="dt">trimester =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>)</a></code></pre></div>
 <p>Sobre las bases:</p>
 <ul>
 <li>Qué tienen en común (CODUSU, NRO_HOGAR)</li>
@@ -370,14 +374,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>La función <code>organize_labels()</code> permite etiquetar los datos</li>
 <li>Seleccionamos variables relevantes para el ejercicio: información contenida en cada una</li>
 </ul>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">individual &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(individual, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)</a>
-<a class="sourceLine" id="cb414-3" data-line-number="3">  </a>
-<a class="sourceLine" id="cb414-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(hogar, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb414-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb414-7" data-line-number="7"><span class="co">## IV12_2: zona inundable</span></a>
-<a class="sourceLine" id="cb414-8" data-line-number="8"><span class="co">## IV12_3: villa de emergencia</span></a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">individual &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(individual, <span class="dt">type =</span> <span class="st">&#39;individual&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb408-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)</a>
+<a class="sourceLine" id="cb408-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb408-4" data-line-number="4">hogar &lt;-<span class="st"> </span><span class="kw">organize_labels</span>(hogar, <span class="dt">type =</span> <span class="st">&#39;hogar&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb408-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(CODUSU, NRO_HOGAR, IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb408-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb408-7" data-line-number="7"><span class="co">## IV12_2: zona inundable</span></a>
+<a class="sourceLine" id="cb408-8" data-line-number="8"><span class="co">## IV12_3: villa de emergencia</span></a></code></pre></div>
 <hr />
 <div id="ejercicio-1" class="section level4">
 <h4><span class="header-section-number">9.2.1.1</span> Ejercicio 1</h4>
@@ -391,13 +395,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>El rol de los ponderadores</li>
 <li>Función para mostrar los resultados etiquetados</li>
 </ul>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1">ejercicio1 &lt;-<span class="st"> </span><span class="kw">left_join</span>(individual, hogar, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;CODUSU&quot;</span>, <span class="st">&quot;NRO_HOGAR&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IV12_<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>IV12_<span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Cantidad =</span> <span class="kw">sum</span>(PONDERA)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.)</a>
-<a class="sourceLine" id="cb415-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb415-7" data-line-number="7">ejercicio1</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">ejercicio1 &lt;-<span class="st"> </span><span class="kw">left_join</span>(individual, hogar, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;CODUSU&quot;</span>, <span class="st">&quot;NRO_HOGAR&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb409-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IV12_<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>IV12_<span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb409-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(IV12_<span class="dv">2</span>, IV12_<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Cantidad =</span> <span class="kw">sum</span>(PONDERA)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.)</a>
+<a class="sourceLine" id="cb409-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb409-7" data-line-number="7">ejercicio1</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ## # Groups:   IV12_2 [2]
 ##   IV12_2     IV12_3     Cantidad
@@ -419,17 +423,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Cálculo de la brecha</li>
 <li>Función para presentar en formato porcentual</li>
 </ul>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">ejercicio2 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(ESTADO <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iop =</span> <span class="kw">weighted.mean</span>(P21, PONDIIO)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
-<a class="sourceLine" id="cb417-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iop) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb417-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
-<a class="sourceLine" id="cb417-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb417-11" data-line-number="11">ejercicio2</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">ejercicio2 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(ESTADO <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iop =</span> <span class="kw">weighted.mean</span>(P21, PONDIIO)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
+<a class="sourceLine" id="cb411-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iop) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb411-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
+<a class="sourceLine" id="cb411-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb411-11" data-line-number="11">ejercicio2</a></code></pre></div>
 <pre><code>## # A tibble: 32 x 4
 ## # Groups:   AGLOMERADO [32]
 ##    AGLOMERADO                        Varon  Mujer Brecha
@@ -457,17 +461,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Las variables de agrupamiento: El aglomerado y el sexo</li>
 <li>Un nuevo ponderador</li>
 </ul>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">ejercicio3 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P47T <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iti =</span> <span class="kw">weighted.mean</span>(P47T, PONDII)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
-<a class="sourceLine" id="cb419-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iti) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
-<a class="sourceLine" id="cb419-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb419-11" data-line-number="11">ejercicio3</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">ejercicio3 &lt;-<span class="st"> </span>individual <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(P47T <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(AGLOMERADO, CH04) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">promedio_iti =</span> <span class="kw">weighted.mean</span>(P47T, PONDII)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># ponderador</span></a>
+<a class="sourceLine" id="cb413-5" data-line-number="5"><span class="st">  </span><span class="kw">spread</span>(., CH04, promedio_iti) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-6" data-line-number="6"><span class="st">  </span>expss<span class="op">::</span><span class="kw">values2labels</span>(.) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> ((Varon <span class="op">-</span><span class="st"> </span>Mujer)<span class="op">/</span>Varon)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>Brecha) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Brecha =</span> scales<span class="op">::</span><span class="kw">percent</span>(Brecha))</a>
+<a class="sourceLine" id="cb413-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb413-11" data-line-number="11">ejercicio3</a></code></pre></div>
 <pre><code>## # A tibble: 32 x 4
 ## # Groups:   AGLOMERADO [32]
 ##    AGLOMERADO                        Varon  Mujer Brecha

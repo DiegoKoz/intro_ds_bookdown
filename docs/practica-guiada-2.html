@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -591,18 +595,18 @@ Osea, un modleo que explica el ingreso según sexo y edad</p>
 <a class="sourceLine" id="cb249-4" data-line-number="4">gapminder_unfiltered <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb249-5" data-line-number="5"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 6
-##    country               continent  year lifeExp      pop gdpPercap
-##    &lt;fct&gt;                 &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-##  1 Switzerland           Europe     1995    78.7  7157106    31531.
-##  2 New Zealand           Oceania    1951    69.2  1947389    10363.
-##  3 Spain                 Europe     1960    69.3 30641187     4603.
-##  4 Romania               Europe     2002    71.3 22404337     7885.
-##  5 Portugal              Europe     1969    66.5  9097200     7079.
-##  6 Cape Verde            Africa     1952    48.5   155037      595.
-##  7 Bhutan                Asia       1982    47.9  1333704      947.
-##  8 Luxembourg            Europe     1982    72.5   365718    27078.
-##  9 Micronesia, Fed. Sts. Oceania    1977    64.7    70368     5235.
-## 10 Taiwan                Asia       1986    73.1 19555581     9903.</code></pre>
+##    country       continent  year lifeExp       pop gdpPercap
+##    &lt;fct&gt;         &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+##  1 Italy         Europe     2002    80.2  57926999    27968.
+##  2 Sierra Leone  Africa     2007    42.6   6144562      863.
+##  3 United States Americas   1959    70.0 177830000    15240.
+##  4 Lithuania     FSU        2000    72.1   3654387     9632.
+##  5 Bulgaria      Europe     1993    71.2   8441872     6367.
+##  6 Norway        Europe     1953    73.2   3360888    10393.
+##  7 Australia     Oceania    2007    81.2  20434176    34435.
+##  8 New Zealand   Oceania    1950    69.3   1908310    11449.
+##  9 Mongolia      Asia       1972    53.8   1320500     1422.
+## 10 France        Europe     1953    67.3  42751746     7171.</code></pre>
 <p>la base tiene la siguiente info:</p>
 <ul>
 <li>country: Nombre del país</li>

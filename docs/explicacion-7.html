@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -344,11 +348,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="explicacion-7" class="section level2">
 <h2><span class="header-section-number">8.1</span> Explicación</h2>
 <p>En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb354-3" data-line-number="3"><span class="kw">library</span>(modelr)</a>
-<a class="sourceLine" id="cb354-4" data-line-number="4"><span class="kw">library</span>(GGally)</a>
-<a class="sourceLine" id="cb354-5" data-line-number="5"><span class="kw">library</span>(plot3D)</a></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="kw">library</span>(modelr)</a>
+<a class="sourceLine" id="cb354-3" data-line-number="3"><span class="kw">library</span>(GGally)</a>
+<a class="sourceLine" id="cb354-4" data-line-number="4"><span class="kw">library</span>(plot3D)</a></code></pre></div>
 <div id="covarianza-y-correlacion." class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Covarianza y Correlación.</h3>
 <p>La covarianza mide cómo varían de forma conjunta dos variables, en promedio. Se define como:</p>

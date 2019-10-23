@@ -24,7 +24,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida" />
 
 
-<meta name="date" content="2019-10-11" />
+<meta name="date" content="2019-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.4" data-path="explicacion-7.html"><a href="explicacion-7.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#primer-modelo"><i class="fa fa-check"></i><b>8.2.1</b> Primer modelo</a></li>
+<li class="chapter" data-level="8.2.2" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#feature-engineering."><i class="fa fa-check"></i><b>8.2.2</b> Feature engineering.</a></li>
+<li class="chapter" data-level="8.2.3" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#transformaciones-log."><i class="fa fa-check"></i><b>8.2.3</b> Transformaciones log.</a></li>
+<li class="chapter" data-level="8.2.4" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#predicciones"><i class="fa fa-check"></i><b>8.2.4</b> Predicciones</a></li>
+<li class="chapter" data-level="8.2.5" data-path="practica-guiada-7.html"><a href="practica-guiada-7.html#para-seguir-practicando"><i class="fa fa-check"></i><b>8.2.5</b> Para seguir practicando</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="analisis-de-encuestas.html"><a href="analisis-de-encuestas.html"><i class="fa fa-check"></i><b>9</b> Análisis de encuestas</a><ul>
@@ -344,16 +348,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practica-guiada-9" class="section level2">
 <h2><span class="header-section-number">11.2</span> Práctica Guiada</h2>
 <p>Cargamos las librerías. En esta ocasión usaremos por primera vez el paquete <code>sf</code>.</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb478-2" data-line-number="2"><span class="kw">library</span>(ggthemes)</a>
-<a class="sourceLine" id="cb478-3" data-line-number="3"><span class="kw">library</span>(sf)</a></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb472-2" data-line-number="2"><span class="kw">library</span>(ggthemes)</a>
+<a class="sourceLine" id="cb472-3" data-line-number="3"><span class="kw">library</span>(sf)</a></code></pre></div>
 <div id="representacion-de-la-informacion-en-mapas" class="section level3">
 <h3><span class="header-section-number">11.2.1</span> Representación de la información en mapas</h3>
 <p>Trabajaremos con datos del portal de datos abiertos de la Ciudad de Buenos Aires. En este caso, usamos los radios censales de la ciudad y los hemos descargado de <a href="https://bitsandbricks.github.io/data/CABA_rc.geojson" class="uri">https://bitsandbricks.github.io/data/CABA_rc.geojson</a>.</p>
 <p>La función <code>st_read</code> nos permite levantar un archivo de tipo <em>.geojson</em>. (también permite cargar otros con capas, pero no lo veremos en esta ocasión).</p>
 <p>Vemos que el mismo cuenta con 3.554 <em>features</em> y 8 campos.<br />
 <code>epsg (SRID): 4326</code> y <code>proj4string: +proj=longlat +datum=WGS84 +no_defs</code> refieren a que nuestros datos usan el sistema de coordenadas WGS84, también conocido por su código EPSG 4326 . Es el mismo que usan los sistemas GPS, Google Maps, y las aplicaciones de internet en general.</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1">radios &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;fuentes/CABA_rc.geojson&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1">radios &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;fuentes/CABA_rc.geojson&quot;</span>)</a></code></pre></div>
 <pre><code>## Reading layer `CABA_rc&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/CABA_rc.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 3554 features and 8 fields
 ## geometry type:  MULTIPOLYGON
@@ -362,7 +366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
 <p>Como los 8 campos son equivalentes a columnas/variables, podemos pedir un summary de la información contenida en <code>radios</code>.</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">summary</span>(radios)</a></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1"><span class="kw">summary</span>(radios)</a></code></pre></div>
 <pre><code>##     RADIO_ID          BARRIO         COMUNA       POBLACION     
 ##  1_1_1  :   1   PALERMO  : 295   1      : 329   Min.   :   0.0  
 ##  1_10_1 :   1   CABALLITO: 215   13     : 305   1st Qu.: 646.2  
@@ -388,46 +392,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                      
 ## </code></pre>
 <p>A la hora de graficar, podemos representar la información utilizando la combinación del famoso <code>ggplot()</code> en conjunto con <code>geom_sf</code>, que identifica la variable con la geometría y la grafica.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> radios)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-260-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb477-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> radios)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-259-1.png" width="1440" /></p>
 <p>Podemos colorear los radios censales de acuerdo a la cantidad de viviendas que hay en cada una de ellas, convocando a la variable en el parámetro de relleno. A su vez, podemos “jugar” con el color y ancho de los bordes.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb484-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>() </a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-261-1.png" width="1440" /></p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb485-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) </a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-261-2.png" width="1440" /></p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb486-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size=</span>.<span class="dv">1</span>) </a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-261-3.png" width="1440" /></p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb478-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>() </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-260-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb479-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-260-2.png" width="1440" /></p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> VIVIENDAS)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb480-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size=</span>.<span class="dv">1</span>) </a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-260-3.png" width="1440" /></p>
 <p>O bien podemos omitir los bordes.</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb487-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-262-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb481-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-261-1.png" width="1440" /></p>
 <p>También podemos usar el campo del relleno para realizar una transformación de los datos. Por ejemplo, podemos calcular la densidad de la población utilizando los datos de <code>POBLACION</code> y <code>AREA_KM2</code>. Aprovechamos para mejorar otras cuestiones estéticas 🌈</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb488-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb488-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_fill_viridis_c</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb488-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
-<a class="sourceLine" id="cb488-5" data-line-number="5"><span class="st">         subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
-<a class="sourceLine" id="cb488-6" data-line-number="6"><span class="st">         fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;) +</span></a>
-<a class="sourceLine" id="cb488-7" data-line-number="7"><span class="st">  theme_void()</span></a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-263-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb482-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb482-3" data-line-number="3"><span class="st">    </span><span class="kw">scale_fill_viridis_c</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb482-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
+<a class="sourceLine" id="cb482-5" data-line-number="5"><span class="st">         subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb482-6" data-line-number="6"><span class="st">         fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;) +</span></a>
+<a class="sourceLine" id="cb482-7" data-line-number="7"><span class="st">  theme_void()</span></a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-262-1.png" width="1440" /></p>
 <p>También podemos rellenar de acuerdo a la variable <code>BARRIO</code>, que es una forma de graficar agregados. De todas formas, luego veremos como agruparlos con <code>group_by</code>.</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> BARRIO)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb489-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb489-3" data-line-number="3"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-264-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> radios, <span class="kw">aes</span>(<span class="dt">fill =</span> BARRIO)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb483-3" data-line-number="3"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-263-1.png" width="1440" /></p>
 <p>También podemos representar rápidamente la información de alguna de las variables realizando un <code>select()</code> de la misma y la geometría, y pidiendo un <code>plot()</code> (el parámetro <code>lwd</code> define el ancho de las líneas de cada geometría, en este caso, los radios censales). En términos visuales, es como haber agregado por <code>BARRIO</code> la información, no?</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1">radios <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb490-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(BARRIO, geometry) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb490-3" data-line-number="3"><span class="st">  </span><span class="kw">plot</span>(<span class="dt">lwd=</span><span class="fl">0.06</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-265-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1">radios <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb484-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(BARRIO, geometry) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb484-3" data-line-number="3"><span class="st">  </span><span class="kw">plot</span>(<span class="dt">lwd=</span><span class="fl">0.06</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-264-1.png" width="1440" /></p>
 <div id="agrupando-poligonos" class="section level4">
 <h4><span class="header-section-number">11.2.1.1</span> Agrupando polígonos</h4>
 <p>Sin embargo, si lo que queremos es reconstruir los polígonos de los barrios, sólo necesitamos hacer un <code>group_by</code> y un <code>summarise</code>, y automáticamente en la columna <code>geometry</code> se crea el polígono combinado. Además, podemos hacer una agregación de las demás variables.</p>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1"><span class="kw">glimpse</span>(radios)</a></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1"><span class="kw">glimpse</span>(radios)</a></code></pre></div>
 <pre><code>## Observations: 3,554
 ## Variables: 9
 ## $ RADIO_ID    &lt;fct&gt; 1_1_1, 1_12_1, 1_12_10, 1_12_11, 1_12_2, 1_12_3, 1_1…
@@ -439,15 +443,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ HOGARES_NBI &lt;dbl&gt; 19, 25, 1, 7, 16, 104, 110, 32, 49, 89, 15, 57, 1, 1…
 ## $ AREA_KM2    &lt;dbl&gt; 1.79899705, 0.01856469, 0.04438025, 0.36634000, 0.01…
 ## $ geometry    &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-58.37189 -..., MULTIPO…</code></pre>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1">barrios_geo &lt;-<span class="st"> </span>radios <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb493-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb493-3" data-line-number="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">POBLACION =</span> <span class="kw">sum</span>(POBLACION),</a>
-<a class="sourceLine" id="cb493-4" data-line-number="4">              <span class="dt">VIVIENDAS =</span> <span class="kw">sum</span>(VIVIENDAS),</a>
-<a class="sourceLine" id="cb493-5" data-line-number="5">              <span class="dt">HOGARES =</span> <span class="kw">sum</span>(HOGARES),</a>
-<a class="sourceLine" id="cb493-6" data-line-number="6">              <span class="dt">HOGARES_NBI =</span> <span class="kw">sum</span>(HOGARES_NBI),</a>
-<a class="sourceLine" id="cb493-7" data-line-number="7">              <span class="dt">AREA_KM2 =</span> <span class="kw">sum</span>(AREA_KM2))</a>
-<a class="sourceLine" id="cb493-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb493-9" data-line-number="9"><span class="kw">glimpse</span>(barrios_geo)</a></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1">barrios_geo &lt;-<span class="st"> </span>radios <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb487-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb487-3" data-line-number="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">POBLACION =</span> <span class="kw">sum</span>(POBLACION),</a>
+<a class="sourceLine" id="cb487-4" data-line-number="4">              <span class="dt">VIVIENDAS =</span> <span class="kw">sum</span>(VIVIENDAS),</a>
+<a class="sourceLine" id="cb487-5" data-line-number="5">              <span class="dt">HOGARES =</span> <span class="kw">sum</span>(HOGARES),</a>
+<a class="sourceLine" id="cb487-6" data-line-number="6">              <span class="dt">HOGARES_NBI =</span> <span class="kw">sum</span>(HOGARES_NBI),</a>
+<a class="sourceLine" id="cb487-7" data-line-number="7">              <span class="dt">AREA_KM2 =</span> <span class="kw">sum</span>(AREA_KM2))</a>
+<a class="sourceLine" id="cb487-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb487-9" data-line-number="9"><span class="kw">glimpse</span>(barrios_geo)</a></code></pre></div>
 <pre><code>## Observations: 48
 ## Variables: 7
 ## $ BARRIO      &lt;fct&gt; AGRONOMIA, ALMAGRO, BALVANERA, BARRACAS, BELGRANO, B…
@@ -458,26 +462,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ AREA_KM2    &lt;dbl&gt; 2.122096, 4.050120, 4.342357, 7.956272, 7.729648, 5.…
 ## $ geometry    &lt;GEOMETRY [°]&gt; POLYGON ((-58.48244 -34.598..., POLYGON ((-…</code></pre>
 <p>Si pedimos un <code>plot()</code> del objeto, nos devuelve la representación geográfica con los datos de cada una de las variables.</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1"><span class="kw">plot</span>(barrios_geo)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-268-1.png" width="1440" /></p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1"><span class="kw">plot</span>(barrios_geo)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-267-1.png" width="1440" /></p>
 <p>Si deseamos agregar otra capa al gráfico que incluya texto o etiquetas de los datos, contamos con <code>geom_sf_text()</code>, en la cual podemos también solicitar que se etiqueten sólo aquellos datos que cumplen con alguna condición.</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb496-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb496-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf_text</span>(<span class="dt">data =</span> barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb496-4" data-line-number="4"><span class="st">                   </span><span class="kw">filter</span>(POBLACION<span class="op">/</span>AREA_KM2<span class="op">&gt;</span><span class="dv">25000</span>), </a>
-<a class="sourceLine" id="cb496-5" data-line-number="5">                 <span class="kw">aes</span>(<span class="dt">label =</span> BARRIO), <span class="dt">size=</span><span class="dv">3</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb496-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb496-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>(<span class="dt">option =</span> <span class="st">&#39;C&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb496-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
-<a class="sourceLine" id="cb496-9" data-line-number="9"><span class="st">        subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
-<a class="sourceLine" id="cb496-10" data-line-number="10"><span class="st">        fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;)+</span></a>
-<a class="sourceLine" id="cb496-11" data-line-number="11"><span class="st">  theme_void()</span></a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-269-1.png" width="960" /></p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> POBLACION<span class="op">/</span>AREA_KM2)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb490-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb490-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf_text</span>(<span class="dt">data =</span> barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb490-4" data-line-number="4"><span class="st">                   </span><span class="kw">filter</span>(POBLACION<span class="op">/</span>AREA_KM2<span class="op">&gt;</span><span class="dv">25000</span>), </a>
+<a class="sourceLine" id="cb490-5" data-line-number="5">                 <span class="kw">aes</span>(<span class="dt">label =</span> BARRIO), <span class="dt">size=</span><span class="dv">3</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb490-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb490-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>(<span class="dt">option =</span> <span class="st">&#39;C&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb490-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Densidad de población&quot;,</span></a>
+<a class="sourceLine" id="cb490-9" data-line-number="9"><span class="st">        subtitle = &quot;</span>Ciudad Autónoma de Buenos Aires<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb490-10" data-line-number="10"><span class="st">        fill = &quot;</span>hab<span class="op">/</span>km2<span class="st">&quot;)+</span></a>
+<a class="sourceLine" id="cb490-11" data-line-number="11"><span class="st">  theme_void()</span></a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-268-1.png" width="960" /></p>
 </div>
 <div id="volcando-en-el-mapa-informacion-de-multiples-fuentes-subtes" class="section level4">
 <h4><span class="header-section-number">11.2.1.2</span> Volcando en el mapa información de múltiples fuentes: Subtes</h4>
 <p>Ahora utilizaremos la información de líneas y estaciones de subte. Hemos descargado los .geojson de <a href="http://bitsandbricks.github.io/data/subte_lineas.geojson" class="uri">http://bitsandbricks.github.io/data/subte_lineas.geojson</a> y <a href="http://bitsandbricks.github.io/data/subte_estaciones.geojson" class="uri">http://bitsandbricks.github.io/data/subte_estaciones.geojson</a>.</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1">subte_lineas &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_lineas.geojson&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1">subte_lineas &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_lineas.geojson&#39;</span>)</a></code></pre></div>
 <pre><code>## Reading layer `subte_lineas&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/subte_lineas.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 80 features and 2 fields
 ## geometry type:  MULTILINESTRING
@@ -485,13 +489,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## bbox:           xmin: -58.48639 ymin: -34.64331 xmax: -58.36993 ymax: -34.55564
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1"><span class="kw">glimpse</span>(subte_lineas)</a></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1"><span class="kw">glimpse</span>(subte_lineas)</a></code></pre></div>
 <pre><code>## Observations: 80
 ## Variables: 3
 ## $ ID       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
 ## $ LINEASUB &lt;fct&gt; LINEA D, LINEA D, LINEA D, LINEA D, LINEA D, LINEA D, L…
 ## $ geometry &lt;MULTILINESTRING [°]&gt; MULTILINESTRING ((-58.45213..., MULTILI…</code></pre>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1">subte_estaciones &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_estaciones.geojson&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1">subte_estaciones &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;fuentes/subte_estaciones.geojson&#39;</span>)</a></code></pre></div>
 <pre><code>## Reading layer `subte_estaciones&#39; from data source `/home/diego/Documents/0_GIT/2_Ed/intro_ds_bookdown/fuentes/subte_estaciones.geojson&#39; using driver `GeoJSON&#39;
 ## Simple feature collection with 86 features and 3 fields
 ## geometry type:  POINT
@@ -499,7 +503,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## bbox:           xmin: -58.48639 ymin: -34.64331 xmax: -58.36993 ymax: -34.55564
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">glimpse</span>(subte_estaciones)</a></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1"><span class="kw">glimpse</span>(subte_estaciones)</a></code></pre></div>
 <pre><code>## Observations: 86
 ## Variables: 4
 ## $ ID       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
@@ -513,15 +517,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>las estaciones de subte: puntos en naranja</li>
 </ul>
 <p>Alguna reflexión sobre los resultados?</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb505-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> HOGARES_NBI<span class="op">/</span>HOGARES), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb505-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_lineas, <span class="dt">color =</span> <span class="st">&quot;yellow&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb505-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_estaciones, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb505-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb505-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb505-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Sistema de transporte subterráneo (SUBTE)&quot;</span>,</a>
-<a class="sourceLine" id="cb505-8" data-line-number="8">         <span class="dt">subtitle =</span> <span class="st">&quot;Ciudad de Buenos Aires&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb499-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo, <span class="kw">aes</span>(<span class="dt">fill =</span> HOGARES_NBI<span class="op">/</span>HOGARES), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb499-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_lineas, <span class="dt">color =</span> <span class="st">&quot;yellow&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb499-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> subte_estaciones, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb499-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;bottom&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb499-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb499-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Sistema de transporte subterráneo (SUBTE)&quot;</span>,</a>
+<a class="sourceLine" id="cb499-8" data-line-number="8">         <span class="dt">subtitle =</span> <span class="st">&quot;Ciudad de Buenos Aires&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 </div>
 </div>
 <div id="mapeo-de-palos-borrachos-rosados-en-buenos-aires" class="section level3">
@@ -529,23 +533,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/Palo%20borracho%20rosado.jpg" width="500" /></p>
 <p>Ahora utilizaremos información del portal de datos abiertos de la Ciudad de Buenos Aires sobre arbolado. Nos hemos quedado con una selección de dicha base de datos, conservando sólo a los árboles de tipo “palo borracho rosado”.</p>
 <p>Notemos que en este caso la información está en formato .rds, es un dataframe donde los ejemplares están georreferenciados con variables long-lat, no hay una geometría como en los casos anteriores.</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;fuentes/arbolado_palo_borracho.rds&#39;</span>)</a>
-<a class="sourceLine" id="cb506-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb506-3" data-line-number="3">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb506-4" data-line-number="4"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&#39;fuentes/arbolado_palo_borracho.rds&#39;</span>)</a>
+<a class="sourceLine" id="cb500-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb500-3" data-line-number="3">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb500-4" data-line-number="4"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 20
 ##     long   lat tipo_sitio id_arbol altura_tot diametro inclinacio
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
-##  1 -58.5 -34.6 Árbol        2.90e7          8       38          0
-##  2 -58.4 -34.7 Árbol        3.40e7          8       34          0
-##  3 -58.5 -34.6 Árbol        4.01e7          6       42          0
-##  4 -58.5 -34.6 Árbol        4.10e6          9       82          0
-##  5 -58.5 -34.5 Árbol        2.61e7         10       35          0
-##  6 -58.5 -34.7 Árbol        2.19e8          3        8          0
-##  7 -58.5 -34.6 Árbol        2.90e7         11       68          0
-##  8 -58.4 -34.6 Árbol        1.20e5          4       42          0
-##  9 -58.4 -34.6 Árbol        1.26e5         15       39          0
-## 10 -58.4 -34.6 Árbol        6.51e4          2       10          0
+##  1 -58.5 -34.5 Árbol      18000585         11       45          5
+##  2 -58.5 -34.6 Árbol       2001561          7       39          0
+##  3 -58.5 -34.6 Árbol      40100789          8       50         10
+##  4 -58.5 -34.5 Árbol      28000645         12      114          3
+##  5 -58.5 -34.6 Árbol       1002266          6       50          0
+##  6 -58.4 -34.6 Árbol         28644          2        5         24
+##  7 -58.5 -34.6 Árbol        167485         13       64          0
+##  8 -58.5 -34.6 Árbol      57000556          9       60          0
+##  9 -58.5 -34.5 Árbol      52000632          6       43          0
+## 10 -58.4 -34.6 Árbol      12000118         14       50          0
 ## # … with 13 more variables: id_especie &lt;dbl&gt;, nombre_fam &lt;chr&gt;,
 ## #   nombre_gen &lt;chr&gt;, nombre_cie &lt;chr&gt;, nombre_com &lt;chr&gt;,
 ## #   tipo_folla &lt;chr&gt;, origen &lt;chr&gt;, codigo_man &lt;chr&gt;, barrio &lt;chr&gt;,
@@ -553,10 +557,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="transformacion-de-datos-tabulados-a-datos-sf" class="section level4">
 <h4><span class="header-section-number">11.2.2.1</span> Transformación de datos tabulados a datos sf</h4>
 <p>Para transformar los datos a tipo <code>sf</code>, tenemos la función <code>st_as_sf()</code>, a la cual le indicamos en el parámetro <code>coords</code> las variables que contienen las coordenadas. Con la función <code>st_set_crs()</code> podemos indicar el sistema de coordenadas de referencia.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(palos_borrachos, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&#39;long&#39;</span>,<span class="st">&#39;lat&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb508-2" data-line-number="2"><span class="st">    </span><span class="kw">st_set_crs</span>(<span class="dv">4326</span>)</a>
-<a class="sourceLine" id="cb508-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb508-4" data-line-number="4"><span class="kw">glimpse</span>(palos_borrachos)</a></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" data-line-number="1">palos_borrachos &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(palos_borrachos, <span class="dt">coords =</span> <span class="kw">c</span>(<span class="st">&#39;long&#39;</span>,<span class="st">&#39;lat&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb502-2" data-line-number="2"><span class="st">    </span><span class="kw">st_set_crs</span>(<span class="dv">4326</span>)</a>
+<a class="sourceLine" id="cb502-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb502-4" data-line-number="4"><span class="kw">glimpse</span>(palos_borrachos)</a></code></pre></div>
 <pre><code>## Observations: 1,750
 ## Variables: 19
 ## $ tipo_sitio &lt;chr&gt; &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;, &quot;Árbol&quot;,…
@@ -579,66 +583,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ chapa2     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ geometry   &lt;POINT [°]&gt; POINT (-58.38838 -34.61559), POINT (-58.39205 -…</code></pre>
 <p>Ahora podemos mapear los palos borrachos en los barrios de CABA que ya estuvimos trabajando!</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb510-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo) <span class="op">+</span></a>
-<a class="sourceLine" id="cb510-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> palos_borrachos, <span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">size=</span>.<span class="dv">5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb510-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;localización de los palos borrachos de Buenos Aires&#39;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb510-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_void</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb510-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb504-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> barrios_geo) <span class="op">+</span></a>
+<a class="sourceLine" id="cb504-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> palos_borrachos, <span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">size=</span>.<span class="dv">5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb504-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;localización de los palos borrachos de Buenos Aires&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb504-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_void</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb504-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&#39;none&#39;</span>)</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
 </div>
 <div id="join-espacial" class="section level4">
 <h4><span class="header-section-number">11.2.2.2</span> Join espacial</h4>
 <p>Ahora probemos la forma de unir la información contenida en <code>palos_borrachos</code> con la de <code>barrios_geo</code>. Para eso usamos <code>st_join()</code>, pero… en qué orden deberíamos unirlos?</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb511-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(barrios_geo) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb511-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1">palos_borrachos <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb505-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(barrios_geo) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb505-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## Simple feature collection with 10 features and 24 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: -58.52215 ymin: -34.6865 xmax: -58.37308 ymax: -34.54222
+## bbox:           xmin: -58.52534 ymin: -34.65434 xmax: -58.36132 ymax: -34.58352
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ## # A tibble: 10 x 25
 ##    tipo_sitio id_arbol altura_tot diametro inclinacio id_especie nombre_fam
 ##    &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     
-##  1 Árbol        4.10e7         12       78          0         25 Bombacáce…
-##  2 Árbol        1.60e7         10       70          0         25 Bombacáce…
-##  3 Árbol        8.41e4         12       60         15         25 Bombacáce…
-##  4 Árbol        1.10e8         11       28          0         25 Bombacáce…
-##  5 Árbol        1.40e7         10      106          0         25 Bombacáce…
-##  6 Árbol        1.70e7          6       36          0         25 Bombacáce…
-##  7 Árbol        2.00e7          8       22          0         25 Bombacáce…
-##  8 Árbol        1.80e7          7       28          0         25 Bombacáce…
-##  9 Árbol        4.00e6          7       22          0         25 Bombacáce…
-## 10 Árbol        4.01e7          8       51         10         25 Bombacáce…
+##  1 Árbol        104742         10      102          0         25 Bombacáce…
+##  2 Árbol      17001003         15      156          0         25 Bombacáce…
+##  3 Árbol         65028          2        5          0         25 Bombacáce…
+##  4 Árbol      17000090          8       25          0         25 Bombacáce…
+##  5 Árbol      37000423          8       26          0         25 Bombacáce…
+##  6 Árbol      48003568          6       38          0         25 Bombacáce…
+##  7 Árbol      31000583          7       70         13         25 Bombacáce…
+##  8 Árbol      33006801          4        7          0         25 Bombacáce…
+##  9 Árbol        151367          5       36          0         25 Bombacáce…
+## 10 Árbol        104778          7       44         20         25 Bombacáce…
 ## # … with 18 more variables: nombre_gen &lt;chr&gt;, nombre_cie &lt;chr&gt;,
 ## #   nombre_com &lt;chr&gt;, tipo_folla &lt;chr&gt;, origen &lt;chr&gt;, codigo_man &lt;chr&gt;,
 ## #   barrio &lt;chr&gt;, comuna &lt;dbl&gt;, calle &lt;chr&gt;, chapa1 &lt;dbl&gt;, chapa2 &lt;dbl&gt;,
 ## #   geometry &lt;POINT [°]&gt;, BARRIO &lt;fct&gt;, POBLACION &lt;dbl&gt;, VIVIENDAS &lt;dbl&gt;,
 ## #   HOGARES &lt;dbl&gt;, HOGARES_NBI &lt;dbl&gt;, AREA_KM2 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1">barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb513-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb513-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1">barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb507-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb507-3" data-line-number="3"><span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## Simple feature collection with 10 features and 24 fields
 ## geometry type:  POLYGON
 ## dimension:      XY
-## bbox:           xmin: -58.52876 ymin: -34.69224 xmax: -58.35054 ymax: -34.54969
+## bbox:           xmin: -58.52876 ymin: -34.65729 xmax: -58.39219 ymax: -34.54969
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ## # A tibble: 10 x 25
 ##    BARRIO POBLACION VIVIENDAS HOGARES HOGARES_NBI AREA_KM2
 ##    &lt;fct&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
-##  1 VILLA…    126374     38915   39848        4150     9.29
-##  2 PALER…    226534    141710  103167        2425    16.0 
-##  3 RETIRO     65413     34363   24147        3104     4.53
-##  4 PARQU…     17489      7530    6466          85     1.38
-##  5 VILLA…    126374     38915   39848        4150     9.29
-##  6 VILLA…     21736      9757    8285         291     1.85
-##  7 VILLA…     66521     29002   24035         280     6.37
-##  8 PARQU…     17489      7530    6466          85     1.38
-##  9 VILLA…     32502     14141   12002         340     2.57
-## 10 FLORES    164310     65408   60248        6234     8.59
+##  1 PALER…    226534    141710  103167        2425    16.0 
+##  2 PATER…     19717      7771    6938         550     2.23
+##  3 VILLA…     81959     42069   34705        1324     3.61
+##  4 VILLA…     91563     45005   36944         662     5.45
+##  5 PALER…    226534    141710  103167        2425    16.0 
+##  6 VILLA…     33325     14589   12518         480     2.15
+##  7 FLORES    164310     65408   60248        6234     8.59
+##  8 VILLA…     66521     29002   24035         280     6.37
+##  9 VILLA…     91563     45005   36944         662     5.45
+## 10 VILLA…     81959     42069   34705        1324     3.61
 ## # … with 19 more variables: geometry &lt;POLYGON [°]&gt;, tipo_sitio &lt;chr&gt;,
 ## #   id_arbol &lt;dbl&gt;, altura_tot &lt;dbl&gt;, diametro &lt;dbl&gt;, inclinacio &lt;dbl&gt;,
 ## #   id_especie &lt;dbl&gt;, nombre_fam &lt;chr&gt;, nombre_gen &lt;chr&gt;,
@@ -646,17 +650,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   codigo_man &lt;chr&gt;, barrio &lt;chr&gt;, comuna &lt;dbl&gt;, calle &lt;chr&gt;,
 ## #   chapa1 &lt;dbl&gt;, chapa2 &lt;dbl&gt;</code></pre>
 <p>Si queremos visualizar la densidad de borrachos por barrio:</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1">palos_borrachos_barrio &lt;-<span class="st"> </span>barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb515-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos)</a>
-<a class="sourceLine" id="cb515-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb515-4" data-line-number="4">palos_borrachos_barrio <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb515-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb515-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">densidad=</span><span class="kw">n</span>()<span class="op">/</span><span class="kw">unique</span>(AREA_KM2)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb515-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>densidad, <span class="dt">label=</span>BARRIO))<span class="op">+</span></a>
-<a class="sourceLine" id="cb515-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_sf</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb515-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_sf_text</span>( <span class="dt">color=</span><span class="st">&#39;white&#39;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb515-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_void</span>()</a></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-278-1.png" width="960" /></p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" data-line-number="1">palos_borrachos_barrio &lt;-<span class="st"> </span>barrios_geo <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb509-2" data-line-number="2"><span class="st">  </span><span class="kw">st_join</span>(palos_borrachos)</a>
+<a class="sourceLine" id="cb509-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb509-4" data-line-number="4">palos_borrachos_barrio <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb509-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(BARRIO) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb509-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">densidad=</span><span class="kw">n</span>()<span class="op">/</span><span class="kw">unique</span>(AREA_KM2)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb509-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">fill=</span>densidad, <span class="dt">label=</span>BARRIO))<span class="op">+</span></a>
+<a class="sourceLine" id="cb509-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_sf</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb509-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_sf_text</span>( <span class="dt">color=</span><span class="st">&#39;white&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb509-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_void</span>()</a></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-277-1.png" width="960" /></p>
 
 </div>
 </div>
